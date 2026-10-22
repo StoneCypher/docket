@@ -7,6 +7,7 @@ import type { Item } from '../types/index.d.ts'
 import {
   LISTS,
   arrange,
+  counterParts,
   counterText,
   instructions,
   openCounts,
@@ -60,6 +61,12 @@ describe('settingsOf', () => {
 describe('counterText', () => {
   test('says +0 rather than nothing, so an unchanged list never looks broken', () => {
     assert.equal(counterText(0, 0), '+0')
+  })
+
+  test('splits a counter into its direction, arrow and number', () => {
+    assert.deepEqual(counterParts(0, 3), { more: '', arrow: '↑', number: '3', direction: 'up' })
+    assert.deepEqual(counterParts(2, -1), { more: '+2 more · ', arrow: '↓', number: '1', direction: 'down' })
+    assert.equal(counterParts(0, 0).direction, 'none')
   })
 
   test('puts the hidden count before the delta', () => {

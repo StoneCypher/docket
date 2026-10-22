@@ -6,7 +6,7 @@ import {
   LETTERS,
   LISTS,
   arrange,
-  counterText,
+  counterParts,
   instructions,
   isOpen,
   openCounts,
@@ -142,6 +142,31 @@ const draw = async (
 ) => {
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
+
+  // A heading's counter: a growing list's arrow in moderate green and its number in a fainter green,
+  // a shrinking list's in purple, and no change in the dim gray.
+  const counter = (hidden: number, delta: number) => {
+    const { more, arrow, number, direction } = counterParts(hidden, delta)
+    const colors =
+      direction === 'up'
+        ? { arrow: settings.upArrowColor, number: settings.upNumberColor }
+        : { arrow: settings.downArrowColor, number: settings.downNumberColor }
+
+    return (
+      <Text>
+        {' '}
+        {more ? <Text dimColor>{more}</Text> : null}
+        {direction === 'none' ? (
+          <Text dimColor>{number}</Text>
+        ) : (
+          <Text>
+            <Text color={colors.arrow}>{arrow}</Text>
+            <Text color={colors.number}>{number}</Text>
+          </Text>
+        )}
+      </Text>
+    )
+  }
 
   // Turns links in an item's text into Link elements: `[label](https://...)` shows the label,
   // and a bare web address shows itself, its trailing punctuation left as text.
@@ -378,7 +403,7 @@ const draw = async (
               {settings.isEmoji && settings.isHeadingEmoji ? `${list.emoji} ` : ''}
               {list.name}
             </Text>
-            <Text dimColor> {counterText(hidden, (counts[list.letter] ?? 0) - (base[list.letter] ?? 0))}</Text>
+            {counter(hidden, (counts[list.letter] ?? 0) - (base[list.letter] ?? 0))}
             {shown.length ? (
               // About 2em past the heading and 1em between buttons: a cell is near 0.6em.
               <Box flexDirection="row" marginLeft={3} columnGap={2}>

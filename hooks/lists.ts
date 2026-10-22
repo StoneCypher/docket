@@ -66,6 +66,10 @@ export type Settings = {
   leanDimColor?: string
   itemColor?: string
   itemDimColor?: string
+  upArrowColor?: string
+  upNumberColor?: string
+  downArrowColor?: string
+  downNumberColor?: string
 }
 
 const letterSet = (value: unknown) =>
@@ -123,6 +127,10 @@ export const settingsOf = (options: PluginOptions): Settings => {
     leanDimColor: colorOf(options.leanDimColor, '#757575'),
     itemColor: colorOf(options.itemColor, '#e0e0e0'),
     itemDimColor: colorOf(options.itemDimColor, '#939393'),
+    upArrowColor: colorOf(options.upArrowColor, '#5fb878'),
+    upNumberColor: colorOf(options.upNumberColor, '#7c9a84'),
+    downArrowColor: colorOf(options.downArrowColor, '#a885e6'),
+    downNumberColor: colorOf(options.downNumberColor, '#8f83a8'),
   }
 }
 
@@ -169,10 +177,18 @@ export const arrange = (
   }
 }
 
-export const counterText = (hidden: number, delta: number) => {
-  const change = delta > 0 ? `↑${delta}` : delta < 0 ? `↓${-delta}` : '+0'
+// A counter's parts: what's hidden, the direction of the change, and its size.
+export const counterParts = (hidden: number, delta: number) => ({
+  more: hidden > 0 ? `+${hidden} more · ` : '',
+  arrow: delta > 0 ? '↑' : delta < 0 ? '↓' : '',
+  number: delta === 0 ? '+0' : String(Math.abs(delta)),
+  direction: delta > 0 ? ('up' as const) : delta < 0 ? ('down' as const) : ('none' as const),
+})
 
-  return hidden > 0 ? `+${hidden} more · ${change}` : change
+export const counterText = (hidden: number, delta: number) => {
+  const { more, arrow, number } = counterParts(hidden, delta)
+
+  return `${more}${arrow}${number}`
 }
 
 const describe = (item: Item) =>

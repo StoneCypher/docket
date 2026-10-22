@@ -352,3 +352,16 @@ test('a web address in an item is drawn as a link, without its trailing punctuat
     await ui.unmount()
   }
 })
+
+test("a growing list's counter draws its arrow and number in greens", async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'One?' }, { list: 'Q', text: 'Two?' }] })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const texts = await ui.findAll({ type: 'Text' })
+  expect(texts.find(found => found.text === '↑' && found.props.color === '#5fb878')).toBeDefined()
+  expect(texts.find(found => found.text === '2' && found.props.color === '#7c9a84')).toBeDefined()
+  await ui.unmount()
+})
