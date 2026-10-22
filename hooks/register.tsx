@@ -440,8 +440,14 @@ const draw = async (
 }
 
 // The ⚙ that flips the pane between the lists and the settings view, at the pane's bottom right.
-const gear = ($: Dollar, { Box, Button, Text }: Kit, surface: string) => (
-  <Box flexDirection="row" justifyContent="flex-end" marginTop={1}>
+// Beside it, a link to docket's repository.
+const REPO = 'https://github.com/StoneCypher/docket'
+
+const gear = ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string) => (
+  <Box flexDirection="row" justifyContent="flex-end" alignItems="center" columnGap={2} marginTop={1}>
+    <Text dimColor size="caption">
+      <Link href={REPO}>GitHub</Link>
+    </Text>
     <Button key="gear" plain dimColor onPress={() => update($, isSettings, isOn => !isOn)}>
       <Text size="caption">{surface === 'terminal' ? '⚙' : '⚙️'}</Text>
     </Button>

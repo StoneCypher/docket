@@ -444,3 +444,16 @@ test('a bulk button shows only when more than one item can take it', async ($, o
   expect(await two.find({ key: 'bulk-Q' })).toBeDefined()
   await two.unmount()
 })
+
+test('the pane links to docket\'s repository beside the ⚙', async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  for (const surface of ['vscode', 'desktop', 'terminal'] as const) {
+    const ui = await $.ui.mount({ ...PANE, surface })
+    const links = (await ui.findAll({ type: 'Link' })).map(found => JSON.stringify(found))
+    expect(links.some(link => link.includes('https://github.com/StoneCypher/docket'))).toBe(true)
+    expect(await ui.find({ key: 'gear' })).toBeDefined()
+    await ui.unmount()
+  }
+})
