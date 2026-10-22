@@ -1,9 +1,72 @@
 ---
 import '../styles/site.css'
-import { opening, openingLedger, render, renderLedger } from '../pane'
+import { figures } from '../pane'
 
 const install = '/plugin install docket --marketplace StoneCypher/docket'
-const base = import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+const features = [
+  {
+    id: 'overview',
+    title: "Claude's open threads, in one pane",
+    figure: figures.overview,
+    caption: 'The pane docked beside the chat in VS Code.',
+    body: [
+      'docket keeps everything open between you and Claude in a pane beside the chat: what it wants to do, what it needs you to decide, what it is working on, what is queued, and what is parked for later.',
+      'Each item has a letter and a number that never changes meaning, so Q12 is the same question ten turns from now. The most important list is on top. Items that changed this turn are bright and marked (new); everything you have already seen is dimmed.',
+    ],
+  },
+  {
+    id: 'leans',
+    title: 'Questions come with a lean',
+    figure: figures.leans,
+    caption: 'Two new questions, each with Claude’s lean.',
+    body: [
+      'Every question carries a lean: the answer Claude would pick if you left it up to it. When the lean is right, press ✔. When it is wrong, press ✗ and Claude asks what you want instead.',
+      'When most leans are right, accept all leans settles the whole list in one press.',
+    ],
+  },
+  {
+    id: 'sent',
+    title: 'Your answer shows at once',
+    figure: figures.sent,
+    caption: 'Q14 answered with ✔, before Claude has acted on it.',
+    body: [
+      'Pressing a button sends your answer as a prompt, and the row changes immediately: dimmed, struck through, its buttons replaced by a plain mark of what you sent. You can stop thinking about it.',
+      'Claude then settles it on its next turn: the row goes away, comes back changed, or its work moves to underway. If that takes a while, the row hides itself about 20 seconds after you answered.',
+    ],
+  },
+  {
+    id: 'options',
+    title: 'Choices get their own buttons',
+    figure: figures.options,
+    caption: 'A question with three lettered choices.',
+    body: [
+      'When a question offers up to three choices, each one gets a button in place of ✔ and ✗. Labels are a single letter or a single emoji, and each appears in the question text beside the choice it picks.',
+      'Pressing b sends “Q17 (b).”',
+    ],
+  },
+  {
+    id: 'answers',
+    title: 'Requests and confirmations',
+    figure: figures.answers,
+    caption: 'A request and a confirmation, each with ✔ and ✗ on its line.',
+    body: [
+      'Requests are things Claude wants to do on its own initiative. It waits for your ✔, so nothing happens behind your back.',
+      'Confirmations are Claude checking that it read you right, or making sure you know something risky is coming. It states its reading, so a ✔ settles it.',
+    ],
+  },
+  {
+    id: 'clearing',
+    title: 'Clearing, and nothing vanishing unseen',
+    figure: figures.clearing,
+    caption: 'U4, closed by Claude on its own, stays up struck through for a few minutes.',
+    body: [
+      '🗑️ clears one item and ✕ on a heading clears the whole list. Clearing only empties the display: it never cancels work, answers a question or approves a request.',
+      'When Claude closes something you did not resolve yourself, it stays up struck through in gray for a few minutes, and Claude says so in chat. Nothing disappears without your seeing it.',
+    ],
+  },
+]
 ---
 
 <!doctype html>
@@ -13,126 +76,98 @@ const base = import.meta.env.BASE_URL
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>docket, for Claude Code</title>
     <meta name="description" content="A Claude Code mod that keeps Claude's open questions, confirmations and hand-offs in numbered lists beside the chat, answerable by label or by button." />
-    <link rel="icon" href={`${base}/favicon.svg`.replace('//', '/')} type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Courier+Prime:wght@400;700&family=Public+Sans:ital,wght@0,400..700;1,400&display=swap"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Public+Sans:ital,wght@0,400..700;1,400&display=swap" />
   </head>
   <body>
-    <div class="sheet">
-      <header class="caption" aria-label="Case caption">
-        <p class="court">In the Court of One Person's Attention</p>
-        <div class="parties">
-          <p><span class="party">You</span><span class="role">Plaintiff,</span></p>
-          <p class="versus">v.</p>
-          <p><span class="party">The Volume of Claude's Output</span><span class="role">Defendant.</span></p>
-        </div>
-        <dl class="case">
-          <div><dt>Docket no.</dt><dd>2026-CC-0001</dd></div>
-          <div><dt>Filed</dt><dd>Every turn</dd></div>
-          <div><dt>Status</dt><dd>Nothing slipped</dd></div>
-        </dl>
-      </header>
+    <header class="top">
+      <div class="wrap top-row">
+        <span class="name">docket</span>
+        <a href="https://github.com/StoneCypher/docket">GitHub</a>
+      </div>
+    </header>
 
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="pitch">
-          <p class="kicker">docket · a mod for Claude Code</p>
-          <h1 id="hero-title">Every open thread, on the record.</h1>
-          <p class="lede">
-            Claude works faster than a person can read. Questions get buried, things it's waiting on scroll away, and
-            you miss them. docket keeps all of it in numbered lists beside the chat, so you answer in a word or a click,
-            and nothing slips.
-          </p>
-          <div class="install">
-            <code id="install-line">{install}</code>
-            <button type="button" id="copy" class="copy">Copy</button>
-          </div>
-          <p class="fine">At the prompt of a Claude Code session. Answer <code>y</code>, then pick a scope.</p>
+    <main class="wrap">
+      <section class="intro" aria-labelledby="intro-title">
+        <h1 id="intro-title">docket</h1>
+        <p class="lede">
+          A Claude Code mod that keeps Claude's open questions, confirmations and hand-offs in numbered lists beside the
+          chat, so you can answer in a word or a click and nothing gets missed.
+        </p>
+        <div class="install">
+          <code id="install-line">{install}</code>
+          <button type="button" id="copy">Copy</button>
         </div>
-
-        <div class="court-record">
-          <figure class="pane-frame">
-            <div class="pane" id="pane" aria-label="A replica of the docket pane, playing a short session" set:html={render(opening())} />
-            <figcaption>The pane in VS Code, answering itself.</figcaption>
-          </figure>
-          <aside class="ledger" aria-label="Clerk's ledger">
-            <p class="ledger-title">Clerk's ledger</p>
-            <ol id="ledger" set:html={renderLedger(openingLedger())} />
-          </aside>
-        </div>
+        <p class="note">Run it at the prompt of a Claude Code session, answer <code>y</code>, then pick a scope.</p>
       </section>
 
-      <section class="entries" aria-labelledby="entries-title">
-        <h2 id="entries-title">The docket</h2>
-        <p class="section-lede">Every item gets a letter and a number that never changes meaning, so <code>Q12</code> today is <code>Q12</code> ten turns from now. The most important list sits on top.</p>
+      {
+        features.map((feature, i) => (
+          <section class:list={['feature', { flip: i % 2 === 1 }]} id={feature.id} aria-labelledby={`${feature.id}-title`}>
+            <figure>
+              <div class="pane" set:html={feature.figure} />
+              <figcaption>{feature.caption}</figcaption>
+            </figure>
+            <div class="copy-col">
+              <h2 id={`${feature.id}-title`}>{feature.title}</h2>
+              {feature.body.map(paragraph => <p>{paragraph}</p>)}
+            </div>
+          </section>
+        ))
+      }
+
+      <section class="reference" aria-labelledby="lists-title">
+        <h2 id="lists-title">The lists</h2>
         <div class="table-wrap">
           <table>
-            <thead><tr><th scope="col">No.</th><th scope="col">List</th><th scope="col">Docket text</th></tr></thead>
+            <thead><tr><th scope="col">Letter</th><th scope="col">List</th><th scope="col">What's in it</th></tr></thead>
             <tbody>
-              <tr><td class="no">R</td><td>requests</td><td>Things Claude wants to do on its own initiative. It waits for your ✔.</td></tr>
-              <tr><td class="no">Q</td><td>questions</td><td>Decisions only you can make, each with a lean: the answer Claude would pick.</td></tr>
-              <tr><td class="no">C</td><td>confirm</td><td>Claude checking it read you right, or making sure you know something risky is coming.</td></tr>
-              <tr><td class="no">N</td><td>needs you</td><td>Things only you can do: consoles, accounts, sign-ins.</td></tr>
-              <tr><td class="no">V</td><td>view</td><td>Things for you to look at.</td></tr>
-              <tr><td class="no">U</td><td>underway</td><td>Claude's work in progress.</td></tr>
-              <tr><td class="no">L</td><td>queued</td><td>Claude's work that's decided but not started, in order.</td></tr>
-              <tr><td class="no">W</td><td>waiting</td><td>Stalled on something other than you.</td></tr>
-              <tr><td class="no">P</td><td>pinned</td><td>Parked for later.</td></tr>
+              <tr><td class="letter">R</td><td>requests</td><td>Things Claude wants to do on its own initiative. It waits for your ✔.</td></tr>
+              <tr><td class="letter">Q</td><td>questions</td><td>Decisions only you can make, each with Claude's lean.</td></tr>
+              <tr><td class="letter">C</td><td>confirm</td><td>Claude checking it read you right, or warning of something risky.</td></tr>
+              <tr><td class="letter">N</td><td>needs you</td><td>Things only you can do: consoles, accounts, sign-ins.</td></tr>
+              <tr><td class="letter">V</td><td>view</td><td>Things for you to look at.</td></tr>
+              <tr><td class="letter">U</td><td>underway</td><td>Claude's work in progress.</td></tr>
+              <tr><td class="letter">L</td><td>queued</td><td>Claude's work that's decided but not started, in order.</td></tr>
+              <tr><td class="letter">W</td><td>waiting</td><td>Stalled on something other than you.</td></tr>
+              <tr><td class="letter">P</td><td>pinned</td><td>Parked for later, on one line.</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <section class="motions" aria-labelledby="motions-title">
-        <h2 id="motions-title">Answering</h2>
-        <div class="motion-grid">
-          <article>
-            <h3>By label</h3>
-            <p class="typed"><span>q18 no, let's do this other thing; accept all other leans</span></p>
-            <p>Type the labels and your answers in one line. Ranges work too: <code>c23-c25 confirmed</code>.</p>
-          </article>
-          <article>
-            <h3>By button</h3>
-            <p><span class="glyph">✔</span> <span class="glyph">✗</span> on a lean, a request or a confirmation. A question with up to three choices gets one button each, labeled with a letter or an emoji.</p>
-            <p>The row dims the moment you press, then leaves about 20 seconds later.</p>
-          </article>
-          <article>
-            <h3>All at once</h3>
-            <p><span class="chip">accept all leans</span> <span class="chip">confirm all</span> <span class="chip">approve all</span></p>
-            <p>When Claude's leans are right, which is often, one press settles the whole list.</p>
-          </article>
-        </div>
+      <section class="reference" aria-labelledby="label-title">
+        <h2 id="label-title">Answering by label</h2>
+        <p>You can also answer in the chat, by label. Ranges work, and so does answering everything at once.</p>
+        <pre><code>q18 no, let's do this other thing; accept all other leans
+c23-c25 confirmed
+approve r4</code></pre>
       </section>
 
-      <section class="rules" aria-labelledby="rules-title">
-        <h2 id="rules-title">Standing orders</h2>
-        <ol class="orders">
-          <li><span class="no">1.</span> Numbers only go up. A label never comes back meaning something else.</li>
-          <li><span class="no">2.</span> Nothing open lives only in prose. If Claude mentions pending work without putting it on the docket, the next turn reminds it.</li>
-          <li><span class="no">3.</span> Clearing a list empties the display. It never cancels work, answers a question or approves a request.</li>
-          <li><span class="no">4.</span> When Claude closes something on its own, the item stays up struck through for a few minutes, so nothing vanishes unseen.</li>
-          <li><span class="no">5.</span> The counters say how the session is going: <code>↑</code> while you're exploring, <code>↓</code> while you're finishing.</li>
-        </ol>
+      <section class="reference" aria-labelledby="settings-title">
+        <h2 id="settings-title">Settings</h2>
+        <p>⚙ at the bottom of the pane opens them, and they're in <code>/config</code> too.</p>
+        <ul>
+          <li><code>display</code>: a pane beside the chat (the default), or a band above the prompt</li>
+          <li>A cap for each list, 7 by default, before <code>+N more</code></li>
+          <li>Colors for items and leans, as hex or theme keys</li>
+          <li>Emoji on or off, overall, for headings, or per list, and how stakes markers show</li>
+          <li>Which lists draw on one line, and soft word limits per list</li>
+          <li>How long answered and auto-closed items stay up</li>
+        </ul>
       </section>
+    </main>
 
-      <footer class="foot">
-        <p>
-          docket is an independent mod for Claude Code, by <a href="https://github.com/StoneCypher">StoneCypher</a>. It is
-          not made by or affiliated with Anthropic. MIT licensed.
-          <a href="https://github.com/StoneCypher/docket">Source on GitHub</a>.
-        </p>
-      </footer>
-    </div>
+    <footer class="wrap foot">
+      <p>
+        docket is an independent mod for Claude Code by <a href="https://github.com/StoneCypher">StoneCypher</a>. It is not
+        made by or affiliated with Anthropic. MIT licensed. <a href="https://github.com/StoneCypher/docket">Source on GitHub</a>.
+      </p>
+    </footer>
 
     <script>
-      import { opening, openingLedger, render, renderLedger } from '../pane'
-      import type { Entry, ListName, State } from '../pane'
-
-      const pane = document.getElementById('pane')
-      const ledger = document.getElementById('ledger')
       const copy = document.getElementById('copy')
       const line = document.getElementById('install-line')
 
@@ -149,122 +184,6 @@ const base = import.meta.env.BASE_URL
         }
         setTimeout(() => (copy.textContent = 'Copy'), 1800)
       })
-
-      const isStill = matchMedia('(prefers-reduced-motion: reduce)').matches
-      const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
-
-      let state: State = opening()
-      let entries: Entry[] = openingLedger()
-
-      const draw = () => {
-        if (pane) pane.innerHTML = render(state)
-        if (ledger) ledger.innerHTML = renderLedger(entries)
-      }
-      const counts = () =>
-        Object.fromEntries(Object.entries(state.lists).map(([name, items]) => [name, items.length])) as State['before']
-      const turn = () => {
-        state.before = counts()
-        for (const items of Object.values(state.lists)) for (const item of items) item.isNew = false
-      }
-      const find = (id: string) => Object.values(state.lists).flat().find(item => item.id === id)
-      const drop = (...ids: string[]) => {
-        for (const name of Object.keys(state.lists) as ListName[]) {
-          state.lists[name] = state.lists[name].filter(item => !ids.includes(item.id))
-        }
-      }
-      const file = (id: string, text: string, isDisposed = false) => entries.push({ id, text, isDisposed })
-      const dispose = (id: string) => {
-        for (const entry of entries) if (entry.id === id) entry.isDisposed = true
-      }
-
-      // Shows a press on the control first, so the change that follows reads as its result.
-      const press = async (key: string) => {
-        const target = pane?.querySelector(`[data-key="${key}"]`)
-        target?.classList.add('pressed')
-        await sleep(520)
-      }
-
-      const steps: (() => Promise<void> | void)[] = [
-        () => {
-          turn()
-          state.lists.questions.push({
-            id: 'Q14',
-            emoji: '📅',
-            text: 'Run the release Friday or Monday?',
-            lean: 'Monday, once CI is green over the weekend.',
-            isNew: true,
-          })
-          file('Q14', 'Filed. Release Friday or Monday?')
-        },
-        async () => {
-          await press('Q12-0')
-          const q12 = find('Q12')
-          if (q12) q12.answered = '✔'
-          dispose('Q12')
-          file('Q12', 'Lean accepted: public.', true)
-        },
-        async () => {
-          await press('Q13-0')
-          const q13 = find('Q13')
-          if (q13) q13.answered = 'a'
-          dispose('Q13')
-          file('Q13', 'Answered (a): court docket.', true)
-        },
-        () => {
-          turn()
-          drop('Q12', 'Q13')
-          state.lists.underway.push({ id: 'U6', emoji: '🔓', text: 'Making the repo public.', isNew: true })
-          file('U6', 'Underway. Making the repo public.')
-        },
-        async () => {
-          await press('C3-0')
-          const c3 = find('C3')
-          if (c3) c3.answered = '✔'
-          dispose('C3')
-          file('C3', 'Confirmed.', true)
-        },
-        async () => {
-          turn()
-          drop('C3')
-          draw()
-          await sleep(700)
-          await press('bulk-questions')
-          const q14 = find('Q14')
-          if (q14) q14.answered = '✔'
-          dispose('Q14')
-          file('Q14', 'Lean accepted, with accept all leans: Monday.', true)
-        },
-        () => {
-          turn()
-          drop('Q14', 'U5', 'U6')
-          dispose('U5')
-          dispose('U6')
-          file('U5', 'Done. README written.', true)
-          file('U6', 'Done. Repo is public.', true)
-        },
-        () => {
-          file('—', 'Docket clear. Nothing slipped.', true)
-        },
-      ]
-
-      const play = async () => {
-        await sleep(1800)
-        for (;;) {
-          for (const step of steps) {
-            await step()
-            draw()
-            if (ledger) ledger.scrollTop = ledger.scrollHeight
-            await sleep(1900)
-          }
-          await sleep(3200)
-          state = opening()
-          entries = openingLedger()
-          draw()
-          await sleep(1800)
-        }
-      }
-
-      if (!isStill) play()
     </script>
   </body>
 </html>

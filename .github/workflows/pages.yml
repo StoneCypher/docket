@@ -29,6 +29,11 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: site/package-lock.json
+      # The repo's root tsconfig extends types Claude Code generates locally and git ignores;
+      # Vite reads it even from site/, so a fresh checkout needs a stand-in.
+      - name: Stub the engine-generated types
+        working-directory: .
+        run: mkdir -p .claude-plugin/types && { [ -f .claude-plugin/types/tsconfig.json ] || echo '{}' > .claude-plugin/types/tsconfig.json; }
       - run: npm ci
       - run: npm run build
       - uses: actions/configure-pages@v6
