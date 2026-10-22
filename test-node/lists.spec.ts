@@ -8,6 +8,8 @@ import {
   LISTS,
   arrange,
   counterText,
+  instructions,
+  openCounts,
   references,
   settingsOf,
   snapshot,
@@ -127,5 +129,28 @@ describe('snapshot', () => {
     const text = snapshot([item('U1')], ['U2'])
     assert.match(text, /U1/)
     assert.match(text, /cancels no work/)
+  })
+})
+
+describe('openCounts', () => {
+  test('counts only open items, per list', () => {
+    const all = [item('Q1'), item('Q2'), item('Q3', { closed: { at: 1, isUnasked: false } }), item('P1')]
+    assert.deepEqual(openCounts(all), { Q: 2, P: 1 })
+  })
+})
+
+describe('instructions', () => {
+  test('tells Claude not to repeat the docket in prose when the pane draws it', () => {
+    const text = instructions(settingsOf({}), false)
+    assert.match(text, /never repeat docket items in your prose reply/)
+    assert.match(text, /P at most about 8 words/)
+  })
+
+  test('asks for the docket as plain text where nothing draws it', () => {
+    assert.match(instructions(settingsOf({}), true), /end each reply with the open items as plain text/)
+  })
+
+  test('leaves out word targets when none are set', () => {
+    assert.doesNotMatch(instructions(settingsOf({ targetWords: '' }), false), /at most about/)
   })
 })

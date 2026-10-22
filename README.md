@@ -57,7 +57,7 @@ Everything is in the ⚙ view, and in `/config`:
 
 ## Development
 
-- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`) under Node's own test runner. Needs Node 23.6 or later, which runs TypeScript directly.
+- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`) under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
 - `npm run test:mod` runs the hooks and pane tests (`tests/*.test.tsx`) inside Claude Code's engine, on every surface.
 - `npm run validate` checks the manifest, the marketplace file and the hooks module the way Claude Code loads them.
 
