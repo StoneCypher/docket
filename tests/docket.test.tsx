@@ -478,3 +478,32 @@ test("an item about a file gets an Open button that opens it", async ($, on) => 
   expect(await ui.find({ key: 'open-V1' })).toBeDefined()
   await ui.unmount()
 })
+
+test('a bulk button answers only the items on screen, not the ones past the cap', async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  files.set(USER_CONFIG, serialize({ ...defaults(), questionsCap: 2 }))
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'Q', text: 'One?', lean: 'yes', rank: 1 },
+      { list: 'Q', text: 'Two?', lean: 'yes', rank: 2 },
+      { list: 'Q', text: 'Three?', lean: 'yes', rank: 3 },
+    ],
+  })
+  // Items added this turn always show; a new prompt starts a turn, so the cap applies.
+  await $.prompt.submit({ text: 'next' })
+  submitted.length = 0
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'bulk-Q' })
+  expect(submitted).toEqual(['Accept the leans on Q1, Q2.'])
+  await ui.unmount()
+})

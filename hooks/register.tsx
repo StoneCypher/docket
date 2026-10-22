@@ -123,13 +123,16 @@ const STAKES_GLYPH = { emergency: '[🚨emergency]', high: '❗', med: '🔶' }
 const STAKES_TEXT = { emergency: '[emergency]', high: '[high stakes]', med: '[med stakes]' }
 const STAKES_COLOR = { emergency: 'red', high: '#ff8800', med: 'yellow' }
 
-// Whether the pane is on screen; the band stands in while it isn't.
+// Whether the pane is on screen, and whether the person closed it. The band stands in only where no
+// pane could be placed: a closed pane stays closed, everywhere, until /docket opens it again.
 let isPaneShown = false
+let isPaneClosed = false
 
 // The docket's own pane, docked beside the transcript where the surface docks one.
 const openPane = async ($: Dollar) => {
   const { isPlaced } = await $.ui.open({ id: PANE, title: 'Docket' })
   isPaneShown = isPlaced
+  isPaneClosed = false
   $.ui.invalidate('ui.render')
 
   return isPlaced
@@ -267,8 +270,12 @@ const draw = async (
   const bulkable = (list: readonly Item[], letter: Letter) =>
     list.filter(item => item.list === letter && isOpen(item) && !item.answered && (letter !== 'Q' || item.lean))
 
-  const accept = (verb: string, letter: Letter) => async () => {
-    const ids = bulkable(await read($, items), letter).map(item => item.id)
+  // A bulk button answers only the items on screen: never the ones hidden past the cap.
+  const accept = (verb: string, letter: Letter, shown: readonly Item[]) => async () => {
+    const onScreen = new Set(shown.map(item => item.id))
+    const ids = bulkable(await read($, items), letter)
+      .filter(item => onScreen.has(item.id))
+      .map(item => item.id)
     if (ids.length) {
       await markAnswered(ids, 'yes')
       await $.prompt.submit({ text: `${verb} ${ids.join(', ')}.`, asUser: true })
@@ -431,8 +438,8 @@ const draw = async (
               // About 2em past the heading and 1em between buttons: a cell is near 0.6em.
               <Box flexDirection="row" marginLeft={3} columnGap={2}>
                 {/* A bulk button only where there's more than one thing for it to answer. */}
-                {list.bulk && bulkable(all, list.letter).length > 1 ? (
-                  <Button key={`bulk-${list.letter}`} label={list.bulk.label} onPress={accept(list.bulk.verb, list.letter)} />
+                {list.bulk && bulkable(shown, list.letter).length > 1 ? (
+                  <Button key={`bulk-${list.letter}`} label={list.bulk.label} onPress={accept(list.bulk.verb, list.letter, shown)} />
                 ) : null}
                 <Button key={`x-${list.letter}`} plain dimColor onPress={dismissList(list.letter)}>
                   <Text size="caption">✕</Text>
@@ -783,6 +790,8 @@ export const register: Register = on => {
   on('ui.close', async ($, e, next) => {
     if (e.id === PANE) {
       isPaneShown = false
+      // Closed on purpose, not dropped by an unload: keep docket out of the band too.
+      isPaneClosed = e.origin.kind !== 'unload'
       $.ui.invalidate('ui.render')
     }
 
@@ -865,7 +874,7 @@ export const register: Register = on => {
   })
 
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
-    if (e.props.hasSurvey || (settings.display === 'pane' && isPaneShown)) {
+    if (e.props.hasSurvey || (settings.display === 'pane' && (isPaneShown || isPaneClosed))) {
       return next(e)
     }
 
