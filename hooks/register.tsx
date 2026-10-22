@@ -679,13 +679,17 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
       const control =
         field.kind === 'boolean' ? (
           <Select key={key} value={value ? 'on' : 'off'} options={[{ value: 'on' }, { value: 'off' }]} onSelect={choice => view.onSave(key, choice === 'on')} />
-        ) : field.kind === 'choice' && field.options ? (
-          <Select
+        ) : key === 'language' ? (
+          // Too many languages for a Select, which takes at most 64: typed instead, as a code or a name.
+          <Input
             key={key}
             value={String(value)}
-            options={(key === 'language' ? ['auto', ...view.languages] : field.options).map(option => ({ value: option }))}
-            onSelect={choice => view.onSave(key, choice)}
+            placeholder={`auto, ${view.languages.filter(code => code !== 'en').slice(0, 3).join(', ')}…`}
+            submitLabel="save"
+            onSubmit={typed => view.onSave(key, typed.trim() || 'auto')}
           />
+        ) : field.kind === 'choice' && field.options ? (
+          <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
         ) : (
           <Input key={key} value={String(value)} submitLabel="save" onSubmit={text => view.onSave(key, field.kind === 'number' ? Number(text) : text)} />
         )

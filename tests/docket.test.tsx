@@ -724,3 +724,21 @@ test("a dialect's picture marks a sent answer where the surface draws SVG; its t
   expect(await plain.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
   await plain.unmount()
 })
+
+test('the settings view draws with more languages than a Select can hold, and saves a typed one', async ($, on) => {
+  const many = Object.fromEntries(Array.from({ length: 80 }, (_, i) => [`x${String.fromCharCode(97 + (i % 26))}${String.fromCharCode(97 + Math.floor(i / 26))}`, { ready: 'ai translated', version: 1 }]))
+  standIns(on, { ...many, es: { ready: 'ai translated', version: 1, Settings: { text: 'Ajustes', ready: 'ai translated' } } })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'gear' })
+  const field = await ui.find({ type: 'Input', key: 'language' })
+  expect(field).toBeDefined()
+  await ui.input({ key: 'language', text: 'Español' })
+  await ui.unmount()
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('Español')
+
+  const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await after.find({ type: 'Text', text: /^Ajustes$/ })).toBeDefined()
+  await after.unmount()
+})
