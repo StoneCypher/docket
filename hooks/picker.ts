@@ -100,7 +100,7 @@ export const REGIONS: Record<string, readonly string[]> = {
   pt: ['PT', 'BR'],
   fr: ['FR', 'CA', 'BE', 'CH'],
   de: ['DE', 'AT', 'CH'],
-  zh: ['CN', 'TW', 'HK'],
+  zh: ['CN', 'TW'],
   nl: ['NL', 'BE'],
   ar: ['SA', 'EG', 'MA'],
 }
@@ -108,9 +108,9 @@ export const REGIONS: Record<string, readonly string[]> = {
 // The pulldowns have no separator, so this entry stands for one: picking it changes nothing.
 export const DIVIDER = '-'
 
-// A language's variants, as the rest of its tag: the language itself, then its real regions, from the
-// table and any with a file ("BR"), then a divider and its dialects ("US-startrek"), each part in
-// alphabetical order and named in the language docket speaks.
+// A language's variants, as the rest of its tag: its real regions, from the table and any with a file
+// ("BR"), then a divider and its dialects ("US-startrek"), each part in alphabetical order and named in
+// the language docket speaks. There's no "none": a language with variants always has one picked.
 export const variantsOf = (speaking: string, base: string, files: readonly string[], dialects: readonly Dialect[]): Choice[] => {
   const byName = (a: Choice, b: Choice) => a.label.localeCompare(b.label, speaking)
   const regions = [
@@ -124,11 +124,20 @@ export const variantsOf = (speaking: string, base: string, files: readonly strin
     .sort(byName)
 
   return [
-    { value: '', label: nameIn(speaking, base) },
     ...regions,
     ...(comic.length ? [{ value: DIVIDER, label: '──────────' }, ...comic] : []),
   ]
 }
+
+// The variant a language starts with: its first region in the table (US for English), else the first.
+export const defaultVariant = (base: string, variants: readonly Choice[]) => {
+  const first = REGIONS[base]?.find(region => variants.some(each => each.value === region))
+
+  return first ?? variants.find(each => each.value !== DIVIDER)?.value ?? ''
+}
+
+// Whether a language's variants need a pulldown: only with two or more to choose between.
+export const isChoosing = (variants: readonly Choice[]) => variants.filter(each => each.value !== DIVIDER).length > 1
 
 // A language setting read back into the pulldowns: its base and the rest of its tag.
 export const pickedOf = (setting: unknown) => {

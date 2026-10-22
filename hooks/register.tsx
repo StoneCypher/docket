@@ -22,7 +22,7 @@ import type { ConfigFile } from './config'
 import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
-import { DIVIDER, groupsOf, labelFor, pickedOf, variantsOf } from './picker'
+import { DIVIDER, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 
@@ -659,7 +659,13 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
   const groups = groupsOf(view.speaking, bases)
   const open = view.group || (base === 'auto' ? 'auto' : (groups.find(group => group.codes.includes(base))?.value ?? 'auto'))
   const inGroup = groups.find(group => group.value === open)
-  const variants = base === 'auto' ? [] : variantsOf(view.speaking, base, view.languages, view.dialects)
+  const variantsFor = (code: string) => variantsOf(view.speaking, code, view.languages, view.dialects)
+  const variants = base === 'auto' ? [] : variantsFor(base)
+  // Picking a language with variants picks its first region too; one with one or none has no third pulldown.
+  const pick = (code: string) => {
+    const choices = variantsFor(code)
+    void view.onSave('language', isChoosing(choices) ? `${code}-${defaultVariant(code, choices)}` : code)
+  }
 
   return (
     <Box flexDirection="column" rowGap={1}>
@@ -674,15 +680,15 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
           key="language"
           value={inGroup.codes.includes(base) ? base : undefined}
           options={inGroup.codes.map(code => ({ value: code, label: labelFor(view.speaking, code) }))}
-          onSelect={choice => void view.onSave('language', choice)}
+          onSelect={pick}
         />
       ) : null}
-      {inGroup?.codes.includes(base) && variants.length > 1 ? (
+      {inGroup?.codes.includes(base) && isChoosing(variants) ? (
         <Select
           key="language-variant"
-          value={variants.some(each => each.value === variant) ? variant : ''}
+          value={variants.some(each => each.value === variant && each.value !== DIVIDER) ? variant : defaultVariant(base, variants)}
           options={variants}
-          onSelect={choice => (choice === DIVIDER ? undefined : void view.onSave('language', choice ? `${base}-${choice}` : base))}
+          onSelect={choice => (choice === DIVIDER ? undefined : void view.onSave('language', `${base}-${choice}`))}
         />
       ) : null}
     </Box>

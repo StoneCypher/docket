@@ -755,13 +755,24 @@ test('the language picker is three pulldowns: a group, a language in it, and its
 
   await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('en'))?.value ?? '' })
   await ui.select({ key: 'language', value: 'en' })
+  // English has variants, so picking it picks American English, its first region.
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US')
+  expect((await ui.find({ type: 'Select', key: 'language-variant' }))?.props.value).toBe('US')
   await ui.select({ key: 'language-variant', value: 'US-startrek' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US-startrek')
 
   await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('es'))?.value ?? '' })
   await ui.select({ key: 'language', value: 'es' })
+  // Spanish has regions in the table: Spain is its first.
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('es-ES')
+  await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('xaa'))?.value ?? '' })
+  await ui.select({ key: 'language', value: 'xaa' })
+  // A language with no variants has no third pulldown, and saves as itself.
+  expect(await ui.find({ type: 'Select', key: 'language-variant' })).toBeUndefined()
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('xaa')
+  await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('es'))?.value ?? '' })
+  await ui.select({ key: 'language', value: 'es' })
   await ui.unmount()
-  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('es')
 
   const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await after.find({ type: 'Text', text: /^Ajustes$/ })).toBeDefined()

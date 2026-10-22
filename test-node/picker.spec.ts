@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { describe, test } from 'node:test'
 
-import { DIVIDER, MOST, basesOf, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
+import { DIVIDER, MOST, basesOf, defaultVariant, isChoosing, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
 
 describe('groups', () => {
   for (const speaking of ['en', 'de', 'ja']) {
@@ -53,13 +53,19 @@ describe('variants', () => {
     ])
     assert.deepEqual(
       variants.map(each => each.value),
-      ['', 'US', 'AU', 'GB', 'CA', 'IE', 'NZ', DIVIDER, 'US-yinzer', 'US-startrek'],
+      ['US', 'AU', 'GB', 'CA', 'IE', 'NZ', DIVIDER, 'US-yinzer', 'US-startrek'],
     )
-    assert.equal(variants[0]?.label, 'English')
+    assert.equal(defaultVariant('en', variants), 'US')
+    assert.ok(isChoosing(variants))
     assert.ok(!variantsOf('en', 'es', ['es'], []).some(each => each.value === 'US'))
     // No dialects, no divider.
-    assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['', 'BR', 'PT'])
-    assert.deepEqual(variantsOf('en', 'tl', ['tl', 'tl-XX'], []).map(each => each.value), ['', 'XX'])
+    assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['BR', 'PT'])
+    assert.equal(defaultVariant('pt', variantsOf('en', 'pt', ['pt', 'pt-BR'], [])), 'PT')
+    // One variant or none: no choosing, so no third pulldown.
+    assert.ok(!isChoosing(variantsOf('en', 'tl', ['tl', 'tl-XX'], [])))
+    assert.ok(!isChoosing(variantsOf('en', 'sw', ['sw'], [])))
+    assert.equal(defaultVariant('xx', [{ value: 'YY', label: 'y' }]), 'YY')
+    assert.equal(defaultVariant('xx', []), '')
   })
 
   test('read a saved setting back into its base and the rest of its tag', () => {
