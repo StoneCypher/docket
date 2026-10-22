@@ -324,3 +324,21 @@ test("a question's option buttons replace ✔ and ✗, and send the pick", async
   expect(submitted).toEqual(['Q1 (b).', 'Q2 (📄).'])
   await ui.unmount()
 })
+
+test('a web address in an item is drawn as a link, without its trailing punctuation', async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [{ list: 'V', text: 'Look over the site at http://localhost:4321/docket.' }],
+  })
+
+  for (const surface of ['terminal', 'vscode'] as const) {
+    const ui = await $.ui.mount({ ...PANE, surface })
+    const link = await ui.find({ type: 'Link' })
+    expect(JSON.stringify(link)).toContain('http://localhost:4321/docket')
+    expect(JSON.stringify(link)).not.toContain('docket.')
+    await ui.unmount()
+  }
+})

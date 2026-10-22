@@ -23,7 +23,7 @@ const PANE = 'docket'
 const CLOSED_KEPT = 200
 
 type Dollar = EngineInterface
-type Kit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text'>
+type Kit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Link'>
 type FieldKit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Input' | 'Select'>
 
 const items = atom({ plugin: 'docket', key: 'items' } as const, [] as Item[])
@@ -134,7 +134,7 @@ const openPane = async ($: Dollar) => {
 // Every list with something to show, or null when the docket is empty.
 const draw = async (
   $: Dollar,
-  { Box, Button, Text }: Kit,
+  { Box, Button, Text, Link }: Kit,
   settings: Settings,
   columns: number,
   isByPrompt: boolean,
@@ -142,6 +142,20 @@ const draw = async (
 ) => {
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
+
+  // Turns each web address in an item's text into a link; trailing punctuation stays text.
+  const linkify = (text: string) => {
+    const parts: (string | ReturnType<typeof Link>)[] = []
+    let rest = 0
+    for (const match of text.matchAll(/https?:\/\/[^\s<>"')\]]+/g)) {
+      const href = match[0].replace(/[.,;:!?]+$/, '')
+      parts.push(text.slice(rest, match.index), <Link href={href}>{href}</Link>)
+      rest = match.index + href.length
+    }
+    parts.push(text.slice(rest))
+
+    return parts
+  }
 
   const all = await read($, items)
   const at = await read($, turn)
@@ -243,7 +257,7 @@ const draw = async (
     <Text {...itemColor(isLingering, isDim)} strikethrough={isLingering}>
       <Text bold>{item.id}.</Text>
       {marker(item)}
-      {stakesTag(item)} {item.text}
+      {stakesTag(item)} {linkify(item.text)}
       {item.addedTurn === at && !isLingering ? ' (new)' : ''}
     </Text>
   )
@@ -321,7 +335,7 @@ const draw = async (
             <Box flexShrink={1} minWidth={0}>
               {/* Explicit colors, not dimColor: a surface's dim overrides any color given beside it. */}
               <Text color={isDim ? settings.leanDimColor : settings.leanColor} italic>
-                <Text bold>Lean</Text>: {item.lean}
+                <Text bold>Lean</Text>: {linkify(item.lean)}
               </Text>
             </Box>
             {item.options
@@ -344,7 +358,7 @@ const draw = async (
               {i ? ' · ' : ''}
               <Text bold>{item.id}</Text>
               {marker(item)}
-              {stakesTag(item)} {item.text}
+              {stakesTag(item)} {linkify(item.text)}
             </Text>
           )
         })}
