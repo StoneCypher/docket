@@ -2,35 +2,10 @@
   "name": "docket",
   "version": "0.1.0",
   "description": "Keeps Claude's open questions, confirmations and hand-offs in numbered lists in a pane beside the chat, answerable by label or by button",
-  "author": { "name": "StoneCypher", "url": "https://github.com/StoneCypher" },
+  "author": {
+    "name": "StoneCypher",
+    "url": "https://github.com/StoneCypher"
+  },
   "license": "MIT",
-  "types": "./types/index.d.ts",
-  "userConfig": {
-    "display": { "type": "string", "title": "Display", "description": "A pane beside the transcript, or a band above the prompt", "default": "pane", "options": ["pane", "band"] },
-    "pinnedCap": { "type": "number", "title": "Pinned cap", "description": "Items shown in pinned before \"+N more\"", "default": 7 },
-    "waitingCap": { "type": "number", "title": "Waiting cap", "description": "Items shown in waiting before \"+N more\"", "default": 7 },
-    "laterCap": { "type": "number", "title": "Later cap", "description": "Items shown in Later before \"+N more\"", "default": 7 },
-    "underwayCap": { "type": "number", "title": "Underway cap", "description": "Items shown in underway before \"+N more\"", "default": 7 },
-    "viewCap": { "type": "number", "title": "View cap", "description": "Items shown in view before \"+N more\"", "default": 7 },
-    "needsYouCap": { "type": "number", "title": "Needs you cap", "description": "Items shown in needs you before \"+N more\"", "default": 7 },
-    "confirmCap": { "type": "number", "title": "Confirm cap", "description": "Items shown in confirm before \"+N more\"", "default": 7 },
-    "questionsCap": { "type": "number", "title": "Questions cap", "description": "Items shown in questions before \"+N more\"", "default": 7 },
-    "requestsCap": { "type": "number", "title": "Requests cap", "description": "Items shown in requests before \"+N more\"", "default": 7 },
-    "emoji": { "type": "boolean", "title": "Emoji", "description": "Master switch for every emoji the docket draws", "default": true },
-    "headingEmoji": { "type": "boolean", "title": "Heading emoji", "description": "An emoji before each list's heading", "default": false },
-    "noItemEmojiLists": { "type": "string", "title": "Lists without item emoji", "description": "Letters of lists whose items draw no emoji, e.g. \"Q,P\"", "default": "" },
-    "inlineLists": { "type": "string", "title": "Inline lists", "description": "Letters of lists drawn on one line, separated by dots", "default": "P" },
-    "targetWords": { "type": "string", "title": "Target lengths", "description": "Soft word limits per list, e.g. \"P=8,Q=30\"", "default": "P=8" },
-    "stakesDisplay": { "type": "string", "title": "Stakes display", "description": "How stakes markers show", "default": "emoji", "options": ["emoji", "text", "none"] },
-    "itemColor": { "type": "string", "title": "Item color", "description": "Color of an item changed this turn, a hex or a theme key", "default": "#e0e0e0" },
-    "itemDimColor": { "type": "string", "title": "Dimmed item color", "description": "Color of an item unchanged since the last turn", "default": "#939393" },
-    "upArrowColor": { "type": "string", "title": "Growing arrow", "description": "Color of the ↑ when a list grew this turn", "default": "#5fb878" },
-    "upNumberColor": { "type": "string", "title": "Growing number", "description": "Color of the count beside a growing list's ↑", "default": "#7c9a84" },
-    "downArrowColor": { "type": "string", "title": "Shrinking arrow", "description": "Color of the ↓ when a list shrank this turn", "default": "#a885e6" },
-    "downNumberColor": { "type": "string", "title": "Shrinking number", "description": "Color of the count beside a shrinking list's ↓", "default": "#8f83a8" },
-    "leanColor": { "type": "string", "title": "Lean color", "description": "Color of the lean line, a hex or a theme key; empty for the item's own color", "default": "#b1b1b1" },
-    "leanDimColor": { "type": "string", "title": "Dimmed lean color", "description": "Color of the lean line while its item is dimmed as unchanged", "default": "#757575" },
-    "answeredLingerSeconds": { "type": "number", "title": "Answered linger", "description": "Seconds an item answered by button stays up, dimmed, before it goes", "default": 20 },
-    "strikeLingerMinutes": { "type": "number", "title": "Strike linger", "description": "Minutes an item Claude closed on its own stays up struck through", "default": 3 }
-  }
+  "types": "./types/index.d.ts"
 }

@@ -45,7 +45,7 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 ## Settings
 
-Everything is in the ⚙ view, and in `/config`:
+Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in View. Edit the file directly, or use ⚙ at the bottom of the pane:
 
 - `display`: `pane` beside the chat (the default), or `band` above the prompt
 - a cap for each list (7 by default) before "+N more"

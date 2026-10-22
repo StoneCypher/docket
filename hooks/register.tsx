@@ -1,5 +1,5 @@
 import { atom, read, update } from 'claude-code'
-import type { ConfigValue, Elements, EngineInterface, Register } from 'claude-code'
+import type { Elements, EngineInterface, Register } from 'claude-code'
 
 import type { Counts, Item, Letter, Stakes } from '../types'
 import {
@@ -17,6 +17,8 @@ import {
   speaksOfPending,
 } from './lists'
 import type { Settings } from './lists'
+import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
+import type { ConfigFile } from './config'
 
 const TOOL = 'mcp__docket__update'
 const PANE = 'docket'
@@ -139,6 +141,7 @@ const draw = async (
   columns: number,
   isByPrompt: boolean,
   surface: string,
+  onAction: (item: Item, kind: string) => Promise<void>,
 ) => {
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
@@ -173,7 +176,7 @@ const draw = async (
   const linkify = (text: string) => {
     const parts: (string | ReturnType<typeof Link>)[] = []
     let rest = 0
-    for (const match of text.matchAll(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|https?:\/\/[^\s<>"')\]]+/g)) {
+    for (const match of text.matchAll(/\[([^\]]+)\]\(((?:https?|file):\/\/[^\s)]+)\)|https?:\/\/[^\s<>"')\]]+/g)) {
       const [whole, label, target] = match
       const href = target ?? whole.replace(/[.,;:!?]+$/, '')
       parts.push(text.slice(rest, match.index), <Link href={href}>{label ?? href}</Link>)
@@ -241,6 +244,13 @@ const draw = async (
   // A ✔ or ✗: answers one item, as if the user had typed it.
   const answer = (id: string, kind: string, text: string) => async () => {
     await markAnswered([id], kind)
+    // The mod's own items are handled here and never reach Claude.
+    const item = all.find(each => each.id === id)
+    if (item?.action) {
+      await onAction(item, kind)
+
+      return
+    }
     await $.prompt.submit({ text, asUser: true })
   }
 
@@ -438,68 +448,157 @@ const gear = ($: Dollar, { Box, Button, Text }: Kit, surface: string) => (
   </Box>
 )
 
-// The docket's own config rows, edited in place. A change reloads the mod with the new values.
-const drawSettings = async ($: Dollar, { Box, Button, Text, Input, Select }: FieldKit) => {
-  const rows = (await $.config.list()).filter(row => row.key.startsWith('docket.'))
-  const save = (key: string, value: ConfigValue) => $.config.set({ key, value })
+export type ConfigPaths = { user: string; project?: string }
+export type LoadedConfig = { user?: ConfigFile; project?: ConfigFile; notes: string[] }
 
-  return (
-    <Box flexDirection="column">
-      <Box flexDirection="row" marginBottom={1}>
-        <Text bold>settings</Text>
-        <Box marginLeft={3}>
-          <Button key="done" label="done" onPress={() => update($, isSettings, () => false)} />
-        </Box>
-      </Box>
-      {rows.map(row => {
-        const field = row.key.slice('docket.'.length)
-        const control =
-          row.kind === 'boolean' ? (
-            <Select
-              key={field}
-              value={row.value ? 'on' : 'off'}
-              options={[{ value: 'on' }, { value: 'off' }]}
-              onSelect={value => save(row.key, value === 'on')}
-            />
-          ) : row.kind === 'choice' && row.options ? (
-            <Select
-              key={field}
-              value={String(row.value)}
-              options={row.options.map(value => ({ value }))}
-              onSelect={value => save(row.key, value)}
-            />
-          ) : (
-            <Input
-              key={field}
-              value={String(row.value)}
-              submitLabel="save"
-              onSubmit={value => save(row.key, row.kind === 'number' ? Number(value) : value)}
-            />
-          )
+// VS Code draws only https: links, so a config path is shown as plain text.
+const fileLink = (path: string) => path
 
-        return (
-          <Box key={`row-${field}`} flexDirection="column" marginBottom={1}>
-            <Text bold={!row.isLocked} dimColor={row.isLocked}>
-              {row.label}
-              {row.isLocked ? ' (locked by policy)' : ''}
-            </Text>
-            {row.description ? (
-              <Text dimColor size="footnote">
-                {row.description}
-              </Text>
-            ) : null}
-            {row.isLocked ? <Text>{String(row.value)}</Text> : control}
-          </Box>
-        )
-      })}
-    </Box>
+// Where docket's config lives: ~/.claude/docket/config.json, and the same path inside the project.
+// A session started in the home folder has no separate project config.
+const configPaths = async ($: Dollar, cwd: string): Promise<ConfigPaths> => {
+  const home = (await $.env.get('HOME')) ?? (await $.env.get('USERPROFILE')) ?? ''
+  const base = ((await $.env.get('CLAUDE_CONFIG_DIR')) ?? `${home}/.claude`).replace(/\\/g, '/')
+  const user = `${base}/docket/config.json`
+  const project = `${cwd.replace(/\\/g, '/')}/.claude/docket/config.json`
+
+  return { user, project: project === user ? undefined : project }
+}
+
+// Reads both files and brings each up to date, writing back any it migrated. A file that won't parse
+// is left alone, and its defaults are used until it's fixed. Each migration or failure leaves a note.
+const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> => {
+  const loaded: LoadedConfig = { notes: [] }
+  for (const scope of ['user', 'project'] as const) {
+    const path = paths[scope]
+    if (!path || !(await $.fs.exists(path))) continue
+    const raw = parse(await $.fs.read(path))
+    if (raw === undefined) {
+      loaded.notes.push(`docket couldn't read its config at ${fileLink(path)}, so it's using the defaults until the file is fixed.`)
+      continue
+    }
+    const migration = migrate(raw)
+    if (migration.isChanged) {
+      await $.fs.write(path, serialize(migration.config))
+      const added = migration.added.length ? `, adding ${migration.added.join(', ')} at their defaults` : ''
+      loaded.notes.push(`docket updated its config at ${fileLink(path)} from version ${migration.from} to ${CONFIG_VERSION}${added}.`)
+    }
+    loaded[scope] = migration.config
+  }
+
+  return loaded
+}
+
+// Adds items the mod writes itself, numbered like any other.
+const addOwn = async ($: Dollar, specs: (Pick<Item, 'list' | 'text' | 'emoji' | 'rank' | 'action'>)[]) => {
+  const at = await read($, turn)
+  const made: Item[] = []
+  await update($, counters, current => {
+    const next = { ...current }
+    made.length = 0
+    for (const spec of specs) {
+      const n = (next[spec.list] ?? 0) + 1
+      next[spec.list] = n
+      made.push({ ...spec, id: `${spec.list}${n}`, n, addedTurn: at, changedTurn: at })
+    }
+
+    return next
+  })
+  await update($, items, current => [...current, ...made])
+}
+
+const closeOwn = async ($: Dollar, id: string) => {
+  const at = await $.clock.now()
+  await update($, items, current =>
+    current.map(item => (item.id === id && isOpen(item) ? { ...item, closed: { at, isUnasked: false } } : item)),
   )
 }
 
-export const register: Register = (on, options) => {
-  const settings = settingsOf(options)
+export type SettingsView = {
+  onDone: () => void
+  values: Record<string, string | number | boolean>
+  path: string
+  isProject: boolean
+  userPath: string
+  onSave: (key: string, value: string | number | boolean) => Promise<void>
+  onCopyToProject?: () => Promise<void>
+}
+
+// The ⚙ view: every setting, edited straight into the config file it names.
+const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: SettingsView) => (
+  <Box flexDirection="column">
+    <Box flexDirection="row" marginBottom={1}>
+      <Text bold>Settings</Text>
+      <Box marginLeft={3}>
+        <Button key="done" label="Done" onPress={view.onDone} />
+      </Box>
+    </Box>
+    <Box flexDirection="column" marginBottom={1}>
+      <Text dimColor size="footnote">
+        {view.isProject ? 'Editing this project\u2019s config, which overrides yours:' : 'Editing your config:'} {view.path}
+      </Text>
+      {view.onCopyToProject ? (
+        <Box marginTop={1}>
+          <Button key="copy-project" label="Make a copy for this project" onPress={view.onCopyToProject} />
+        </Box>
+      ) : null}
+    </Box>
+    {Object.entries(FIELDS).map(([key, field]) => {
+      const value = view.values[key] ?? field.default
+      const control =
+        field.kind === 'boolean' ? (
+          <Select key={key} value={value ? 'on' : 'off'} options={[{ value: 'on' }, { value: 'off' }]} onSelect={choice => view.onSave(key, choice === 'on')} />
+        ) : field.kind === 'choice' && field.options ? (
+          <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
+        ) : (
+          <Input key={key} value={String(value)} submitLabel="save" onSubmit={text => view.onSave(key, field.kind === 'number' ? Number(text) : text)} />
+        )
+
+      return (
+        <Box key={`row-${key}`} flexDirection="column" marginBottom={1}>
+          <Text bold>{field.title}</Text>
+          <Text dimColor size="footnote">
+            {field.description}
+          </Text>
+          {control}
+        </Box>
+      )
+    })}
+  </Box>
+)
+
+export const register: Register = on => {
+  // The settings come from docket's config files, read at the session's start and on every prompt.
+  let settings = settingsOf(merged())
+  let paths: ConfigPaths = { user: '' }
+  let files: LoadedConfig = { notes: [] }
+
+  const apply = (loaded: LoadedConfig) => {
+    files = loaded
+    settings = settingsOf(merged(loaded.user, loaded.project))
+  }
+
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'docket', description: 'Open the docket pane' })
+    paths = await configPaths($, e.cwd)
+    const loaded = await loadConfig($, paths)
+    apply(loaded)
+    if (loaded.notes.length) {
+      await addOwn($, loaded.notes.map(text => ({ list: 'V', emoji: '⚙️', rank: 1, text })))
+    }
+    // With no config of the user's own, offer to write one: once, and not again after a no.
+    const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
+    if (!loaded.user && !isOffered && !(await $.store.get('configDeclined'))) {
+      await addOwn($, [
+        {
+          list: 'R',
+          emoji: '⚙️',
+          rank: 1,
+          text: `Create docket's config at ${fileLink(paths.user)}, with every setting at its default? You can edit it there, or with ⚙.`,
+          action: 'createConfig',
+        },
+      ])
+    }
     if (settings.display === 'pane') {
       void openPane($)
     }
@@ -624,6 +723,13 @@ export const register: Register = (on, options) => {
     }
 
     await update($, turn, n => n + 1)
+    if (paths.user) {
+      const loaded = await loadConfig($, paths)
+      apply(loaded)
+      if (loaded.notes.length) {
+        await addOwn($, loaded.notes.map(text => ({ list: 'V', emoji: '⚙️', rank: 1, text })))
+      }
+    }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
     const gone = await read($, dismissed)
@@ -661,14 +767,47 @@ export const register: Register = (on, options) => {
     const kit = $.ui.resolve(e)
     const { Box, Text } = kit
 
+    // The mod's own items: the config offer is answered here, not by Claude.
+    const onAction = async (item: Item, kind: string) => {
+      await closeOwn($, item.id)
+      if (item.action !== 'createConfig') return
+      if (kind !== 'yes') {
+        await $.store.set('configDeclined', true)
+
+        return
+      }
+      await $.fs.write(paths.user, serialize(defaults()))
+      apply(await loadConfig($, paths))
+      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: `Look at your new config: ${fileLink(paths.user)}. Every setting is there at its default.` }])
+    }
+
     if (await read($, isSettings)) {
+      const target = files.project ? paths.project : paths.user
+      const view: SettingsView = {
+        onDone: () => void update($, isSettings, () => false),
+        values: merged(files.user, files.project) as Record<string, string | number | boolean>,
+        path: target ?? paths.user,
+        isProject: Boolean(files.project),
+        userPath: paths.user,
+        onSave: async (key, value) => {
+          const path = target ?? paths.user
+          const current = (files.project ? files.project : files.user) ?? defaults()
+          await $.fs.write(path, serialize({ ...current, [key]: value }))
+          apply(await loadConfig($, paths))
+          $.ui.invalidate('ui.render')
+        },
+        onCopyToProject:
+          paths.project && !files.project
+            ? async () => {
+                await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
+                apply(await loadConfig($, paths))
+                $.ui.invalidate('ui.render')
+              }
+            : undefined,
+      }
       // The phone draws no fields yet.
       const body =
-        e.surface === 'mobile' ? (
-          <Text dimColor>Settings need the terminal, desktop or VS Code.</Text>
-        ) : (
-          await drawSettings($, $.ui.resolve(e))
-        )
+        e.surface === 'mobile' ? <Text dimColor>Settings need the terminal, desktop or VS Code.</Text> : drawSettings($.ui.resolve(e), view)
 
       return (
         <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
@@ -678,7 +817,7 @@ export const register: Register = (on, options) => {
       )
     }
 
-    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface)
+    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction)
 
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
@@ -693,6 +832,17 @@ export const register: Register = (on, options) => {
       return next(e)
     }
 
-    return (await draw($, $.ui.resolve(e), settings, e.props.bodyColumns, true, e.surface)) ?? next(e)
+    // The band has no settings view; the config offer's buttons still work there.
+    const onAction = async (item: Item, kind: string) => {
+      await closeOwn($, item.id)
+      if (item.action === 'createConfig' && kind === 'yes') {
+        await $.fs.write(paths.user, serialize(defaults()))
+        apply(await loadConfig($, paths))
+      } else if (item.action === 'createConfig') {
+        await $.store.set('configDeclined', true)
+      }
+    }
+
+    return (await draw($, $.ui.resolve(e), settings, e.props.bodyColumns, true, e.surface, onAction)) ?? next(e)
   })
 }

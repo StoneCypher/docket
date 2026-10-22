@@ -27,6 +27,8 @@ export type Item = {
   answered?: string
   // When it was answered: the docket hides it a little later, whatever Claude has done by then.
   answeredAt?: number
+  // An item the mod itself handles, rather than Claude: its buttons act locally.
+  action?: 'createConfig'
 }
 
 export type Counts = Partial<Record<Letter, number>>

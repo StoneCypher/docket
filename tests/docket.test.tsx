@@ -1,5 +1,7 @@
 import { expect, test } from 'claude-code/testing'
 
+import { defaults, serialize } from '../hooks/config'
+
 const PANE = {
   plugin: 'docket',
   component: 'Pane',
@@ -14,20 +16,43 @@ const PANE = {
   },
 } as const
 
-// Nothing sits beneath the plugin under test: these hooks stand for the engine.
+// Nothing sits beneath the plugin under test: these hooks stand for the engine, with an in-memory
+// file system, environment and store.
+const USER_CONFIG = '/home/tester/.claude/docket/config.json'
+const files = new Map<string, string>()
+const store = new Map<string, unknown>()
+// The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
+const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
+
 const standIns = (on: Parameters<Parameters<typeof test>[1]>[1]) => {
+  files.clear()
+  store.clear()
+  // A complete config by default, so the offer to create one only shows where a test removes it.
+  files.set(USER_CONFIG, serialize(defaults()))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
   on('tool.register', () => ({ value: undefined }))
   on('clock.now', () => ({ value: 1_000 }))
+  on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
   on('ui.open', () => ({ value: { isPlaced: true } }))
-  on('config.list', () => ({
-    value: [
-      { key: 'docket.display', label: 'Display', kind: 'choice', value: 'pane', options: ['pane', 'band'], provider: { plugin: 'docket', tier: 'user' }, isLocked: false },
-      { key: 'docket.leanColor', label: 'Lean color', kind: 'text', value: '#b1b1b1', provider: { plugin: 'docket', tier: 'user' }, isLocked: false },
-    ],
-  }))
+  on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
+  on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
+  on('fs.read', (_, e) => ({ value: files.get(plain((e as { path: string }).path)) ?? '' }))
+  on('fs.write', (_, e) => {
+    const { path, text } = e as { path: string; text: string }
+    files.set(plain(path), text)
+
+    return { value: undefined }
+  })
+  on('store.get', (_, e) => ({ value: store.get((e as { key: string }).key) }))
+  on('store.set', (_, e) => {
+    const { key, value } = e as { key: string; value: unknown }
+    store.set(key, value)
+
+    return { value: undefined }
+  })
 }
+
 
 test('an added question shows in the pane, on every surface', async ($, on) => {
   standIns(on)
@@ -209,23 +234,61 @@ test("a confirm item's ✔ and ✗ confirm or reject it", async ($, on) => {
   await ui.unmount()
 })
 
-test('the ⚙ opens the settings view, and a field saves to the config', async ($, on) => {
-  const saved: unknown[] = []
+test('the ⚙ opens the settings view, and a field saves to the config file', async ($, on) => {
   standIns(on)
-  on('config.set', (_, e) => {
-    saved.push([e.key, e.value])
+  files.set(USER_CONFIG, JSON.stringify({ version: 1, leanColor: '#b1b1b1' }))
 
-    return { value: e.value }
-  })
-
-  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'gear' })
   expect(await ui.find({ type: 'Text', text: /Lean color/ })).toBeDefined()
   await ui.input({ key: 'leanColor', text: '#aaaaaa' })
-  expect(saved).toEqual([['docket.leanColor', '#aaaaaa']])
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#aaaaaa')
   await ui.press({ key: 'done' })
-  expect(await ui.find({ type: 'Text', text: /Nothing on the docket/ })).toBeDefined()
+  await ui.unmount()
+})
+
+test("with no config, the pane offers one, and its ✔ writes every key at its default", async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+
+  files.delete(USER_CONFIG)
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /Create docket's config/ })).toBeDefined()
+  await ui.press({ key: 'ok-R1' })
+  await ui.unmount()
+
+  const written = JSON.parse(files.get(USER_CONFIG) ?? '{}')
+  expect(written.version).toBe(1)
+  expect(written.leanColor).toBe('#b1b1b1')
+  expect(written.laterCap).toBe(7)
+  // The offer is the mod's own: answering it sends nothing to Claude.
+  expect(submitted).toEqual([])
+
+  const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await after.find({ type: 'Text', text: /Look at your new config/ })).toBeDefined()
+  await after.unmount()
+})
+
+test('an old config is migrated in place, and View says so', async ($, on) => {
+  standIns(on)
+  files.set(USER_CONFIG, JSON.stringify({ leanColor: '#123456' }))
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  const migrated = JSON.parse(files.get(USER_CONFIG) ?? '{}')
+  expect(migrated.version).toBe(1)
+  expect(migrated.leanColor).toBe('#123456')
+  expect(migrated.questionsCap).toBe(7)
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /updated its config/ })).toBeDefined()
   await ui.unmount()
 })
 
