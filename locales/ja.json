@@ -1,155 +1,320 @@
 {
-  "language": "Japanese",
-  "lists": {
-    "R": {
-      "name": "依頼",
-      "letter": "依"
-    },
-    "Q": {
-      "name": "質問",
-      "letter": "質"
-    },
-    "C": {
-      "name": "確認",
-      "letter": "確"
-    },
-    "N": {
-      "name": "要対応",
-      "letter": "要"
-    },
-    "V": {
-      "name": "閲覧",
-      "letter": "閲"
-    },
-    "U": {
-      "name": "進行中",
-      "letter": "進"
-    },
-    "L": {
-      "name": "後回し",
-      "letter": "後"
-    },
-    "W": {
-      "name": "待機中",
-      "letter": "待"
-    },
-    "P": {
-      "name": "保留",
-      "letter": "保"
-    }
+  "ready": "ai translated",
+  "version": 1,
+  "Requests": {
+    "text": "依頼",
+    "ready": "ai translated"
   },
-  "lean": "推奨",
-  "new": "（新規）",
-  "more": "他{n}件",
-  "fewer": "折りたたむ",
-  "nothing": "docket には何もありません。",
-  "bulk": {
-    "Q": "推奨をすべて採用",
-    "C": "すべて確認",
-    "R": "すべて承認"
+  "Questions": {
+    "text": "質問",
+    "ready": "ai translated"
   },
-  "send": {
-    "acceptLean": "{id} の推奨を採用します。",
-    "rejectLean": "{id} の推奨は採用しません。",
-    "pick": "{id}（{option}）。",
-    "approve": "{id} を承認します。",
-    "decline": "{id} は却下します。",
-    "confirm": "{id} を確認しました。",
-    "notConfirm": "{id} は確認できません。",
-    "start": "{id} を今すぐ始めてください。",
-    "acceptLeans": "{ids} の推奨を採用します。",
-    "confirmAll": "{ids} を確認しました。",
-    "approveAll": "{ids} を承認します。"
+  "Confirm": {
+    "text": "確認",
+    "ready": "ai translated"
   },
-  "settings": {
-    "title": "設定",
-    "done": "完了",
-    "editingYours": "あなたの設定を編集中：",
-    "editingProject": "このプロジェクトの設定を編集中（あなたの設定より優先されます）：",
-    "copyToProject": "このプロジェクト用にコピー",
-    "mobile": "設定はターミナル、デスクトップ、または VS Code で開いてください。",
-    "capTitle": "{list}の表示上限",
-    "capDescription": "「他N件」になる前に{list}に表示する件数"
+  "Needs you": {
+    "text": "要対応",
+    "ready": "ai translated"
   },
-  "config": {
-    "offer": "docket の設定ファイルを {path} に、すべて既定値で作成しますか？ そのファイルか ⚙ から編集できます。",
-    "lookAt": "新しい設定ファイル：{path}。すべての設定が既定値で入っています。",
-    "updated": "docket は {path} の設定をバージョン {from} から {to} に更新しました。",
-    "updatedAdding": "docket は {path} の設定をバージョン {from} から {to} に更新し、{added} を既定値で追加しました。",
-    "unreadable": "docket は {path} の設定を読み込めなかったため、ファイルが直るまで既定値を使います。"
+  "View": {
+    "text": "閲覧",
+    "ready": "ai translated"
   },
-  "fields": {
-    "language": [
-      "言語",
-      "docket の表示言語。auto は Claude Code の言語設定に従います"
-    ],
-    "display": [
-      "表示方法",
-      "チャットの横のペイン、または入力欄の上の帯"
-    ],
-    "emoji": [
-      "絵文字",
-      "docket のすべての絵文字の一括切り替え"
-    ],
-    "headingEmoji": [
-      "見出しの絵文字",
-      "各リストの見出しの前に絵文字を表示"
-    ],
-    "noItemEmojiLists": [
-      "絵文字なしのリスト",
-      "項目に絵文字を付けないリストの内部文字（英語の文字。例：\"Q,P\" は質問と保留）"
-    ],
-    "inlineLists": [
-      "1行表示のリスト",
-      "1行に並べて表示するリストの内部文字（英語の文字）"
-    ],
-    "targetWords": [
-      "目安の長さ",
-      "リストごとの語数の目安（内部の英語の文字で。例：\"P=8,Q=30\"）"
-    ],
-    "stakesDisplay": [
-      "重要度の表示",
-      "重要度マーカーの表示方法"
-    ],
-    "itemColor": [
-      "項目の色",
-      "このターンに変わった項目の色（16進数またはテーマキー）"
-    ],
-    "itemDimColor": [
-      "薄くした項目の色",
-      "前のターンから変わっていない項目の色"
-    ],
-    "upArrowColor": [
-      "増加の矢印",
-      "このターンにリストが増えたときの ↑ の色"
-    ],
-    "upNumberColor": [
-      "増加の数",
-      "増えたリストの ↑ の横の数の色"
-    ],
-    "downArrowColor": [
-      "減少の矢印",
-      "このターンにリストが減ったときの ↓ の色"
-    ],
-    "downNumberColor": [
-      "減少の数",
-      "減ったリストの ↓ の横の数の色"
-    ],
-    "leanColor": [
-      "推奨の色",
-      "推奨の行の色。空欄なら項目と同じ色"
-    ],
-    "leanDimColor": [
-      "薄くした推奨の色",
-      "項目が薄く表示されているときの推奨の行の色"
-    ],
-    "answeredLingerSeconds": [
-      "回答後の表示時間",
-      "ボタンで回答した項目が薄く表示されたまま残る秒数"
-    ],
-    "strikeLingerMinutes": [
-      "取り消し線の表示時間",
-      "Claude が自分で閉じた項目が取り消し線付きで残る分数"
-    ]
+  "Underway": {
+    "text": "進行中",
+    "ready": "ai translated"
+  },
+  "Later": {
+    "text": "後回し",
+    "ready": "ai translated"
+  },
+  "Waiting": {
+    "text": "待機中",
+    "ready": "ai translated"
+  },
+  "Pinned": {
+    "text": "保留",
+    "ready": "ai translated"
+  },
+  "Lean": {
+    "text": "推奨",
+    "ready": "ai translated"
+  },
+  "(new)": {
+    "text": "（新規）",
+    "ready": "ai translated"
+  },
+  "+{n} more": {
+    "text": "他{n}件",
+    "ready": "ai translated"
+  },
+  "fewer": {
+    "text": "折りたたむ",
+    "ready": "ai translated"
+  },
+  "Nothing on the docket.": {
+    "text": "docket には何もありません。",
+    "ready": "ai translated"
+  },
+  "Accept all leans": {
+    "text": "推奨をすべて採用",
+    "ready": "ai translated"
+  },
+  "Confirm all": {
+    "text": "すべて確認",
+    "ready": "ai translated"
+  },
+  "Approve all": {
+    "text": "すべて承認",
+    "ready": "ai translated"
+  },
+  "Accept the lean on {id}.": {
+    "text": "{id} の推奨を採用します。",
+    "ready": "ai translated"
+  },
+  "No to the lean on {id}.": {
+    "text": "{id} の推奨は採用しません。",
+    "ready": "ai translated"
+  },
+  "{id} ({option}).": {
+    "text": "{id}（{option}）。",
+    "ready": "ai translated"
+  },
+  "Approved {id}.": {
+    "text": "{id} を承認します。",
+    "ready": "ai translated"
+  },
+  "Declined {id}.": {
+    "text": "{id} は却下します。",
+    "ready": "ai translated"
+  },
+  "Confirmed {id}.": {
+    "text": "{id} を確認しました。",
+    "ready": "ai translated"
+  },
+  "Not confirmed {id}.": {
+    "text": "{id} は確認できません。",
+    "ready": "ai translated"
+  },
+  "Start {id} now.": {
+    "text": "{id} を今すぐ始めてください。",
+    "ready": "ai translated"
+  },
+  "Accept the leans on {ids}.": {
+    "text": "{ids} の推奨を採用します。",
+    "ready": "ai translated"
+  },
+  "Confirmed {ids}.": {
+    "text": "{ids} を確認しました。",
+    "ready": "ai translated"
+  },
+  "Approved {ids}.": {
+    "text": "{ids} を承認します。",
+    "ready": "ai translated"
+  },
+  "Settings": {
+    "text": "設定",
+    "ready": "ai translated"
+  },
+  "Done": {
+    "text": "完了",
+    "ready": "ai translated"
+  },
+  "Editing your config:": {
+    "text": "あなたの設定を編集中：",
+    "ready": "ai translated"
+  },
+  "Editing this project’s config, which overrides yours:": {
+    "text": "このプロジェクトの設定を編集中（あなたの設定より優先されます）：",
+    "ready": "ai translated"
+  },
+  "Make a copy for this project": {
+    "text": "このプロジェクト用にコピー",
+    "ready": "ai translated"
+  },
+  "Settings need the terminal, desktop or VS Code.": {
+    "text": "設定はターミナル、デスクトップ、または VS Code で開いてください。",
+    "ready": "ai translated"
+  },
+  "{list} cap": {
+    "text": "{list}の表示上限",
+    "ready": "ai translated"
+  },
+  "Items shown in {list} before \"+N more\"": {
+    "text": "「他N件」になる前に{list}に表示する件数",
+    "ready": "ai translated"
+  },
+  "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
+    "text": "docket の設定ファイルを {path} に、すべて既定値で作成しますか？ そのファイルか ⚙ から編集できます。",
+    "ready": "ai translated"
+  },
+  "Look at your new config: {path}. Every setting is there at its default.": {
+    "text": "新しい設定ファイル：{path}。すべての設定が既定値で入っています。",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}.": {
+    "text": "docket は {path} の設定をバージョン {from} から {to} に更新しました。",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
+    "text": "docket は {path} の設定をバージョン {from} から {to} に更新し、{added} を既定値で追加しました。",
+    "ready": "ai translated"
+  },
+  "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
+    "text": "docket は {path} の設定を読み込めなかったため、ファイルが直るまで既定値を使います。",
+    "ready": "ai translated"
+  },
+  "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
+    "text": "docket の{language}は機械翻訳です。自然な表現にするのを手伝ってくれますか？ ✔ で GitHub のエディターに[ファイル]({link})が開きます。文字列を直して \"ready\" を true にし、保存すると提案できます。",
+    "ready": "ai translated"
+  },
+  "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
+    "text": "docket には、{language}版がまだ訳していない新しい英語があります。[最新にする]({link})のを手伝ってくれますか？ ✔ で GitHub のエディターにファイルが開きます。空の \"text\" を埋めて保存すると提案できます。",
+    "ready": "ai translated"
+  },
+  "Language": {
+    "text": "言語",
+    "ready": "ai translated"
+  },
+  "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "docket の表示言語。auto は Claude Code の言語設定に従います",
+    "ready": "ai translated"
+  },
+  "Display": {
+    "text": "表示方法",
+    "ready": "ai translated"
+  },
+  "A pane beside the transcript, or a band above the prompt": {
+    "text": "チャットの横のペイン、または入力欄の上の帯",
+    "ready": "ai translated"
+  },
+  "Emoji": {
+    "text": "絵文字",
+    "ready": "ai translated"
+  },
+  "Master switch for every emoji the docket draws": {
+    "text": "docket のすべての絵文字の一括切り替え",
+    "ready": "ai translated"
+  },
+  "Heading emoji": {
+    "text": "見出しの絵文字",
+    "ready": "ai translated"
+  },
+  "An emoji before each list's heading": {
+    "text": "各リストの見出しの前に絵文字を表示",
+    "ready": "ai translated"
+  },
+  "Lists without item emoji": {
+    "text": "絵文字なしのリスト",
+    "ready": "ai translated"
+  },
+  "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
+    "text": "項目に絵文字を付けないリストの内部文字（英語の文字。例：\"Q,P\" は質問と保留）",
+    "ready": "ai translated"
+  },
+  "Inline lists": {
+    "text": "1行表示のリスト",
+    "ready": "ai translated"
+  },
+  "Letters of lists drawn on one line, separated by dots": {
+    "text": "1行に並べて表示するリストの内部文字（英語の文字）",
+    "ready": "ai translated"
+  },
+  "Target lengths": {
+    "text": "目安の長さ",
+    "ready": "ai translated"
+  },
+  "Soft word limits per list, e.g. \"P=8,Q=30\"": {
+    "text": "リストごとの語数の目安（内部の英語の文字で。例：\"P=8,Q=30\"）",
+    "ready": "ai translated"
+  },
+  "Stakes display": {
+    "text": "重要度の表示",
+    "ready": "ai translated"
+  },
+  "How stakes markers show": {
+    "text": "重要度マーカーの表示方法",
+    "ready": "ai translated"
+  },
+  "Item color": {
+    "text": "項目の色",
+    "ready": "ai translated"
+  },
+  "Color of an item changed this turn, a hex or a theme key": {
+    "text": "このターンに変わった項目の色（16進数またはテーマキー）",
+    "ready": "ai translated"
+  },
+  "Dimmed item color": {
+    "text": "薄くした項目の色",
+    "ready": "ai translated"
+  },
+  "Color of an item unchanged since the last turn": {
+    "text": "前のターンから変わっていない項目の色",
+    "ready": "ai translated"
+  },
+  "Growing arrow": {
+    "text": "増加の矢印",
+    "ready": "ai translated"
+  },
+  "Color of the ↑ when a list grew this turn": {
+    "text": "このターンにリストが増えたときの ↑ の色",
+    "ready": "ai translated"
+  },
+  "Growing number": {
+    "text": "増加の数",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a growing list's ↑": {
+    "text": "増えたリストの ↑ の横の数の色",
+    "ready": "ai translated"
+  },
+  "Shrinking arrow": {
+    "text": "減少の矢印",
+    "ready": "ai translated"
+  },
+  "Color of the ↓ when a list shrank this turn": {
+    "text": "このターンにリストが減ったときの ↓ の色",
+    "ready": "ai translated"
+  },
+  "Shrinking number": {
+    "text": "減少の数",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a shrinking list's ↓": {
+    "text": "減ったリストの ↓ の横の数の色",
+    "ready": "ai translated"
+  },
+  "Lean color": {
+    "text": "推奨の色",
+    "ready": "ai translated"
+  },
+  "Color of the lean line, a hex or a theme key; empty for the item's own color": {
+    "text": "推奨の行の色。空欄なら項目と同じ色",
+    "ready": "ai translated"
+  },
+  "Dimmed lean color": {
+    "text": "薄くした推奨の色",
+    "ready": "ai translated"
+  },
+  "Color of the lean line while its item is dimmed as unchanged": {
+    "text": "項目が薄く表示されているときの推奨の行の色",
+    "ready": "ai translated"
+  },
+  "Answered linger": {
+    "text": "回答後の表示時間",
+    "ready": "ai translated"
+  },
+  "Seconds an item answered by button stays up, dimmed, before it goes": {
+    "text": "ボタンで回答した項目が薄く表示されたまま残る秒数",
+    "ready": "ai translated"
+  },
+  "Strike linger": {
+    "text": "取り消し線の表示時間",
+    "ready": "ai translated"
+  },
+  "Minutes an item Claude closed on its own stays up struck through": {
+    "text": "Claude が自分で閉じた項目が取り消し線付きで残る分数",
+    "ready": "ai translated"
   }
 }

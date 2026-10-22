@@ -1,155 +1,320 @@
 {
-  "language": "Spanish",
-  "lists": {
-    "R": {
-      "name": "Solicitudes",
-      "letter": "S"
-    },
-    "Q": {
-      "name": "Preguntas",
-      "letter": "P"
-    },
-    "C": {
-      "name": "Confirmar",
-      "letter": "C"
-    },
-    "N": {
-      "name": "Necesita tu acción",
-      "letter": "N"
-    },
-    "V": {
-      "name": "Ver",
-      "letter": "V"
-    },
-    "U": {
-      "name": "En marcha",
-      "letter": "E"
-    },
-    "L": {
-      "name": "Después",
-      "letter": "D"
-    },
-    "W": {
-      "name": "Bloqueado",
-      "letter": "B"
-    },
-    "P": {
-      "name": "Fijado",
-      "letter": "F"
-    }
+  "ready": "ai translated",
+  "version": 1,
+  "Requests": {
+    "text": "Solicitudes",
+    "ready": "ai translated"
   },
-  "lean": "Propuesta",
-  "new": "(nuevo)",
-  "more": "+{n} más",
-  "fewer": "menos",
-  "nothing": "No hay nada en el docket.",
-  "bulk": {
-    "Q": "Aceptar todas las propuestas",
-    "C": "Confirmar todo",
-    "R": "Aprobar todo"
+  "Questions": {
+    "text": "Preguntas",
+    "ready": "ai translated"
   },
-  "send": {
-    "acceptLean": "Acepto la propuesta de {id}.",
-    "rejectLean": "No a la propuesta de {id}.",
-    "pick": "{id} ({option}).",
-    "approve": "Aprobado {id}.",
-    "decline": "Rechazado {id}.",
-    "confirm": "Confirmado {id}.",
-    "notConfirm": "No confirmado {id}.",
-    "start": "Empieza {id} ahora.",
-    "acceptLeans": "Acepto las propuestas de {ids}.",
-    "confirmAll": "Confirmados {ids}.",
-    "approveAll": "Aprobados {ids}."
+  "Confirm": {
+    "text": "Confirmar",
+    "ready": "ai translated"
   },
-  "settings": {
-    "title": "Ajustes",
-    "done": "Listo",
-    "editingYours": "Editando tu configuración:",
-    "editingProject": "Editando la configuración de este proyecto, que tiene prioridad sobre la tuya:",
-    "copyToProject": "Copiar para este proyecto",
-    "mobile": "Los ajustes necesitan la terminal, el escritorio o VS Code.",
-    "capTitle": "Límite de {list}",
-    "capDescription": "Elementos que se muestran en {list} antes de «+N más»"
+  "Needs you": {
+    "text": "Necesita tu acción",
+    "ready": "ai translated"
   },
-  "config": {
-    "offer": "¿Crear la configuración de docket en {path}, con cada ajuste en su valor por defecto? Puedes editarla allí o con ⚙.",
-    "lookAt": "Mira tu nueva configuración: {path}. Cada ajuste está en su valor por defecto.",
-    "updated": "docket actualizó su configuración en {path} de la versión {from} a la {to}.",
-    "updatedAdding": "docket actualizó su configuración en {path} de la versión {from} a la {to}, añadiendo {added} con sus valores por defecto.",
-    "unreadable": "docket no pudo leer su configuración en {path}; usará los valores por defecto hasta que se corrija el archivo."
+  "View": {
+    "text": "Ver",
+    "ready": "ai translated"
   },
-  "fields": {
-    "language": [
-      "Idioma",
-      "Idioma de los textos del docket: auto sigue el ajuste de idioma de Claude Code"
-    ],
-    "display": [
-      "Presentación",
-      "Un panel junto a la conversación, o una franja sobre el campo de texto"
-    ],
-    "emoji": [
-      "Emoji",
-      "Interruptor general de todos los emoji del docket"
-    ],
-    "headingEmoji": [
-      "Emoji en los títulos",
-      "Un emoji antes del título de cada lista"
-    ],
-    "noItemEmojiLists": [
-      "Listas sin emoji",
-      "Letras internas (las inglesas, como Q para Preguntas y P para Fijado) de las listas cuyos elementos no llevan emoji, p. ej. \"Q,P\""
-    ],
-    "inlineLists": [
-      "Listas en una línea",
-      "Letras internas (las inglesas) de las listas que se muestran en una sola línea, separadas por puntos"
-    ],
-    "targetWords": [
-      "Longitud orientativa",
-      "Límite flexible de palabras por lista, con las letras internas inglesas, p. ej. \"P=8,Q=30\""
-    ],
-    "stakesDisplay": [
-      "Indicador de importancia",
-      "Cómo se muestran los indicadores de importancia"
-    ],
-    "itemColor": [
-      "Color de elemento",
-      "Color de un elemento que cambió en este turno, en hexadecimal o como clave de tema"
-    ],
-    "itemDimColor": [
-      "Color de elemento atenuado",
-      "Color de un elemento sin cambios desde el turno anterior"
-    ],
-    "upArrowColor": [
-      "Flecha de crecimiento",
-      "Color de la ↑ cuando una lista creció en este turno"
-    ],
-    "upNumberColor": [
-      "Número de crecimiento",
-      "Color del número junto a la ↑ de una lista que crece"
-    ],
-    "downArrowColor": [
-      "Flecha de reducción",
-      "Color de la ↓ cuando una lista se redujo en este turno"
-    ],
-    "downNumberColor": [
-      "Número de reducción",
-      "Color del número junto a la ↓ de una lista que se reduce"
-    ],
-    "leanColor": [
-      "Color de la propuesta",
-      "Color de la línea de propuesta; vacío para usar el color del elemento"
-    ],
-    "leanDimColor": [
-      "Color de la propuesta atenuada",
-      "Color de la línea de propuesta cuando su elemento está atenuado"
-    ],
-    "answeredLingerSeconds": [
-      "Permanencia tras responder",
-      "Segundos que un elemento respondido sigue visible, atenuado, antes de irse"
-    ],
-    "strikeLingerMinutes": [
-      "Permanencia tachada",
-      "Minutos que un elemento cerrado por Claude sigue visible, tachado"
-    ]
+  "Underway": {
+    "text": "En marcha",
+    "ready": "ai translated"
+  },
+  "Later": {
+    "text": "Después",
+    "ready": "ai translated"
+  },
+  "Waiting": {
+    "text": "Bloqueado",
+    "ready": "ai translated"
+  },
+  "Pinned": {
+    "text": "Fijado",
+    "ready": "ai translated"
+  },
+  "Lean": {
+    "text": "Propuesta",
+    "ready": "ai translated"
+  },
+  "(new)": {
+    "text": "(nuevo)",
+    "ready": "ai translated"
+  },
+  "+{n} more": {
+    "text": "+{n} más",
+    "ready": "ai translated"
+  },
+  "fewer": {
+    "text": "menos",
+    "ready": "ai translated"
+  },
+  "Nothing on the docket.": {
+    "text": "No hay nada en el docket.",
+    "ready": "ai translated"
+  },
+  "Accept all leans": {
+    "text": "Aceptar todas las propuestas",
+    "ready": "ai translated"
+  },
+  "Confirm all": {
+    "text": "Confirmar todo",
+    "ready": "ai translated"
+  },
+  "Approve all": {
+    "text": "Aprobar todo",
+    "ready": "ai translated"
+  },
+  "Accept the lean on {id}.": {
+    "text": "Acepto la propuesta de {id}.",
+    "ready": "ai translated"
+  },
+  "No to the lean on {id}.": {
+    "text": "No a la propuesta de {id}.",
+    "ready": "ai translated"
+  },
+  "{id} ({option}).": {
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
+  },
+  "Approved {id}.": {
+    "text": "Aprobado {id}.",
+    "ready": "ai translated"
+  },
+  "Declined {id}.": {
+    "text": "Rechazado {id}.",
+    "ready": "ai translated"
+  },
+  "Confirmed {id}.": {
+    "text": "Confirmado {id}.",
+    "ready": "ai translated"
+  },
+  "Not confirmed {id}.": {
+    "text": "No confirmado {id}.",
+    "ready": "ai translated"
+  },
+  "Start {id} now.": {
+    "text": "Empieza {id} ahora.",
+    "ready": "ai translated"
+  },
+  "Accept the leans on {ids}.": {
+    "text": "Acepto las propuestas de {ids}.",
+    "ready": "ai translated"
+  },
+  "Confirmed {ids}.": {
+    "text": "Confirmados {ids}.",
+    "ready": "ai translated"
+  },
+  "Approved {ids}.": {
+    "text": "Aprobados {ids}.",
+    "ready": "ai translated"
+  },
+  "Settings": {
+    "text": "Ajustes",
+    "ready": "ai translated"
+  },
+  "Done": {
+    "text": "Listo",
+    "ready": "ai translated"
+  },
+  "Editing your config:": {
+    "text": "Editando tu configuración:",
+    "ready": "ai translated"
+  },
+  "Editing this project’s config, which overrides yours:": {
+    "text": "Editando la configuración de este proyecto, que tiene prioridad sobre la tuya:",
+    "ready": "ai translated"
+  },
+  "Make a copy for this project": {
+    "text": "Copiar para este proyecto",
+    "ready": "ai translated"
+  },
+  "Settings need the terminal, desktop or VS Code.": {
+    "text": "Los ajustes necesitan la terminal, el escritorio o VS Code.",
+    "ready": "ai translated"
+  },
+  "{list} cap": {
+    "text": "Límite de {list}",
+    "ready": "ai translated"
+  },
+  "Items shown in {list} before \"+N more\"": {
+    "text": "Elementos que se muestran en {list} antes de «+N más»",
+    "ready": "ai translated"
+  },
+  "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
+    "text": "¿Crear la configuración de docket en {path}, con cada ajuste en su valor por defecto? Puedes editarla allí o con ⚙.",
+    "ready": "ai translated"
+  },
+  "Look at your new config: {path}. Every setting is there at its default.": {
+    "text": "Mira tu nueva configuración: {path}. Cada ajuste está en su valor por defecto.",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}.": {
+    "text": "docket actualizó su configuración en {path} de la versión {from} a la {to}.",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
+    "text": "docket actualizó su configuración en {path} de la versión {from} a la {to}, añadiendo {added} con sus valores por defecto.",
+    "ready": "ai translated"
+  },
+  "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
+    "text": "docket no pudo leer su configuración en {path}; usará los valores por defecto hasta que se corrija el archivo.",
+    "ready": "ai translated"
+  },
+  "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
+    "text": "El {language} de docket se tradujo automáticamente. ¿Ayudas a que suene natural? ✔ abre [su archivo]({link}) en el editor de GitHub: corrige cualquier texto, pon su \"ready\" en true y guarda para proponerlo.",
+    "ready": "ai translated"
+  },
+  "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
+    "text": "docket tiene textos nuevos en inglés que su {language} aún no traduce. ¿Ayudas a [ponerlo al día]({link})? ✔ abre el archivo en el editor de GitHub: rellena cada \"text\" vacío y guarda para proponerlo.",
+    "ready": "ai translated"
+  },
+  "Language": {
+    "text": "Idioma",
+    "ready": "ai translated"
+  },
+  "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "Idioma de los textos del docket: auto sigue el ajuste de idioma de Claude Code",
+    "ready": "ai translated"
+  },
+  "Display": {
+    "text": "Presentación",
+    "ready": "ai translated"
+  },
+  "A pane beside the transcript, or a band above the prompt": {
+    "text": "Un panel junto a la conversación, o una franja sobre el campo de texto",
+    "ready": "ai translated"
+  },
+  "Emoji": {
+    "text": "Emoji",
+    "ready": "ai translated"
+  },
+  "Master switch for every emoji the docket draws": {
+    "text": "Interruptor general de todos los emoji del docket",
+    "ready": "ai translated"
+  },
+  "Heading emoji": {
+    "text": "Emoji en los títulos",
+    "ready": "ai translated"
+  },
+  "An emoji before each list's heading": {
+    "text": "Un emoji antes del título de cada lista",
+    "ready": "ai translated"
+  },
+  "Lists without item emoji": {
+    "text": "Listas sin emoji",
+    "ready": "ai translated"
+  },
+  "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
+    "text": "Letras internas (las inglesas, como Q para Preguntas y P para Fijado) de las listas cuyos elementos no llevan emoji, p. ej. \"Q,P\"",
+    "ready": "ai translated"
+  },
+  "Inline lists": {
+    "text": "Listas en una línea",
+    "ready": "ai translated"
+  },
+  "Letters of lists drawn on one line, separated by dots": {
+    "text": "Letras internas (las inglesas) de las listas que se muestran en una sola línea, separadas por puntos",
+    "ready": "ai translated"
+  },
+  "Target lengths": {
+    "text": "Longitud orientativa",
+    "ready": "ai translated"
+  },
+  "Soft word limits per list, e.g. \"P=8,Q=30\"": {
+    "text": "Límite flexible de palabras por lista, con las letras internas inglesas, p. ej. \"P=8,Q=30\"",
+    "ready": "ai translated"
+  },
+  "Stakes display": {
+    "text": "Indicador de importancia",
+    "ready": "ai translated"
+  },
+  "How stakes markers show": {
+    "text": "Cómo se muestran los indicadores de importancia",
+    "ready": "ai translated"
+  },
+  "Item color": {
+    "text": "Color de elemento",
+    "ready": "ai translated"
+  },
+  "Color of an item changed this turn, a hex or a theme key": {
+    "text": "Color de un elemento que cambió en este turno, en hexadecimal o como clave de tema",
+    "ready": "ai translated"
+  },
+  "Dimmed item color": {
+    "text": "Color de elemento atenuado",
+    "ready": "ai translated"
+  },
+  "Color of an item unchanged since the last turn": {
+    "text": "Color de un elemento sin cambios desde el turno anterior",
+    "ready": "ai translated"
+  },
+  "Growing arrow": {
+    "text": "Flecha de crecimiento",
+    "ready": "ai translated"
+  },
+  "Color of the ↑ when a list grew this turn": {
+    "text": "Color de la ↑ cuando una lista creció en este turno",
+    "ready": "ai translated"
+  },
+  "Growing number": {
+    "text": "Número de crecimiento",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a growing list's ↑": {
+    "text": "Color del número junto a la ↑ de una lista que crece",
+    "ready": "ai translated"
+  },
+  "Shrinking arrow": {
+    "text": "Flecha de reducción",
+    "ready": "ai translated"
+  },
+  "Color of the ↓ when a list shrank this turn": {
+    "text": "Color de la ↓ cuando una lista se redujo en este turno",
+    "ready": "ai translated"
+  },
+  "Shrinking number": {
+    "text": "Número de reducción",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a shrinking list's ↓": {
+    "text": "Color del número junto a la ↓ de una lista que se reduce",
+    "ready": "ai translated"
+  },
+  "Lean color": {
+    "text": "Color de la propuesta",
+    "ready": "ai translated"
+  },
+  "Color of the lean line, a hex or a theme key; empty for the item's own color": {
+    "text": "Color de la línea de propuesta; vacío para usar el color del elemento",
+    "ready": "ai translated"
+  },
+  "Dimmed lean color": {
+    "text": "Color de la propuesta atenuada",
+    "ready": "ai translated"
+  },
+  "Color of the lean line while its item is dimmed as unchanged": {
+    "text": "Color de la línea de propuesta cuando su elemento está atenuado",
+    "ready": "ai translated"
+  },
+  "Answered linger": {
+    "text": "Permanencia tras responder",
+    "ready": "ai translated"
+  },
+  "Seconds an item answered by button stays up, dimmed, before it goes": {
+    "text": "Segundos que un elemento respondido sigue visible, atenuado, antes de irse",
+    "ready": "ai translated"
+  },
+  "Strike linger": {
+    "text": "Permanencia tachada",
+    "ready": "ai translated"
+  },
+  "Minutes an item Claude closed on its own stays up struck through": {
+    "text": "Minutos que un elemento cerrado por Claude sigue visible, tachado",
+    "ready": "ai translated"
   }
 }

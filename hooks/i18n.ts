@@ -1,8 +1,9 @@
-// docket's own words, per language, read from locales/<code>.json so translators edit JSON, not code.
-// English is built in too, so the pane always draws, and a node test keeps it equal to en.json.
-// Each language names its lists and gives each a letter, which labels its items (Q12, P12, 質12):
-// letters are unique within a language. Items keep their internal letter; only what is shown,
-// typed and sent uses the language's.
+// docket's own words, per language. English is here in code; every other language is a file,
+// locales/<code>.json, mapping each English string to its translation, so translators edit JSON beside
+// the English they translate. Each translation, and the file as a whole, says how ready it is: false
+// (not translated; English shows), "ai translated", or true (checked by a person).
+// Each list's letter, which labels its items (Q12, P12, 質12), is the first character of its name in
+// that language, so names are chosen to start with letters unique within the language.
 import type { Item, Letter } from '../types'
 import { codeOf, normalCode } from './languages.ts'
 
@@ -42,6 +43,8 @@ export type Strings = {
     capDescription: string
   }
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
+  // Offers to help with a language docket speaks: machine-translated, or behind English.
+  translate: { machine: string; behind: string }
   fields: Record<string, [string, string]>
 }
 
@@ -94,6 +97,12 @@ export const EN: Strings = {
     updatedAdding: 'docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.',
     unreadable: "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.",
   },
+  translate: {
+    machine:
+      `docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its "ready" to true, and save to propose it.`,
+    behind:
+      `docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty "text", and save to propose it.`,
+  },
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
@@ -123,22 +132,92 @@ export const fill = (template: string, values: Record<string, string | number>) 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 
-// A language file over English: any key it leaves out, or gives the wrong shape, stays English.
-export const mergeStrings = (base: Strings, over: unknown): Strings => {
-  const merge = (a: unknown, b: unknown): unknown => {
-    if (typeof a === 'string') return typeof b === 'string' && b.trim() ? b : a
-    if (Array.isArray(a)) return Array.isArray(b) && b.length === a.length && b.every(each => typeof each === 'string') ? b : a
-    if (isRecord(a)) {
-      const out: Record<string, unknown> = {}
-      for (const key of Object.keys(a)) out[key] = merge(a[key], isRecord(b) ? b[key] : undefined)
+// Every string in a set of words, with where it sits; the language's name and the letters aren't
+// translated, as they come from the language table and the list names.
+const leaves = (value: unknown, at = ''): [string, string][] =>
+  typeof value === 'string'
+    ? at === 'language' || at.endsWith('.letter')
+      ? []
+      : [[at, value]]
+    : Array.isArray(value)
+      ? value.flatMap((each, i) => leaves(each, `${at}.${i}`))
+      : isRecord(value)
+        ? Object.entries(value).flatMap(([key, each]) => leaves(each, at ? `${at}.${key}` : key))
+        : []
 
-      return out
-    }
+// The English strings a language file translates, each once, in the order docket uses them.
+export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english))]
 
-    return a
+// Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
+// strings, blank, and loses the ones English no longer says. A file's own version says which of
+// these it was last brought up to date with, so docket can ask for help when it falls behind.
+export const STRINGS_VERSION = 1
+
+export type Readiness = boolean | 'ai translated'
+export const AI = 'ai translated'
+export type Translation = { text: string; ready: Readiness }
+
+const readinessOf = (value: unknown): Readiness => (value === true || value === AI ? value : false)
+
+// What a language file says about itself, beside its strings.
+export type FileState = { ready: Readiness; version: number }
+
+export const stateOf = (file: unknown): FileState => {
+  const found = isRecord(file) ? file : {}
+
+  return { ready: readinessOf(found.ready), version: typeof found.version === 'number' ? found.version : 0 }
+}
+
+// One string's translation as a file holds it; a bare string counts as machine-made.
+export const translationOf = (value: unknown): Translation =>
+  typeof value === 'string'
+    ? { text: value, ready: value.trim() ? AI : false }
+    : isRecord(value)
+      ? { text: typeof value.text === 'string' ? value.text : '', ready: readinessOf(value.ready) }
+      : { text: '', ready: false }
+
+// A language's file brought in line with English: its state first, then every English string in
+// docket's order, translated where it was, blank where not. Strings English no longer says are dropped.
+export const synced = (file: unknown) => {
+  const found = isRecord(file) ? file : {}
+  const { ready, version } = stateOf(found)
+  const words = Object.fromEntries(keysOf().map(key => [key, translationOf(found[key])]))
+
+  return `${JSON.stringify({ ready, version, ...words }, null, 2)}
+`
+}
+
+export const firstLetter = (name: string) => ([...name.trim()][0] ?? '').toUpperCase()
+
+// docket's words in a language, from its file: each translated string over the English. Each list's
+// letter is its translated name's first character; if two lists would share one, every list keeps
+// its English letter, so no label is ever ambiguous.
+export const translate = (file: unknown, language: string): Strings => {
+  const words = isRecord(file) ? file : {}
+  const say = (english: string) => {
+    const { text, ready } = translationOf(words[english])
+
+    return ready !== false && text.trim() ? text : english
+  }
+  const walk = (value: unknown, at: string): unknown =>
+    typeof value === 'string'
+      ? at === 'language'
+        ? language
+        : at.endsWith('.letter')
+          ? value
+          : say(value)
+      : Array.isArray(value)
+        ? value.map((each, i) => walk(each, `${at}.${i}`))
+        : isRecord(value)
+          ? Object.fromEntries(Object.entries(value).map(([key, each]) => [key, walk(each, at ? `${at}.${key}` : key)]))
+          : value
+  const text = walk(EN, '') as Strings
+  const letters = (Object.keys(text.lists) as Letter[]).map(letter => [letter, firstLetter(text.lists[letter].name)] as const)
+  if (new Set(letters.map(([, each]) => each)).size === letters.length && letters.every(([, each]) => each)) {
+    for (const [letter, each] of letters) text.lists[letter].letter = each
   }
 
-  return merge(base, over) as Strings
+  return text
 }
 
 // docket's setting wins, as a language's name or code, or any code with a file in locales/; "auto" or

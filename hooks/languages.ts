@@ -86,3 +86,6 @@ export const codeOf = (name: unknown): string | undefined => {
 
 // A code's English name, for Claude and for the offer to translate; an unlisted code is its own name.
 export const englishName = (code: string) => NAMES[code]?.[0] ?? code
+
+// A code's name in its own language, for asking its speakers; English where the table has no other.
+export const nativeName = (code: string) => NAMES[code]?.[1] ?? englishName(code)

@@ -38,6 +38,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('ui.open', () => ({ value: { isPlaced: true } }))
   on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
+  on('fs.list', () => ({ value: Object.keys(locales).map(code => ({ name: `${code}.json`, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }))
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
     const locale = /\/locales\/(\w+)\.json$/.exec(path)?.[1]
@@ -566,9 +567,12 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   // What the Spanish file leaves out stays English.
   standIns(on, {
     es: {
-      lists: { Q: { name: 'Preguntas', letter: 'P' }, P: { name: 'Fijado', letter: 'F' } },
-      lean: 'Propuesta',
-      send: { acceptLean: 'Acepto la propuesta de {id}.' },
+      ready: 'ai translated',
+      version: 1,
+      Questions: { text: 'Preguntas', ready: 'ai translated' },
+      Pinned: { text: 'Fijado', ready: 'ai translated' },
+      Lean: { text: 'Propuesta', ready: 'ai translated' },
+      'Accept the lean on {id}.': { text: 'Acepto la propuesta de {id}.', ready: 'ai translated' },
     },
   })
   on('prompt.submit', (_, e) => {
@@ -598,4 +602,52 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   const closed = await $.tool.call({ tool: 'mcp__docket__update', close: [{ id: 'p1' }, { id: 'Q9' }] })
   expect(JSON.stringify(closed)).toContain('Closed P1.')
   expect(JSON.stringify(closed)).toContain('No such items: Q9.')
+})
+
+test('a language docket has no file for gets English, and one offer to help translate it', async ($, on) => {
+  const ran: string[][] = []
+  standIns(on, { fr: { ready: false, version: 0 } })
+  on('process.run', (_, e) => {
+    ran.push([...(e as { argv: string[] }).argv])
+
+    return { value: { exitCode: 0, stdout: '', stderr: '' } }
+  })
+  files.set(USER_CONFIG, serialize({ ...defaults(), language: 'fr' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Requests$/ })).toBeDefined()
+  const link = await ui.find({ type: 'Link' })
+  expect(link?.props.href).toBe('https://github.com/StoneCypher/docket/edit/main/locales/fr.json')
+  await ui.press({ key: 'ok-R1' })
+  await ui.unmount()
+  expect(ran.some(argv => argv.includes('https://github.com/StoneCypher/docket/edit/main/locales/fr.json'))).toBe(true)
+  expect(store.get('translateAsked')).toEqual(['fr'])
+
+  // Asked once: a new session doesn't ask again.
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await again.find({ type: 'Text', text: /speak French/ })).toBeUndefined()
+  await again.unmount()
+})
+
+test('a machine-translated language is used, with one offer, in that language, to make it read naturally', async ($, on) => {
+  standIns(on, {
+    de: {
+      ready: 'ai translated',
+      version: 1,
+      Requests: { text: 'Anfragen', ready: 'ai translated' },
+      "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.":
+        { text: 'Das {language} von docket wurde maschinell übersetzt. [Datei]({link})', ready: 'ai translated' },
+    },
+  })
+  files.set(USER_CONFIG, serialize({ ...defaults(), language: 'de' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Anfragen$/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /Das Deutsch von docket wurde maschinell/ })).toBeDefined()
+  await ui.press({ key: 'no-R1' })
+  await ui.unmount()
+  expect(store.get('translateAsked')).toEqual(['de:machine@1'])
 })

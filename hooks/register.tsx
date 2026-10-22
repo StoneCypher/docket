@@ -19,7 +19,9 @@ import {
 import type { Settings } from './lists'
 import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
 import type { ConfigFile } from './config'
-import { EN, fill, idFor, labelOf, labelOfId, letterFor, mergeStrings, resolveLanguage } from './i18n'
+import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, translate } from './i18n'
+import type { FileState } from './i18n'
+import { englishName, nativeName } from './languages'
 import type { Language, Strings } from './i18n'
 
 const TOOL = 'mcp__docket__update'
@@ -593,7 +595,7 @@ const openFile = async ($: Dollar, path: string) => {
 }
 
 // Adds items the mod writes itself, numbered like any other.
-const addOwn = async ($: Dollar, specs: (Pick<Item, 'list' | 'text' | 'emoji' | 'rank' | 'action' | 'open'>)[]) => {
+const addOwn = async ($: Dollar, specs: (Pick<Item, 'list' | 'text' | 'emoji' | 'rank' | 'action' | 'open' | 'language'>)[]) => {
   const at = await read($, turn)
   const made: Item[] = []
   await update($, counters, current => {
@@ -700,28 +702,118 @@ const toolSpec = (text: Strings) => ({
   isDeferred: false,
 })
 
-// docket's own words in a language: its file read over English. A file that won't read leaves English.
-const stringsOf = async ($: Dollar, language: Language) => {
-  if (language === 'en') {
-    return EN
-  }
+const localeFile = ($: Dollar, code: string) => `${$.plugin.root}/locales/${code}.json`
+
+// A language file's translations, or none when it's missing or won't parse.
+const wordsOf = async ($: Dollar, code: string): Promise<Record<string, unknown>> => {
   try {
-    return mergeStrings(EN, JSON.parse(await $.fs.read(`${$.plugin.root}/locales/${language}.json`)))
+    return JSON.parse(await $.fs.read(localeFile($, code)))
   } catch {
-    return EN
+    return {}
   }
 }
 
-// The languages docket has files for: whatever locales/ holds, so a new language is just its file.
-const languagesOf = async ($: Dollar) => {
+// docket's own words in a language. A regional file (es-MX) says only what differs, over its
+// language's (es); English underlies both.
+const stringsOf = async ($: Dollar, language: Language) => {
+  const [base = 'en'] = language.split('-')
+  if (base === 'en') {
+    return EN
+  }
+  const regional = language === base ? {} : await wordsOf($, language)
+
+  return translate({ ...(await wordsOf($, base)), ...regional }, englishName(language))
+}
+
+// Each language file's state, by code: whatever locales/ holds, so a new language is just its file.
+const localesOf = async ($: Dollar): Promise<Record<string, FileState>> => {
   try {
-    return (await $.fs.list(`${$.plugin.root}/locales`))
+    const codes = (await $.fs.list(`${$.plugin.root}/locales`))
       .filter(entry => entry.kind === 'file' && entry.name.endsWith('.json'))
       .map(entry => entry.name.slice(0, -'.json'.length))
-      .sort()
+
+    return Object.fromEntries(await Promise.all(codes.map(async code => [code, stateOf(await wordsOf($, code))] as const)))
   } catch {
-    return ['en']
+    return {}
   }
+}
+
+// The languages docket can speak: English, and each file not marked unready.
+const readyOf = (locales: Record<string, FileState>) =>
+  ['en', ...Object.keys(locales).filter(code => locales[code]?.ready !== false)].sort()
+
+// Where to help translate: the language's file in GitHub's editor, which forks the repository for
+// someone without access and proposes their change as a pull request; or, with no file yet, a new one.
+const translateLink = (code: string, locales: Record<string, FileState>) =>
+  code in locales ? `${REPO}/edit/main/locales/${code}.json` : `${REPO}/new/main/locales?filename=${encodeURIComponent(`${code}.json`)}`
+
+// What help a language needs: a translation, when docket can't speak it (asked in English, as
+// there's nothing else to ask in); a person's eye, when its file is machine-translated; or new strings,
+// when it's behind English. Each is asked once: per language, and per strings version for the others.
+const offerTranslation = async ($: Dollar, language: Language, locales: Record<string, FileState>, text: Strings) => {
+  const [base = 'en'] = language.split('-')
+  if (base === 'en') return
+  const spoken = [language, base].find(code => locales[code] && locales[code].ready !== false)
+  const state = spoken ? locales[spoken] : undefined
+  const target = spoken ?? (language in locales || !(base in locales) ? language : base)
+  const need = !state ? 'translate' : state.version < STRINGS_VERSION ? 'behind' : state.ready === AI ? 'machine' : undefined
+  if (!need) return
+  const key = need === 'translate' ? target : `${target}:${need}@${STRINGS_VERSION}`
+  const asked = ((await $.store.get('translateAsked')) as string[] | undefined) ?? []
+  const isOpenNow = (await read($, items)).some(item => item.action === 'translate' && item.language === key && isOpen(item))
+  if (asked.includes(key) || isOpenNow) return
+  const link = translateLink(target, locales)
+  const name = englishName(target)
+  await addOwn($, [
+    {
+      list: 'R',
+      emoji: '🌐',
+      rank: 1,
+      text:
+        need === 'translate'
+          ? `docket doesn't speak ${name} yet. Help [translate it](${link})? ✔ opens locales/${target}.json in GitHub's editor: fill in each empty "text", set its "ready" to true, and save to propose it.`
+          : fill(text.translate[need], { language: nativeName(target), link }),
+      action: 'translate',
+      language: key,
+    },
+  ])
+}
+
+// Opens a web page in the system's browser. Windows goes through rundll32, not cmd, which would
+// split the address at its &s.
+const openLink = async ($: Dollar, url: string) => {
+  const isWindows = (await $.env.get('OS')) === 'Windows_NT'
+  const tries = isWindows ? [['rundll32', 'url.dll,FileProtocolHandler', url]] : [['open', url], ['xdg-open', url]]
+  for (const argv of tries) {
+    try {
+      if ((await $.process.run(argv)).exitCode === 0) return
+    } catch {
+      // Not on this system; try the next.
+    }
+  }
+}
+
+// The mod's own items, answered here and never sent to Claude: the offer to write a config, and the
+// offer to help translate. Returns whether a config was written.
+const ownAnswer = async ($: Dollar, item: Item, kind: string, paths: ConfigPaths, locales: Record<string, FileState>) => {
+  await closeOwn($, item.id)
+  if (item.action === 'translate' && item.language) {
+    const asked = ((await $.store.get('translateAsked')) as string[] | undefined) ?? []
+    await $.store.set('translateAsked', [...new Set([...asked, item.language])])
+    const [code = ''] = item.language.split(':')
+    if (kind === 'yes') await openLink($, translateLink(code, locales))
+
+    return false
+  }
+  if (item.action !== 'createConfig') return false
+  if (kind !== 'yes') {
+    await $.store.set('configDeclined', true)
+
+    return false
+  }
+  await $.fs.write(paths.user, serialize(defaults()))
+
+  return true
 }
 
 // The language docket's config names, or else Claude Code's own.
@@ -736,13 +828,15 @@ const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly 
   return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode, available)
 }
 
-export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings; languages: string[] }
+export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings; languages: string[]; locales: Record<string, FileState> }
 
 // Loads the config, then the language it names, registering the tool again in a new language, then
 // adds its notes in that language. With nothing before it, the tool is registered regardless.
 const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Promise<Reloaded> => {
   const loaded = await loadConfig($, paths)
-  const languages = await languagesOf($)
+  // The files are read once a session: they change only with docket itself.
+  const locales = was?.locales ?? (await localesOf($))
+  const languages = readyOf(locales)
   const language = await languageFor($, loaded, languages)
   const text = was && was.language === language ? was.text : await stringsOf($, language)
   if (!was || was.language !== language) {
@@ -752,8 +846,11 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   if (loaded.notes.length) {
     await addOwn($, loaded.notes.map(note => ({ list: 'V', emoji: '⚙️', rank: 1, text: noteText(text, note) })))
   }
+  if (!was || was.language !== language) {
+    await offerTranslation($, language, locales, text)
+  }
 
-  return { loaded, language, text, languages }
+  return { loaded, language, text, languages, locales }
 }
 
 export const register: Register = on => {
@@ -765,6 +862,7 @@ export const register: Register = on => {
   let text = EN
   let language: Language = 'en'
   let languages = ['en']
+  let locales: Record<string, FileState> = {}
 
   const apply = (loaded: LoadedConfig) => {
     files = loaded
@@ -777,6 +875,7 @@ export const register: Register = on => {
     text = next.text
     language = next.language
     languages = next.languages
+    locales = next.locales
   }
 
   on('session.start', async ($, e, next) => {
@@ -921,7 +1020,7 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -962,22 +1061,15 @@ export const register: Register = on => {
     const kit = $.ui.resolve(e)
     const { Box, Text } = kit
 
-    // The mod's own items: the config offer is answered here, not by Claude.
+    // The mod's own items are answered here, not by Claude.
     const onAction = async (item: Item, kind: string) => {
       if (kind === 'open') {
         if (item.open) await openFile($, item.open)
 
         return
       }
-      await closeOwn($, item.id)
-      if (item.action !== 'createConfig') return
-      if (kind !== 'yes') {
-        await $.store.set('configDeclined', true)
-
-        return
-      }
-      await $.fs.write(paths.user, serialize(defaults()))
-      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
+      if (!(await ownAnswer($, item, kind, paths, locales))) return
+      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -994,14 +1086,14 @@ export const register: Register = on => {
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1040,12 +1132,8 @@ export const register: Register = on => {
 
         return
       }
-      await closeOwn($, item.id)
-      if (item.action === 'createConfig' && kind === 'yes') {
-        await $.fs.write(paths.user, serialize(defaults()))
-        adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
-      } else if (item.action === 'createConfig') {
-        await $.store.set('configDeclined', true)
+      if (await ownAnswer($, item, kind, paths, locales)) {
+        adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
       }
     }
 

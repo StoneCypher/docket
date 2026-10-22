@@ -16,7 +16,7 @@ import {
   snapshot,
   speaksOfPending,
 } from '../hooks/lists.ts'
-import { EN, mergeStrings } from '../hooks/i18n.ts'
+import { EN, translate } from '../hooks/i18n.ts'
 import { readFileSync } from 'node:fs'
 
 const item = (id: string, extra: Partial<Item> = {}): Item => ({
@@ -177,9 +177,9 @@ describe('instructions', () => {
 })
 
 describe('in another language', () => {
-  const locale = (code: string) => mergeStrings(EN, JSON.parse(readFileSync(new URL(`../locales/${code}.json`, import.meta.url), 'utf8')))
-  const es = locale('es')
-  const ja = locale('ja')
+  const locale = (code: string, name: string) => translate(JSON.parse(readFileSync(new URL(`../locales/${code}.json`, import.meta.url), 'utf8')), name)
+  const es = locale('es', 'Spanish')
+  const ja = locale('ja', 'Japanese')
 
   test("names items by the language's letters, so Spanish P12 is a question", () => {
     const all = [item('Q12'), item('P3'), item('C4'), item('C5')]

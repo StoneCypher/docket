@@ -28,7 +28,9 @@ export type Item = {
   // When it was answered: the docket hides it a little later, whatever Claude has done by then.
   answeredAt?: number
   // An item the mod itself handles, rather than Claude: its buttons act locally.
-  action?: 'createConfig'
+  action?: 'createConfig' | 'translate'
+  // For a translate offer: the language it asks for.
+  language?: string
   // A local file the item is about: it gets an Open button that opens the file in the editor.
   open?: string
 }

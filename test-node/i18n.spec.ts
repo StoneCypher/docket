@@ -4,17 +4,13 @@ import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
 import { describe, test } from 'node:test'
 
-import { EN, fill, idFor, labelOf, labelOfId, letterFor, mergeStrings, resolveLanguage } from '../hooks/i18n.ts'
-import { NAMES, codeOf, englishName, normalCode } from '../hooks/languages.ts'
+import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf } from '../hooks/i18n.ts'
+import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
 
 const folder = new URL('../locales/', import.meta.url)
 const read = (file: string): unknown => JSON.parse(readFileSync(new URL(file, folder), 'utf8'))
 
-// Every key path in a value, arrays counted as leaves.
-const paths = (value: unknown, at = ''): string[] =>
-  value && typeof value === 'object' && !Array.isArray(value)
-    ? Object.entries(value).flatMap(([key, each]) => paths(each, at ? `${at}.${key}` : key))
-    : [at]
+const slots = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort()
 
 describe('locale files', () => {
   const files = readdirSync(folder).filter(file => file.endsWith('.json'))
@@ -26,44 +22,99 @@ describe('locale files', () => {
     }
   })
 
-  test('English in code is exactly en.json', () => {
-    assert.deepEqual(read('en.json'), EN)
+  test('every language docket knows has its file', () => {
+    for (const code of Object.keys(NAMES).filter(code => code !== 'en')) assert.ok(files.includes(`${code}.json`), code)
   })
 
   for (const file of files) {
-    test(`${file} has every key English has, and no others`, () => {
-      assert.deepEqual(paths(read(file)).sort(), paths(EN).sort())
+    const raw = readFileSync(new URL(file, folder), 'utf8')
+    const words = JSON.parse(raw) as Record<string, unknown>
+    const state = stateOf(words)
+    const translations = keysOf().map(english => [english, translationOf(words[english])] as const)
+
+    test(`${file} is in line with English (npm run locales)`, () => {
+      assert.equal(raw, synced(words))
     })
 
-    test(`${file} gives each list its own single-character letter`, () => {
-      const letters = Object.values(mergeStrings(EN, read(file)).lists).map(list => list.letter)
-      assert.equal(new Set(letters.map(letter => letter.toLowerCase())).size, letters.length)
-      for (const letter of letters) assert.equal([...letter].length, 1, letter)
+    test(`${file} keeps each string's placeholders`, () => {
+      for (const [english, { text }] of translations) if (text) assert.deepEqual(slots(text), slots(english), english)
     })
 
-    test(`${file} keeps the placeholders English uses`, () => {
-      const strings = mergeStrings(EN, read(file))
-      const slots = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort()
-      const walk = (en: unknown, there: unknown, at: string) => {
-        if (typeof en === 'string') {
-          assert.deepEqual(slots(String(there)), slots(en), at)
-        } else if (en && typeof en === 'object' && !Array.isArray(en)) {
-          for (const [key, each] of Object.entries(en)) walk(each, (there as Record<string, unknown>)[key], `${at}.${key}`)
-        }
+    test(`${file} is no readier than its strings`, () => {
+      if (state.ready === false) return
+      assert.ok(state.version <= STRINGS_VERSION)
+      for (const [english, { text, ready }] of translations) {
+        assert.ok(text.trim() && ready !== false, english)
+        if (state.ready === true) assert.equal(ready, true, english)
       }
-      walk(EN, strings, file)
+    })
+
+    test(`${file} names its lists so each starts with its own letter`, () => {
+      if (state.ready === false) return
+      const text = translate(words, file)
+      for (const list of Object.values(text.lists)) assert.equal(list.letter, firstLetter(list.name), list.name)
+      assert.equal(new Set(Object.values(text.lists).map(list => list.letter)).size, Object.keys(text.lists).length)
     })
   }
 })
 
-describe('mergeStrings', () => {
-  test('keeps English for anything missing, empty or the wrong shape', () => {
-    const merged = mergeStrings(EN, { lean: '', more: 3, lists: { Q: { name: 'Fragen' } }, fields: { emoji: ['only one'] } })
-    assert.equal(merged.lean, 'Lean')
-    assert.equal(merged.more, '+{n} more')
-    assert.equal(merged.lists.Q.name, 'Fragen')
-    assert.equal(merged.lists.Q.letter, 'Q')
-    assert.deepEqual(merged.fields.emoji, EN.fields.emoji)
+describe('English', () => {
+  test("gives each list its name's first letter", () => {
+    for (const list of Object.values(EN.lists)) assert.equal(list.letter, firstLetter(list.name))
+  })
+
+  test('is its own translation', () => {
+    assert.deepEqual(translate({}, 'English'), EN)
+  })
+})
+
+describe('translate', () => {
+  test('keeps English for anything missing, blank, unready or malformed', () => {
+    const text = translate(
+      { Lean: { text: '', ready: AI }, '+{n} more': { text: '+{n} mehr', ready: false }, fewer: 3, Questions: { text: 'Fragen', ready: true } },
+      'German',
+    )
+    assert.equal(text.lean, 'Lean')
+    assert.equal(text.more, '+{n} more')
+    assert.equal(text.fewer, 'fewer')
+    assert.equal(text.lists.Q.name, 'Fragen')
+    assert.equal(text.lists.Q.letter, 'F')
+    assert.equal(text.language, 'German')
+  })
+
+  test('takes a bare string as a machine translation', () => {
+    assert.deepEqual(translationOf('Fragen'), { text: 'Fragen', ready: AI })
+    assert.deepEqual(translationOf(''), { text: '', ready: false })
+    assert.equal(translate({ Questions: 'Fragen' }, 'German').lists.Q.name, 'Fragen')
+  })
+
+  test('keeps every English letter when two names would share one', () => {
+    const text = translate({ Questions: 'Fragen', Pinned: 'Fixiert' }, 'German')
+    assert.equal(text.lists.Q.letter, 'Q')
+    assert.equal(text.lists.P.letter, 'P')
+  })
+
+  test('reads a file that is not an object as nothing translated', () => {
+    assert.deepEqual(translate(['x'], 'English'), EN)
+  })
+})
+
+describe('a file brought in line with English', () => {
+  const file = JSON.parse(synced({ ready: AI, version: 1, Questions: { text: 'Fragen', ready: true }, 'Gone from English': 'x' }))
+
+  test('starts with its state, then every English string in order', () => {
+    assert.deepEqual(Object.keys(file), ['ready', 'version', ...keysOf()])
+    assert.equal(file.ready, AI)
+  })
+
+  test('keeps its translations, blanks the rest and drops what English no longer says', () => {
+    assert.deepEqual(file.Questions, { text: 'Fragen', ready: true })
+    assert.deepEqual(file.Pinned, { text: '', ready: false })
+    assert.ok(!('Gone from English' in file))
+  })
+
+  test('reads a missing state as unready and unversioned', () => {
+    assert.deepEqual(stateOf(undefined), { ready: false, version: 0 })
   })
 })
 
@@ -86,9 +137,11 @@ describe('choosing a language', () => {
     assert.equal(codeOf('Chinese'), 'zh')
   })
 
-  test('names every listed language in English first', () => {
+  test('names every listed language in English first, then in its own', () => {
     assert.equal(englishName('fr'), 'French')
     assert.equal(englishName('yo'), 'yo')
+    assert.equal(nativeName('fr'), 'Français')
+    assert.equal(nativeName('af'), 'Afrikaans')
     assert.ok(Object.values(NAMES).every(names => names.length > 0))
   })
 
@@ -107,7 +160,7 @@ describe('choosing a language', () => {
 })
 
 describe('labels', () => {
-  const es = mergeStrings(EN, read('es.json'))
+  const es = translate(read('es.json'), 'Spanish')
 
   test('show the language letter for an item and an internal id', () => {
     assert.equal(labelOf(es, { list: 'Q', n: 12 }), 'P12')

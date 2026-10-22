@@ -1,155 +1,320 @@
 {
-  "language": "German",
-  "lists": {
-    "R": {
-      "name": "Anfragen",
-      "letter": "A"
-    },
-    "Q": {
-      "name": "Fragen",
-      "letter": "F"
-    },
-    "C": {
-      "name": "Bestätigen",
-      "letter": "B"
-    },
-    "N": {
-      "name": "Dein Zug",
-      "letter": "D"
-    },
-    "V": {
-      "name": "Sichten",
-      "letter": "S"
-    },
-    "U": {
-      "name": "Laufend",
-      "letter": "L"
-    },
-    "L": {
-      "name": "Vorgemerkt",
-      "letter": "V"
-    },
-    "W": {
-      "name": "Wartend",
-      "letter": "W"
-    },
-    "P": {
-      "name": "Geparkt",
-      "letter": "G"
-    }
+  "ready": "ai translated",
+  "version": 1,
+  "Requests": {
+    "text": "Anfragen",
+    "ready": "ai translated"
   },
-  "lean": "Vorschlag",
-  "new": "(neu)",
-  "more": "+{n} weitere",
-  "fewer": "weniger",
-  "nothing": "Nichts auf dem Docket.",
-  "bulk": {
-    "Q": "Alle Vorschläge annehmen",
-    "C": "Alle bestätigen",
-    "R": "Alle genehmigen"
+  "Questions": {
+    "text": "Fragen",
+    "ready": "ai translated"
   },
-  "send": {
-    "acceptLean": "Vorschlag zu {id} angenommen.",
-    "rejectLean": "Vorschlag zu {id} abgelehnt.",
-    "pick": "{id} ({option}).",
-    "approve": "{id} genehmigt.",
-    "decline": "{id} abgelehnt.",
-    "confirm": "{id} bestätigt.",
-    "notConfirm": "{id} nicht bestätigt.",
-    "start": "Fang jetzt mit {id} an.",
-    "acceptLeans": "Vorschläge zu {ids} angenommen.",
-    "confirmAll": "{ids} bestätigt.",
-    "approveAll": "{ids} genehmigt."
+  "Confirm": {
+    "text": "Bestätigen",
+    "ready": "ai translated"
   },
-  "settings": {
-    "title": "Einstellungen",
-    "done": "Fertig",
-    "editingYours": "Deine Konfiguration wird bearbeitet:",
-    "editingProject": "Die Konfiguration dieses Projekts wird bearbeitet; sie hat Vorrang vor deiner:",
-    "copyToProject": "Für dieses Projekt kopieren",
-    "mobile": "Einstellungen brauchen das Terminal, die Desktop-App oder VS Code.",
-    "capTitle": "Obergrenze für {list}",
-    "capDescription": "Einträge, die in {list} vor „+N weitere“ angezeigt werden"
+  "Needs you": {
+    "text": "Dein Zug",
+    "ready": "ai translated"
   },
-  "config": {
-    "offer": "Die docket-Konfiguration unter {path} anlegen, mit allen Einstellungen auf ihrem Standardwert? Bearbeiten kannst du sie dort oder über ⚙.",
-    "lookAt": "Sieh dir deine neue Konfiguration an: {path}. Alle Einstellungen stehen auf ihrem Standardwert.",
-    "updated": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert.",
-    "updatedAdding": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert und {added} mit Standardwerten ergänzt.",
-    "unreadable": "docket konnte seine Konfiguration unter {path} nicht lesen und nutzt die Standardwerte, bis die Datei repariert ist."
+  "View": {
+    "text": "Sichten",
+    "ready": "ai translated"
   },
-  "fields": {
-    "language": [
-      "Sprache",
-      "Sprache der Docket-Texte: auto folgt der Spracheinstellung von Claude Code"
-    ],
-    "display": [
-      "Anzeige",
-      "Ein Bereich neben dem Chat oder ein Band über der Eingabe"
-    ],
-    "emoji": [
-      "Emoji",
-      "Hauptschalter für alle Emoji des Dockets"
-    ],
-    "headingEmoji": [
-      "Emoji in Überschriften",
-      "Ein Emoji vor der Überschrift jeder Liste"
-    ],
-    "noItemEmojiLists": [
-      "Listen ohne Emoji",
-      "Interne (englische) Buchstaben der Listen, deren Einträge kein Emoji zeigen, z. B. \"Q,P\" für Fragen und Geparkt"
-    ],
-    "inlineLists": [
-      "Einzeilige Listen",
-      "Interne (englische) Buchstaben der Listen, die in einer Zeile mit Punkten dazwischen erscheinen"
-    ],
-    "targetWords": [
-      "Ziellängen",
-      "Weiche Wortgrenzen je Liste, mit den internen englischen Buchstaben, z. B. \"P=8,Q=30\""
-    ],
-    "stakesDisplay": [
-      "Wichtigkeitsanzeige",
-      "Wie Wichtigkeitsmarkierungen erscheinen"
-    ],
-    "itemColor": [
-      "Eintragsfarbe",
-      "Farbe eines in diesem Zug geänderten Eintrags, als Hex-Wert oder Theme-Schlüssel"
-    ],
-    "itemDimColor": [
-      "Gedimmte Eintragsfarbe",
-      "Farbe eines seit dem letzten Zug unveränderten Eintrags"
-    ],
-    "upArrowColor": [
-      "Pfeil für Zuwachs",
-      "Farbe des ↑, wenn eine Liste in diesem Zug gewachsen ist"
-    ],
-    "upNumberColor": [
-      "Zahl für Zuwachs",
-      "Farbe der Zahl neben dem ↑ einer wachsenden Liste"
-    ],
-    "downArrowColor": [
-      "Pfeil für Abnahme",
-      "Farbe des ↓, wenn eine Liste in diesem Zug geschrumpft ist"
-    ],
-    "downNumberColor": [
-      "Zahl für Abnahme",
-      "Farbe der Zahl neben dem ↓ einer schrumpfenden Liste"
-    ],
-    "leanColor": [
-      "Vorschlagsfarbe",
-      "Farbe der Vorschlagszeile; leer für die Farbe des Eintrags"
-    ],
-    "leanDimColor": [
-      "Gedimmte Vorschlagsfarbe",
-      "Farbe der Vorschlagszeile, solange ihr Eintrag gedimmt ist"
-    ],
-    "answeredLingerSeconds": [
-      "Verweildauer nach Antwort",
-      "Sekunden, die ein per Knopf beantworteter Eintrag gedimmt sichtbar bleibt"
-    ],
-    "strikeLingerMinutes": [
-      "Verweildauer durchgestrichen",
-      "Minuten, die ein von Claude selbst geschlossener Eintrag durchgestrichen bleibt"
-    ]
+  "Underway": {
+    "text": "Laufend",
+    "ready": "ai translated"
+  },
+  "Later": {
+    "text": "Vorgemerkt",
+    "ready": "ai translated"
+  },
+  "Waiting": {
+    "text": "Wartend",
+    "ready": "ai translated"
+  },
+  "Pinned": {
+    "text": "Geparkt",
+    "ready": "ai translated"
+  },
+  "Lean": {
+    "text": "Vorschlag",
+    "ready": "ai translated"
+  },
+  "(new)": {
+    "text": "(neu)",
+    "ready": "ai translated"
+  },
+  "+{n} more": {
+    "text": "+{n} weitere",
+    "ready": "ai translated"
+  },
+  "fewer": {
+    "text": "weniger",
+    "ready": "ai translated"
+  },
+  "Nothing on the docket.": {
+    "text": "Nichts auf dem Docket.",
+    "ready": "ai translated"
+  },
+  "Accept all leans": {
+    "text": "Alle Vorschläge annehmen",
+    "ready": "ai translated"
+  },
+  "Confirm all": {
+    "text": "Alle bestätigen",
+    "ready": "ai translated"
+  },
+  "Approve all": {
+    "text": "Alle genehmigen",
+    "ready": "ai translated"
+  },
+  "Accept the lean on {id}.": {
+    "text": "Vorschlag zu {id} angenommen.",
+    "ready": "ai translated"
+  },
+  "No to the lean on {id}.": {
+    "text": "Vorschlag zu {id} abgelehnt.",
+    "ready": "ai translated"
+  },
+  "{id} ({option}).": {
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
+  },
+  "Approved {id}.": {
+    "text": "{id} genehmigt.",
+    "ready": "ai translated"
+  },
+  "Declined {id}.": {
+    "text": "{id} abgelehnt.",
+    "ready": "ai translated"
+  },
+  "Confirmed {id}.": {
+    "text": "{id} bestätigt.",
+    "ready": "ai translated"
+  },
+  "Not confirmed {id}.": {
+    "text": "{id} nicht bestätigt.",
+    "ready": "ai translated"
+  },
+  "Start {id} now.": {
+    "text": "Fang jetzt mit {id} an.",
+    "ready": "ai translated"
+  },
+  "Accept the leans on {ids}.": {
+    "text": "Vorschläge zu {ids} angenommen.",
+    "ready": "ai translated"
+  },
+  "Confirmed {ids}.": {
+    "text": "{ids} bestätigt.",
+    "ready": "ai translated"
+  },
+  "Approved {ids}.": {
+    "text": "{ids} genehmigt.",
+    "ready": "ai translated"
+  },
+  "Settings": {
+    "text": "Einstellungen",
+    "ready": "ai translated"
+  },
+  "Done": {
+    "text": "Fertig",
+    "ready": "ai translated"
+  },
+  "Editing your config:": {
+    "text": "Deine Konfiguration wird bearbeitet:",
+    "ready": "ai translated"
+  },
+  "Editing this project’s config, which overrides yours:": {
+    "text": "Die Konfiguration dieses Projekts wird bearbeitet; sie hat Vorrang vor deiner:",
+    "ready": "ai translated"
+  },
+  "Make a copy for this project": {
+    "text": "Für dieses Projekt kopieren",
+    "ready": "ai translated"
+  },
+  "Settings need the terminal, desktop or VS Code.": {
+    "text": "Einstellungen brauchen das Terminal, die Desktop-App oder VS Code.",
+    "ready": "ai translated"
+  },
+  "{list} cap": {
+    "text": "Obergrenze für {list}",
+    "ready": "ai translated"
+  },
+  "Items shown in {list} before \"+N more\"": {
+    "text": "Einträge, die in {list} vor „+N weitere“ angezeigt werden",
+    "ready": "ai translated"
+  },
+  "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
+    "text": "Die docket-Konfiguration unter {path} anlegen, mit allen Einstellungen auf ihrem Standardwert? Bearbeiten kannst du sie dort oder über ⚙.",
+    "ready": "ai translated"
+  },
+  "Look at your new config: {path}. Every setting is there at its default.": {
+    "text": "Sieh dir deine neue Konfiguration an: {path}. Alle Einstellungen stehen auf ihrem Standardwert.",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}.": {
+    "text": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert.",
+    "ready": "ai translated"
+  },
+  "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
+    "text": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert und {added} mit Standardwerten ergänzt.",
+    "ready": "ai translated"
+  },
+  "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
+    "text": "docket konnte seine Konfiguration unter {path} nicht lesen und nutzt die Standardwerte, bis die Datei repariert ist.",
+    "ready": "ai translated"
+  },
+  "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
+    "text": "Das {language} von docket wurde maschinell übersetzt. Hilfst du, es natürlich klingen zu lassen? ✔ öffnet [die Datei]({link}) im Editor von GitHub: korrigiere beliebige Texte, setze ihr \"ready\" auf true und speichere, um es vorzuschlagen.",
+    "ready": "ai translated"
+  },
+  "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
+    "text": "docket hat neue englische Texte, die sein {language} noch nicht übersetzt. Hilfst du, [es auf den neuesten Stand zu bringen]({link})? ✔ öffnet die Datei im Editor von GitHub: fülle jedes leere \"text\" aus und speichere, um es vorzuschlagen.",
+    "ready": "ai translated"
+  },
+  "Language": {
+    "text": "Sprache",
+    "ready": "ai translated"
+  },
+  "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "Sprache der Docket-Texte: auto folgt der Spracheinstellung von Claude Code",
+    "ready": "ai translated"
+  },
+  "Display": {
+    "text": "Anzeige",
+    "ready": "ai translated"
+  },
+  "A pane beside the transcript, or a band above the prompt": {
+    "text": "Ein Bereich neben dem Chat oder ein Band über der Eingabe",
+    "ready": "ai translated"
+  },
+  "Emoji": {
+    "text": "Emoji",
+    "ready": "ai translated"
+  },
+  "Master switch for every emoji the docket draws": {
+    "text": "Hauptschalter für alle Emoji des Dockets",
+    "ready": "ai translated"
+  },
+  "Heading emoji": {
+    "text": "Emoji in Überschriften",
+    "ready": "ai translated"
+  },
+  "An emoji before each list's heading": {
+    "text": "Ein Emoji vor der Überschrift jeder Liste",
+    "ready": "ai translated"
+  },
+  "Lists without item emoji": {
+    "text": "Listen ohne Emoji",
+    "ready": "ai translated"
+  },
+  "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
+    "text": "Interne (englische) Buchstaben der Listen, deren Einträge kein Emoji zeigen, z. B. \"Q,P\" für Fragen und Geparkt",
+    "ready": "ai translated"
+  },
+  "Inline lists": {
+    "text": "Einzeilige Listen",
+    "ready": "ai translated"
+  },
+  "Letters of lists drawn on one line, separated by dots": {
+    "text": "Interne (englische) Buchstaben der Listen, die in einer Zeile mit Punkten dazwischen erscheinen",
+    "ready": "ai translated"
+  },
+  "Target lengths": {
+    "text": "Ziellängen",
+    "ready": "ai translated"
+  },
+  "Soft word limits per list, e.g. \"P=8,Q=30\"": {
+    "text": "Weiche Wortgrenzen je Liste, mit den internen englischen Buchstaben, z. B. \"P=8,Q=30\"",
+    "ready": "ai translated"
+  },
+  "Stakes display": {
+    "text": "Wichtigkeitsanzeige",
+    "ready": "ai translated"
+  },
+  "How stakes markers show": {
+    "text": "Wie Wichtigkeitsmarkierungen erscheinen",
+    "ready": "ai translated"
+  },
+  "Item color": {
+    "text": "Eintragsfarbe",
+    "ready": "ai translated"
+  },
+  "Color of an item changed this turn, a hex or a theme key": {
+    "text": "Farbe eines in diesem Zug geänderten Eintrags, als Hex-Wert oder Theme-Schlüssel",
+    "ready": "ai translated"
+  },
+  "Dimmed item color": {
+    "text": "Gedimmte Eintragsfarbe",
+    "ready": "ai translated"
+  },
+  "Color of an item unchanged since the last turn": {
+    "text": "Farbe eines seit dem letzten Zug unveränderten Eintrags",
+    "ready": "ai translated"
+  },
+  "Growing arrow": {
+    "text": "Pfeil für Zuwachs",
+    "ready": "ai translated"
+  },
+  "Color of the ↑ when a list grew this turn": {
+    "text": "Farbe des ↑, wenn eine Liste in diesem Zug gewachsen ist",
+    "ready": "ai translated"
+  },
+  "Growing number": {
+    "text": "Zahl für Zuwachs",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a growing list's ↑": {
+    "text": "Farbe der Zahl neben dem ↑ einer wachsenden Liste",
+    "ready": "ai translated"
+  },
+  "Shrinking arrow": {
+    "text": "Pfeil für Abnahme",
+    "ready": "ai translated"
+  },
+  "Color of the ↓ when a list shrank this turn": {
+    "text": "Farbe des ↓, wenn eine Liste in diesem Zug geschrumpft ist",
+    "ready": "ai translated"
+  },
+  "Shrinking number": {
+    "text": "Zahl für Abnahme",
+    "ready": "ai translated"
+  },
+  "Color of the count beside a shrinking list's ↓": {
+    "text": "Farbe der Zahl neben dem ↓ einer schrumpfenden Liste",
+    "ready": "ai translated"
+  },
+  "Lean color": {
+    "text": "Vorschlagsfarbe",
+    "ready": "ai translated"
+  },
+  "Color of the lean line, a hex or a theme key; empty for the item's own color": {
+    "text": "Farbe der Vorschlagszeile; leer für die Farbe des Eintrags",
+    "ready": "ai translated"
+  },
+  "Dimmed lean color": {
+    "text": "Gedimmte Vorschlagsfarbe",
+    "ready": "ai translated"
+  },
+  "Color of the lean line while its item is dimmed as unchanged": {
+    "text": "Farbe der Vorschlagszeile, solange ihr Eintrag gedimmt ist",
+    "ready": "ai translated"
+  },
+  "Answered linger": {
+    "text": "Verweildauer nach Antwort",
+    "ready": "ai translated"
+  },
+  "Seconds an item answered by button stays up, dimmed, before it goes": {
+    "text": "Sekunden, die ein per Knopf beantworteter Eintrag gedimmt sichtbar bleibt",
+    "ready": "ai translated"
+  },
+  "Strike linger": {
+    "text": "Verweildauer durchgestrichen",
+    "ready": "ai translated"
+  },
+  "Minutes an item Claude closed on its own stays up struck through": {
+    "text": "Minuten, die ein von Claude selbst geschlossener Eintrag durchgestrichen bleibt",
+    "ready": "ai translated"
   }
 }
