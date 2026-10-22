@@ -22,7 +22,7 @@ import type { ConfigFile } from './config'
 import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
-import { groupsOf, labelFor, pickedOf, variantsOf } from './picker'
+import { DIVIDER, groupsOf, labelFor, pickedOf, variantsOf } from './picker'
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 
@@ -682,7 +682,7 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
           key="language-variant"
           value={variants.some(each => each.value === variant) ? variant : ''}
           options={variants}
-          onSelect={choice => void view.onSave('language', choice ? `${base}-${choice}` : base)}
+          onSelect={choice => (choice === DIVIDER ? undefined : void view.onSave('language', choice ? `${base}-${choice}` : base))}
         />
       ) : null}
     </Box>

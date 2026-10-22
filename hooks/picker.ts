@@ -105,19 +105,28 @@ export const REGIONS: Record<string, readonly string[]> = {
   ar: ['SA', 'EG', 'MA'],
 }
 
-// A language's variants, as the rest of its tag: (none), then its real regions, from the table and
-// any with a file ("BR"), then its dialects ("US-startrek"), named in the language docket speaks.
+// The pulldowns have no separator, so this entry stands for one: picking it changes nothing.
+export const DIVIDER = '-'
+
+// A language's variants, as the rest of its tag: the language itself, then its real regions, from the
+// table and any with a file ("BR"), then a divider and its dialects ("US-startrek"), each part in
+// alphabetical order and named in the language docket speaks.
 export const variantsOf = (speaking: string, base: string, files: readonly string[], dialects: readonly Dialect[]): Choice[] => {
+  const byName = (a: Choice, b: Choice) => a.label.localeCompare(b.label, speaking)
   const regions = [
     ...new Set([...(REGIONS[base] ?? []), ...files.filter(code => code.startsWith(`${base}-`)).map(code => code.slice(base.length + 1))]),
   ]
     .map(region => ({ value: region, label: nameIn(speaking, `${base}-${region}`) }))
-    .sort((a, b) => a.label.localeCompare(b.label, speaking))
+    .sort(byName)
+  const comic = dialects
+    .filter(each => each.tag.startsWith(`${base}-`))
+    .map(each => ({ value: each.tag.slice(base.length + 1), label: each.name }))
+    .sort(byName)
 
   return [
-    { value: '', label: '—' },
+    { value: '', label: nameIn(speaking, base) },
     ...regions,
-    ...dialects.filter(each => each.tag.startsWith(`${base}-`)).map(each => ({ value: each.tag.slice(base.length + 1), label: each.name })),
+    ...(comic.length ? [{ value: DIVIDER, label: '──────────' }, ...comic] : []),
   ]
 }
 

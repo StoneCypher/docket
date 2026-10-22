@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { describe, test } from 'node:test'
 
-import { MOST, basesOf, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
+import { DIVIDER, MOST, basesOf, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
 
 describe('groups', () => {
   for (const speaking of ['en', 'de', 'ja']) {
@@ -46,14 +46,18 @@ describe('names', () => {
 })
 
 describe('variants', () => {
-  test('are none, each region with a file, and each dialect, as the rest of the tag', () => {
-    const variants = variantsOf('en', 'en', ['en', 'es', 'pt-BR'], [{ tag: 'en-US-startrek', name: 'Starfleet English' }])
-    // The real Englishes first, by name, then the comic ones.
-    assert.deepEqual(variants.slice(0, 4).map(each => each.value), ['', 'US', 'AU', 'GB'])
-    assert.ok(variants.some(each => each.label === 'American English'))
-    assert.ok(!variants.some(each => ['IN', 'ZA'].includes(each.value)))
+  test('are the language, its real regions, a divider, then its dialects, each part alphabetical', () => {
+    const variants = variantsOf('en', 'en', ['en', 'es', 'pt-BR'], [
+      { tag: 'en-US-yinzer', name: 'Pittsburgh English (Yinzer)' },
+      { tag: 'en-US-startrek', name: 'Starfleet English (Star Trek)' },
+    ])
+    assert.deepEqual(
+      variants.map(each => each.value),
+      ['', 'US', 'AU', 'GB', 'CA', 'IE', 'NZ', DIVIDER, 'US-yinzer', 'US-startrek'],
+    )
+    assert.equal(variants[0]?.label, 'English')
     assert.ok(!variantsOf('en', 'es', ['es'], []).some(each => each.value === 'US'))
-    assert.equal(variants[variants.length - 1]?.value, 'US-startrek')
+    // No dialects, no divider.
     assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['', 'BR', 'PT'])
     assert.deepEqual(variantsOf('en', 'tl', ['tl', 'tl-XX'], []).map(each => each.value), ['', 'XX'])
   })
