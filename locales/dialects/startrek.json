@@ -4,6 +4,18 @@
     "yes": "👉",
     "no": "🤦"
   },
+  "voice": "the bridge crew of the starship Enterprise in the original series, each list spoken by one officer",
+  "voices": {
+    "Requests": "Captain Kirk asking leave, with... dramatic... pauses",
+    "Questions": "Lieutenant Sulu at the helm: calm, courteous, asking for a heading, with the occasional dry \"Oh my.\"",
+    "Confirm": "Mr. Spock: precise and logical, odds to four decimal places, an eyebrow raised in words",
+    "Needs you": "Scotty, calling from engineering: urgent and Scottish, \"I cannae do it without ye, Captain!\"",
+    "View": "Lieutenant Uhura: hailing frequencies open, poised and crisp, reporting what is on screen",
+    "Underway": "Ensign Chekov: eager, Russian-accented, crediting Russia with inventing whatever it is",
+    "Later": "Dr. McCoy grumbling that it will have to wait: \"Dammit, I'm a doctor, not a...\"",
+    "Waiting": "the ship's computer: flat and literal, \"Working.\"",
+    "Pinned": "captain's log entries: \"Captain's log, supplemental.\""
+  },
   "ready": "ai translated",
   "version": 1,
   "Requests": {

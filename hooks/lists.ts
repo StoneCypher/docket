@@ -2,7 +2,7 @@ import type { PluginOptions } from 'claude-code'
 
 import type { Counts, Item, Letter } from '../types'
 import { fill, idFor, labelOf, labelOfId, letterFor } from './i18n.ts'
-import type { Strings } from './i18n.ts'
+import type { Strings, Voice } from './i18n.ts'
 
 export type ListDef = {
   letter: Letter
@@ -264,7 +264,7 @@ export const references = (prompt: string, items: readonly Item[], text: Strings
   ].join('\n')
 }
 
-export const instructions = (settings: Settings, isHeadless: boolean, text: Strings) => {
+export const instructions = (settings: Settings, isHeadless: boolean, text: Strings, voice: Voice = { all: '', lists: {} }) => {
   const L = (letter: Letter) => text.lists[letter].letter
   const named = (letter: Letter) => (text.language === 'English' ? L(letter) : `${L(letter)} (${text.lists[letter].name})`)
   const say = (key: keyof Strings['send'], id: string, extra: Record<string, string> = {}) => `"${fill(text.send[key], { id, ids: id, ...extra })}"`
@@ -276,13 +276,23 @@ export const instructions = (settings: Settings, isHeadless: boolean, text: Stri
       ? ''
       : `\n\nThe user's docket is in ${text.language}. Write every item's text, lean and options in ${text.language}, and label items with the letters below (letter then number, such as ${L('Q')}12). The buttons send the messages quoted below, in ${text.language}.`
 
+  const voiced = (Object.keys(voice.lists) as Letter[]).map(letter => `- ${named(letter)}: ${voice.lists[letter]}`)
+  const voices =
+    voice.all || voiced.length
+      ? [
+          `Write the docket's items in character${voice.all ? `, as ${voice.all}` : ''}${voiced.length ? '; in these lists, as follows:' : '.'}`,
+          ...voiced,
+          "The voice is for the items' wording only: they still say exactly what they need to, and the labels, links and paths stay as they are.",
+        ].join('\n')
+      : ''
+
   return `# Docket
 
 The user runs the docket mod, a pane beside the transcript (or a band above the prompt) showing your open items as numbered lists. You keep it current with the mcp__docket__update tool: one call per turn, holding every change, whenever anything changed. ${
     isHeadless
       ? 'Nothing draws the band in this session, so end each reply with the open items as plain text, grouped by list, in the order below.'
       : 'The docket is where the user reads them: never repeat docket items in your prose reply.'
-  }${language}
+  }${language}${voices ? `\n\n${voices}` : ''}
 
 Lists, from least to most important:
 - ${named('P')} pinned: parked for later.

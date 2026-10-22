@@ -182,19 +182,47 @@ export const translationOf = (value: unknown): Translation =>
 // A language's file brought in line with English: its state first, then every English string in
 // docket's order, translated where it was, blank where not. Strings English no longer says are dropped.
 // A dialect's file also keeps its name, which is what Claude is told the docket is written in, and
-// any buttons of its own.
+// any buttons of its own; any file keeps its voices.
 export const synced = (file: unknown) => {
   const found = isRecord(file) ? file : {}
   const { ready, version } = stateOf(found)
   const words = Object.fromEntries(keysOf().map(key => [key, translationOf(found[key])]))
-  const name = typeof found.name === 'string' ? { name: found.name } : {}
-  const marks = isRecord(found.marks) ? { marks: found.marks } : {}
+  const kept = Object.fromEntries(
+    (['name', 'marks', 'voice', 'voices'] as const).filter(key => found[key] !== undefined).map(key => [key, found[key]]),
+  )
 
-  return `${JSON.stringify({ ...name, ...marks, ready, version, ...words }, null, 2)}
+  return `${JSON.stringify({ ...kept, ready, version, ...words }, null, 2)}
 `
 }
 
-export const firstLetter = (name: string) => ([...name.trim()][0] ?? '').toUpperCase()
+// How Claude writes the docket's items, if a file or the config says: a voice for everything, and
+// one per list. A file names lists by their English names ("View") or letters ("V"); later files
+// win, list by list.
+export type Voice = { all: string; lists: Partial<Record<Letter, string>> }
+
+export const voiceOf = (...files: unknown[]): Voice => {
+  const voice: Voice = { all: '', lists: {} }
+  for (const file of files) {
+    if (!isRecord(file)) continue
+    if (typeof file.voice === 'string' && file.voice.trim()) voice.all = file.voice.trim()
+    if (!isRecord(file.voices)) continue
+    for (const [key, said] of Object.entries(file.voices)) {
+      const letter = (Object.keys(EN.lists) as Letter[]).find(each => each === key || EN.lists[each].name === key)
+      if (letter && typeof said === 'string' && said.trim()) voice.lists[letter] = said.trim()
+    }
+  }
+
+  return voice
+}
+
+// A name's first character, as a capital where the script has one in common use. Georgian's capitals
+// (Mtavruli) are rare in fonts, so Georgian keeps its usual letters.
+export const firstLetter = (name: string) => {
+  const first = [...name.trim()][0] ?? ''
+  const upper = first.toUpperCase()
+
+  return /[\u1C90-\u1CBF]/u.test(upper) ? first : upper
+}
 
 // A dialect's own button, or the usual one.
 const markOf = (marks: unknown, key: string, usual: string) => {

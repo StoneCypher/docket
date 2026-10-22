@@ -4,8 +4,9 @@ import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
 import { describe, test } from 'node:test'
 
-import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf } from '../hooks/i18n.ts'
+import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
 import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
+import { instructions, settingsOf } from '../hooks/lists.ts'
 
 const folder = new URL('../locales/', import.meta.url)
 const read = (file: string): unknown => JSON.parse(readFileSync(new URL(file, folder), 'utf8'))
@@ -204,5 +205,24 @@ describe('labels', () => {
 
   test('fill leaves a slot it has no value for', () => {
     assert.equal(fill('{id} and {other}', { id: 'P1' }), 'P1 and {other}')
+  })
+})
+
+describe('voices', () => {
+  test('come from files, later ones winning list by list, by English name or letter', () => {
+    const voice = voiceOf({ voice: 'a pirate', voices: { View: 'Uhura', Q: 'Sulu', Bogus: 'x' } }, { voices: { View: 'Kirk' } })
+    assert.deepEqual(voice, { all: 'a pirate', lists: { V: 'Kirk', Q: 'Sulu' } })
+  })
+
+  test('tell Claude to write in character, list by list, without changing what items say', () => {
+    const text = instructions(settingsOf({}), false, EN, { all: 'the Enterprise crew', lists: { V: 'Uhura' } })
+    assert.match(text, /Write the docket's items in character, as the Enterprise crew; in these lists, as follows:\n- V: Uhura/)
+    assert.match(text, /still say exactly what they need to/)
+    assert.doesNotMatch(instructions(settingsOf({}), false, EN), /in character/)
+  })
+
+  test('keep Georgian labels in the letters its fonts draw', () => {
+    assert.equal(firstLetter('თხოვნები'), 'თ')
+    assert.equal(firstLetter('énfasis'), 'É')
   })
 })
