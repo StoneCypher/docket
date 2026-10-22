@@ -365,3 +365,19 @@ test("a growing list's counter draws its arrow and number in greens", async ($, 
   expect(texts.find(found => found.text === '2' && found.props.color === '#7c9a84')).toBeDefined()
   await ui.unmount()
 })
+
+test('a bulk button shows only when more than one item can take it', async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'One?', lean: 'yes' }, { list: 'Q', text: 'No lean here?' }] })
+
+  const one = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await one.find({ key: 'bulk-Q' })).toBeUndefined()
+  await one.unmount()
+
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Two?', lean: 'no' }] })
+  const two = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await two.find({ key: 'bulk-Q' })).toBeDefined()
+  await two.unmount()
+})

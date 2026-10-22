@@ -248,10 +248,13 @@ const draw = async (
   // rendered widths. The lean's margin and the two buttons side by side take about 9.
   const isOneLine = (text: string, reserve = 0) => text.length <= columns - 9 - reserve
 
+  // What a list's bulk button would answer: open items not already sent, and for questions only
+  // those with a lean to accept.
+  const bulkable = (list: readonly Item[], letter: Letter) =>
+    list.filter(item => item.list === letter && isOpen(item) && !item.answered && (letter !== 'Q' || item.lean))
+
   const accept = (verb: string, letter: Letter) => async () => {
-    const ids = (await read($, items))
-      .filter(item => item.list === letter && isOpen(item))
-      .map(item => item.id)
+    const ids = bulkable(await read($, items), letter).map(item => item.id)
     if (ids.length) {
       await markAnswered(ids, 'yes')
       await $.prompt.submit({ text: `${verb} ${ids.join(', ')}.`, asUser: true })
@@ -407,7 +410,8 @@ const draw = async (
             {shown.length ? (
               // About 2em past the heading and 1em between buttons: a cell is near 0.6em.
               <Box flexDirection="row" marginLeft={3} columnGap={2}>
-                {list.bulk ? (
+                {/* A bulk button only where there's more than one thing for it to answer. */}
+                {list.bulk && bulkable(all, list.letter).length > 1 ? (
                   <Button key={`bulk-${list.letter}`} label={list.bulk.label} onPress={accept(list.bulk.verb, list.letter)} />
                 ) : null}
                 <Button key={`x-${list.letter}`} plain dimColor onPress={dismissList(list.letter)}>
