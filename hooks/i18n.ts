@@ -4,9 +4,10 @@
 // letters are unique within a language. Items keep their internal letter; only what is shown,
 // typed and sent uses the language's.
 import type { Item, Letter } from '../types'
+import { codeOf, normalCode } from './languages.ts'
 
-export type Language = 'en' | 'es' | 'ja' | 'de'
-export const LANGUAGES: Language[] = ['en', 'es', 'ja', 'de']
+// A language's code, as its file in locales/ is named: "es", "pt-BR".
+export type Language = string
 
 export type Strings = {
   language: string
@@ -140,24 +141,14 @@ export const mergeStrings = (base: Strings, over: unknown): Strings => {
   return merge(base, over) as Strings
 }
 
-// What a language setting names: a code, or Claude Code's own free-form name for it ("japanese",
-// "Español", "Deutsch"). Anything else is undefined.
-const NAMES: Record<Language, RegExp> = {
-  en: /^(en|english|inglés|英語|englisch)\b/i,
-  es: /^(es|spanish|español|espanol|castellano|スペイン語|spanisch)\b/i,
-  ja: /^(ja|jp|japanese|日本語|japonés|japanisch)/i,
-  de: /^(de|german|deutsch|alemán|ドイツ語)\b/i,
+// docket's setting wins, as a language's name or code, or any code with a file in locales/; "auto" or
+// nothing follows Claude Code's language, and English is the fallback. The code may have no file yet.
+export const resolveLanguage = (setting: unknown, claudeCode: unknown, available: readonly string[] = []): Language => {
+  const own = setting && setting !== 'auto' ? String(setting) : undefined
+  const code = own && normalCode(own)
+
+  return (own && (codeOf(own) ?? (code && available.includes(code) ? code : undefined))) || codeOf(claudeCode) || 'en'
 }
-
-export const languageOf = (name: unknown): Language | undefined => {
-  const text = String(name ?? '').trim()
-
-  return LANGUAGES.find(language => NAMES[language].test(text))
-}
-
-// docket's setting wins; "auto" or nothing follows Claude Code's language, and English is the fallback.
-export const resolveLanguage = (setting: unknown, claudeCode: unknown): Language =>
-  (setting && setting !== 'auto' ? languageOf(setting) : undefined) ?? languageOf(claudeCode) ?? 'en'
 
 // An item's label as the user sees it: the language's letter for its list, then its number.
 export const labelOf = (text: Strings, item: Pick<Item, 'list' | 'n'>) => `${text.lists[item.list].letter}${item.n}`

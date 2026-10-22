@@ -625,6 +625,8 @@ export type SettingsView = {
   userPath: string
   onSave: (key: string, value: string | number | boolean) => Promise<void>
   onCopyToProject?: () => Promise<void>
+  // The language setting's choices: auto, then each language docket has a file for.
+  languages: string[]
 }
 
 // The ⚙ view: every setting, edited straight into the config file it names.
@@ -664,7 +666,12 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
         field.kind === 'boolean' ? (
           <Select key={key} value={value ? 'on' : 'off'} options={[{ value: 'on' }, { value: 'off' }]} onSelect={choice => view.onSave(key, choice === 'on')} />
         ) : field.kind === 'choice' && field.options ? (
-          <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
+          <Select
+            key={key}
+            value={String(value)}
+            options={(key === 'language' ? ['auto', ...view.languages] : field.options).map(option => ({ value: option }))}
+            onSelect={choice => view.onSave(key, choice)}
+          />
         ) : (
           <Input key={key} value={String(value)} submitLabel="save" onSubmit={text => view.onSave(key, field.kind === 'number' ? Number(text) : text)} />
         )
@@ -705,8 +712,20 @@ const stringsOf = async ($: Dollar, language: Language) => {
   }
 }
 
+// The languages docket has files for: whatever locales/ holds, so a new language is just its file.
+const languagesOf = async ($: Dollar) => {
+  try {
+    return (await $.fs.list(`${$.plugin.root}/locales`))
+      .filter(entry => entry.kind === 'file' && entry.name.endsWith('.json'))
+      .map(entry => entry.name.slice(0, -'.json'.length))
+      .sort()
+  } catch {
+    return ['en']
+  }
+}
+
 // The language docket's config names, or else Claude Code's own.
-const languageFor = async ($: Dollar, loaded: LoadedConfig) => {
+const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly string[]) => {
   let claudeCode: unknown
   try {
     claudeCode = (await $.config.list()).find(row => row.key === 'language')?.value
@@ -714,16 +733,17 @@ const languageFor = async ($: Dollar, loaded: LoadedConfig) => {
     // No settings menu to ask: docket's own setting, or English.
   }
 
-  return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode)
+  return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode, available)
 }
 
-export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings }
+export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings; languages: string[] }
 
 // Loads the config, then the language it names, registering the tool again in a new language, then
 // adds its notes in that language. With nothing before it, the tool is registered regardless.
 const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Promise<Reloaded> => {
   const loaded = await loadConfig($, paths)
-  const language = await languageFor($, loaded)
+  const languages = await languagesOf($)
+  const language = await languageFor($, loaded, languages)
   const text = was && was.language === language ? was.text : await stringsOf($, language)
   if (!was || was.language !== language) {
     await $.tool.register(toolSpec(text))
@@ -733,7 +753,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await addOwn($, loaded.notes.map(note => ({ list: 'V', emoji: '⚙️', rank: 1, text: noteText(text, note) })))
   }
 
-  return { loaded, language, text }
+  return { loaded, language, text, languages }
 }
 
 export const register: Register = on => {
@@ -744,6 +764,7 @@ export const register: Register = on => {
   // docket's own words, in the language its config names, or Claude Code's.
   let text = EN
   let language: Language = 'en'
+  let languages = ['en']
 
   const apply = (loaded: LoadedConfig) => {
     files = loaded
@@ -755,6 +776,7 @@ export const register: Register = on => {
     apply(next.loaded)
     text = next.text
     language = next.language
+    languages = next.languages
   }
 
   on('session.start', async ($, e, next) => {
@@ -899,7 +921,7 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -955,7 +977,7 @@ export const register: Register = on => {
         return
       }
       await $.fs.write(paths.user, serialize(defaults()))
-      adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -967,18 +989,19 @@ export const register: Register = on => {
         path: target ?? paths.user,
         isProject: Boolean(files.project),
         userPath: paths.user,
+        languages,
         onSave: async (key, value) => {
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1020,7 +1043,7 @@ export const register: Register = on => {
       await closeOwn($, item.id)
       if (item.action === 'createConfig' && kind === 'yes') {
         await $.fs.write(paths.user, serialize(defaults()))
-        adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+        adopt(await reloadConfig($, paths, { loaded: files, language, text, languages }))
       } else if (item.action === 'createConfig') {
         await $.store.set('configDeclined', true)
       }
