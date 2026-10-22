@@ -742,3 +742,30 @@ test('the settings view draws with more languages than a Select can hold, and sa
   expect(await after.find({ type: 'Text', text: /^Ajustes$/ })).toBeDefined()
   await after.unmount()
 })
+
+test('a language tag can end in a dialect, as en-US-startrek', async ($, on) => {
+  standIns(on, {
+    'dialects/startrek': {
+      name: 'Starfleet English (Star Trek)',
+      ready: 'ai translated',
+      version: 1,
+      Requests: { text: 'Requesting permission', ready: 'ai translated' },
+      Questions: { text: 'Orders, Captain?', ready: 'ai translated' },
+      Confirm: { text: 'Confirm, Number One', ready: 'ai translated' },
+      'Needs you': { text: 'Bridge to Captain', ready: 'ai translated' },
+      View: { text: 'Viewscreen', ready: 'ai translated' },
+      Underway: { text: 'At warp', ready: 'ai translated' },
+      Later: { text: 'Log for later', ready: 'ai translated' },
+      Waiting: { text: 'Holding position', ready: 'ai translated' },
+      Pinned: { text: 'Tractor beam', ready: 'ai translated' },
+    },
+  })
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), language: 'en-US-startrek' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'O', text: 'Set course for Risa?' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Orders, Captain\?$/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /Set course for Risa/ })).toBeDefined()
+  await ui.unmount()
+})

@@ -764,11 +764,22 @@ const voiceFor = (loaded: LoadedConfig, files: Voice): Voice => {
   return own ? { all: own, lists: {} } : files
 }
 
-// The forced dialect, if any: a key docket never writes or shows, set by hand in a config file.
+// A language setting may end in a dialect, as BCP 47's variant does: "en-US-startrek" is English with
+// the startrek dialect. A variant is at least five characters, so "zh-Hant" is still a script.
+const VARIANT = /^([a-z]{2,3}(?:[-_][a-z]{2,4})?)[-_]([a-z][a-z0-9]{4,})$/i
+
+export const splitDialect = (setting: unknown) => {
+  const [, language, dialect] = VARIANT.exec(String(setting ?? '').trim()) ?? []
+
+  return language && dialect ? { language, dialect: dialect.toLowerCase() } : { language: setting, dialect: '' }
+}
+
+// The forced dialect, if any: the language setting's variant, or a "dialect" key, set by hand.
 const dialectOf = (loaded: LoadedConfig) => {
   const named = String(loaded.project?.dialect ?? loaded.user?.dialect ?? '').trim()
+  const own = /^[a-z0-9-]+$/i.test(named) ? named.toLowerCase() : ''
 
-  return /^[a-z0-9-]+$/i.test(named) ? named.toLowerCase() : ''
+  return own || splitDialect(merged(loaded.user, loaded.project).language).dialect
 }
 
 // Each language file's state, by code: whatever locales/ holds, so a new language is just its file.
@@ -871,7 +882,7 @@ const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly 
     // No settings menu to ask: docket's own setting, or English.
   }
 
-  return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode, available)
+  return resolveLanguage(splitDialect(merged(loaded.user, loaded.project).language).language, claudeCode, available)
 }
 
 // What a reload settles. `spoken` is the files' voice, kept to reuse; `voice` is what's in force.
