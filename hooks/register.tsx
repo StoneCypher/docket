@@ -34,6 +34,7 @@ const turn = atom({ plugin: 'docket', key: 'turn' } as const, 0)
 const baseline = atom({ plugin: 'docket', key: 'baseline' } as const, {} as Counts)
 const dismissed = atom({ plugin: 'docket', key: 'dismissed' } as const, [] as string[])
 const isSettings = atom({ plugin: 'docket', key: 'isSettings' } as const, false)
+const expanded = atom({ plugin: 'docket', key: 'expanded' } as const, [] as string[])
 const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
 
@@ -203,9 +204,23 @@ const draw = async (
   const counts = openCounts(all)
 
   const order = isByPrompt ? LISTS : [...LISTS].reverse()
+  // Lists the user opened past their cap; "+N more" adds one, "fewer" takes it back out.
+  const open = await read($, expanded)
+  const toggle = (letter: string, isOpening: boolean) => () =>
+    update($, expanded, current => (isOpening ? [...current.filter(each => each !== letter), letter] : current.filter(each => each !== letter)))
+
   const sections = order.map(list => ({
     list,
-    ...arrange(all, list, settings.caps[list.letter] ?? 7, at, now, settings.lingerMs, isByPrompt, settings.answeredMs),
+    ...arrange(
+      all,
+      list,
+      open.includes(list.letter) ? Infinity : (settings.caps[list.letter] ?? 7),
+      at,
+      now,
+      settings.lingerMs,
+      isByPrompt,
+      settings.answeredMs,
+    ),
   })).filter(section => section.shown.length + section.lingering.length + section.hidden > 0)
 
   if (!sections.length) {
@@ -449,7 +464,16 @@ const draw = async (
               {settings.isEmoji && settings.isHeadingEmoji ? `${list.emoji} ` : ''}
               {list.name}
             </Text>
-            {counter(hidden, (counts[list.letter] ?? 0) - (base[list.letter] ?? 0))}
+            {hidden > 0 ? (
+              <Box marginLeft={1}>
+                <Button key={`more-${list.letter}`} plain dimColor label={`+${hidden} more`} onPress={toggle(list.letter, true)} />
+              </Box>
+            ) : open.includes(list.letter) && (counts[list.letter] ?? 0) > (settings.caps[list.letter] ?? 7) ? (
+              <Box marginLeft={1}>
+                <Button key={`fewer-${list.letter}`} plain dimColor label="fewer" onPress={toggle(list.letter, false)} />
+              </Box>
+            ) : null}
+            {counter(0, (counts[list.letter] ?? 0) - (base[list.letter] ?? 0))}
             {shown.length ? (
               // About 2em past the heading and 1em between buttons: a cell is near 0.6em.
               <Box flexDirection="row" marginLeft={3} columnGap={2}>

@@ -47,6 +47,8 @@ declare module 'claude-code' {
       dismissed: string[]
       // Whether the pane shows the settings view instead of the lists.
       isSettings: boolean
+      // Letters of the lists the user expanded past their cap.
+      expanded: string[]
       // The turn the docket last changed in, and whether the last reply spoke of pending work without changing it.
       updatedTurn: number
       isUnreconciled: boolean

@@ -529,3 +529,28 @@ test("a Later item's 🏗️ asks for it to start now", async ($, on) => {
   expect(await ui.find({ key: 'go-L1' })).toBeUndefined()
   await ui.unmount()
 })
+
+test('"+N more" expands its list, and "fewer" folds it back', async ($, on) => {
+  standIns(on)
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  files.set(USER_CONFIG, serialize({ ...defaults(), questionsCap: 2 }))
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'Q', text: 'One?', rank: 1 },
+      { list: 'Q', text: 'Two?', rank: 2 },
+      { list: 'Q', text: 'Three?', rank: 3 },
+    ],
+  })
+  await $.prompt.submit({ text: 'next' })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeUndefined()
+  await ui.press({ key: 'more-Q' })
+  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeDefined()
+  await ui.press({ key: 'fewer-Q' })
+  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeUndefined()
+  await ui.unmount()
+})
