@@ -1125,6 +1125,8 @@ export const register: Register = on => {
       changes.size && `Changed ${[...changes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
       closes.size && `Closed ${[...closes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
       unknown.length && `No such items: ${unknown.map(shown).join(', ')}.`,
+      // The language may have changed since those labels were read: say what the letters are now.
+      unknown.length && `The docket's letters are now ${LETTERS.map(letter => `${text.lists[letter].letter} ${text.lists[letter].name}`).join(', ')}.`,
     ]
       .filter(Boolean)
       .join(' ')

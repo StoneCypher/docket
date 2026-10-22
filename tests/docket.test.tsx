@@ -613,6 +613,8 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   const closed = await $.tool.call({ tool: 'mcp__docket__update', close: [{ id: 'p1' }, { id: 'Q9' }] })
   expect(JSON.stringify(closed)).toContain('Closed P1.')
   expect(JSON.stringify(closed)).toContain('No such items: Q9.')
+  expect(JSON.stringify(closed)).toContain("The docket's letters are now")
+  expect(JSON.stringify(closed)).toContain('P Preguntas')
 })
 
 test('a language docket has no file for gets English, and one offer to help translate it', async ($, on) => {
