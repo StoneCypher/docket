@@ -73,6 +73,8 @@ h1 { margin: 0; font: 600 clamp(2.2rem, 5vw, 3rem)/1.1 var(--face-mono); letter-
 }
 .note { margin: 0; font-size: 0.88rem; color: var(--muted); }
 
+.why p { margin: 0; max-width: 40rem; font-size: 1.05rem; border-left: 2px solid var(--rule); padding-left: 1rem; }
+
 h2 { margin: 0 0 0.75rem; font: 600 1.45rem/1.25 var(--face-body); letter-spacing: -0.01em; text-wrap: balance; }
 p { margin: 0 0 0.9rem; max-width: 36rem; }
 
