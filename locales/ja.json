@@ -1,0 +1,155 @@
+{
+  "language": "Japanese",
+  "lists": {
+    "R": {
+      "name": "依頼",
+      "letter": "依"
+    },
+    "Q": {
+      "name": "質問",
+      "letter": "質"
+    },
+    "C": {
+      "name": "確認",
+      "letter": "確"
+    },
+    "N": {
+      "name": "要対応",
+      "letter": "要"
+    },
+    "V": {
+      "name": "閲覧",
+      "letter": "閲"
+    },
+    "U": {
+      "name": "進行中",
+      "letter": "進"
+    },
+    "L": {
+      "name": "後回し",
+      "letter": "後"
+    },
+    "W": {
+      "name": "待機中",
+      "letter": "待"
+    },
+    "P": {
+      "name": "保留",
+      "letter": "保"
+    }
+  },
+  "lean": "推奨",
+  "new": "（新規）",
+  "more": "他{n}件",
+  "fewer": "折りたたむ",
+  "nothing": "docket には何もありません。",
+  "bulk": {
+    "Q": "推奨をすべて採用",
+    "C": "すべて確認",
+    "R": "すべて承認"
+  },
+  "send": {
+    "acceptLean": "{id} の推奨を採用します。",
+    "rejectLean": "{id} の推奨は採用しません。",
+    "pick": "{id}（{option}）。",
+    "approve": "{id} を承認します。",
+    "decline": "{id} は却下します。",
+    "confirm": "{id} を確認しました。",
+    "notConfirm": "{id} は確認できません。",
+    "start": "{id} を今すぐ始めてください。",
+    "acceptLeans": "{ids} の推奨を採用します。",
+    "confirmAll": "{ids} を確認しました。",
+    "approveAll": "{ids} を承認します。"
+  },
+  "settings": {
+    "title": "設定",
+    "done": "完了",
+    "editingYours": "あなたの設定を編集中：",
+    "editingProject": "このプロジェクトの設定を編集中（あなたの設定より優先されます）：",
+    "copyToProject": "このプロジェクト用にコピー",
+    "mobile": "設定はターミナル、デスクトップ、または VS Code で開いてください。",
+    "capTitle": "{list}の表示上限",
+    "capDescription": "「他N件」になる前に{list}に表示する件数"
+  },
+  "config": {
+    "offer": "docket の設定ファイルを {path} に、すべて既定値で作成しますか？ そのファイルか ⚙ から編集できます。",
+    "lookAt": "新しい設定ファイル：{path}。すべての設定が既定値で入っています。",
+    "updated": "docket は {path} の設定をバージョン {from} から {to} に更新しました。",
+    "updatedAdding": "docket は {path} の設定をバージョン {from} から {to} に更新し、{added} を既定値で追加しました。",
+    "unreadable": "docket は {path} の設定を読み込めなかったため、ファイルが直るまで既定値を使います。"
+  },
+  "fields": {
+    "language": [
+      "言語",
+      "docket の表示言語。auto は Claude Code の言語設定に従います"
+    ],
+    "display": [
+      "表示方法",
+      "チャットの横のペイン、または入力欄の上の帯"
+    ],
+    "emoji": [
+      "絵文字",
+      "docket のすべての絵文字の一括切り替え"
+    ],
+    "headingEmoji": [
+      "見出しの絵文字",
+      "各リストの見出しの前に絵文字を表示"
+    ],
+    "noItemEmojiLists": [
+      "絵文字なしのリスト",
+      "項目に絵文字を付けないリストの内部文字（英語の文字。例：\"Q,P\" は質問と保留）"
+    ],
+    "inlineLists": [
+      "1行表示のリスト",
+      "1行に並べて表示するリストの内部文字（英語の文字）"
+    ],
+    "targetWords": [
+      "目安の長さ",
+      "リストごとの語数の目安（内部の英語の文字で。例：\"P=8,Q=30\"）"
+    ],
+    "stakesDisplay": [
+      "重要度の表示",
+      "重要度マーカーの表示方法"
+    ],
+    "itemColor": [
+      "項目の色",
+      "このターンに変わった項目の色（16進数またはテーマキー）"
+    ],
+    "itemDimColor": [
+      "薄くした項目の色",
+      "前のターンから変わっていない項目の色"
+    ],
+    "upArrowColor": [
+      "増加の矢印",
+      "このターンにリストが増えたときの ↑ の色"
+    ],
+    "upNumberColor": [
+      "増加の数",
+      "増えたリストの ↑ の横の数の色"
+    ],
+    "downArrowColor": [
+      "減少の矢印",
+      "このターンにリストが減ったときの ↓ の色"
+    ],
+    "downNumberColor": [
+      "減少の数",
+      "減ったリストの ↓ の横の数の色"
+    ],
+    "leanColor": [
+      "推奨の色",
+      "推奨の行の色。空欄なら項目と同じ色"
+    ],
+    "leanDimColor": [
+      "薄くした推奨の色",
+      "項目が薄く表示されているときの推奨の行の色"
+    ],
+    "answeredLingerSeconds": [
+      "回答後の表示時間",
+      "ボタンで回答した項目が薄く表示されたまま残る秒数"
+    ],
+    "strikeLingerMinutes": [
+      "取り消し線の表示時間",
+      "Claude が自分で閉じた項目が取り消し線付きで残る分数"
+    ]
+  }
+}

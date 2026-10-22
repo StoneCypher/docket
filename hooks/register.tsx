@@ -19,6 +19,8 @@ import {
 import type { Settings } from './lists'
 import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
 import type { ConfigFile } from './config'
+import { EN, fill, idFor, labelOf, labelOfId, letterFor, mergeStrings, resolveLanguage } from './i18n'
+import type { Language, Strings } from './i18n'
 
 const TOOL = 'mcp__docket__update'
 const PANE = 'docket'
@@ -67,29 +69,33 @@ const fieldsOf = (spec: Fields): Fields => {
   return out
 }
 
-const ITEM_FIELDS = {
+// The tool's fields, in the user's language's letters and messages.
+const itemFields = (text: Strings) => ({
   text: { type: 'string', description: 'The item, one to three lines' },
   emoji: { type: 'string', description: 'One emoji for the item' },
   lean: { type: 'string', description: 'Questions only: the answer you would pick' },
   stakes: { type: 'string', enum: STAKES, description: 'Omit for low stakes' },
-  rank: { type: 'number', description: 'V, N, C, Q and R only: 1 is the most urgent' },
+  rank: {
+    type: 'number',
+    description: `${(['V', 'N', 'C', 'Q', 'R'] as const).map(letter => text.lists[letter].letter).join(', ')} only: 1 is the most urgent`,
+  },
   open: { type: 'string', description: 'A local file path the item is about. The item gets an Open button that opens it in the editor.' },
   options: {
     type: 'array',
     items: { type: 'string' },
     maxItems: 3,
-    description: 'Questions only: one to three button labels, each a single letter or a single emoji, such as ["a", "b", "c"] or ["🌐", "📄"]. Each label must appear in the text beside what it picks. Their buttons replace the lean’s ✔ and ✗ and send "Q4 (b)."',
+    description: `Questions only: one to three button labels, each a single letter or a single emoji, such as ["a", "b", "c"] or ["🌐", "📄"]. Each label must appear in the text beside what it picks. Their buttons replace the lean’s ✔ and ✗ and send "${fill(text.send.pick, { id: `${text.lists.Q.letter}4`, option: 'b' })}"`,
   },
-}
+})
 
-const INPUT_SCHEMA = {
+const schemaOf = (text: Strings) => ({
   type: 'object',
   properties: {
     add: {
       type: 'array',
       items: {
         type: 'object',
-        properties: { list: { type: 'string', enum: LETTERS }, ...ITEM_FIELDS },
+        properties: { list: { type: 'string', enum: LETTERS.map(letter => text.lists[letter].letter) }, ...itemFields(text) },
         required: ['list', 'text'],
       },
     },
@@ -97,7 +103,7 @@ const INPUT_SCHEMA = {
       type: 'array',
       items: {
         type: 'object',
-        properties: { id: { type: 'string', description: 'A label such as Q12' }, ...ITEM_FIELDS },
+        properties: { id: { type: 'string', description: `A label such as ${text.lists.Q.letter}12` }, ...itemFields(text) },
         required: ['id'],
       },
     },
@@ -116,7 +122,7 @@ const INPUT_SCHEMA = {
       },
     },
   },
-}
+})
 
 const withoutAnswer = ({ answered: _, answeredAt: __, ...item }: Item): Item => item
 
@@ -148,7 +154,9 @@ const draw = async (
   isByPrompt: boolean,
   surface: string,
   onAction: (item: Item, kind: string) => Promise<void>,
+  text: Strings,
 ) => {
+  const label = (item: Pick<Item, 'list' | 'n'>) => labelOf(text, item)
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
   // The eye has the same trouble on the terminal, which gets a plain ◉ instead.
@@ -288,14 +296,14 @@ const draw = async (
     list.filter(item => item.list === letter && isOpen(item) && !item.answered && (letter !== 'Q' || item.lean))
 
   // A bulk button answers only the items on screen: never the ones hidden past the cap.
-  const accept = (verb: string, letter: Letter, shown: readonly Item[]) => async () => {
+  const accept = (send: keyof Strings['send'], letter: Letter, shown: readonly Item[]) => async () => {
     const onScreen = new Set(shown.map(item => item.id))
     const ids = bulkable(await read($, items), letter)
       .filter(item => onScreen.has(item.id))
       .map(item => item.id)
     if (ids.length) {
       await markAnswered(ids, 'yes')
-      await $.prompt.submit({ text: `${verb} ${ids.join(', ')}.`, asUser: true })
+      await $.prompt.submit({ text: fill(text.send[send], { ids: ids.map(id => labelOfId(text, id)).join(', ') }), asUser: true })
     }
   }
 
@@ -324,10 +332,10 @@ const draw = async (
   const line = (item: Item, isLingering: boolean, isDim: boolean) => (
     // Struck through while lingering, and once sent: the answer is out, the item is on its way.
     <Text {...itemColor(isLingering, isDim)} strikethrough={isLingering || item.answered !== undefined}>
-      <Text bold>{item.id}.</Text>
+      <Text bold>{label(item)}.</Text>
       {marker(item)}
       {stakesTag(item)} {linkify(item.text)}
-      {item.addedTurn === at && !isLingering ? ' (new)' : ''}
+      {item.addedTurn === at && !isLingering ? ` ${text.new}` : ''}
     </Text>
   )
 
@@ -368,7 +376,7 @@ const draw = async (
         columnGap={1}
       >
         {(item.options ?? []).map((option, i) => (
-          <Button key={`opt-${item.id}-${i}`} plain dimColor onPress={answer(item.id, option, `${item.id} (${option}).`)}>
+          <Button key={`opt-${item.id}-${i}`} plain dimColor onPress={answer(item.id, option, fill(text.send.pick, { id: label(item), option }))}>
             <Text size="caption">{option}</Text>
           </Button>
         ))}
@@ -378,7 +386,7 @@ const draw = async (
   const row = (item: Item, isLingering: boolean) => {
     const isDim = isLingering || item.answered !== undefined || item.changedTurn < at
     const { answers } = LISTS.find(list => list.letter === item.list) ?? {}
-    const sayOf = answers && { yes: `${answers.yes} ${item.id}.`, no: `${answers.no} ${item.id}.` }
+    const sayOf = answers && { yes: fill(text.send[answers.yes], { id: label(item) }), no: fill(text.send[answers.no], { id: label(item) }) }
 
     return (
       // Items sit about 1em in from their heading: 2 cells, a cell being near 0.6em.
@@ -390,8 +398,8 @@ const draw = async (
             <Box flexShrink={1} minWidth={0}>
               {line(item, isLingering, isDim)}
             </Box>
-            {sayOf ? yesNo(item, sayOf.yes, sayOf.no, `${item.id}. ${item.text}`, 3) : null}
-            {item.options && !item.lean ? choices(item, `${item.id}. ${item.text}`) : null}
+            {sayOf ? yesNo(item, sayOf.yes, sayOf.no, `${label(item)}. ${item.text}`, 3) : null}
+            {item.options && !item.lean ? choices(item, `${label(item)}. ${item.text}`) : null}
             {/* An item about a file gets 👁️ to open it, and a Later item 🏗️ to start it, stacked above its 🗑️. */}
             <Box flexShrink={0} marginLeft={1} flexDirection="column">
               {item.list === 'L' ? (
@@ -400,7 +408,7 @@ const draw = async (
                     {crane}
                   </Text>
                 ) : (
-                  <Button key={`go-${item.id}`} plain dimColor onPress={answer(item.id, crane, `Start ${item.id} now.`)}>
+                  <Button key={`go-${item.id}`} plain dimColor onPress={answer(item.id, crane, fill(text.send.start, { id: label(item) }))}>
                     <Text size="caption">{crane}</Text>
                   </Button>
                 )
@@ -424,12 +432,17 @@ const draw = async (
             <Box flexShrink={1} minWidth={0}>
               {/* Explicit colors, not dimColor: a surface's dim overrides any color given beside it. */}
               <Text color={isDim ? settings.leanDimColor : settings.leanColor} italic>
-                <Text bold>Lean</Text>: {linkify(item.lean)}
+                <Text bold>{text.lean}</Text>: {linkify(item.lean)}
               </Text>
             </Box>
             {item.options
-              ? choices(item, `Lean: ${item.lean}`)
-              : yesNo(item, `Accept the lean on ${item.id}.`, `No to the lean on ${item.id}.`, `Lean: ${item.lean}`)}
+              ? choices(item, `${text.lean}: ${item.lean}`)
+              : yesNo(
+                  item,
+                  fill(text.send.acceptLean, { id: label(item) }),
+                  fill(text.send.rejectLean, { id: label(item) }),
+                  `${text.lean}: ${item.lean}`,
+                )}
           </Box>
         ) : null}
       </Box>
@@ -445,7 +458,7 @@ const draw = async (
           return (
             <Text key={item.id} {...itemColor(isLingering, item.changedTurn < at)} strikethrough={isLingering}>
               {i ? ' · ' : ''}
-              <Text bold>{item.id}</Text>
+              <Text bold>{label(item)}</Text>
               {marker(item)}
               {stakesTag(item)} {linkify(item.text)}
             </Text>
@@ -462,15 +475,15 @@ const draw = async (
           <Box flexDirection="row">
             <Text bold>
               {settings.isEmoji && settings.isHeadingEmoji ? `${list.emoji} ` : ''}
-              {list.name}
+              {text.lists[list.letter].name}
             </Text>
             {hidden > 0 ? (
               <Box marginLeft={1}>
-                <Button key={`more-${list.letter}`} plain dimColor label={`+${hidden} more`} onPress={toggle(list.letter, true)} />
+                <Button key={`more-${list.letter}`} plain dimColor label={fill(text.more, { n: hidden })} onPress={toggle(list.letter, true)} />
               </Box>
             ) : open.includes(list.letter) && (counts[list.letter] ?? 0) > (settings.caps[list.letter] ?? 7) ? (
               <Box marginLeft={1}>
-                <Button key={`fewer-${list.letter}`} plain dimColor label="fewer" onPress={toggle(list.letter, false)} />
+                <Button key={`fewer-${list.letter}`} plain dimColor label={text.fewer} onPress={toggle(list.letter, false)} />
               </Box>
             ) : null}
             {counter(0, (counts[list.letter] ?? 0) - (base[list.letter] ?? 0))}
@@ -479,7 +492,7 @@ const draw = async (
               <Box flexDirection="row" marginLeft={3} columnGap={2}>
                 {/* A bulk button only where there's more than one thing for it to answer. */}
                 {list.bulk && bulkable(shown, list.letter).length > 1 ? (
-                  <Button key={`bulk-${list.letter}`} label={list.bulk.label} onPress={accept(list.bulk.verb, list.letter, shown)} />
+                  <Button key={`bulk-${list.letter}`} label={text.bulk[list.letter as 'Q' | 'C' | 'R']} onPress={accept(list.bulk, list.letter, shown)} />
                 ) : null}
                 <Button key={`x-${list.letter}`} plain dimColor onPress={dismissList(list.letter)}>
                   <Text size="caption">✕</Text>
@@ -512,7 +525,19 @@ const gear = ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string) => (
 )
 
 export type ConfigPaths = { user: string; project?: string }
-export type LoadedConfig = { user?: ConfigFile; project?: ConfigFile; notes: string[] }
+// What loading a config file had to say: worded once the language is known, as the file may set it.
+export type ConfigNote = { kind: 'unreadable' | 'updated'; path: string; from?: number; added?: string[] }
+export type LoadedConfig = { user?: ConfigFile; project?: ConfigFile; notes: ConfigNote[] }
+
+const noteText = (text: Strings, note: ConfigNote) =>
+  note.kind === 'unreadable'
+    ? fill(text.config.unreadable, { path: fileLink(note.path) })
+    : fill(note.added?.length ? text.config.updatedAdding : text.config.updated, {
+        path: fileLink(note.path),
+        from: note.from ?? 0,
+        to: CONFIG_VERSION,
+        added: (note.added ?? []).join(', '),
+      })
 
 // VS Code draws only https: links, so a config path is shown as plain text.
 const fileLink = (path: string) => path
@@ -537,14 +562,13 @@ const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> 
     if (!path || !(await $.fs.exists(path))) continue
     const raw = parse(await $.fs.read(path))
     if (raw === undefined) {
-      loaded.notes.push(`docket couldn't read its config at ${fileLink(path)}, so it's using the defaults until the file is fixed.`)
+      loaded.notes.push({ kind: 'unreadable', path })
       continue
     }
     const migration = migrate(raw)
     if (migration.isChanged) {
       await $.fs.write(path, serialize(migration.config))
-      const added = migration.added.length ? `, adding ${migration.added.join(', ')} at their defaults` : ''
-      loaded.notes.push(`docket updated its config at ${fileLink(path)} from version ${migration.from} to ${CONFIG_VERSION}${added}.`)
+      loaded.notes.push({ kind: 'updated', path, from: migration.from, added: migration.added })
     }
     loaded[scope] = migration.config
   }
@@ -604,21 +628,33 @@ export type SettingsView = {
 }
 
 // The ⚙ view: every setting, edited straight into the config file it names.
-const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: SettingsView) => (
+// A field's title and description in the user's language; a list's cap names its list.
+const fieldWords = (text: Strings, key: string, title: string, description: string): [string, string] => {
+  const list = LISTS.find(each => each.capKey === key)
+  if (list) {
+    const name = text.lists[list.letter].name
+
+    return [fill(text.settings.capTitle, { list: name }), fill(text.settings.capDescription, { list: name })]
+  }
+
+  return text.fields[key] ?? [title, description]
+}
+
+const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: SettingsView, text: Strings) => (
   <Box flexDirection="column">
     <Box flexDirection="row" marginBottom={1}>
-      <Text bold>Settings</Text>
+      <Text bold>{text.settings.title}</Text>
       <Box marginLeft={3}>
-        <Button key="done" label="Done" onPress={view.onDone} />
+        <Button key="done" label={text.settings.done} onPress={view.onDone} />
       </Box>
     </Box>
     <Box flexDirection="column" marginBottom={1}>
       <Text dimColor size="footnote">
-        {view.isProject ? 'Editing this project\u2019s config, which overrides yours:' : 'Editing your config:'} {view.path}
+        {view.isProject ? text.settings.editingProject : text.settings.editingYours} {view.path}
       </Text>
       {view.onCopyToProject ? (
         <Box marginTop={1}>
-          <Button key="copy-project" label="Make a copy for this project" onPress={view.onCopyToProject} />
+          <Button key="copy-project" label={text.settings.copyToProject} onPress={view.onCopyToProject} />
         </Box>
       ) : null}
     </Box>
@@ -633,11 +669,13 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
           <Input key={key} value={String(value)} submitLabel="save" onSubmit={text => view.onSave(key, field.kind === 'number' ? Number(text) : text)} />
         )
 
+      const [title, description] = fieldWords(text, key, field.title, field.description)
+
       return (
         <Box key={`row-${key}`} flexDirection="column" marginBottom={1}>
-          <Text bold>{field.title}</Text>
+          <Text bold>{title}</Text>
           <Text dimColor size="footnote">
-            {field.description}
+            {description}
           </Text>
           {control}
         </Box>
@@ -646,25 +684,85 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
   </Box>
 )
 
+// The tool, described in the user's language.
+const toolSpec = (text: Strings) => ({
+  name: 'update',
+  description:
+    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number.',
+  inputSchema: schemaOf(text),
+  isDeferred: false,
+})
+
+// docket's own words in a language: its file read over English. A file that won't read leaves English.
+const stringsOf = async ($: Dollar, language: Language) => {
+  if (language === 'en') {
+    return EN
+  }
+  try {
+    return mergeStrings(EN, JSON.parse(await $.fs.read(`${$.plugin.root}/locales/${language}.json`)))
+  } catch {
+    return EN
+  }
+}
+
+// The language docket's config names, or else Claude Code's own.
+const languageFor = async ($: Dollar, loaded: LoadedConfig) => {
+  let claudeCode: unknown
+  try {
+    claudeCode = (await $.config.list()).find(row => row.key === 'language')?.value
+  } catch {
+    // No settings menu to ask: docket's own setting, or English.
+  }
+
+  return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode)
+}
+
+export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings }
+
+// Loads the config, then the language it names, registering the tool again in a new language, then
+// adds its notes in that language. With nothing before it, the tool is registered regardless.
+const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Promise<Reloaded> => {
+  const loaded = await loadConfig($, paths)
+  const language = await languageFor($, loaded)
+  const text = was && was.language === language ? was.text : await stringsOf($, language)
+  if (!was || was.language !== language) {
+    await $.tool.register(toolSpec(text))
+    $.ui.invalidate('ui.render')
+  }
+  if (loaded.notes.length) {
+    await addOwn($, loaded.notes.map(note => ({ list: 'V', emoji: '⚙️', rank: 1, text: noteText(text, note) })))
+  }
+
+  return { loaded, language, text }
+}
+
 export const register: Register = on => {
   // The settings come from docket's config files, read at the session's start and on every prompt.
   let settings = settingsOf(merged())
   let paths: ConfigPaths = { user: '' }
   let files: LoadedConfig = { notes: [] }
+  // docket's own words, in the language its config names, or Claude Code's.
+  let text = EN
+  let language: Language = 'en'
 
   const apply = (loaded: LoadedConfig) => {
     files = loaded
     settings = settingsOf(merged(loaded.user, loaded.project))
   }
 
+  // Takes what a reload found.
+  const adopt = (next: Reloaded) => {
+    apply(next.loaded)
+    text = next.text
+    language = next.language
+  }
+
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'docket', description: 'Open the docket pane' })
     paths = await configPaths($, e.cwd)
-    const loaded = await loadConfig($, paths)
-    apply(loaded)
-    if (loaded.notes.length) {
-      await addOwn($, loaded.notes.map(text => ({ list: 'V', emoji: '⚙️', rank: 1, text })))
-    }
+    // Settled afresh in each process, so the tool is registered whatever the language.
+    adopt(await reloadConfig($, paths))
+    const loaded = files
     // With no config of the user's own, offer to write one: once, and not again after a no.
     const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
     if (!loaded.user && !isOffered && !(await $.store.get('configDeclined'))) {
@@ -673,7 +771,7 @@ export const register: Register = on => {
           list: 'R',
           emoji: '⚙️',
           rank: 1,
-          text: `Create docket's config at ${fileLink(paths.user)}, with every setting at its default? You can edit it there, or with ⚙.`,
+          text: fill(text.config.offer, { path: fileLink(paths.user) }),
           action: 'createConfig',
         },
       ])
@@ -681,13 +779,6 @@ export const register: Register = on => {
     if (settings.display === 'pane') {
       void openPane($)
     }
-    await $.tool.register({
-      name: 'update',
-      description:
-        'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number.',
-      inputSchema: INPUT_SCHEMA,
-      isDeferred: false,
-    })
 
     return next(e)
   })
@@ -706,15 +797,17 @@ export const register: Register = on => {
       const next = { ...current }
       added.length = 0
       for (const spec of input.add ?? []) {
-        if (!LETTERS.includes(spec.list) || typeof spec.text !== 'string') {
+        // The list comes in the language's letter.
+        const list = letterFor(text, String(spec.list ?? ''))
+        if (!list || typeof spec.text !== 'string') {
           continue
         }
-        const n = (next[spec.list] ?? 0) + 1
-        next[spec.list] = n
+        const n = (next[list] ?? 0) + 1
+        next[list] = n
         added.push({
           ...fieldsOf(spec),
-          id: `${spec.list}${n}`,
-          list: spec.list,
+          id: `${list}${n}`,
+          list,
           n,
           text: spec.text,
           addedTurn: at,
@@ -725,8 +818,10 @@ export const register: Register = on => {
       return next
     })
 
-    const changes = new Map((input.change ?? []).map(spec => [spec.id.toUpperCase(), fieldsOf(spec)]))
-    const closes = new Map((input.close ?? []).map(spec => [spec.id.toUpperCase(), spec.unasked === true]))
+    // Labels come in the language's letters too; one naming no list is reported back as written.
+    const idOf = (label: string) => idFor(text, String(label)) ?? `?${label}`
+    const changes = new Map((input.change ?? []).map(spec => [idOf(spec.id), fieldsOf(spec)]))
+    const closes = new Map((input.close ?? []).map(spec => [idOf(spec.id), spec.unasked === true]))
     const known = new Set<string>()
     let isUnaskedClose = false
 
@@ -761,12 +856,13 @@ export const register: Register = on => {
       $.clock.after(settings.lingerMs + 1000, () => $.ui.invalidate('ui.render'))
     }
 
-    const unknown = [...changes.keys(), ...closes.keys()].filter(id => !known.has(id))
+    const shown = (id: string) => (id.startsWith('?') ? id.slice(1) : labelOfId(text, id))
+    const unknown = [...new Set([...changes.keys(), ...closes.keys()])].filter(id => !known.has(id))
     const report = [
-      added.length && `Added ${added.map(item => item.id).join(', ')}.`,
-      changes.size && `Changed ${[...changes.keys()].filter(id => known.has(id)).join(', ') || 'nothing'}.`,
-      closes.size && `Closed ${[...closes.keys()].filter(id => known.has(id)).join(', ') || 'nothing'}.`,
-      unknown.length && `No such items: ${unknown.join(', ')}.`,
+      added.length && `Added ${added.map(item => labelOf(text, item)).join(', ')}.`,
+      changes.size && `Changed ${[...changes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
+      closes.size && `Closed ${[...closes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
+      unknown.length && `No such items: ${unknown.map(shown).join(', ')}.`,
     ]
       .filter(Boolean)
       .join(' ')
@@ -790,7 +886,7 @@ export const register: Register = on => {
     return {
       sections: [
         ...composed.sections,
-        { id: 'docket', text: instructions(settings, e.surfaces.length === 0), scope: 'session' },
+        { id: 'docket', text: instructions(settings, e.surfaces.length === 0, text), scope: 'session' },
       ],
     }
   })
@@ -803,23 +899,19 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      const loaded = await loadConfig($, paths)
-      apply(loaded)
-      if (loaded.notes.length) {
-        await addOwn($, loaded.notes.map(text => ({ list: 'V', emoji: '⚙️', rank: 1, text })))
-      }
+      adopt(await reloadConfig($, paths, { loaded: files, language, text }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
     const gone = await read($, dismissed)
     await update($, dismissed, () => [])
 
-    const context = [snapshot(all, gone)]
+    const context = [snapshot(all, gone, text)]
     if (await read($, isUnreconciled)) {
       context.push(RECONCILE)
       await update($, isUnreconciled, () => false)
     }
-    const named = references(e.text, all)
+    const named = references(e.text, all, text)
     if (named) {
       context.push(named)
     }
@@ -863,8 +955,8 @@ export const register: Register = on => {
         return
       }
       await $.fs.write(paths.user, serialize(defaults()))
-      apply(await loadConfig($, paths))
-      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: `Look at your new config: ${fileLink(paths.user)}. Every setting is there at its default.`, open: paths.user }])
+      adopt(await reloadConfig($, paths, { loaded: files, language, text }))
+      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
     if (await read($, isSettings)) {
@@ -879,21 +971,21 @@ export const register: Register = on => {
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          apply(await loadConfig($, paths))
+          adopt(await reloadConfig($, paths, { loaded: files, language, text }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                apply(await loadConfig($, paths))
+                adopt(await reloadConfig($, paths, { loaded: files, language, text }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
       }
       // The phone draws no fields yet.
       const body =
-        e.surface === 'mobile' ? <Text dimColor>Settings need the terminal, desktop or VS Code.</Text> : drawSettings($.ui.resolve(e), view)
+        e.surface === 'mobile' ? <Text dimColor>{text.settings.mobile}</Text> : drawSettings($.ui.resolve(e), view, text)
 
       return (
         <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
@@ -903,11 +995,11 @@ export const register: Register = on => {
       )
     }
 
-    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction)
+    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction, text)
 
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
-        {lists ?? <Text dimColor>Nothing on the docket.</Text>}
+        {lists ?? <Text dimColor>{text.nothing}</Text>}
         {gear($, kit, e.surface)}
       </Box>
     )
@@ -928,12 +1020,12 @@ export const register: Register = on => {
       await closeOwn($, item.id)
       if (item.action === 'createConfig' && kind === 'yes') {
         await $.fs.write(paths.user, serialize(defaults()))
-        apply(await loadConfig($, paths))
+        adopt(await reloadConfig($, paths, { loaded: files, language, text }))
       } else if (item.action === 'createConfig') {
         await $.store.set('configDeclined', true)
       }
     }
 
-    return (await draw($, $.ui.resolve(e), settings, e.props.bodyColumns, true, e.surface, onAction)) ?? next(e)
+    return (await draw($, $.ui.resolve(e), settings, e.props.bodyColumns, true, e.surface, onAction, text)) ?? next(e)
   })
 }

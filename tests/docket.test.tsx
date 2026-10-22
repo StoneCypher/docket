@@ -1,6 +1,6 @@
 import { expect, test } from 'claude-code/testing'
 
-import { defaults, serialize } from '../hooks/config'
+import { CONFIG_VERSION, defaults, serialize } from '../hooks/config'
 
 const PANE = {
   plugin: 'docket',
@@ -24,7 +24,8 @@ const store = new Map<string, unknown>()
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
-const standIns = (on: Parameters<Parameters<typeof test>[1]>[1]) => {
+// `locales` stands for the plugin's own language files, wherever the engine puts the plugin.
+const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record<string, unknown> = {}) => {
   files.clear()
   store.clear()
   // A complete config by default, so the offer to create one only shows where a test removes it.
@@ -37,7 +38,12 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1]) => {
   on('ui.open', () => ({ value: { isPlaced: true } }))
   on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
-  on('fs.read', (_, e) => ({ value: files.get(plain((e as { path: string }).path)) ?? '' }))
+  on('fs.read', (_, e) => {
+    const path = plain((e as { path: string }).path)
+    const locale = /\/locales\/(\w+)\.json$/.exec(path)?.[1]
+
+    return { value: locale && locales[locale] ? JSON.stringify(locales[locale]) : (files.get(path) ?? '') }
+  })
   on('fs.write', (_, e) => {
     const { path, text } = e as { path: string; text: string }
     files.set(plain(path), text)
@@ -268,7 +274,7 @@ test("with no config, the pane offers one, and its ✔ writes every key at its d
   await ui.unmount()
 
   const written = JSON.parse(files.get(USER_CONFIG) ?? '{}')
-  expect(written.version).toBe(1)
+  expect(written.version).toBe(CONFIG_VERSION)
   expect(written.leanColor).toBe('#b1b1b1')
   expect(written.laterCap).toBe(7)
   // The offer is the mod's own: answering it sends nothing to Claude.
@@ -285,7 +291,7 @@ test('an old config is migrated in place, and View says so', async ($, on) => {
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   const migrated = JSON.parse(files.get(USER_CONFIG) ?? '{}')
-  expect(migrated.version).toBe(1)
+  expect(migrated.version).toBe(CONFIG_VERSION)
   expect(migrated.leanColor).toBe('#123456')
   expect(migrated.questionsCap).toBe(7)
 
@@ -553,4 +559,43 @@ test('"+N more" expands its list, and "fewer" folds it back', async ($, on) => {
   await ui.press({ key: 'fewer-Q' })
   expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeUndefined()
   await ui.unmount()
+})
+
+test('in Spanish, the pane, the tool and the buttons all use Spanish names and letters', async ($, on) => {
+  const submitted: string[] = []
+  // What the Spanish file leaves out stays English.
+  standIns(on, {
+    es: {
+      lists: { Q: { name: 'Preguntas', letter: 'P' }, P: { name: 'Fijado', letter: 'F' } },
+      lean: 'Propuesta',
+      send: { acceptLean: 'Acepto la propuesta de {id}.' },
+    },
+  })
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+  files.set(USER_CONFIG, serialize({ ...defaults(), language: 'es' }))
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  // P is Preguntas, questions, in Spanish; F is Fijado, pinned.
+  const ran = await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'P', text: '¿Publicamos el viernes?', lean: 'sí, tras las pruebas' },
+      { list: 'F', text: 'Revisar el logo' },
+    ],
+  })
+  expect(JSON.stringify(ran)).toContain('Added P1, F1')
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Preguntas$/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /^Propuesta$/ })).toBeDefined()
+  await ui.press({ key: 'ok-Q1' })
+  await ui.unmount()
+  expect(submitted).toEqual(['Acepto la propuesta de P1.'])
+
+  const closed = await $.tool.call({ tool: 'mcp__docket__update', close: [{ id: 'p1' }, { id: 'Q9' }] })
+  expect(JSON.stringify(closed)).toContain('Closed P1.')
+  expect(JSON.stringify(closed)).toContain('No such items: Q9.')
 })

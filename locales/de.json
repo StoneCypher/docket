@@ -1,0 +1,155 @@
+{
+  "language": "German",
+  "lists": {
+    "R": {
+      "name": "Anfragen",
+      "letter": "A"
+    },
+    "Q": {
+      "name": "Fragen",
+      "letter": "F"
+    },
+    "C": {
+      "name": "Bestätigen",
+      "letter": "B"
+    },
+    "N": {
+      "name": "Dein Zug",
+      "letter": "D"
+    },
+    "V": {
+      "name": "Sichten",
+      "letter": "S"
+    },
+    "U": {
+      "name": "Laufend",
+      "letter": "L"
+    },
+    "L": {
+      "name": "Vorgemerkt",
+      "letter": "V"
+    },
+    "W": {
+      "name": "Wartend",
+      "letter": "W"
+    },
+    "P": {
+      "name": "Geparkt",
+      "letter": "G"
+    }
+  },
+  "lean": "Vorschlag",
+  "new": "(neu)",
+  "more": "+{n} weitere",
+  "fewer": "weniger",
+  "nothing": "Nichts auf dem Docket.",
+  "bulk": {
+    "Q": "Alle Vorschläge annehmen",
+    "C": "Alle bestätigen",
+    "R": "Alle genehmigen"
+  },
+  "send": {
+    "acceptLean": "Vorschlag zu {id} angenommen.",
+    "rejectLean": "Vorschlag zu {id} abgelehnt.",
+    "pick": "{id} ({option}).",
+    "approve": "{id} genehmigt.",
+    "decline": "{id} abgelehnt.",
+    "confirm": "{id} bestätigt.",
+    "notConfirm": "{id} nicht bestätigt.",
+    "start": "Fang jetzt mit {id} an.",
+    "acceptLeans": "Vorschläge zu {ids} angenommen.",
+    "confirmAll": "{ids} bestätigt.",
+    "approveAll": "{ids} genehmigt."
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "done": "Fertig",
+    "editingYours": "Deine Konfiguration wird bearbeitet:",
+    "editingProject": "Die Konfiguration dieses Projekts wird bearbeitet; sie hat Vorrang vor deiner:",
+    "copyToProject": "Für dieses Projekt kopieren",
+    "mobile": "Einstellungen brauchen das Terminal, die Desktop-App oder VS Code.",
+    "capTitle": "Obergrenze für {list}",
+    "capDescription": "Einträge, die in {list} vor „+N weitere“ angezeigt werden"
+  },
+  "config": {
+    "offer": "Die docket-Konfiguration unter {path} anlegen, mit allen Einstellungen auf ihrem Standardwert? Bearbeiten kannst du sie dort oder über ⚙.",
+    "lookAt": "Sieh dir deine neue Konfiguration an: {path}. Alle Einstellungen stehen auf ihrem Standardwert.",
+    "updated": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert.",
+    "updatedAdding": "docket hat seine Konfiguration unter {path} von Version {from} auf {to} aktualisiert und {added} mit Standardwerten ergänzt.",
+    "unreadable": "docket konnte seine Konfiguration unter {path} nicht lesen und nutzt die Standardwerte, bis die Datei repariert ist."
+  },
+  "fields": {
+    "language": [
+      "Sprache",
+      "Sprache der Docket-Texte: auto folgt der Spracheinstellung von Claude Code"
+    ],
+    "display": [
+      "Anzeige",
+      "Ein Bereich neben dem Chat oder ein Band über der Eingabe"
+    ],
+    "emoji": [
+      "Emoji",
+      "Hauptschalter für alle Emoji des Dockets"
+    ],
+    "headingEmoji": [
+      "Emoji in Überschriften",
+      "Ein Emoji vor der Überschrift jeder Liste"
+    ],
+    "noItemEmojiLists": [
+      "Listen ohne Emoji",
+      "Interne (englische) Buchstaben der Listen, deren Einträge kein Emoji zeigen, z. B. \"Q,P\" für Fragen und Geparkt"
+    ],
+    "inlineLists": [
+      "Einzeilige Listen",
+      "Interne (englische) Buchstaben der Listen, die in einer Zeile mit Punkten dazwischen erscheinen"
+    ],
+    "targetWords": [
+      "Ziellängen",
+      "Weiche Wortgrenzen je Liste, mit den internen englischen Buchstaben, z. B. \"P=8,Q=30\""
+    ],
+    "stakesDisplay": [
+      "Wichtigkeitsanzeige",
+      "Wie Wichtigkeitsmarkierungen erscheinen"
+    ],
+    "itemColor": [
+      "Eintragsfarbe",
+      "Farbe eines in diesem Zug geänderten Eintrags, als Hex-Wert oder Theme-Schlüssel"
+    ],
+    "itemDimColor": [
+      "Gedimmte Eintragsfarbe",
+      "Farbe eines seit dem letzten Zug unveränderten Eintrags"
+    ],
+    "upArrowColor": [
+      "Pfeil für Zuwachs",
+      "Farbe des ↑, wenn eine Liste in diesem Zug gewachsen ist"
+    ],
+    "upNumberColor": [
+      "Zahl für Zuwachs",
+      "Farbe der Zahl neben dem ↑ einer wachsenden Liste"
+    ],
+    "downArrowColor": [
+      "Pfeil für Abnahme",
+      "Farbe des ↓, wenn eine Liste in diesem Zug geschrumpft ist"
+    ],
+    "downNumberColor": [
+      "Zahl für Abnahme",
+      "Farbe der Zahl neben dem ↓ einer schrumpfenden Liste"
+    ],
+    "leanColor": [
+      "Vorschlagsfarbe",
+      "Farbe der Vorschlagszeile; leer für die Farbe des Eintrags"
+    ],
+    "leanDimColor": [
+      "Gedimmte Vorschlagsfarbe",
+      "Farbe der Vorschlagszeile, solange ihr Eintrag gedimmt ist"
+    ],
+    "answeredLingerSeconds": [
+      "Verweildauer nach Antwort",
+      "Sekunden, die ein per Knopf beantworteter Eintrag gedimmt sichtbar bleibt"
+    ],
+    "strikeLingerMinutes": [
+      "Verweildauer durchgestrichen",
+      "Minuten, die ein von Claude selbst geschlossener Eintrag durchgestrichen bleibt"
+    ]
+  }
+}

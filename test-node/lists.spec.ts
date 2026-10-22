@@ -16,6 +16,8 @@ import {
   snapshot,
   speaksOfPending,
 } from '../hooks/lists.ts'
+import { EN, mergeStrings } from '../hooks/i18n.ts'
+import { readFileSync } from 'node:fs'
 
 const item = (id: string, extra: Partial<Item> = {}): Item => ({
   id,
@@ -108,7 +110,7 @@ describe('references', () => {
   const all = [item('C23'), item('C24'), item('C25'), item('Q10', { closed: { at: 1, isUnasked: false } })]
 
   test('expands a range and names closed items as closed', () => {
-    const named = references('q10 yes, c23-c25 confirmed', all) ?? ''
+    const named = references('q10 yes, c23-c25 confirmed', all, EN) ?? ''
     for (const id of ['C23', 'C24', 'C25', 'Q10']) {
       assert.match(named, new RegExp(`\\b${id}\\b`))
     }
@@ -116,7 +118,7 @@ describe('references', () => {
   })
 
   test('says nothing when no label names an item', () => {
-    assert.equal(references('v0 looks good', all), undefined)
+    assert.equal(references('v0 looks good', all, EN), undefined)
   })
 })
 
@@ -145,7 +147,7 @@ describe('speaksOfPending', () => {
 
 describe('snapshot', () => {
   test('tells Claude that clearing cancels nothing', () => {
-    const text = snapshot([item('U1')], ['U2'])
+    const text = snapshot([item('U1')], ['U2'], EN)
     assert.match(text, /U1/)
     assert.match(text, /cancels no work/)
   })
@@ -160,16 +162,51 @@ describe('openCounts', () => {
 
 describe('instructions', () => {
   test('tells Claude not to repeat the docket in prose when the pane draws it', () => {
-    const text = instructions(settingsOf({}), false)
+    const text = instructions(settingsOf({}), false, EN)
     assert.match(text, /never repeat docket items in your prose reply/)
     assert.match(text, /P at most about 8 words/)
   })
 
   test('asks for the docket as plain text where nothing draws it', () => {
-    assert.match(instructions(settingsOf({}), true), /end each reply with the open items as plain text/)
+    assert.match(instructions(settingsOf({}), true, EN), /end each reply with the open items as plain text/)
   })
 
   test('leaves out word targets when none are set', () => {
-    assert.doesNotMatch(instructions(settingsOf({ targetWords: '' }), false), /at most about/)
+    assert.doesNotMatch(instructions(settingsOf({ targetWords: '' }), false, EN), /at most about/)
+  })
+})
+
+describe('in another language', () => {
+  const locale = (code: string) => mergeStrings(EN, JSON.parse(readFileSync(new URL(`../locales/${code}.json`, import.meta.url), 'utf8')))
+  const es = locale('es')
+  const ja = locale('ja')
+
+  test("names items by the language's letters, so Spanish P12 is a question", () => {
+    const all = [item('Q12'), item('P3'), item('C4'), item('C5')]
+    const named = references('p12 sí, c4 a c5 confirmados', all, es) ?? ''
+    assert.match(named, /P12 item Q12/)
+    assert.match(named, /C4 item C4/)
+    assert.match(named, /C5 item C5/)
+    assert.doesNotMatch(named, /item P3/)
+  })
+
+  test('reads a Japanese label right after other text', () => {
+    assert.match(references('はい、質12で', [item('Q12')], ja) ?? '', /質12 item Q12/)
+  })
+
+  test("doesn't take a letter at the end of a word for a label", () => {
+    assert.equal(references('vamos2 bien', [item('W2')], es), undefined)
+  })
+
+  test("tells Claude the language, its letters and its buttons' messages", () => {
+    const text = instructions(settingsOf({}), false, es)
+    assert.match(text, /Write every item's text, lean and options in Spanish/)
+    assert.match(text, /P \(Preguntas\) questions/)
+    assert.match(text, /"Acepto la propuesta de P5\."/)
+    assert.match(text, /F at most about 8 words/)
+  })
+
+  test('labels cleared items in the language', () => {
+    assert.match(snapshot([item('Q1')], ['Q2'], es), /P1 item Q1[\s\S]*since the last prompt: P2\./)
   })
 })

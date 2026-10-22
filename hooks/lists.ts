@@ -1,6 +1,8 @@
 import type { PluginOptions } from 'claude-code'
 
 import type { Counts, Item, Letter } from '../types'
+import { fill, idFor, labelOf, labelOfId, letterFor } from './i18n.ts'
+import type { Strings } from './i18n.ts'
 
 export type ListDef = {
   letter: Letter
@@ -8,9 +10,10 @@ export type ListDef = {
   emoji: string
   isRanked: boolean
   capKey: string
-  bulk?: { label: string; verb: string }
-  // Yes and no buttons on each item, sending these words with its label.
-  answers?: { yes: string; no: string }
+  // A heading button answering every item shown, sending this message with their labels.
+  bulk?: 'acceptLeans' | 'confirmAll' | 'approveAll'
+  // Yes and no buttons on each item, sending these messages with its label.
+  answers?: { yes: keyof Strings['send']; no: keyof Strings['send'] }
 }
 
 // Least important first: the band's order, so the most important sits by the prompt. The pane reverses it.
@@ -27,8 +30,8 @@ export const LISTS: readonly ListDef[] = [
     emoji: '👍',
     isRanked: true,
     capKey: 'confirmCap',
-    bulk: { label: 'Confirm all', verb: 'Confirmed' },
-    answers: { yes: 'Confirmed', no: 'Not confirmed' },
+    bulk: 'confirmAll',
+    answers: { yes: 'confirm', no: 'notConfirm' },
   },
   {
     letter: 'Q',
@@ -36,7 +39,7 @@ export const LISTS: readonly ListDef[] = [
     emoji: '❓',
     isRanked: true,
     capKey: 'questionsCap',
-    bulk: { label: 'Accept all leans', verb: 'Accept the leans on' },
+    bulk: 'acceptLeans',
   },
   {
     letter: 'R',
@@ -44,8 +47,8 @@ export const LISTS: readonly ListDef[] = [
     emoji: '🙏',
     isRanked: true,
     capKey: 'requestsCap',
-    bulk: { label: 'Approve all', verb: 'Approved' },
-    answers: { yes: 'Approved', no: 'Declined' },
+    bulk: 'approveAll',
+    answers: { yes: 'approve', no: 'decline' },
   },
 ]
 
@@ -191,13 +194,13 @@ export const counterText = (hidden: number, delta: number) => {
   return `${more}${arrow}${number}`
 }
 
-const describe = (item: Item) =>
+const describe = (item: Item, text: Strings) =>
   [
-    `${item.id}${item.emoji ? ` ${item.emoji}` : ''} ${item.text}`,
+    `${labelOf(text, item)}${item.emoji ? ` ${item.emoji}` : ''} ${item.text}`,
     item.lean && `lean: ${item.lean}`,
     item.stakes && `stakes: ${item.stakes}`,
     item.rank !== undefined && `rank ${item.rank}`,
-    item.answered && `the user answered ${item.answered === 'yes' ? 'yes' : 'no'} by button`,
+    item.answered && `the user answered ${item.answered === 'yes' ? 'yes' : item.answered === 'no' ? 'no' : item.answered} by button`,
   ]
     .filter(Boolean)
     .join(' | ')
@@ -216,34 +219,38 @@ export const speaksOfPending = (answer: string) => PENDING.test(withoutCode(answ
 export const RECONCILE =
   'Your last reply spoke of pending or next work but the docket did not change that turn. Make sure every open thread it mentions is an item; nothing open should live only in prose.'
 
-export const snapshot = (items: readonly Item[], dismissed: readonly string[]) => {
+export const snapshot = (items: readonly Item[], dismissed: readonly string[], text: Strings) => {
   const open = items.filter(isOpen)
   const lines = ['Docket, open items (the user sees these in the docket pane or band):']
-  lines.push(...(open.length ? open.map(describe) : ['(empty)']))
+  lines.push(...(open.length ? open.map(item => describe(item, text)) : ['(empty)']))
   if (dismissed.length) {
     lines.push(
-      `The user cleared these from the docket since the last prompt: ${dismissed.join(', ')}. Clearing only empties the display: it cancels no work, answers nothing and approves nothing. Carry on as before, and don't add them back while they stay dormant; if one becomes relevant again, add it fresh, with a new number.`,
+      `The user cleared these from the docket since the last prompt: ${dismissed.map(id => labelOfId(text, id)).join(', ')}. Clearing only empties the display: it cancels no work, answers nothing and approves nothing. Carry on as before, and don't add them back while they stay dormant; if one becomes relevant again, add it fresh, with a new number.`,
     )
   }
 
   return lines.join('\n')
 }
 
-const RANGE = /\b([pwluvncqr])(\d+)\s*(?:-|–|to|through|thru)\s*\1?(\d+)\b/gi
-const SINGLE = /\b([pwluvncqr])(\d+)[a-z]?\b/gi
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-// The items a prompt names by label ("q10", "c23-c25"), so a closed one is still known.
-export const references = (text: string, items: readonly Item[]) => {
+// The items a prompt names by label ("q10", "c23-c25", "質12"), in the user's language, so a closed
+// one is still known. A Latin letter mustn't be the end of a longer word; any other script can sit
+// right after the text before it.
+export const references = (prompt: string, items: readonly Item[], text: Strings) => {
+  const letters = Object.values(text.lists).map(list => escapeRegExp(list.letter)).join('|')
+  const range = new RegExp(`(?<![A-Za-z0-9])(${letters})(\\d+)\\s*(?:-|–|~|〜|to|through|thru|bis|a)\\s*(?:\\1)?(\\d+)`, 'giu')
+  const single = new RegExp(`(?<![A-Za-z0-9])(${letters})(\\d+)`, 'giu')
   const ids = new Set<string>()
-  for (const [, letter = '', from, to] of text.matchAll(RANGE)) {
+  for (const [, typed = '', from, to] of prompt.matchAll(range)) {
+    const letter = letterFor(text, typed)
     const low = Math.min(Number(from), Number(to))
     const high = Math.min(Math.max(Number(from), Number(to)), low + 50)
-    for (let n = low; n <= high; n += 1) {
-      ids.add(`${letter.toUpperCase()}${n}`)
-    }
+    for (let n = low; letter && n <= high; n += 1) ids.add(`${letter}${n}`)
   }
-  for (const [, letter = '', n] of text.matchAll(SINGLE)) {
-    ids.add(`${letter.toUpperCase()}${Number(n)}`)
+  for (const [whole] of prompt.matchAll(single)) {
+    const id = idFor(text, whole)
+    if (id) ids.add(id)
   }
 
   const named = items.filter(item => ids.has(item.id))
@@ -253,14 +260,21 @@ export const references = (text: string, items: readonly Item[]) => {
 
   return [
     'Docket items the user named in this prompt:',
-    ...named.map(item => `${describe(item)}${isOpen(item) ? '' : ' (already closed)'}`),
+    ...named.map(item => `${describe(item, text)}${isOpen(item) ? '' : ' (already closed)'}`),
   ].join('\n')
 }
 
-export const instructions = (settings: Settings, isHeadless: boolean) => {
+export const instructions = (settings: Settings, isHeadless: boolean, text: Strings) => {
+  const L = (letter: Letter) => text.lists[letter].letter
+  const named = (letter: Letter) => (text.language === 'English' ? L(letter) : `${L(letter)} (${text.lists[letter].name})`)
+  const say = (key: keyof Strings['send'], id: string, extra: Record<string, string> = {}) => `"${fill(text.send[key], { id, ids: id, ...extra })}"`
   const targets = Object.entries(settings.targetWords)
-    .map(([letter, words]) => `${letter} at most about ${words} words`)
+    .map(([letter, words]) => `${L(letter as Letter)} at most about ${words} words`)
     .join(', ')
+  const language =
+    text.language === 'English'
+      ? ''
+      : `\n\nThe user's docket is in ${text.language}. Write every item's text, lean and options in ${text.language}, and label items with the letters below (letter then number, such as ${L('Q')}12). The buttons send the messages quoted below, in ${text.language}.`
 
   return `# Docket
 
@@ -268,22 +282,24 @@ The user runs the docket mod, a pane beside the transcript (or a band above the 
     isHeadless
       ? 'Nothing draws the band in this session, so end each reply with the open items as plain text, grouped by list, in the order below.'
       : 'The docket is where the user reads them: never repeat docket items in your prose reply.'
-  }
+  }${language}
 
 Lists, from least to most important:
-- P pinned: parked for later.
-- W waiting: stalled on something other than the user; informational.
-- L later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U. Its 🏗️ button sends \"Start L3 now.\": the user wants that one started now, ahead of the order, so start it and move it to U.
-- U underway: only your own work in progress, never the user's.
-- V view: things for the user to look at or check.
-- N needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
-- C confirm: when you are unsure you read the user right, or something risky is about to happen and you want them certain of it. State your reading, so a bare "yes" settles it. \"Not confirmed C3\" (its ✗ button) means your reading was wrong or the risky step should not go ahead: hold off, and ask what they meant.
-- Q questions: decisions only the user can make. Always give a lean: the answer you would pick. When the question offers up to three choices, pass their labels as options: one to three buttons, each label a single letter or a single emoji, whichever reads best ("a", "b", "c" or "🌐", "📄"), and write each label in the text beside the choice it picks. Their buttons replace ✔ and ✗ and send "Q4 (b).", meaning the user picked (b).
-- R requests: things you want to do on your own initiative. Wait for permission. Use sparingly. \"Declined R3\" (its ✗ button) means don't do it.
+- ${named('P')} pinned: parked for later.
+- ${named('W')} waiting: stalled on something other than the user; informational.
+- ${named('L')} later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to ${L('U')}. Its 🏗️ button sends ${say('start', `${L('L')}3`)}: the user wants that one started now, ahead of the order, so start it and move it to ${L('U')}.
+- ${named('U')} underway: only your own work in progress, never the user's.
+- ${named('V')} view: things for the user to look at or check.
+- ${named('N')} needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
+- ${named('C')} confirm: when you are unsure you read the user right, or something risky is about to happen and you want them certain of it. State your reading, so a bare "yes" settles it. ${say('confirm', `${L('C')}3`)} (its ✔ button) settles it; ${say('notConfirm', `${L('C')}3`)} (its ✗ button) means your reading was wrong or the risky step should not go ahead: hold off, and ask what they meant.
+- ${named('Q')} questions: decisions only the user can make. Always give a lean: the answer you would pick. When the question offers up to three choices, pass their labels as options: one to three buttons, each label a single letter or a single emoji, whichever reads best ("a", "b", "c" or "🌐", "📄"), and write each label in the text beside the choice it picks. Their buttons replace ✔ and ✗ and send ${say('pick', `${L('Q')}4`, { option: 'b' })}, meaning the user picked (b).
+- ${named('R')} requests: things you want to do on your own initiative. Wait for permission. Use sparingly. ${say('approve', `${L('R')}3`)} (its ✔ button) means go ahead; ${say('decline', `${L('R')}3`)} (its ✗ button) means don't do it.
 
-The docket is the complete set of open threads: anything your reply calls pending, queued, next, later or left must also be an item (L, P, R or another list), never only prose.
+The tool's list field takes these same letters.
 
-Writing items: verify cheaply before adding one, and never ask what you can look up. Each item is answerable without scrolling back: define each named thing at its first mention, and give issue or PR numbers. Link whatever has a web address (a repo, an issue or PR, a page, a site, a commit) as a [label](https://...) link with a short label, such as [StoneCypher/docket](https://github.com/StoneCypher/docket); the docket draws it as a link. When an item is about a local file, set open to its absolute path, and the item gets an Open button for it. Keep items to one to three lines${targets ? `, and ${targets}` : ''}. Give each item one emoji: a single code point with default emoji presentation from Unicode 9 or earlier (no VS16, ZWJ, flags or skin tones). Set stakes only when they matter: emergency and high sparingly, med otherwise, none for low. On V, N, C, Q and R, rank 1 is the most urgent.
+The docket is the complete set of open threads: anything your reply calls pending, queued, next, later or left must also be an item (${L('L')}, ${L('P')}, ${L('R')} or another list), never only prose.
 
-Answers: the user answers by label ("q10 yes", "c23-c25 confirmed", "accept all other leans"). Act on every answer first, then make one update call closing what is resolved and adding what is new, and confirm each answer briefly by its label in prose. "No to the lean on Q5" (the lean's ✗ button) rejects only your lean: keep the question open, and ask what they want instead, or take the obvious other answer when there are only two. Never re-ask unless the answer was ambiguous; then ask once, in C. Close items on common-sense grounds. Answered items vanish from the user's view on their own about 20 seconds after their button is pressed, so close them, and when an answer starts work you haven't finished, add that work to U (underway) in the same update. The user can also clear items or whole lists from the docket; that only empties the display and never cancels work, answers a question or approves a request. A cleared thread that becomes relevant again comes back as a new item, with a new number. When you close an item the user did not resolve themselves, set unasked: true, and mention every such closure in one \`\`\`diff block of "- " lines. The tool assigns the labels, and numbers only ever go up. Change an item only to correct or sharpen the same item; anything the user would read as a new question or a new item, such as a follow-up after a \"no\" or a reworded ask, closes the old one and is added fresh, so it gets a new number. A label that suddenly means something else looks like a bug.`
+Writing items: verify cheaply before adding one, and never ask what you can look up. Each item is answerable without scrolling back: define each named thing at its first mention, and give issue or PR numbers. Link whatever has a web address (a repo, an issue or PR, a page, a site, a commit) as a [label](https://...) link with a short label, such as [StoneCypher/docket](https://github.com/StoneCypher/docket); the docket draws it as a link. When an item is about a local file, set open to its absolute path, and the item gets an Open button for it. Keep items to one to three lines${targets ? `, and ${targets}` : ''}. Give each item one emoji: a single code point with default emoji presentation from Unicode 9 or earlier (no VS16, ZWJ, flags or skin tones). Set stakes only when they matter: emergency and high sparingly, med otherwise, none for low. On ${L('V')}, ${L('N')}, ${L('C')}, ${L('Q')} and ${L('R')}, rank 1 is the most urgent.
+
+Answers: the user answers by label ("${L('Q').toLowerCase()}10 yes", "${L('C').toLowerCase()}23-${L('C').toLowerCase()}25 confirmed", "accept all other leans"), or by button. ${say('acceptLean', `${L('Q')}5`)} (a lean's ✔ button) accepts your lean; ${say('rejectLean', `${L('Q')}5`)} (its ✗ button) rejects only your lean: keep the question open, and ask what they want instead, or take the obvious other answer when there are only two. ${say('acceptLeans', `${L('Q')}5, ${L('Q')}6`)}, ${say('confirmAll', `${L('C')}2, ${L('C')}3`)} and ${say('approveAll', `${L('R')}2, ${L('R')}3`)} answer several at once. Act on every answer first, then make one update call closing what is resolved and adding what is new, and confirm each answer briefly by its label in prose. Never re-ask unless the answer was ambiguous; then ask once, in ${L('C')}. Close items on common-sense grounds. Answered items vanish from the user's view on their own about 20 seconds after their button is pressed, so close them, and when an answer starts work you haven't finished, add that work to ${L('U')} (underway) in the same update. The user can also clear items or whole lists from the docket; that only empties the display and never cancels work, answers a question or approves a request. A cleared thread that becomes relevant again comes back as a new item, with a new number. When you close an item the user did not resolve themselves, set unasked: true, and mention every such closure in one \`\`\`diff block of "- " lines. The tool assigns the labels, and numbers only ever go up. Change an item only to correct or sharpen the same item; anything the user would read as a new question or a new item, such as a follow-up after a "no" or a reworded ask, closes the old one and is added fresh, so it gets a new number. A label that suddenly means something else looks like a bug.`
 }

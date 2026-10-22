@@ -49,6 +49,7 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in View. Edit the file directly, or use ⚙ at the bottom of the pane:
 
+- `language`: `auto` (the default) follows Claude Code's language setting; or `en`, `es`, `ja`, `de`
 - `display`: `pane` beside the chat (the default), or `band` above the prompt
 - a cap for each list (7 by default) before "+N more"
 - `itemColor`, `itemDimColor`, `leanColor`, `leanDimColor`: hex colors or theme keys
@@ -57,9 +58,15 @@ Settings live in `~/.claude/docket/config.json`, a versioned JSON file with ever
 - `inlineLists`, `targetWords`: which lists draw on one line, and soft word limits per list
 - `answeredLingerSeconds`, `strikeLingerMinutes`: how long answered and auto-closed items stay up
 
+## Languages
+
+docket speaks English, Spanish, Japanese and German: the headings, buttons, settings, and the messages its buttons send. Each language names its lists so each starts with its own letter, and items are labeled with those letters, so a Spanish question is P12 under Preguntas, and a Japanese one is 質12 under 質問. Claude is told to write items in the same language. The config file keeps docket's internal English letters, whatever the language.
+
+Every language is one JSON file in [`locales/`](locales), so fixing a translation is a JSON edit and nothing more. A new language is a copy of `locales/en.json`, plus its code in `LANGUAGES` in `hooks/i18n.ts` and in the `language` setting's options in `hooks/config.ts`. Open a pull request either way; `npm test` checks that each file has every key, keeps every `{placeholder}`, and gives each list its own one-character letter.
+
 ## Development
 
-- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`) under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
+- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
 - `npm run test:mod` runs the hooks and pane tests (`tests/*.test.tsx`) inside Claude Code's engine, on every surface.
 - `npm run validate` checks the manifest, the marketplace file and the hooks module the way Claude Code loads them.
 

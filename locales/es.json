@@ -1,0 +1,155 @@
+{
+  "language": "Spanish",
+  "lists": {
+    "R": {
+      "name": "Solicitudes",
+      "letter": "S"
+    },
+    "Q": {
+      "name": "Preguntas",
+      "letter": "P"
+    },
+    "C": {
+      "name": "Confirmar",
+      "letter": "C"
+    },
+    "N": {
+      "name": "Necesita tu acción",
+      "letter": "N"
+    },
+    "V": {
+      "name": "Ver",
+      "letter": "V"
+    },
+    "U": {
+      "name": "En marcha",
+      "letter": "E"
+    },
+    "L": {
+      "name": "Después",
+      "letter": "D"
+    },
+    "W": {
+      "name": "Bloqueado",
+      "letter": "B"
+    },
+    "P": {
+      "name": "Fijado",
+      "letter": "F"
+    }
+  },
+  "lean": "Propuesta",
+  "new": "(nuevo)",
+  "more": "+{n} más",
+  "fewer": "menos",
+  "nothing": "No hay nada en el docket.",
+  "bulk": {
+    "Q": "Aceptar todas las propuestas",
+    "C": "Confirmar todo",
+    "R": "Aprobar todo"
+  },
+  "send": {
+    "acceptLean": "Acepto la propuesta de {id}.",
+    "rejectLean": "No a la propuesta de {id}.",
+    "pick": "{id} ({option}).",
+    "approve": "Aprobado {id}.",
+    "decline": "Rechazado {id}.",
+    "confirm": "Confirmado {id}.",
+    "notConfirm": "No confirmado {id}.",
+    "start": "Empieza {id} ahora.",
+    "acceptLeans": "Acepto las propuestas de {ids}.",
+    "confirmAll": "Confirmados {ids}.",
+    "approveAll": "Aprobados {ids}."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "done": "Listo",
+    "editingYours": "Editando tu configuración:",
+    "editingProject": "Editando la configuración de este proyecto, que tiene prioridad sobre la tuya:",
+    "copyToProject": "Copiar para este proyecto",
+    "mobile": "Los ajustes necesitan la terminal, el escritorio o VS Code.",
+    "capTitle": "Límite de {list}",
+    "capDescription": "Elementos que se muestran en {list} antes de «+N más»"
+  },
+  "config": {
+    "offer": "¿Crear la configuración de docket en {path}, con cada ajuste en su valor por defecto? Puedes editarla allí o con ⚙.",
+    "lookAt": "Mira tu nueva configuración: {path}. Cada ajuste está en su valor por defecto.",
+    "updated": "docket actualizó su configuración en {path} de la versión {from} a la {to}.",
+    "updatedAdding": "docket actualizó su configuración en {path} de la versión {from} a la {to}, añadiendo {added} con sus valores por defecto.",
+    "unreadable": "docket no pudo leer su configuración en {path}; usará los valores por defecto hasta que se corrija el archivo."
+  },
+  "fields": {
+    "language": [
+      "Idioma",
+      "Idioma de los textos del docket: auto sigue el ajuste de idioma de Claude Code"
+    ],
+    "display": [
+      "Presentación",
+      "Un panel junto a la conversación, o una franja sobre el campo de texto"
+    ],
+    "emoji": [
+      "Emoji",
+      "Interruptor general de todos los emoji del docket"
+    ],
+    "headingEmoji": [
+      "Emoji en los títulos",
+      "Un emoji antes del título de cada lista"
+    ],
+    "noItemEmojiLists": [
+      "Listas sin emoji",
+      "Letras internas (las inglesas, como Q para Preguntas y P para Fijado) de las listas cuyos elementos no llevan emoji, p. ej. \"Q,P\""
+    ],
+    "inlineLists": [
+      "Listas en una línea",
+      "Letras internas (las inglesas) de las listas que se muestran en una sola línea, separadas por puntos"
+    ],
+    "targetWords": [
+      "Longitud orientativa",
+      "Límite flexible de palabras por lista, con las letras internas inglesas, p. ej. \"P=8,Q=30\""
+    ],
+    "stakesDisplay": [
+      "Indicador de importancia",
+      "Cómo se muestran los indicadores de importancia"
+    ],
+    "itemColor": [
+      "Color de elemento",
+      "Color de un elemento que cambió en este turno, en hexadecimal o como clave de tema"
+    ],
+    "itemDimColor": [
+      "Color de elemento atenuado",
+      "Color de un elemento sin cambios desde el turno anterior"
+    ],
+    "upArrowColor": [
+      "Flecha de crecimiento",
+      "Color de la ↑ cuando una lista creció en este turno"
+    ],
+    "upNumberColor": [
+      "Número de crecimiento",
+      "Color del número junto a la ↑ de una lista que crece"
+    ],
+    "downArrowColor": [
+      "Flecha de reducción",
+      "Color de la ↓ cuando una lista se redujo en este turno"
+    ],
+    "downNumberColor": [
+      "Número de reducción",
+      "Color del número junto a la ↓ de una lista que se reduce"
+    ],
+    "leanColor": [
+      "Color de la propuesta",
+      "Color de la línea de propuesta; vacío para usar el color del elemento"
+    ],
+    "leanDimColor": [
+      "Color de la propuesta atenuada",
+      "Color de la línea de propuesta cuando su elemento está atenuado"
+    ],
+    "answeredLingerSeconds": [
+      "Permanencia tras responder",
+      "Segundos que un elemento respondido sigue visible, atenuado, antes de irse"
+    ],
+    "strikeLingerMinutes": [
+      "Permanencia tachada",
+      "Minutos que un elemento cerrado por Claude sigue visible, tachado"
+    ]
+  }
+}

@@ -1,3 +1,5 @@
 {
-  "extends": "./.claude-plugin/types/tsconfig.json"
+  "extends": "./.claude-plugin/types/tsconfig.json",
+  // The node tests import hooks by their .ts names, so the hooks import each other the same way.
+  "compilerOptions": { "allowImportingTsExtensions": true }
 }
