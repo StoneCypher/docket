@@ -298,7 +298,8 @@ const draw = async (
     const sayOf = answers && { yes: `${answers.yes} ${item.id}.`, no: `${answers.no} ${item.id}.` }
 
     return (
-      <Box key={item.id} flexDirection="column" marginBottom={1}>
+      // Items sit about 1em in from their heading: 2 cells, a cell being near 0.6em.
+      <Box key={item.id} flexDirection="column" marginBottom={1} marginLeft={2}>
         {isLingering ? (
           line(item, isLingering, isDim)
         ) : (
@@ -333,7 +334,7 @@ const draw = async (
   }
 
   const inline = (list: Item[], lingering: Item[]) => (
-    <Box marginBottom={1}>
+    <Box marginBottom={1} marginLeft={2}>
       <Text>
         {[...lingering, ...list].map((item, i) => {
           const isLingering = !isOpen(item)
