@@ -100,10 +100,14 @@ const features = [
           <code id="install-line">{install}</code>
           <button type="button" id="copy">Copy</button>
         </div>
-        <p class="note">Run it at the prompt of a Claude Code session, answer <code>y</code>, then pick a scope.</p>
+        <div class="notes">
+          <p class="note">Run it at the prompt of a Claude Code session, answer <code>y</code>, then pick a scope.</p>
+          <p class="note">If your docket is closed, type <code>/docket</code> to show it.</p>
+        </div>
       </section>
 
       <section class="why" aria-label="Why docket exists">
+        <div class="face"><img src={`${base}/john.jpg`} alt="John, who made docket" width="500" height="400" /></div>
         <p>
           Hi. I'm John. I love working with Claude, but it moves very fast, and I tend to miss questions. Docket is my
           way to help Claude persist decisions and questions that need to be handled, so that we can work together more
@@ -129,6 +133,7 @@ const features = [
 
       <section class="reference" aria-labelledby="lists-title">
         <h2 id="lists-title">The lists</h2>
+        <p>Most of them won't show at any given time: a list only appears when it has something in it.</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th scope="col">Letter</th><th scope="col">List</th><th scope="col">What's in it</th></tr></thead>

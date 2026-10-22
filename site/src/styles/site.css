@@ -54,7 +54,8 @@ code, pre { font-family: var(--face-mono); font-size: 0.9em; }
 .top-row { display: flex; justify-content: space-between; align-items: center; padding-block: 0.9rem; }
 .name { font: 600 1rem/1 var(--face-mono); }
 
-main { display: grid; gap: clamp(3.5rem, 8vw, 6rem); padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+/* minmax(0, 1fr): without it the column grows to the widest code line, and the whole page overflows a phone. */
+main { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3.5rem, 8vw, 6rem); padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 
 .intro { display: grid; gap: 1rem; max-width: 44rem; }
 h1 { margin: 0; font: 600 clamp(2.2rem, 5vw, 3rem)/1.1 var(--face-mono); letter-spacing: -0.02em; }
@@ -71,9 +72,20 @@ h1 { margin: 0; font: 600 clamp(2.2rem, 5vw, 3rem)/1.1 var(--face-mono); letter-
   min-height: 2.75rem;
   cursor: pointer;
 }
-.note { margin: 0; font-size: 0.88rem; color: var(--muted); }
+/* The gap is 0.75em at the notes' own size. */
+.notes { display: grid; gap: 0.75em; font-size: 0.88rem; }
+.note { margin: 0; font-size: 1em; color: var(--muted); }
 
-.why p { margin: 0; max-width: 40rem; font-size: 1.05rem; border-left: 2px solid var(--rule); padding-left: 1rem; }
+/* John's note: the photo as tall as the text beside it, as far from the bar as the bar is from the text. */
+.why { display: flex; gap: 1rem; max-width: 48rem; }
+/* A fixed width and a stretched height, so the photo always ends where the text does; the crop keeps the face. */
+.why .face { position: relative; flex: none; align-self: stretch; width: 12rem; }
+.why .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border-radius: 4px; }
+.why p { flex: 1 1 auto; min-width: 0; margin: 0; max-width: 40rem; font-size: 1.05rem; border-left: 2px solid var(--rule); padding-left: 1rem; }
+@media (max-width: 560px) {
+  .why { flex-direction: column; }
+  .why .face { align-self: flex-start; width: 7rem; aspect-ratio: 5 / 4; }
+}
 
 h2 { margin: 0 0 0.75rem; font: 600 1.45rem/1.25 var(--face-body); letter-spacing: -0.01em; text-wrap: balance; }
 p { margin: 0 0 0.9rem; max-width: 36rem; }
