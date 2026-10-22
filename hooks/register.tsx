@@ -477,7 +477,8 @@ const draw = async (
           <Box flexDirection="row">
             <Text bold>
               {settings.isEmoji && settings.isHeadingEmoji ? `${list.emoji} ` : ''}
-              {text.lists[list.letter].name}
+              {/* Only the name is underlined: not the emoji, nor the space after it. */}
+              <Text underline>{text.lists[list.letter].name}</Text>
             </Text>
             {hidden > 0 ? (
               <Box marginLeft={1}>
