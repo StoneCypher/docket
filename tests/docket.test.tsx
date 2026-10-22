@@ -41,7 +41,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('fs.list', () => ({ value: Object.keys(locales).map(code => ({ name: `${code}.json`, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }))
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
-    const locale = /\/locales\/(\w+)\.json$/.exec(path)?.[1]
+    const locale = /\/locales\/((?:dialects\/)?[\w-]+)\.json$/.exec(path)?.[1]
 
     return { value: locale && locales[locale] ? JSON.stringify(locales[locale]) : (files.get(path) ?? '') }
   })
@@ -650,4 +650,42 @@ test('a machine-translated language is used, with one offer, in that language, t
   await ui.press({ key: 'no-R1' })
   await ui.unmount()
   expect(store.get('translateAsked')).toEqual(['de:machine@1'])
+})
+
+test('a dialect set by hand in the config lays its words over the language', async ($, on) => {
+  const submitted: string[] = []
+  standIns(on, {
+    'dialects/yinzer': {
+      name: 'Pittsburgh English (Yinzer)',
+      ready: 'ai translated',
+      version: 1,
+      // Every list renamed: one left English could share a letter, and then every list keeps English's.
+      Requests: { text: 'Can I', ready: 'ai translated' },
+      Questions: { text: 'Whaddaya think', ready: 'ai translated' },
+      Confirm: { text: 'Yinz sure?', ready: 'ai translated' },
+      'Needs you': { text: 'Needs yinz', ready: 'ai translated' },
+      View: { text: 'Lookit', ready: 'ai translated' },
+      Underway: { text: 'On it', ready: 'ai translated' },
+      Later: { text: 'Dahn the road', ready: 'ai translated' },
+      Waiting: { text: 'Stuck in the tunnel', ready: 'ai translated' },
+      Pinned: { text: 'Redd up later', ready: 'ai translated' },
+      Lean: { text: 'Gut call', ready: 'ai translated' },
+      'Accept the lean on {id}.': { text: 'Yeah, go wit your gut on {id}.', ready: 'ai translated' },
+    },
+  })
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), dialect: 'yinzer' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'W', text: 'Pierogies or haluski?', lean: 'pierogies' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Whaddaya think$/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /^Gut call$/ })).toBeDefined()
+  await ui.press({ key: 'ok-Q1' })
+  await ui.unmount()
+  expect(submitted).toEqual(['Yeah, go wit your gut on W1.'])
 })

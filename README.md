@@ -77,6 +77,8 @@ docket uses any file not marked `false`. A list's letter is the first character 
 
 Every language docket recognizes already has a file, so helping means editing one: open it on GitHub, press the pencil, fill in or fix each `text`, set its `ready`, and commit. GitHub copies docket to your account and offers to open a pull request. When Claude Code is set to a language whose file isn't ready, machine-translated, or behind English, docket asks once, in Requests, whether you'd like to help, and its ✔ opens that file in GitHub's editor.
 
+For the committed: a config file may also say `"dialect": "yinzer"`, `"startrek"` or `"hackerman"`, which docket never writes or shows. Dialects live in `locales/dialects/`, lay their words over the language, may bring their own ✔ and ✗, and are what Claude is told to write in.
+
 When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run locales` brings every file in line: new strings arrive blank, and strings English no longer says are dropped. `npm test` checks that each file is in line, keeps every placeholder, is no readier than its strings, and gives each list its own letter.
 
 ## Development

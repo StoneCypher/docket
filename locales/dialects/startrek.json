@@ -1,0 +1,325 @@
+{
+  "name": "Starfleet English (Star Trek)",
+  "marks": {
+    "yes": "👉",
+    "no": "🤦"
+  },
+  "ready": "ai translated",
+  "version": 1,
+  "Requests": {
+    "text": "Requesting permission",
+    "ready": "ai translated"
+  },
+  "Questions": {
+    "text": "Orders, Captain?",
+    "ready": "ai translated"
+  },
+  "Confirm": {
+    "text": "Confirm, Number One",
+    "ready": "ai translated"
+  },
+  "Needs you": {
+    "text": "Bridge to Captain",
+    "ready": "ai translated"
+  },
+  "View": {
+    "text": "Viewscreen",
+    "ready": "ai translated"
+  },
+  "Underway": {
+    "text": "At warp",
+    "ready": "ai translated"
+  },
+  "Later": {
+    "text": "Log for later",
+    "ready": "ai translated"
+  },
+  "Waiting": {
+    "text": "Holding position",
+    "ready": "ai translated"
+  },
+  "Pinned": {
+    "text": "Tractor beam",
+    "ready": "ai translated"
+  },
+  "Lean": {
+    "text": "Recommendation",
+    "ready": "ai translated"
+  },
+  "(new)": {
+    "text": "(new contact)",
+    "ready": "ai translated"
+  },
+  "+{n} more": {
+    "text": "+{n} more on sensors",
+    "ready": "ai translated"
+  },
+  "fewer": {
+    "text": "reduce magnification",
+    "ready": "ai translated"
+  },
+  "Nothing on the docket.": {
+    "text": "Sensors show nothing on the docket, Captain.",
+    "ready": "ai translated"
+  },
+  "Accept all leans": {
+    "text": "Make it so, all of them",
+    "ready": "ai translated"
+  },
+  "Confirm all": {
+    "text": "Acknowledge all",
+    "ready": "ai translated"
+  },
+  "Approve all": {
+    "text": "Engage all",
+    "ready": "ai translated"
+  },
+  "Accept the lean on {id}.": {
+    "text": "Make it so: {id}.",
+    "ready": "ai translated"
+  },
+  "No to the lean on {id}.": {
+    "text": "Belay that recommendation on {id}.",
+    "ready": "ai translated"
+  },
+  "{id} ({option}).": {
+    "text": "",
+    "ready": false
+  },
+  "Approved {id}.": {
+    "text": "Engage: {id}.",
+    "ready": "ai translated"
+  },
+  "Declined {id}.": {
+    "text": "Belay {id}.",
+    "ready": "ai translated"
+  },
+  "Confirmed {id}.": {
+    "text": "Acknowledged, {id}.",
+    "ready": "ai translated"
+  },
+  "Not confirmed {id}.": {
+    "text": "Negative on {id}.",
+    "ready": "ai translated"
+  },
+  "Start {id} now.": {
+    "text": "{id}: maximum warp. Now.",
+    "ready": "ai translated"
+  },
+  "Accept the leans on {ids}.": {
+    "text": "Make it so: {ids}.",
+    "ready": "ai translated"
+  },
+  "Confirmed {ids}.": {
+    "text": "Acknowledged: {ids}.",
+    "ready": "ai translated"
+  },
+  "Approved {ids}.": {
+    "text": "Engage: {ids}.",
+    "ready": "ai translated"
+  },
+  "Settings": {
+    "text": "Engineering",
+    "ready": "ai translated"
+  },
+  "Done": {
+    "text": "Make it so",
+    "ready": "ai translated"
+  },
+  "Editing your config:": {
+    "text": "",
+    "ready": false
+  },
+  "Editing this project’s config, which overrides yours:": {
+    "text": "",
+    "ready": false
+  },
+  "Make a copy for this project": {
+    "text": "",
+    "ready": false
+  },
+  "Settings need the terminal, desktop or VS Code.": {
+    "text": "",
+    "ready": false
+  },
+  "{list} cap": {
+    "text": "",
+    "ready": false
+  },
+  "Items shown in {list} before \"+N more\"": {
+    "text": "",
+    "ready": false
+  },
+  "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
+    "text": "",
+    "ready": false
+  },
+  "Look at your new config: {path}. Every setting is there at its default.": {
+    "text": "",
+    "ready": false
+  },
+  "docket updated its config at {path} from version {from} to {to}.": {
+    "text": "",
+    "ready": false
+  },
+  "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
+    "text": "",
+    "ready": false
+  },
+  "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
+    "text": "",
+    "ready": false
+  },
+  "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
+    "text": "",
+    "ready": false
+  },
+  "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
+    "text": "",
+    "ready": false
+  },
+  "Language": {
+    "text": "",
+    "ready": false
+  },
+  "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "",
+    "ready": false
+  },
+  "Display": {
+    "text": "",
+    "ready": false
+  },
+  "A pane beside the transcript, or a band above the prompt": {
+    "text": "",
+    "ready": false
+  },
+  "Emoji": {
+    "text": "",
+    "ready": false
+  },
+  "Master switch for every emoji the docket draws": {
+    "text": "",
+    "ready": false
+  },
+  "Heading emoji": {
+    "text": "",
+    "ready": false
+  },
+  "An emoji before each list's heading": {
+    "text": "",
+    "ready": false
+  },
+  "Lists without item emoji": {
+    "text": "",
+    "ready": false
+  },
+  "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
+    "text": "",
+    "ready": false
+  },
+  "Inline lists": {
+    "text": "",
+    "ready": false
+  },
+  "Letters of lists drawn on one line, separated by dots": {
+    "text": "",
+    "ready": false
+  },
+  "Target lengths": {
+    "text": "",
+    "ready": false
+  },
+  "Soft word limits per list, e.g. \"P=8,Q=30\"": {
+    "text": "",
+    "ready": false
+  },
+  "Stakes display": {
+    "text": "",
+    "ready": false
+  },
+  "How stakes markers show": {
+    "text": "",
+    "ready": false
+  },
+  "Item color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of an item changed this turn, a hex or a theme key": {
+    "text": "",
+    "ready": false
+  },
+  "Dimmed item color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of an item unchanged since the last turn": {
+    "text": "",
+    "ready": false
+  },
+  "Growing arrow": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the ↑ when a list grew this turn": {
+    "text": "",
+    "ready": false
+  },
+  "Growing number": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the count beside a growing list's ↑": {
+    "text": "",
+    "ready": false
+  },
+  "Shrinking arrow": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the ↓ when a list shrank this turn": {
+    "text": "",
+    "ready": false
+  },
+  "Shrinking number": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the count beside a shrinking list's ↓": {
+    "text": "",
+    "ready": false
+  },
+  "Lean color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the lean line, a hex or a theme key; empty for the item's own color": {
+    "text": "",
+    "ready": false
+  },
+  "Dimmed lean color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the lean line while its item is dimmed as unchanged": {
+    "text": "",
+    "ready": false
+  },
+  "Answered linger": {
+    "text": "",
+    "ready": false
+  },
+  "Seconds an item answered by button stays up, dimmed, before it goes": {
+    "text": "",
+    "ready": false
+  },
+  "Strike linger": {
+    "text": "",
+    "ready": false
+  },
+  "Minutes an item Claude closed on its own stays up struck through": {
+    "text": "",
+    "ready": false
+  }
+}

@@ -45,6 +45,8 @@ export type Strings = {
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
   translate: { machine: string; behind: string }
+  // The yes and no buttons. Never translated: only a dialect changes them.
+  marks: { yes: string; no: string }
   fields: Record<string, [string, string]>
 }
 
@@ -103,6 +105,7 @@ export const EN: Strings = {
     behind:
       `docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty "text", and save to propose it.`,
   },
+  marks: { yes: '✔', no: '✗' },
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
@@ -136,7 +139,7 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 // translated, as they come from the language table and the list names.
 const leaves = (value: unknown, at = ''): [string, string][] =>
   typeof value === 'string'
-    ? at === 'language' || at.endsWith('.letter')
+    ? at === 'language' || at.endsWith('.letter') || at.startsWith('marks.')
       ? []
       : [[at, value]]
     : Array.isArray(value)
@@ -178,16 +181,27 @@ export const translationOf = (value: unknown): Translation =>
 
 // A language's file brought in line with English: its state first, then every English string in
 // docket's order, translated where it was, blank where not. Strings English no longer says are dropped.
+// A dialect's file also keeps its name, which is what Claude is told the docket is written in, and
+// any buttons of its own.
 export const synced = (file: unknown) => {
   const found = isRecord(file) ? file : {}
   const { ready, version } = stateOf(found)
   const words = Object.fromEntries(keysOf().map(key => [key, translationOf(found[key])]))
+  const name = typeof found.name === 'string' ? { name: found.name } : {}
+  const marks = isRecord(found.marks) ? { marks: found.marks } : {}
 
-  return `${JSON.stringify({ ready, version, ...words }, null, 2)}
+  return `${JSON.stringify({ ...name, ...marks, ready, version, ...words }, null, 2)}
 `
 }
 
 export const firstLetter = (name: string) => ([...name.trim()][0] ?? '').toUpperCase()
+
+// A dialect's own button, or the usual one.
+const markOf = (marks: unknown, key: string, usual: string) => {
+  const mark = isRecord(marks) ? marks[key] : undefined
+
+  return typeof mark === 'string' && mark.trim() ? mark : usual
+}
 
 // docket's words in a language, from its file: each translated string over the English. Each list's
 // letter is its translated name's first character; if two lists would share one, every list keeps
@@ -205,7 +219,9 @@ export const translate = (file: unknown, language: string): Strings => {
         ? language
         : at.endsWith('.letter')
           ? value
-          : say(value)
+          : at.startsWith('marks.')
+            ? markOf(words.marks, at.slice('marks.'.length), value)
+            : say(value)
       : Array.isArray(value)
         ? value.map((each, i) => walk(each, `${at}.${i}`))
         : isRecord(value)

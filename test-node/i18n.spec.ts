@@ -58,6 +58,28 @@ describe('locale files', () => {
   }
 })
 
+describe('dialects', () => {
+  const dialects = new URL('dialects/', folder)
+  for (const file of readdirSync(dialects).filter(file => file.endsWith('.json'))) {
+    const raw = readFileSync(new URL(file, dialects), 'utf8')
+    const words = JSON.parse(raw) as Record<string, unknown>
+
+    test(`dialect ${file} has a name and is in line with English`, () => {
+      assert.equal(typeof words.name, 'string')
+      assert.equal(raw, synced(words))
+    })
+
+    test(`dialect ${file} keeps placeholders and gives each list its own letter`, () => {
+      for (const english of keysOf()) {
+        const { text } = translationOf(words[english])
+        if (text) assert.deepEqual(slots(text), slots(english), english)
+      }
+      const text = translate(words, String(words.name))
+      for (const list of Object.values(text.lists)) assert.equal(list.letter, firstLetter(list.name), list.name)
+    })
+  }
+})
+
 describe('English', () => {
   test("gives each list its name's first letter", () => {
     for (const list of Object.values(EN.lists)) assert.equal(list.letter, firstLetter(list.name))
@@ -92,6 +114,12 @@ describe('translate', () => {
     const text = translate({ Questions: 'Fragen', Pinned: 'Fixiert' }, 'German')
     assert.equal(text.lists.Q.letter, 'Q')
     assert.equal(text.lists.P.letter, 'P')
+  })
+
+  test("takes a dialect's own buttons, never a translation of them", () => {
+    const text = translate({ marks: { yes: '👉', no: '' }, '✔': 'nope' }, 'Starfleet English')
+    assert.deepEqual(text.marks, { yes: '👉', no: '✗' })
+    assert.ok(!keysOf().includes('✔'))
   })
 
   test('reads a file that is not an object as nothing translated', () => {

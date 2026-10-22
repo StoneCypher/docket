@@ -348,16 +348,16 @@ const draw = async (
     item.answered ? (
       <Box flexShrink={0} marginLeft={1}>
         <Text size="caption" dimColor>
-          {item.answered === 'yes' ? '✔' : item.answered === 'no' ? '✗' : item.answered}
+          {item.answered === 'yes' ? text.marks.yes : item.answered === 'no' ? text.marks.no : item.answered}
         </Text>
       </Box>
     ) : (
       <Box flexShrink={0} marginLeft={1} flexDirection={isOneLine(beside, reserve) ? 'row' : 'column'} columnGap={1}>
         <Button key={`ok-${item.id}`} plain dimColor onPress={answer(item.id, 'yes', yes)}>
-          <Text size="caption" color="green">✔</Text>
+          <Text size="caption" color="green">{text.marks.yes}</Text>
         </Button>
         <Button key={`no-${item.id}`} plain dimColor onPress={answer(item.id, 'no', no)}>
-          <Text size="caption">✗</Text>
+          <Text size="caption">{text.marks.no}</Text>
         </Button>
       </Box>
     )
@@ -715,15 +715,26 @@ const wordsOf = async ($: Dollar, code: string): Promise<Record<string, unknown>
 }
 
 // docket's own words in a language. A regional file (es-MX) says only what differs, over its
-// language's (es); English underlies both.
-const stringsOf = async ($: Dollar, language: Language) => {
+// language's (es); a dialect, from locales/dialects/, says what it changes over both; English
+// underlies all of them. A dialect's name is what Claude is told the docket is written in.
+const stringsOf = async ($: Dollar, language: Language, dialect = '') => {
   const [base = 'en'] = language.split('-')
-  if (base === 'en') {
+  const spoken = dialect ? await wordsOf($, `dialects/${dialect}`) : {}
+  if (base === 'en' && !dialect) {
     return EN
   }
+  const words = base === 'en' ? {} : await wordsOf($, base)
   const regional = language === base ? {} : await wordsOf($, language)
+  const name = typeof spoken.name === 'string' ? spoken.name : englishName(language)
 
-  return translate({ ...(await wordsOf($, base)), ...regional }, englishName(language))
+  return translate({ ...words, ...regional, ...spoken }, name)
+}
+
+// The forced dialect, if any: a key docket never writes or shows, set by hand in a config file.
+const dialectOf = (loaded: LoadedConfig) => {
+  const named = String(loaded.project?.dialect ?? loaded.user?.dialect ?? '').trim()
+
+  return /^[a-z0-9-]+$/i.test(named) ? named.toLowerCase() : ''
 }
 
 // Each language file's state, by code: whatever locales/ holds, so a new language is just its file.
@@ -829,7 +840,7 @@ const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly 
   return resolveLanguage(merged(loaded.user, loaded.project).language, claudeCode, available)
 }
 
-export type Reloaded = { loaded: LoadedConfig; language: Language; text: Strings; languages: string[]; locales: Record<string, FileState> }
+export type Reloaded = { loaded: LoadedConfig; language: Language; dialect: string; text: Strings; languages: string[]; locales: Record<string, FileState> }
 
 // Loads the config, then the language it names, registering the tool again in a new language, then
 // adds its notes in that language. With nothing before it, the tool is registered regardless.
@@ -839,8 +850,10 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   const locales = was?.locales ?? (await localesOf($))
   const languages = readyOf(locales)
   const language = await languageFor($, loaded, languages)
-  const text = was && was.language === language ? was.text : await stringsOf($, language)
-  if (!was || was.language !== language) {
+  const dialect = dialectOf(loaded)
+  const isSame = was !== undefined && was.language === language && was.dialect === dialect
+  const text = isSame ? was.text : await stringsOf($, language, dialect)
+  if (!isSame) {
     await $.tool.register(toolSpec(text))
     $.ui.invalidate('ui.render')
   }
@@ -851,7 +864,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await offerTranslation($, language, locales, text)
   }
 
-  return { loaded, language, text, languages, locales }
+  return { loaded, language, dialect, text, languages, locales }
 }
 
 export const register: Register = on => {
@@ -862,6 +875,7 @@ export const register: Register = on => {
   // docket's own words, in the language its config names, or Claude Code's.
   let text = EN
   let language: Language = 'en'
+  let dialect = ''
   let languages = ['en']
   let locales: Record<string, FileState> = {}
 
@@ -875,6 +889,7 @@ export const register: Register = on => {
     apply(next.loaded)
     text = next.text
     language = next.language
+    dialect = next.dialect
     languages = next.languages
     locales = next.locales
   }
@@ -1021,7 +1036,7 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, languages, locales }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -1070,7 +1085,7 @@ export const register: Register = on => {
         return
       }
       if (!(await ownAnswer($, item, kind, paths, locales))) return
-      adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, languages, locales }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -1087,14 +1102,14 @@ export const register: Register = on => {
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, languages, locales }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, languages, locales }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1134,7 +1149,7 @@ export const register: Register = on => {
         return
       }
       if (await ownAnswer($, item, kind, paths, locales)) {
-        adopt(await reloadConfig($, paths, { loaded: files, language, text, languages, locales }))
+        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, languages, locales }))
       }
     }
 
