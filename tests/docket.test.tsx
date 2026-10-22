@@ -457,3 +457,24 @@ test('the pane links to docket\'s repository beside the ⚙', async ($, on) => {
     await ui.unmount()
   }
 })
+
+test("an item about a file gets an Open button that opens it", async ($, on) => {
+  const runs: string[][] = []
+  standIns(on)
+  on('process.run', (_, e) => {
+    runs.push([...(e as { argv: readonly string[] }).argv])
+
+    return { value: { exitCode: 0, stdout: '', stderr: '', isStdoutTruncated: false, isStderrTruncated: false } }
+  })
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at the config.', open: '/home/tester/.claude/docket/config.json' }] })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'open-V1' })
+  expect(runs.length).toBe(1)
+  expect(runs[0]).toContain('/home/tester/.claude/docket/config.json')
+  // Opening a file isn't an answer: the row stays as it was.
+  expect(await ui.find({ key: 'open-V1' })).toBeDefined()
+  await ui.unmount()
+})

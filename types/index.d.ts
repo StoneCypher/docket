@@ -29,6 +29,8 @@ export type Item = {
   answeredAt?: number
   // An item the mod itself handles, rather than Claude: its buttons act locally.
   action?: 'createConfig'
+  // A local file the item is about: it gets an Open button that opens the file in the editor.
+  open?: string
 }
 
 export type Counts = Partial<Record<Letter, number>>

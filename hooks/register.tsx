@@ -37,7 +37,7 @@ const isSettings = atom({ plugin: 'docket', key: 'isSettings' } as const, false)
 const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
 
-type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number; options?: string[] }
+type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number; options?: string[]; open?: string }
 type UpdateInput = {
   add?: (Fields & { list: Letter; text: string })[]
   change?: (Fields & { id: string })[]
@@ -61,6 +61,7 @@ const fieldsOf = (spec: Fields): Fields => {
     if (options.length) out.options = options
   }
   if (typeof spec.rank === 'number') out.rank = spec.rank
+  if (typeof spec.open === 'string' && spec.open.trim()) out.open = spec.open.trim()
 
   return out
 }
@@ -71,6 +72,7 @@ const ITEM_FIELDS = {
   lean: { type: 'string', description: 'Questions only: the answer you would pick' },
   stakes: { type: 'string', enum: STAKES, description: 'Omit for low stakes' },
   rank: { type: 'number', description: 'V, N, C, Q and R only: 1 is the most urgent' },
+  open: { type: 'string', description: 'A local file path the item is about. The item gets an Open button that opens it in the editor.' },
   options: {
     type: 'array',
     items: { type: 'string' },
@@ -145,6 +147,8 @@ const draw = async (
 ) => {
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
+  // The eye has the same trouble on the terminal, which gets a plain ◉ instead.
+  const eye = surface === 'terminal' ? '◉' : '👁️'
 
   // A heading's counter: a growing list's arrow in moderate green and its number in a fainter green,
   // a shrinking list's in purple, and no change in the dim gray.
@@ -364,7 +368,13 @@ const draw = async (
             </Box>
             {sayOf ? yesNo(item, sayOf.yes, sayOf.no, `${item.id}. ${item.text}`, 3) : null}
             {item.options && !item.lean ? choices(item, `${item.id}. ${item.text}`) : null}
-            <Box flexShrink={0} marginLeft={1}>
+            {/* An item about a file gets 👁️ to open it, stacked above its 🗑️. */}
+            <Box flexShrink={0} marginLeft={1} flexDirection="column">
+              {item.open ? (
+                <Button key={`open-${item.id}`} plain dimColor onPress={() => onAction(item, 'open')}>
+                  <Text size="caption">{eye}</Text>
+                </Button>
+              ) : null}
               <Button key={`x-${item.id}`} plain dimColor onPress={dismiss(item.id)}>
                 <Text size="caption">{trash}</Text>
               </Button>
@@ -495,8 +505,24 @@ const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> 
   return loaded
 }
 
+// Opens a file in VS Code, reusing its window, or else in the system's default app for it. Windows
+// needs cmd for both, since code is a .cmd script there and start is a shell command.
+const openFile = async ($: Dollar, path: string) => {
+  const isWindows = (await $.env.get('OS')) === 'Windows_NT'
+  const tries = isWindows
+    ? [['cmd', '/c', 'code', '-r', path], ['cmd', '/c', 'start', '', path]]
+    : [['code', '-r', path], ['open', path], ['xdg-open', path]]
+  for (const argv of tries) {
+    try {
+      if ((await $.process.run(argv)).exitCode === 0) return
+    } catch {
+      // Not on this system; try the next.
+    }
+  }
+}
+
 // Adds items the mod writes itself, numbered like any other.
-const addOwn = async ($: Dollar, specs: (Pick<Item, 'list' | 'text' | 'emoji' | 'rank' | 'action'>)[]) => {
+const addOwn = async ($: Dollar, specs: (Pick<Item, 'list' | 'text' | 'emoji' | 'rank' | 'action' | 'open'>)[]) => {
   const at = await read($, turn)
   const made: Item[] = []
   await update($, counters, current => {
@@ -775,6 +801,11 @@ export const register: Register = on => {
 
     // The mod's own items: the config offer is answered here, not by Claude.
     const onAction = async (item: Item, kind: string) => {
+      if (kind === 'open') {
+        if (item.open) await openFile($, item.open)
+
+        return
+      }
       await closeOwn($, item.id)
       if (item.action !== 'createConfig') return
       if (kind !== 'yes') {
@@ -784,7 +815,7 @@ export const register: Register = on => {
       }
       await $.fs.write(paths.user, serialize(defaults()))
       apply(await loadConfig($, paths))
-      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: `Look at your new config: ${fileLink(paths.user)}. Every setting is there at its default.` }])
+      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: `Look at your new config: ${fileLink(paths.user)}. Every setting is there at its default.`, open: paths.user }])
     }
 
     if (await read($, isSettings)) {
@@ -840,6 +871,11 @@ export const register: Register = on => {
 
     // The band has no settings view; the config offer's buttons still work there.
     const onAction = async (item: Item, kind: string) => {
+      if (kind === 'open') {
+        if (item.open) await openFile($, item.open)
+
+        return
+      }
       await closeOwn($, item.id)
       if (item.action === 'createConfig' && kind === 'yes') {
         await $.fs.write(paths.user, serialize(defaults()))
