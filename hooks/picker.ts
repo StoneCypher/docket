@@ -108,6 +108,19 @@ export const REGIONS: Record<string, readonly string[]> = {
 // The pulldowns have no separator, so this entry stands for one: picking it changes nothing.
 export const DIVIDER = '-'
 
+// English's own names for its regions, in an English UI: one pattern, and US English, not American.
+const ENGLISHES: Record<string, string> = {
+  'en-US': 'US English',
+  'en-GB': 'British English',
+  'en-AU': 'Australian English',
+  'en-CA': 'Canadian English',
+  'en-IE': 'Irish English',
+  'en-NZ': 'New Zealand English',
+}
+
+const regionName = (speaking: string, code: string) =>
+  (speaking.split('-')[0] === 'en' ? ENGLISHES[code] : undefined) ?? nameIn(speaking, code)
+
 // A language's variants, as the rest of its tag: its real regions, from the table and any with a file
 // ("BR"), then a divider and its dialects ("US-startrek"), each part in alphabetical order and named in
 // the language docket speaks. There's no "none": a language with variants always has one picked.
@@ -116,7 +129,7 @@ export const variantsOf = (speaking: string, base: string, files: readonly strin
   const regions = [
     ...new Set([...(REGIONS[base] ?? []), ...files.filter(code => code.startsWith(`${base}-`)).map(code => code.slice(base.length + 1))]),
   ]
-    .map(region => ({ value: region, label: nameIn(speaking, `${base}-${region}`) }))
+    .map(region => ({ value: region, label: regionName(speaking, `${base}-${region}`) }))
     .sort(byName)
   const comic = dialects
     .filter(each => each.tag.startsWith(`${base}-`))

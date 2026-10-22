@@ -757,7 +757,7 @@ test('the language picker is three pulldowns: a group, a language in it, and its
 
   await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('en'))?.value ?? '' })
   await ui.select({ key: 'language', value: 'en' })
-  // English has variants, so picking it picks American English, its first region.
+  // English has variants, so picking it picks US English, its first region.
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US')
   expect((await ui.find({ type: 'Select', key: 'language-variant' }))?.props.value).toBe('US')
   await ui.select({ key: 'language-variant', value: 'US-startrek' })

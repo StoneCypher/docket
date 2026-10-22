@@ -53,7 +53,7 @@ describe('variants', () => {
     ])
     assert.deepEqual(
       variants.map(each => each.value),
-      ['US', 'AU', 'GB', 'CA', 'IE', 'NZ', DIVIDER, 'US-yinzer', 'US-startrek'],
+      ['AU', 'GB', 'CA', 'IE', 'NZ', 'US', DIVIDER, 'US-yinzer', 'US-startrek'],
     )
     assert.equal(defaultVariant('en', variants), 'US')
     assert.ok(isChoosing(variants))
