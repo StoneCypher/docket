@@ -1,0 +1,320 @@
+{
+  "ready": false,
+  "version": 0,
+  "Requests": {
+    "text": "",
+    "ready": false
+  },
+  "Questions": {
+    "text": "",
+    "ready": false
+  },
+  "Confirm": {
+    "text": "",
+    "ready": false
+  },
+  "Needs you": {
+    "text": "",
+    "ready": false
+  },
+  "View": {
+    "text": "",
+    "ready": false
+  },
+  "Underway": {
+    "text": "",
+    "ready": false
+  },
+  "Later": {
+    "text": "",
+    "ready": false
+  },
+  "Waiting": {
+    "text": "",
+    "ready": false
+  },
+  "Pinned": {
+    "text": "",
+    "ready": false
+  },
+  "Lean": {
+    "text": "",
+    "ready": false
+  },
+  "(new)": {
+    "text": "",
+    "ready": false
+  },
+  "+{n} more": {
+    "text": "",
+    "ready": false
+  },
+  "fewer": {
+    "text": "",
+    "ready": false
+  },
+  "Nothing on the docket.": {
+    "text": "",
+    "ready": false
+  },
+  "Accept all leans": {
+    "text": "",
+    "ready": false
+  },
+  "Confirm all": {
+    "text": "",
+    "ready": false
+  },
+  "Approve all": {
+    "text": "",
+    "ready": false
+  },
+  "Accept the lean on {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "No to the lean on {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "{id} ({option}).": {
+    "text": "",
+    "ready": false
+  },
+  "Approved {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "Declined {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "Confirmed {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "Not confirmed {id}.": {
+    "text": "",
+    "ready": false
+  },
+  "Start {id} now.": {
+    "text": "",
+    "ready": false
+  },
+  "Accept the leans on {ids}.": {
+    "text": "",
+    "ready": false
+  },
+  "Confirmed {ids}.": {
+    "text": "",
+    "ready": false
+  },
+  "Approved {ids}.": {
+    "text": "",
+    "ready": false
+  },
+  "Settings": {
+    "text": "",
+    "ready": false
+  },
+  "Done": {
+    "text": "",
+    "ready": false
+  },
+  "Editing your config:": {
+    "text": "",
+    "ready": false
+  },
+  "Editing this project’s config, which overrides yours:": {
+    "text": "",
+    "ready": false
+  },
+  "Make a copy for this project": {
+    "text": "",
+    "ready": false
+  },
+  "Settings need the terminal, desktop or VS Code.": {
+    "text": "",
+    "ready": false
+  },
+  "{list} cap": {
+    "text": "",
+    "ready": false
+  },
+  "Items shown in {list} before \"+N more\"": {
+    "text": "",
+    "ready": false
+  },
+  "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
+    "text": "",
+    "ready": false
+  },
+  "Look at your new config: {path}. Every setting is there at its default.": {
+    "text": "",
+    "ready": false
+  },
+  "docket updated its config at {path} from version {from} to {to}.": {
+    "text": "",
+    "ready": false
+  },
+  "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
+    "text": "",
+    "ready": false
+  },
+  "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
+    "text": "",
+    "ready": false
+  },
+  "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
+    "text": "",
+    "ready": false
+  },
+  "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
+    "text": "",
+    "ready": false
+  },
+  "Language": {
+    "text": "",
+    "ready": false
+  },
+  "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "",
+    "ready": false
+  },
+  "Display": {
+    "text": "",
+    "ready": false
+  },
+  "A pane beside the transcript, or a band above the prompt": {
+    "text": "",
+    "ready": false
+  },
+  "Emoji": {
+    "text": "",
+    "ready": false
+  },
+  "Master switch for every emoji the docket draws": {
+    "text": "",
+    "ready": false
+  },
+  "Heading emoji": {
+    "text": "",
+    "ready": false
+  },
+  "An emoji before each list's heading": {
+    "text": "",
+    "ready": false
+  },
+  "Lists without item emoji": {
+    "text": "",
+    "ready": false
+  },
+  "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
+    "text": "",
+    "ready": false
+  },
+  "Inline lists": {
+    "text": "",
+    "ready": false
+  },
+  "Letters of lists drawn on one line, separated by dots": {
+    "text": "",
+    "ready": false
+  },
+  "Target lengths": {
+    "text": "",
+    "ready": false
+  },
+  "Soft word limits per list, e.g. \"P=8,Q=30\"": {
+    "text": "",
+    "ready": false
+  },
+  "Stakes display": {
+    "text": "",
+    "ready": false
+  },
+  "How stakes markers show": {
+    "text": "",
+    "ready": false
+  },
+  "Item color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of an item changed this turn, a hex or a theme key": {
+    "text": "",
+    "ready": false
+  },
+  "Dimmed item color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of an item unchanged since the last turn": {
+    "text": "",
+    "ready": false
+  },
+  "Growing arrow": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the ↑ when a list grew this turn": {
+    "text": "",
+    "ready": false
+  },
+  "Growing number": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the count beside a growing list's ↑": {
+    "text": "",
+    "ready": false
+  },
+  "Shrinking arrow": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the ↓ when a list shrank this turn": {
+    "text": "",
+    "ready": false
+  },
+  "Shrinking number": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the count beside a shrinking list's ↓": {
+    "text": "",
+    "ready": false
+  },
+  "Lean color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the lean line, a hex or a theme key; empty for the item's own color": {
+    "text": "",
+    "ready": false
+  },
+  "Dimmed lean color": {
+    "text": "",
+    "ready": false
+  },
+  "Color of the lean line while its item is dimmed as unchanged": {
+    "text": "",
+    "ready": false
+  },
+  "Answered linger": {
+    "text": "",
+    "ready": false
+  },
+  "Seconds an item answered by button stays up, dimmed, before it goes": {
+    "text": "",
+    "ready": false
+  },
+  "Strike linger": {
+    "text": "",
+    "ready": false
+  },
+  "Minutes an item Claude closed on its own stays up struck through": {
+    "text": "",
+    "ready": false
+  }
+}

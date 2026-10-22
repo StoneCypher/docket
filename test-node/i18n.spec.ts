@@ -125,7 +125,7 @@ describe('choosing a language', () => {
     assert.equal(codeOf('espanol'), 'es')
     assert.equal(codeOf('Deutsch'), 'de')
     assert.equal(codeOf('Japanese (日本語)'), 'ja')
-    assert.equal(codeOf('klingon'), undefined)
+    assert.equal(codeOf('quenya'), undefined)
     assert.equal(codeOf(''), undefined)
   })
 
@@ -139,7 +139,7 @@ describe('choosing a language', () => {
 
   test('names every listed language in English first, then in its own', () => {
     assert.equal(englishName('fr'), 'French')
-    assert.equal(englishName('yo'), 'yo')
+    assert.equal(englishName('xx'), 'xx')
     assert.equal(nativeName('fr'), 'Français')
     assert.equal(nativeName('af'), 'Afrikaans')
     assert.ok(Object.values(NAMES).every(names => names.length > 0))
@@ -150,12 +150,12 @@ describe('choosing a language', () => {
     assert.equal(resolveLanguage('auto', 'japanese'), 'ja')
     assert.equal(resolveLanguage('auto', 'french'), 'fr')
     assert.equal(resolveLanguage(undefined, undefined), 'en')
-    assert.equal(resolveLanguage('auto', 'klingon'), 'en')
+    assert.equal(resolveLanguage('auto', 'quenya'), 'en')
   })
 
   test('takes any code a file exists for, even one the table lacks', () => {
-    assert.equal(resolveLanguage('yo', undefined, ['en', 'yo']), 'yo')
-    assert.equal(resolveLanguage('yo', 'german', ['en']), 'de')
+    assert.equal(resolveLanguage('xx', undefined, ['en', 'xx']), 'xx')
+    assert.equal(resolveLanguage('xx', 'german', ['en']), 'de')
   })
 })
 
