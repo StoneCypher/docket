@@ -91,11 +91,12 @@ export const groupsOf = (speaking: string, codes: readonly string[], count = 6):
   return groups
 }
 
-// The regions people speak a language in, offered whether or not docket has a file for them yet: one
-// without a file speaks its language's, until someone writes it.
+// The regions where a language is the first language of most people, offered whether or not docket
+// has a file for them yet: one without a file speaks its language's, until someone writes it. A
+// region where it's mostly a second language isn't listed, as naming it reads as a judgment.
 export const REGIONS: Record<string, readonly string[]> = {
-  en: ['US', 'GB', 'AU', 'CA', 'IE', 'NZ', 'IN', 'ZA'],
-  es: ['ES', 'MX', 'AR', 'CO', 'CL', 'US'],
+  en: ['US', 'GB', 'AU', 'CA', 'IE', 'NZ'],
+  es: ['ES', 'MX', 'AR', 'CO', 'CL'],
   pt: ['PT', 'BR'],
   fr: ['FR', 'CA', 'BE', 'CH'],
   de: ['DE', 'AT', 'CH'],

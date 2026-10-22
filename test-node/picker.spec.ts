@@ -51,6 +51,8 @@ describe('variants', () => {
     // The real Englishes first, by name, then the comic ones.
     assert.deepEqual(variants.slice(0, 4).map(each => each.value), ['', 'US', 'AU', 'GB'])
     assert.ok(variants.some(each => each.label === 'American English'))
+    assert.ok(!variants.some(each => ['IN', 'ZA'].includes(each.value)))
+    assert.ok(!variantsOf('en', 'es', ['es'], []).some(each => each.value === 'US'))
     assert.equal(variants[variants.length - 1]?.value, 'US-startrek')
     assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['', 'BR', 'PT'])
     assert.deepEqual(variantsOf('en', 'tl', ['tl', 'tl-XX'], []).map(each => each.value), ['', 'XX'])
