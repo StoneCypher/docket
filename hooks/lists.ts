@@ -170,10 +170,9 @@ export const arrange = (
 }
 
 export const counterText = (hidden: number, delta: number) => {
-  const parts = hidden > 0 ? [`+${hidden} more`] : []
-  parts.push(delta > 0 ? `↑ ${delta}` : delta < 0 ? `↓ ${-delta}` : '+0')
+  const change = delta > 0 ? `↑${delta}` : delta < 0 ? `↓${-delta}` : '+0'
 
-  return `(${parts.join(', ')})`
+  return hidden > 0 ? `+${hidden} more · ${change}` : change
 }
 
 const describe = (item: Item) =>
@@ -187,12 +186,16 @@ const describe = (item: Item) =>
     .filter(Boolean)
     .join(' | ')
 
-// Words a reply uses when it leaves work open: a reply holding them that changed nothing on the docket
-// is flagged, and the next prompt asks for a reconcile.
+// Phrases a reply uses when it leaves work open: a reply holding one that changed nothing on the
+// docket is flagged, and the next prompt asks for a reconcile. Only phrases that leave work open
+// count; bare words like "next" or "later" also describe how things work, so they don't.
 const PENDING =
-  /\b(next( up| step)?|later|left( to do)?|remaining|queued|pending|todo|to-do|follow[- ]up|once you|when you're ready|still (need|to)|haven't yet|not yet|after (this|that))\b/i
+  /\b(next up|next steps?|left to do|still (need|needs|have) to|remaining work|to-?dos?|once you('ve| have)?|when you're ready|haven't (done|built|started|written)|I'll (come back|get to|follow up|do that|pick (it|that) up)|follow[- ]up)\b/i
 
-export const speaksOfPending = (answer: string) => PENDING.test(answer)
+// Code is quoted, not said: fences and inline code are left out before the check.
+const withoutCode = (text: string) => text.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`\n]*`/g, ' ')
+
+export const speaksOfPending = (answer: string) => PENDING.test(withoutCode(answer))
 
 export const RECONCILE =
   'Your last reply spoke of pending or next work but the docket did not change that turn. Make sure every open thread it mentions is an item; nothing open should live only in prose.'

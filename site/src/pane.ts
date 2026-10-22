@@ -80,14 +80,14 @@ export const figures = {
     [
       {
         name: 'Requests',
-        counter: '(↑ 1)',
+        counter: '↑1',
         bulk: 'Approve all',
         hasAnswers: true,
         items: [{ id: 'R6', emoji: '🚀', text: 'Push the three local commits to StoneCypher/docket?', isNew: true }],
       },
       {
         name: 'Questions',
-        counter: '(+0)',
+        counter: '+0',
         bulk: 'Accept all leans',
         items: [
           {
@@ -101,7 +101,7 @@ export const figures = {
       },
       {
         name: 'Later',
-        counter: '(+0)',
+        counter: '+0',
         items: [
           { id: 'L1', emoji: '💾', text: 'Build persistent todos, kept across sessions.', isDim: true },
           { id: 'L5', emoji: '🚀', text: 'Deploy the site to GitHub Pages.', isDim: true },
@@ -109,7 +109,7 @@ export const figures = {
       },
       {
         name: 'Pinned',
-        counter: '(↑ 1)',
+        counter: '↑1',
         isInline: true,
         items: [
           { id: 'P8', emoji: '💬', text: 'self-expression mod: its own session' },
@@ -123,7 +123,7 @@ export const figures = {
   leans: render([
     {
       name: 'Questions',
-      counter: '(↑ 2)',
+      counter: '↑2',
       bulk: 'Accept all leans',
       items: [
         {
@@ -147,7 +147,7 @@ export const figures = {
   sent: render([
     {
       name: 'Questions',
-      counter: '(+0)',
+      counter: '+0',
       bulk: 'Accept all leans',
       items: [
         { id: 'Q14', emoji: '📜', text: 'Which license?', lean: 'MIT. Permissive, and the plugin directory accepts it.', sent: '✔' },
@@ -165,7 +165,7 @@ export const figures = {
   options: render([
     {
       name: 'Questions',
-      counter: '(↑ 1)',
+      counter: '↑1',
       bulk: 'Accept all leans',
       items: [
         {
@@ -183,14 +183,14 @@ export const figures = {
   answers: render([
     {
       name: 'Requests',
-      counter: '(↑ 1)',
+      counter: '↑1',
       bulk: 'Approve all',
       hasAnswers: true,
       items: [{ id: 'R5', emoji: '🚀', text: 'Push the option-buttons commit to StoneCypher/docket? It is one ahead of origin.', isNew: true }],
     },
     {
       name: 'Confirm',
-      counter: '(↑ 1)',
+      counter: '↑1',
       bulk: 'Confirm all',
       hasAnswers: true,
       items: [
@@ -207,7 +207,7 @@ export const figures = {
   clearing: render([
     {
       name: 'Underway',
-      counter: '(↓ 1)',
+      counter: '↓1',
       items: [
         { id: 'U4', emoji: '🔧', text: 'Building the settings view.', isLingering: true },
         { id: 'U5', emoji: '📦', text: 'Prepping docket for publishing: README, license, marketplace files.', isNew: true },
@@ -215,7 +215,7 @@ export const figures = {
     },
     {
       name: 'Needs you',
-      counter: '(+0)',
+      counter: '+0',
       items: [{ id: 'N2', emoji: '🟢', text: 'Upgrade Node to 23.6 or later so npm test runs locally.', isDim: true }],
     },
   ]),

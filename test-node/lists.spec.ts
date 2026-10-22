@@ -59,12 +59,12 @@ describe('settingsOf', () => {
 
 describe('counterText', () => {
   test('says +0 rather than nothing, so an unchanged list never looks broken', () => {
-    assert.equal(counterText(0, 0), '(+0)')
+    assert.equal(counterText(0, 0), '+0')
   })
 
   test('puts the hidden count before the delta', () => {
-    assert.equal(counterText(3, 2), '(+3 more, ↑ 2)')
-    assert.equal(counterText(0, -4), '(↓ 4)')
+    assert.equal(counterText(3, 2), '+3 more · ↑2')
+    assert.equal(counterText(0, -4), '↓4')
   })
 })
 
@@ -121,6 +121,18 @@ describe('speaksOfPending', () => {
 
   test('leaves a reply with nothing open alone', () => {
     assert.ok(!speaksOfPending('Done. All tests pass.'))
+  })
+
+  test('leaves explanations of how things work alone', () => {
+    // Real false alarms from the session that built docket.
+    assert.ok(!speaksOfPending('The row goes away once I settle it on my next turn.'))
+    assert.ok(!speaksOfPending('Later sits right below Underway in the pane.'))
+    assert.ok(!speaksOfPending('Your answer waits in the queue until I finish, and the pending state ends there.'))
+    assert.ok(!speaksOfPending('Then the chaining gives you the logic; a long game hits a ceiling.'))
+  })
+
+  test('ignores phrases inside code', () => {
+    assert.ok(!speaksOfPending(`Run \`npm test\`, or see:\n\`\`\`\n// next up: todo\n\`\`\``))
   })
 })
 
