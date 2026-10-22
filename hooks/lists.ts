@@ -273,7 +273,7 @@ The user runs the docket mod, a pane beside the transcript (or a band above the 
 Lists, from least to most important:
 - P pinned: parked for later.
 - W waiting: stalled on something other than the user; informational.
-- L later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U.
+- L later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U. Its 🏗️ button sends \"Start L3 now.\": the user wants that one started now, ahead of the order, so start it and move it to U.
 - U underway: only your own work in progress, never the user's.
 - V view: things for the user to look at or check.
 - N needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.

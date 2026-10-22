@@ -152,6 +152,8 @@ const draw = async (
   const trash = surface === 'terminal' ? '✕' : '🗑️'
   // The eye has the same trouble on the terminal, which gets a plain ◉ instead.
   const eye = surface === 'terminal' ? '◉' : '👁️'
+  // Later's "okay, it's time to do this now": a crane, or ▶ on the terminal.
+  const crane = surface === 'terminal' ? '▶' : '🏗️'
 
   // A heading's counter: a growing list's arrow in moderate green and its number in a fainter green,
   // a shrinking list's in purple, and no change in the dim gray.
@@ -375,8 +377,19 @@ const draw = async (
             </Box>
             {sayOf ? yesNo(item, sayOf.yes, sayOf.no, `${item.id}. ${item.text}`, 3) : null}
             {item.options && !item.lean ? choices(item, `${item.id}. ${item.text}`) : null}
-            {/* An item about a file gets 👁️ to open it, stacked above its 🗑️. */}
+            {/* An item about a file gets 👁️ to open it, and a Later item 🏗️ to start it, stacked above its 🗑️. */}
             <Box flexShrink={0} marginLeft={1} flexDirection="column">
+              {item.list === 'L' ? (
+                item.answered ? (
+                  <Text size="caption" dimColor>
+                    {crane}
+                  </Text>
+                ) : (
+                  <Button key={`go-${item.id}`} plain dimColor onPress={answer(item.id, crane, `Start ${item.id} now.`)}>
+                    <Text size="caption">{crane}</Text>
+                  </Button>
+                )
+              ) : null}
               {item.open ? (
                 <Button key={`open-${item.id}`} plain dimColor onPress={() => onAction(item, 'open')}>
                   <Text size="caption">{eye}</Text>

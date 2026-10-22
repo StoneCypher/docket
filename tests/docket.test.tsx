@@ -507,3 +507,23 @@ test('a bulk button answers only the items on screen, not the ones past the cap'
   expect(submitted).toEqual(['Accept the leans on Q1, Q2.'])
   await ui.unmount()
 })
+
+test("a Later item's 🏗️ asks for it to start now", async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'L', text: 'Build the index repo' }] })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'go-L1' })
+  expect(submitted).toEqual(['Start L1 now.'])
+  // Sent: the button gives way, so it can't be pressed twice.
+  expect(await ui.find({ key: 'go-L1' })).toBeUndefined()
+  await ui.unmount()
+})
