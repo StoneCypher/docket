@@ -35,7 +35,7 @@ const isSettings = atom({ plugin: 'docket', key: 'isSettings' } as const, false)
 const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
 
-type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number }
+type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number; options?: string[] }
 type UpdateInput = {
   add?: (Fields & { list: Letter; text: string })[]
   change?: (Fields & { id: string })[]
@@ -44,12 +44,20 @@ type UpdateInput = {
 
 const STAKES = ['emergency', 'high', 'med']
 
+// A button label: one letter, or one emoji (a pictograph with its modifiers, at most 8 code units).
+const isOptionLabel = (label: unknown): label is string =>
+  typeof label === 'string' && (/^\p{L}$/u.test(label) || (/^\p{Extended_Pictographic}/u.test(label) && label.length <= 8))
+
 const fieldsOf = (spec: Fields): Fields => {
   const out: Fields = {}
   if (typeof spec.text === 'string') out.text = spec.text
   if (typeof spec.emoji === 'string' && spec.emoji) out.emoji = spec.emoji
   if (typeof spec.lean === 'string' && spec.lean) out.lean = spec.lean
   if (spec.stakes && STAKES.includes(spec.stakes)) out.stakes = spec.stakes
+  if (Array.isArray(spec.options)) {
+    const options = spec.options.filter(isOptionLabel).slice(0, 3)
+    if (options.length) out.options = options
+  }
   if (typeof spec.rank === 'number') out.rank = spec.rank
 
   return out
@@ -61,6 +69,12 @@ const ITEM_FIELDS = {
   lean: { type: 'string', description: 'Questions only: the answer you would pick' },
   stakes: { type: 'string', enum: STAKES, description: 'Omit for low stakes' },
   rank: { type: 'number', description: 'V, N, C, Q and R only: 1 is the most urgent' },
+  options: {
+    type: 'array',
+    items: { type: 'string' },
+    maxItems: 3,
+    description: 'Questions only: one to three button labels, each a single letter or a single emoji, such as ["a", "b", "c"] or ["🌐", "📄"]. Each label must appear in the text beside what it picks. Their buttons replace the lean’s ✔ and ✗ and send "Q4 (b)."',
+  },
 }
 
 const INPUT_SCHEMA = {
@@ -174,7 +188,7 @@ const draw = async (
   }
 
   // Marks items answered at once, so the row dims and drops its buttons before Claude acts on the reply.
-  const markAnswered = async (ids: readonly string[], answer: 'yes' | 'no') => {
+  const markAnswered = async (ids: readonly string[], answer: string) => {
     const answeredAt = await $.clock.now()
     await update($, items, current =>
       current.map(item => (ids.includes(item.id) && isOpen(item) ? { ...item, answered: answer, answeredAt } : item)),
@@ -184,7 +198,7 @@ const draw = async (
   }
 
   // A ✔ or ✗: answers one item, as if the user had typed it.
-  const answer = (id: string, kind: 'yes' | 'no', text: string) => async () => {
+  const answer = (id: string, kind: string, text: string) => async () => {
     await markAnswered([id], kind)
     await $.prompt.submit({ text, asUser: true })
   }
@@ -241,7 +255,7 @@ const draw = async (
     item.answered ? (
       <Box flexShrink={0} marginLeft={1}>
         <Text size="caption" dimColor>
-          {item.answered === 'yes' ? '✔' : '✗'}
+          {item.answered === 'yes' ? '✔' : item.answered === 'no' ? '✗' : item.answered}
         </Text>
       </Box>
     ) : (
@@ -252,6 +266,29 @@ const draw = async (
         <Button key={`no-${item.id}`} plain dimColor onPress={answer(item.id, 'no', no)}>
           <Text size="caption">✗</Text>
         </Button>
+      </Box>
+    )
+
+  // A question's lettered options, one button each, in place of ✔ and ✗.
+  const choices = (item: Item, beside: string) =>
+    item.answered ? (
+      <Box flexShrink={0} marginLeft={1}>
+        <Text size="caption" dimColor>
+          {item.answered}
+        </Text>
+      </Box>
+    ) : (
+      <Box
+        flexShrink={0}
+        marginLeft={1}
+        flexDirection={isOneLine(beside, 2 * (item.options?.length ?? 0)) ? 'row' : 'column'}
+        columnGap={1}
+      >
+        {(item.options ?? []).map((option, i) => (
+          <Button key={`opt-${item.id}-${i}`} plain dimColor onPress={answer(item.id, option, `${item.id} (${option}).`)}>
+            <Text size="caption">{option}</Text>
+          </Button>
+        ))}
       </Box>
     )
 
@@ -270,6 +307,7 @@ const draw = async (
               {line(item, isLingering, isDim)}
             </Box>
             {sayOf ? yesNo(item, sayOf.yes, sayOf.no, `${item.id}. ${item.text}`, 3) : null}
+            {item.options && !item.lean ? choices(item, `${item.id}. ${item.text}`) : null}
             <Box flexShrink={0} marginLeft={1}>
               <Button key={`x-${item.id}`} plain dimColor onPress={dismiss(item.id)}>
                 <Text size="caption">{trash}</Text>
@@ -285,7 +323,9 @@ const draw = async (
                 <Text bold>Lean</Text>: {item.lean}
               </Text>
             </Box>
-            {yesNo(item, `Accept the lean on ${item.id}.`, `No to the lean on ${item.id}.`, `Lean: ${item.lean}`)}
+            {item.options
+              ? choices(item, `Lean: ${item.lean}`)
+              : yesNo(item, `Accept the lean on ${item.id}.`, `No to the lean on ${item.id}.`, `Lean: ${item.lean}`)}
           </Box>
         ) : null}
       </Box>

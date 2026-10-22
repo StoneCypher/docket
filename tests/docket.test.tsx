@@ -297,3 +297,30 @@ test('queued sits right below underway in the pane', async ($, on) => {
   expect(at(/^queued/)).toBeLessThan(at(/^waiting/))
   await ui.unmount()
 })
+
+test("a question's option buttons replace ✔ and ✗, and send the pick", async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [{ list: 'Q', text: 'Which direction: (a) docket, (b) instrument, (c) your call?', lean: '(a)', options: ['a', 'b', 'c', 'd'] }, { list: 'Q', text: 'Docs: (🌐) site or (📄) README?', options: ['🌐', 'too long', '📄'] }],
+  })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ key: 'ok-Q1' })).toBeUndefined()
+  expect(await ui.find({ key: 'opt-Q1-3' })).toBeUndefined()
+  await ui.press({ key: 'opt-Q1-1' })
+  expect(submitted).toEqual(['Q1 (b).'])
+  expect(await ui.find({ key: 'opt-Q1-0' })).toBeUndefined()
+  // Emoji labels work, and a label that is neither one letter nor one emoji is dropped.
+  await ui.press({ key: 'opt-Q2-1' })
+  expect(submitted).toEqual(['Q1 (b).', 'Q2 (📄).'])
+  await ui.unmount()
+})

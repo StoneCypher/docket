@@ -17,11 +17,14 @@ export type Item = {
   stakes?: Stakes
   // 1 is most urgent; only the ranked lists read it.
   rank?: number
+  // Up to three lettered options a question offers; their buttons replace ✔ and ✗.
+  options?: string[]
   addedTurn: number
   changedTurn: number
   closed?: Closure
   // The user pressed ✔ or ✗ and the reply is on its way; cleared when Claude changes the item.
-  answered?: 'yes' | 'no'
+  // 'yes', 'no', or the option picked.
+  answered?: string
   // When it was answered: the docket hides it a little later, whatever Claude has done by then.
   answeredAt?: number
 }
