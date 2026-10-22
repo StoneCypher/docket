@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ትዕዛዞች",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ጥያቄዎች",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "አረጋግጥ",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "የእርስዎ ተራ",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ማሳያ",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "በሂደት ላይ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ለኋላ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ቆሟል",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ፒን የተደረጉ",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ምክረ ሐሳብ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(አዲስ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ተጨማሪ",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ያነሰ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "በdocket ላይ ምንም የለም።",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ሁሉንም ምክረ ሐሳቦች ተቀበል",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ሁሉንም አረጋግጥ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ሁሉንም አጽድቅ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "የ{id} ምክረ ሐሳብን እቀበላለሁ።",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "የ{id} ምክረ ሐሳብን አልቀበልም።",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})።",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ጸድቋል።",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ውድቅ ተደርጓል።",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ተረጋግጧል።",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} አልተረጋገጠም።",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id}ን አሁን ጀምር።",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "የ{ids} ምክረ ሐሳቦችን እቀበላለሁ።",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ተረጋግጠዋል።",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ጸድቀዋል።",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ቅንብሮች",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ተጠናቋል",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "የእርስዎን ውቅር በማርትዕ ላይ፦",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "የዚህን ፕሮጀክት ውቅር በማርትዕ ላይ፤ ይህም የእርስዎን ይሽራል፦",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ለዚህ ፕሮጀክት ቅጂ ፍጠር",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ቅንብሮች ተርሚናል፣ የዴስክቶፕ መተግበሪያ ወይም VS Code ያስፈልጋቸዋል።",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "የ{list} ገደብ",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "«+N ተጨማሪ» ከመታየቱ በፊት በ{list} የሚታዩ ንጥሎች",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "የdocket ውቅር በ{path} ላይ፣ ሁሉም ቅንብሮች በነባሪ እሴታቸው ይፈጠር? እዚያ ወይም በ⚙ ማርትዕ ይችላሉ።",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "አዲሱን ውቅርዎን ይመልከቱ፦ {path}። ሁሉም ቅንብሮች እዚያ በነባሪ እሴታቸው አሉ።",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket በ{path} ያለውን ውቅሩን ከስሪት {from} ወደ {to} አዘምኗል።",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket በ{path} ያለውን ውቅሩን ከስሪት {from} ወደ {to} አዘምኗል፣ {added}ን በነባሪ እሴቶቻቸው አክሏል።",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket በ{path} ያለውን ውቅሩን ማንበብ አልቻለም፤ ስለዚህ ፋይሉ እስኪስተካከል ድረስ ነባሪ እሴቶችን ይጠቀማል።",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "የdocket {language} በማሽን ተተርጉሟል። ተፈጥሯዊ እንዲሆን ይረዳሉ? ✔ [ፋይሉን]({link}) በGitHub አርታኢ ይከፍታል፦ ማንኛውንም ጽሑፍ ያስተካክሉ፣ \"ready\"ን ወደ true ያድርጉ፣ እና ለማቅረብ ያስቀምጡ።",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket የእሱ {language} ገና ያልተረጎመው አዲስ የእንግሊዝኛ ጽሑፍ አለው። [ወቅታዊ እንዲሆን]({link}) ይረዳሉ? ✔ ፋይሉን በGitHub አርታኢ ይከፍታል፦ እያንዳንዱን ባዶ \"text\" ይሙሉ፣ እና ለማቅረብ ያስቀምጡ።",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ቋንቋ",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "የdocket የራሱ ቃላት ቋንቋ፦ auto የClaude Code ቋንቋ ቅንብርን ይከተላል",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "አቀራረብ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ከውይይቱ አጠገብ ያለ ፓነል፣ ወይም ከመጻፊያው በላይ ያለ ሰንበር",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ኢሞጂ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket ለሚያሳያቸው ሁሉም ኢሞጂዎች ዋና ማብሪያ/ማጥፊያ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "የርዕስ ኢሞጂ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ከእያንዳንዱ ዝርዝር ርዕስ በፊት ኢሞጂ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "የንጥል ኢሞጂ የሌላቸው ዝርዝሮች",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ንጥሎቻቸው ኢሞጂ የማያሳዩ ዝርዝሮች ፊደሎች (ውስጣዊ የእንግሊዝኛ ፊደሎች)፣ ለምሳሌ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "በአንድ መስመር ያሉ ዝርዝሮች",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "በአንድ መስመር፣ በነጥብ ተለያይተው የሚታዩ ዝርዝሮች ፊደሎች (ውስጣዊ የእንግሊዝኛ ፊደሎች)",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "የታለመ ርዝመት",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ለእያንዳንዱ ዝርዝር ለስላሳ የቃላት ገደብ፣ በውስጣዊ የእንግሊዝኛ ፊደሎች፣ ለምሳሌ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "የአስፈላጊነት ማሳያ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "የአስፈላጊነት ምልክቶች እንዴት እንደሚታዩ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "የንጥል ቀለም",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "በዚህ ዙር የተቀየረ ንጥል ቀለም፣ hex ወይም የገጽታ ቁልፍ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "የደበዘዘ ንጥል ቀለም",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ካለፈው ዙር ወዲህ ያልተቀየረ ንጥል ቀለም",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "የእድገት ቀስት",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ዝርዝር በዚህ ዙር ሲያድግ የ↑ ቀለም",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "የእድገት ቁጥር",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ከሚያድግ ዝርዝር ↑ አጠገብ ያለው ቁጥር ቀለም",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "የቅናሽ ቀስት",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ዝርዝር በዚህ ዙር ሲቀንስ የ↓ ቀለም",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "የቅናሽ ቁጥር",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ከሚቀንስ ዝርዝር ↓ አጠገብ ያለው ቁጥር ቀለም",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "የምክረ ሐሳብ ቀለም",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "የምክረ ሐሳብ መስመር ቀለም፣ hex ወይም የገጽታ ቁልፍ፤ የንጥሉን የራሱ ቀለም ለመጠቀም ባዶ ይተዉ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "የደበዘዘ ምክረ ሐሳብ ቀለም",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ንጥሉ ስላልተቀየረ ሲደበዝዝ የምክረ ሐሳብ መስመር ቀለም",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ከመልስ በኋላ ቆይታ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "በአዝራር የተመለሰ ንጥል ከመጥፋቱ በፊት ደብዝዞ የሚቆይባቸው ሰከንዶች",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ተሰርዞ ቆይታ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude ራሱ የዘጋው ንጥል ተሰርዞ የሚቆይባቸው ደቂቃዎች",
+    "ready": "ai translated"
   }
 }

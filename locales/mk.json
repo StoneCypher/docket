@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Барања",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Прашања",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Да се потврди",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Твој ред",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "Види",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "Се работи",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Одложено",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Чекање",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Закачено",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Предлог",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ново)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} уште",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "помалку",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "Нема ништо во docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "Прифати ги сите предлози",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Потврди ги сите",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Одобри ги сите",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Го прифаќам предлогот за {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Не на предлогот за {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Одобрувам {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Одбивам {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Потврдувам {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Не потврдувам {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "Започни го {id} сега.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Ги прифаќам предлозите за {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Потврдувам {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Одобрувам {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Поставки",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Готово",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "Ја уредуваш твојата конфигурација:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "Ја уредуваш конфигурацијата на овој проект, која има предност пред твојата:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Копирај за овој проект",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "Поставките бараат терминал, десктоп апликација или VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Ограничување за {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Ставки прикажани во {list} пред „+N уште“",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "Да се создаде конфигурацијата на docket во {path}, со сите поставки на стандардните вредности? Можеш да ја уредуваш таму или преку ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "Погледни ја новата конфигурација: {path}. Таму е секоја поставка со стандардната вредност.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket ја ажурираше својата конфигурација во {path} од верзија {from} на {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket ја ажурираше својата конфигурација во {path} од верзија {from} на {to}, додавајќи {added} со стандардните вредности.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket не можеше да ја прочита својата конфигурација во {path}, па ги користи стандардните вредности додека датотеката не се поправи.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "Преводот на docket на {language} е машински. Ќе помогнеш да звучи природно? ✔ ја отвора [неговата датотека]({link}) во уредувачот на GitHub: поправи кој било текст, постави го неговиот \"ready\" на true и зачувај за да ја испратиш промената.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket има нов англиски текст што преводот на {language} уште не го опфаќа. Ќе помогнеш [да се ажурира]({link})? ✔ ја отвора датотеката во уредувачот на GitHub: пополни го секој празен \"text\" и зачувај за да ја испратиш промената.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "Јазик",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Јазик на текстовите на docket: auto го следи јазикот поставен во Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Приказ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "Панел до разговорот или лента над полето за внес",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Емоџи",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Главен прекинувач за сите емоџи што ги црта docket",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Емоџи во наслови",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "Емоџи пред насловот на секоја листа",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Листи без емоџи",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Внатрешни (англиски) букви на листите чии ставки немаат емоџи, на пр. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Листи во еден ред",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Внатрешни (англиски) букви на листите прикажани во еден ред, одделени со точки",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Целна должина",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Флексибилно ограничување на зборови по листа (со англиски букви), на пр. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Приказ на важност",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Како се прикажуваат ознаките за важност",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Боја на ставка",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Боја на ставка променета во овој потег, hex или клуч од темата",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Боја на затемнета ставка",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Боја на ставка непроменета од последниот потег",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Стрелка за раст",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Боја на ↑ кога листата пораснала во овој потег",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Број за раст",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Боја на бројот до ↑ на листа што расте",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Стрелка за намалување",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Боја на ↓ кога листата се намалила во овој потег",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Број за намалување",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Боја на бројот до ↓ на листа што се намалува",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Боја на предлогот",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Боја на редот со предлогот, hex или клуч од темата; празно за бојата на ставката",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Боја на затемнет предлог",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Боја на редот со предлогот кога неговата ставка е затемнета како непроменета",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Задржување по одговор",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Секунди колку ставка одговорена со копче останува видлива, затемнета, пред да исчезне",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Задржување на прецртаните",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Минути колку ставка што Claude сам ја затворил останува видлива, прецртана",
+    "ready": "ai translated"
   }
 }

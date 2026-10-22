@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Solicitúes",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Entrugues",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Confirmar",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Precisa de ti",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "Ver",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "Aniciáu",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Dempués",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Bloquiáu",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Fixáu",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Propuesta",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(nuevu)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} más",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "menos",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "Nun hai nada nel docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "Aceptar toles propuestes",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Confirmalo too",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Aprobalo too",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Aceuto la propuesta de {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Non a la propuesta de {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Aprobáu {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Refugáu {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Confirmáu {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Non confirmáu {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "Empecipia {id} agora.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Aceuto les propuestes de {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Confirmaos {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Aprobaos {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Axustes",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Fecho",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "Editando la to configuración:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "Editando la configuración d'esti proyeutu, que tien prioridá sobre la tuya:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Copiar pa esti proyeutu",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "Los axustes precisen la terminal, l'escritoriu o VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Llímite de {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Elementos que s'amuesen en {list} enantes de «+N más»",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "¿Crear la configuración de docket en {path}, con cada axuste nel so valor predetermináu? Pues editala ellí o con ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "Mira la to configuración nueva: {path}. Cada axuste ta ellí nel so valor predetermináu.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket anovó la so configuración en {path} de la versión {from} a la {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket anovó la so configuración en {path} de la versión {from} a la {to}, amestando {added} colos sos valores predeterminaos.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket nun pudo lleer la so configuración en {path}, asina qu'usa los valores predeterminaos hasta que s'igüe'l ficheru.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "El {language} de docket tradúxose automáticamente. ¿Ayudes a que suene natural? ✔ abre [el so ficheru]({link}) nel editor de GitHub: igua cualquier testu, pon el so \"ready\" en true y guarda pa proponelo.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket tien testos nuevos n'inglés que'l so {language} entá nun traduz. ¿Ayudes a [ponelo al día]({link})? ✔ abre'l ficheru nel editor de GitHub: enllena cada \"text\" baleru y guarda pa proponelo.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "Llingua",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Llingua de los testos del docket: auto sigue l'axuste de llingua de Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Presentación",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "Un panel xunto a la conversación, o una franxa enriba del campu de testu",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Interruptor xeneral de tolos emoji que dibuxa'l docket",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji nos títulos",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "Un emoji enantes del títulu de cada llista",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Llistes ensin emoji",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Lletres internes (les ingleses, como Q pa Entrugues y P pa Fixáu) de les llistes que los sos elementos nun lleven emoji, p. ex. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Llistes nuna llinia",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Lletres internes (les ingleses) de les llistes que s'amuesen nuna sola llinia, separtaes por puntos",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Llonxitú orientativa",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Llímite flexible de pallabres por llista, coles lletres internes ingleses, p. ex. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Indicador d'importancia",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Cómo s'amuesen los indicadores d'importancia",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Color d'elementu",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Color d'un elementu que camudó nesti turnu, en hexadecimal o como clave de tema",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Color d'elementu atenuáu",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Color d'un elementu ensin cambeos dende'l turnu anterior",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Flecha de crecimientu",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Color de la ↑ cuando una llista creció nesti turnu",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Númberu de crecimientu",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Color del númberu xunto a la ↑ d'una llista que crez",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Flecha d'amenorgamientu",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Color de la ↓ cuando una llista amenorgó nesti turnu",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Númberu d'amenorgamientu",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Color del númberu xunto a la ↓ d'una llista qu'amenorga",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Color de la propuesta",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Color de la llinia de propuesta, en hexadecimal o como clave de tema; baleru pa usar el color del elementu",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Color de la propuesta atenuada",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Color de la llinia de propuesta cuando'l so elementu ta atenuáu por nun camudar",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Permanencia tres responder",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Segundos que un elementu respondíu con un botón sigue visible, atenuáu, enantes de dise",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Permanencia tachada",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Minutos que un elementu que Claude zarró pela so cuenta sigue visible, tacháu",
+    "ready": "ai translated"
   }
 }

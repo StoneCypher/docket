@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Beiðnir",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Spurningar",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Til staðfestingar",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Þarfnast þín",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "Að skoða",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "Í vinnslu",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Geymt",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Hindrað",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Fest",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Tillaga",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(nýtt)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} í viðbót",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "færri",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "Ekkert á docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "Samþykkja allar tillögur",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Staðfesta allt",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Samþykkja allt",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Ég samþykki tillöguna um {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Nei við tillögunni um {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} samþykkt.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} hafnað.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} staðfest.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ekki staðfest.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "Byrjaðu á {id} núna.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Ég samþykki tillögurnar um {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} staðfest.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} samþykkt.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Stillingar",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Lokið",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "Breytir stillingunum þínum:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "Breytir stillingum þessa verkefnis, sem ganga framar þínum:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Gera afrit fyrir þetta verkefni",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "Stillingar krefjast útstöðvar, skjáborðs eða VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Hámark {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Atriði sem sjást í {list} á undan \"+N í viðbót\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "Búa til stillingaskrá docket í {path}, með allar stillingar á sjálfgefnu gildi? Þú getur breytt henni þar, eða með ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "Skoðaðu nýju stillingaskrána þína: {path}. Allar stillingar eru þar á sjálfgefnu gildi.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket uppfærði stillingaskrá sína í {path} úr útgáfu {from} í {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket uppfærði stillingaskrá sína í {path} úr útgáfu {from} í {to} og bætti við {added} á sjálfgefnu gildi.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket gat ekki lesið stillingaskrá sína í {path}, svo það notar sjálfgefin gildi þar til skráin hefur verið löguð.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "Þýðing docket ({language}) var vélþýdd. Viltu hjálpa til við að gera hana eðlilega? ✔ opnar [skrána]({link}) í ritli GitHub: lagaðu hvaða texta sem er, settu \"ready\" hans á true og vistaðu til að leggja breytinguna til.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket er með nýjan enskan texta sem þýðingin ({language}) nær ekki enn yfir. Viltu hjálpa til við að [uppfæra hana]({link})? ✔ opnar skrána í ritli GitHub: fylltu út hvert tómt \"text\" og vistaðu til að leggja breytinguna til.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "Tungumál",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Tungumál texta docket sjálfs: auto fylgir tungumálastillingu Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Birting",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "Svæði við hlið samtalsins, eða borði fyrir ofan innsláttarreitinn",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Aðalrofi fyrir öll emoji sem docket sýnir",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji í fyrirsögnum",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "Emoji á undan fyrirsögn hvers lista",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Listar án emoji",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Innri (ensku) bókstafir lista þar sem atriðin fá ekkert emoji, t.d. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Listar í línu",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Innri (ensku) bókstafir lista sem birtast í einni línu, aðskildir með punktum",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Viðmiðunarlengd",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Sveigjanleg orðamörk á hvern lista, með innri ensku bókstöfunum, t.d. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Birting mikilvægis",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Hvernig merki um mikilvægi birtast",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Litur atriðis",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Litur atriðis sem breyttist í þessari umferð, hex eða þemalykill",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Litur dempaðs atriðis",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Litur atriðis sem hefur ekki breyst frá síðustu umferð",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ör fyrir fjölgun",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Litur ↑ þegar listi stækkaði í þessari umferð",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Tala fyrir fjölgun",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Litur tölunnar við ↑ lista sem stækkar",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ör fyrir fækkun",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Litur ↓ þegar listi minnkaði í þessari umferð",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Tala fyrir fækkun",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Litur tölunnar við ↓ lista sem minnkar",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Litur tillögu",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Litur tillögulínunnar, hex eða þemalykill; tómt fyrir eigin lit atriðisins",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Litur dempaðrar tillögu",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Litur tillögulínunnar meðan atriði hennar er dempað sem óbreytt",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Bið eftir svar",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Sekúndur sem atriði sem svarað var með hnappi helst sýnilegt, dempað, áður en það hverfur",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Bið yfirstrikaðra",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Mínútur sem atriði sem Claude lokaði sjálft helst sýnilegt með yfirstrikun",
+    "ready": "ai translated"
   }
 }

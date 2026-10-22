@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Āpono",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Nīnau",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Hōʻoia",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Pono ʻoe",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "E nānā",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "I ka hana",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Ma hope",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Ua paʻa",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Kui ʻia",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Manaʻo",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(hou)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} hou aku",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "emi iho",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAʻohe mea ma ka docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ʻAe i nā manaʻo a pau",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Hōʻoia i nā mea a pau",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Āpono i nā mea a pau",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAe au i ka manaʻo ma {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAʻole i ka manaʻo ma {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua āpono au iā {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua hōʻole au iā {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua hōʻoia au iā {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAʻole au i hōʻoia iā {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "E hoʻomaka iā {id} i kēia manawa.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAe au i nā manaʻo ma {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua hōʻoia au iā {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua āpono au iā {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Nā hoʻonohonoho",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Pau",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "Ke hoʻoponopono nei i kāu hoʻonohonoho:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "Ke hoʻoponopono nei i ka hoʻonohonoho o kēia papahana, ka mea e lanakila ma luna o kāu:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Hana i kope no kēia papahana",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "Pono nā hoʻonohonoho i ka terminal, ka desktop a i ʻole VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Palena o {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Nā mea i hōʻike ʻia ma {list} ma mua o \"+N hou aku\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "E hana i ka hoʻonohonoho o docket ma {path}, me kēlā me kēia hoʻonohonoho ma kona kūmau? Hiki iā ʻoe ke hoʻoponopono ma laila, a i ʻole me ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "E nānā i kāu hoʻonohonoho hou: {path}. Aia kēlā me kēia hoʻonohonoho ma kona kūmau.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "Ua hoʻohou ʻo docket i kona hoʻonohonoho ma {path} mai ka mana {from} a i ka {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "Ua hoʻohou ʻo docket i kona hoʻonohonoho ma {path} mai ka mana {from} a i ka {to}, me ka hoʻohui ʻana iā {added} ma ko lākou kūmau.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "ʻAʻole i hiki iā docket ke heluhelu i kona hoʻonohonoho ma {path}, no laila ke hoʻohana nei ia i nā kūmau a hoʻoponopono ʻia ka faila.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "Ua unuhi mīkini ʻia ka {language} o docket. E kōkua i mea e maʻalahi ai ka heluhelu ʻana? Wehe ʻo ✔ i [kona faila]({link}) ma ka mea hoʻoponopono o GitHub: hoʻoponopono i kekahi kaula, kau i kona \"ready\" i true, a mālama e noi aku ai.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "He ʻōlelo Pelekānia hou ko docket i unuhi ʻole ʻia i kāna {language}. E kōkua [e hoʻohou iā ia]({link})? Wehe ʻo ✔ i ka faila ma ka mea hoʻoponopono o GitHub: hoʻopiha i kēlā me kēia \"text\" hakahaka, a mālama e noi aku ai.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ʻŌlelo",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Ka ʻōlelo o nā huaʻōlelo ponoʻī o ka docket: hahai ʻo auto i ka hoʻonohonoho ʻōlelo o Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Hōʻike",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "He papa ma ka ʻaoʻao o ke kamaʻilio ʻana, a i ʻole he kāʻei ma luna o ke kahua kākau",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Kī nui no nā emoji a pau a ka docket e kaha ai",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji poʻo inoa",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "He emoji ma mua o ke poʻo inoa o kēlā me kēia papa inoa",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Nā papa inoa me ka emoji ʻole o nā mea",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Nā hua palapala kūloko (Pelekānia) o nā papa inoa i kaha ʻole ʻia ka emoji o ko lākou mau mea, e laʻa \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Nā papa inoa laina hoʻokahi",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Nā hua palapala kūloko (Pelekānia) o nā papa inoa i kaha ʻia ma ka laina hoʻokahi, i hoʻokaʻawale ʻia me nā kiko",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Nā lōʻihi i manaʻo ʻia",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Nā palena huaʻōlelo maʻalahi no kēlā me kēia papa inoa, me nā hua palapala kūloko Pelekānia, e laʻa \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Hōʻike koʻikoʻi",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Ke ʻano o ka hōʻike ʻana o nā kaha koʻikoʻi",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Waihoʻoluʻu mea",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o kahi mea i loli i kēia huli, he hex a i ʻole he kī kumuhana",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Waihoʻoluʻu mea mae",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o kahi mea i loli ʻole mai ka huli i hala",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Pua piʻi",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka ↑ ke ulu ka papa inoa i kēia huli",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Helu piʻi",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka helu ma ka ʻaoʻao o ka ↑ o ka papa inoa e ulu ana",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Pua iho",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka ↓ ke emi ka papa inoa i kēia huli",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Helu iho",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka helu ma ka ʻaoʻao o ka ↓ o ka papa inoa e emi ana",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Waihoʻoluʻu manaʻo",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka laina manaʻo, he hex a i ʻole he kī kumuhana; hakahaka no ka waihoʻoluʻu ponoʻī o ka mea",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Waihoʻoluʻu manaʻo mae",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Ka waihoʻoluʻu o ka laina manaʻo ke mae kona mea no ka loli ʻole",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Kali ma hope o ka pane",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Nā kekona e kū ai kahi mea i pane ʻia me ke pihi, me ka mae, ma mua o kona hala ʻana",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Kali kaha ʻia",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Nā minuke e kū ai kahi mea a Claude i pani ai iā ia iho, me ke kaha ma waena",
+    "ready": "ai translated"
   }
 }

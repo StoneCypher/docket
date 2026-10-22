@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "རེ་ཞུ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "དྲི་བ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ངེས་གཏན",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ཁྱེད་རང་དགོས",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ལྟོས",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "བྱེད་བཞིན་པ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ཕྱིས་སུ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "སྒུག་བཞིན་པ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "གཏན་འཇགས",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "བསམ་འཆར",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(གསར་པ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+ད་དུང་ {n}",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ཉུང་བ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket ནང་ཅི་ཡང་མེད།",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "བསམ་འཆར་ཚང་མ་དང་ལེན་བྱེད།",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ཚང་མ་ངེས་གཏན་བྱེད།",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ཚང་མར་ཆོག་མཆན་སྤྲོད།",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: བསམ་འཆར་དང་ལེན་བྱས།",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: བསམ་འཆར་དང་ལེན་མ་བྱས།",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})།",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: ཆོག་མཆན་སྤྲད།",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: ཁས་མ་བླངས།",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: ངེས་གཏན་བྱས།",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}: ངེས་གཏན་མ་བྱས།",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ད་ལྟ་འགོ་ཚུགས།",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}: བསམ་འཆར་དང་ལེན་བྱས།",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}: ངེས་གཏན་བྱས།",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}: ཆོག་མཆན་སྤྲད།",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "སྒྲིག་འགོད",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ཚར་སོང་",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ཁྱེད་ཀྱི་སྒྲིག་འགོད་བཟོ་བཅོས་བྱེད་བཞིན་པ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ལས་གཞི་འདིའི་སྒྲིག་འགོད་བཟོ་བཅོས་བྱེད་བཞིན་པ། འདིས་ཁྱེད་ཀྱི་སྒྲིག་འགོད་ཚབ་བྱེད:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ལས་གཞི་འདིའི་ཆེད་དུ་འདྲ་བཤུས་ཤིག་བཟོ།",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "སྒྲིག་འགོད་ལ་མཐའ་སྣེ་དང་། ཅོག་ངོས། ཡང་ན་ VS Code དགོས།",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} ཚད་བཀག",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+ད་དུང་ N\" གི་སྔོན་ལ་ {list} ནང་སྟོན་པའི་རྣམ་གྲངས།",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "{path} ལ་ docket ཡི་སྒྲིག་འགོད་གསར་བཟོ་བྱེད་དམ། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད། དེ་གར་རམ་ ⚙ བརྒྱུད་ནས་བཟོ་བཅོས་བྱེད་ཆོག",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ཁྱེད་ཀྱི་སྒྲིག་འགོད་གསར་པར་ལྟོས། {path}། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད།",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket གིས་ {path} ནང་གི་སྒྲིག་འགོད་པར་གཞི་ {from} ནས་ {to} བར་གསར་བསྒྱུར་བྱས།",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket གིས་ {path} ནང་གི་སྒྲིག་འགོད་པར་གཞི་ {from} ནས་ {to} བར་གསར་བསྒྱུར་བྱས་ཏེ། {added} སྔོན་སྒྲིག་ལྟར་ཁ་སྣོན་བྱས།",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket གིས་ {path} ནང་གི་སྒྲིག་འགོད་ཀློག་མ་ཐུབ། དེའི་ཕྱིར་ཡིག་ཆ་བཅོས་བར་དུ་སྔོན་སྒྲིག་བེད་སྤྱོད་བྱེད་བཞིན་ཡོད།",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ཡི་ {language} ནི་འཕྲུལ་ཆས་ཀྱིས་ཡིག་སྒྱུར་བྱས་པ་ཡིན། དེ་རང་བཞིན་ཅན་དུ་བཟོ་རོགས་བྱེད་དམ། ✔ ཡིས་ GitHub ཡི་རྩོམ་སྒྲིག་ཆས་ནང་ [དེའི་ཡིག་ཆ]({link}) ཁ་ཕྱེ། ཡི་གེ་གང་རུང་བཅོས། དེའི་ \"ready\" true ལ་བཀོད། ཉར་ནས་གྲོས་འཆར་འདོན།",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ལ་ {language} ཡིས་ད་དུང་ཡིག་སྒྱུར་མ་བྱས་པའི་དབྱིན་ཡིག་གསར་པ་ཡོད། [དེ་གསར་བསྒྱུར་]({link}) བྱེད་རོགས་བྱེད་དམ། ✔ ཡིས་ GitHub ཡི་རྩོམ་སྒྲིག་ཆས་ནང་ཡིག་ཆ་ཁ་ཕྱེ། \"text\" སྟོང་པ་རེ་རེ་ཁ་སྐོང་། ཉར་ནས་གྲོས་འཆར་འདོན།",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "སྐད་ཡིག",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket རང་གི་ཡི་གེའི་སྐད་ཡིག auto ནི་ Claude Code ཡི་སྐད་ཡིག་སྒྲིག་འགོད་ལྟར་འགྲོ།",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "མངོན་སྟོན",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "གླེང་མོལ་གྱི་འགྲམ་དུ་ངོས་ལེབ་ཅིག ཡང་ན་འཇུག་སྒོའི་སྟེང་དུ་ཕྲེང་ཐིག་ཅིག",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "བརྡ་རིས",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket ཡིས་འབྲི་བའི་བརྡ་རིས་ཚང་མའི་གཙོ་བོའི་གློག་སྒོ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "འགོ་བརྗོད་ཀྱི་བརྡ་རིས",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ཐོ་གཞུང་རེ་རེའི་འགོ་བརྗོད་སྔོན་དུ་བརྡ་རིས་ཤིག",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "བརྡ་རིས་མེད་པའི་ཐོ་གཞུང",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "རྣམ་གྲངས་ལ་བརྡ་རིས་མེད་པའི་ཐོ་གཞུང་གི་ནང་ཁུལ་ (དབྱིན་ཡིག) ཡི་གེ དཔེར་ན་ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ཐིག་ཕྲེང་གཅིག་གི་ཐོ་གཞུང",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ཐིག་ཕྲེང་གཅིག་ཏུ་ཚེག་གིས་ཁ་གྲལ་ནས་སྟོན་པའི་ཐོ་གཞུང་གི་ནང་ཁུལ་ (དབྱིན་ཡིག) ཡི་གེ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "དམིགས་ཚད་རིང་ཐུང",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ཐོ་གཞུང་རེ་རེའི་ཚིག་གྲངས་ཚད་བཀག ནང་ཁུལ་དབྱིན་ཡིག་གི་ཡི་གེས། དཔེར་ན་ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "གལ་ཆེའི་མངོན་སྟོན",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "གལ་ཆེའི་རྟགས་ཇི་ལྟར་སྟོན་པ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "རྣམ་གྲངས་ཀྱི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ཐེངས་འདིར་བསྒྱུར་བའི་རྣམ་གྲངས་ཀྱི་ཚོན་མདོག hex ཡང་ན་བརྗོད་གཞིའི་ལྡེ་མིག",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "མདངས་ཞན་རྣམ་གྲངས་ཀྱི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ཐེངས་སྔ་མ་ནས་མ་བསྒྱུར་བའི་རྣམ་གྲངས་ཀྱི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "འཕར་བའི་མདའ་རྟགས",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ཐེངས་འདིར་ཐོ་གཞུང་འཕར་དུས་ ↑ ཡི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "འཕར་བའི་ཨང་གྲངས",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "འཕར་བཞིན་པའི་ཐོ་གཞུང་གི་ ↑ འགྲམ་གྱི་གྲངས་ཀའི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ཉུང་བའི་མདའ་རྟགས",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ཐེངས་འདིར་ཐོ་གཞུང་ཉུང་དུས་ ↓ ཡི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ཉུང་བའི་ཨང་གྲངས",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ཉུང་བཞིན་པའི་ཐོ་གཞུང་གི་ ↓ འགྲམ་གྱི་གྲངས་ཀའི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "བསམ་འཆར་གྱི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "བསམ་འཆར་ཐིག་ཕྲེང་གི་ཚོན་མདོག hex ཡང་ན་བརྗོད་གཞིའི་ལྡེ་མིག སྟོང་པ་ཡིན་ན་རྣམ་གྲངས་རང་གི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "མདངས་ཞན་བསམ་འཆར་གྱི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "རྣམ་གྲངས་མ་བསྒྱུར་བས་མདངས་ཞན་དུས་བསམ་འཆར་ཐིག་ཕྲེང་གི་ཚོན་མདོག",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ལན་བཏབ་རྗེས་སྡོད་ཡུན",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "མཐེབ་གནོན་གྱིས་ལན་བཏབ་པའི་རྣམ་གྲངས་མ་ཡལ་གོང་མདངས་ཞན་ངང་སྡོད་པའི་སྐར་ཆ",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "བསུབ་ཐིག་སྡོད་ཡུན",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude རང་ཉིད་ཀྱིས་ཁ་བརྒྱབ་པའི་རྣམ་གྲངས་བསུབ་ཐིག་དང་བཅས་སྡོད་པའི་སྐར་མ",
+    "ready": "ai translated"
   }
 }

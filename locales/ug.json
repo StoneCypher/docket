@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ئىلتىماسلار",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "سوئاللار",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "تەستىقلاش",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "نۆۋىتىڭىز",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "قاراش",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "داۋاملىشىۋاتىدۇ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "كېيىن",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "بەند",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "مىقلانغان",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "تەۋسىيە",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(يېڭى)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "يەنە +{n}",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ئازراق",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket بوش.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "بارلىق تەۋسىيەلەرنى قوبۇل قىلىش",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ھەممىنى تەستىقلاش",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ھەممىگە ماقۇل",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} دىكى تەۋسىيەنى قوبۇل قىلىمەن.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} دىكى تەۋسىيەگە قوشۇلمايمەن.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ماقۇل.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نى رەت قىلىمەن.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نى تەستىقلايمەن.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نى تەستىقلىمايمەن.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نى ھازىر باشلا.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} دىكى تەۋسىيەلەرنى قوبۇل قىلىمەن.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} نى تەستىقلايمەن.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ماقۇل.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "تەڭشەكلەر",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "تامام",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "سىزنىڭ سەپلىمىڭىز تەھرىرلىنىۋاتىدۇ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "بۇ پروجېكتنىڭ سەپلىمىسى تەھرىرلىنىۋاتىدۇ، ئۇ سىزنىڭكىدىن ئۈستۈن تۇرىدۇ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "بۇ پروجېكت ئۈچۈن كۆپەيتمە قىلىش",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "تەڭشەكلەر ئۈچۈن تېرمىنال، ئۈستەل يۈزى ئەپ ياكى VS Code كېرەك.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} چېكى",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "{list} تىزىملىكىدە «يەنە +N» دىن ئىلگىرى كۆرسىتىلىدىغان تۈرلەر سانى",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "docket سەپلىمىسى {path} دا قۇرۇلسۇنمۇ؟ بارلىق تەڭشەكلەر كۆڭۈلدىكى قىممەتتە بولىدۇ. ئۇنى شۇ يەردە ياكى ⚙ ئارقىلىق تەھرىرلىيەلەيسىز.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "يېڭى سەپلىمىڭىزنى كۆرۈڭ: {path}. بارلىق تەڭشەكلەر ئۇنىڭدا كۆڭۈلدىكى قىممەتتە.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} دىكى سەپلىمىسىنى {from} نەشرىدىن {to} نەشرىگە يېڭىلىدى.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} دىكى سەپلىمىسىنى {from} نەشرىدىن {to} نەشرىگە يېڭىلىدى ۋە {added} نى كۆڭۈلدىكى قىممىتى بىلەن قوشتى.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} دىكى سەپلىمىسىنى ئوقۇيالمىدى، شۇڭا ھۆججەت تۈزىتىلگۈچە كۆڭۈلدىكى قىممەتلەرنى ئىشلىتىدۇ.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket نىڭ {language} تەرجىمىسى ماشىنىدا قىلىنغان. ئۇنى تەبىئىيرەك قىلىشقا ياردەم قىلامسىز؟ ✔ [ھۆججىتىنى]({link}) GitHub تەھرىرلىگۈچىدە ئاچىدۇ: خالىغان قۇرنى تۈزىتىڭ، ئۇنىڭ \"ready\" قىممىتىنى true قىلىڭ، ئاندىن تەكلىپ قىلىش ئۈچۈن ساقلاڭ.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket تا {language} تەرجىمىسىدە تېخى يوق يېڭى ئىنگلىزچە تېكىستلەر بار. ئۇنى [يېڭىلاشقا]({link}) ياردەم قىلامسىز؟ ✔ ھۆججەتنى GitHub تەھرىرلىگۈچىدە ئاچىدۇ: ھەر بىر قۇرۇق \"text\" نى تولدۇرۇڭ، ئاندىن تەكلىپ قىلىش ئۈچۈن ساقلاڭ.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "تىل",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket نىڭ ئۆز سۆزلىرىنىڭ تىلى: auto بولسا Claude Code نىڭ تىل تەڭشىكىگە ئەگىشىدۇ",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "كۆرسىتىش",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "سۆھبەت يېنىدىكى كۆزنەك ياكى كىرگۈزۈش رامكىسى ئۈستىدىكى بەلباغ",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ئېموجى",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket كۆرسىتىدىغان بارلىق ئېموجىلارنىڭ ئومۇمىي ئالماشتۇرغۇچى",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ماۋزۇ ئېموجىسى",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ھەر بىر تىزىملىك ماۋزۇسىنىڭ ئالدىدىكى ئېموجى",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ئېموجىسىز تىزىملىكلەر",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "تۈرلىرىدە ئېموجى كۆرسىتىلمەيدىغان تىزىملىكلەرنىڭ ئىچكى ئىنگلىزچە ھەرپلىرى (مەسىلەن Q سوئاللار، P مىقلانغان)، مەسىلەن \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "بىر قۇرلۇق تىزىملىكلەر",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "بىر قۇردا كۆرسىتىلىدىغان تىزىملىكلەرنىڭ ئىچكى ئىنگلىزچە ھەرپلىرى، چېكىت بىلەن ئايرىلىدۇ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "نىشان ئۇزۇنلۇق",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ھەر بىر تىزىملىكنىڭ يۇمشاق سۆز چېكى، ئىچكى ئىنگلىزچە ھەرپلەر بىلەن، مەسىلەن \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "مۇھىملىق كۆرسىتىلىشى",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "مۇھىملىق بەلگىلىرى قانداق كۆرسىتىلىدۇ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "تۈر رەڭگى",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "بۇ نۆۋەتتە ئۆزگەرگەن تۈرنىڭ رەڭگى، hex ياكى ئۇسلۇب ئاچقۇچى",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "سۇس تۈر رەڭگى",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ئالدىنقى نۆۋەتتىن بۇيان ئۆزگەرمىگەن تۈرنىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ئۆسۈش ئوقى",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "تىزىملىك بۇ نۆۋەتتە كۆپەيگەندە ↑ نىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ئۆسۈش سانى",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "كۆپىيىۋاتقان تىزىملىكنىڭ ↑ يېنىدىكى ساننىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ئازىيىش ئوقى",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "تىزىملىك بۇ نۆۋەتتە ئازايغاندا ↓ نىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ئازىيىش سانى",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ئازىيىۋاتقان تىزىملىكنىڭ ↓ يېنىدىكى ساننىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "تەۋسىيە رەڭگى",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "تەۋسىيە قۇرىنىڭ رەڭگى، hex ياكى ئۇسلۇب ئاچقۇچى؛ قۇرۇق بولسا تۈرنىڭ ئۆز رەڭگى",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "سۇس تەۋسىيە رەڭگى",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "تۈرى ئۆزگەرمىگەچكە سۇسلاشقاندا تەۋسىيە قۇرىنىڭ رەڭگى",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "جاۋابتىن كېيىن تۇرۇش",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "كۇنۇپكا بىلەن جاۋاب بېرىلگەن تۈرنىڭ يوقىلىشتىن بۇرۇن سۇس ھالەتتە تۇرىدىغان سېكۇنت سانى",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "سىزىلغان ھالەتتە تۇرۇش",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude ئۆزى تاقىغان تۈرنىڭ ئۆچۈرۈش سىزىقى بىلەن تۇرىدىغان مىنۇت سانى",
+    "ready": "ai translated"
   }
 }

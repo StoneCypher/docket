@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "خواستەکان",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "پرسیارەکان",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "سەلماندن",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "کاری تۆ",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "بینین",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "لە کاردایە",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "دواتر",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "چاوەڕوان",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "جێگیرکراو",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "پێشنیار",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(نوێ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} زیاتر",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "کەمتر",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "هیچ شتێک لە docket دا نییە.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "هەموو پێشنیارەکان قبوڵ بکە",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "هەمووی بسەلمێنە",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "هەمووی پەسەند بکە",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "پێشنیاری {id} قبوڵ دەکەم.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "نەخێر بۆ پێشنیاری {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} پەسەند کرا.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ڕەت کرایەوە.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} سەلمێنرا.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نەسەلمێنرا.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "ئێستا {id} دەست پێ بکە.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "پێشنیارەکانی {ids} قبوڵ دەکەم.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} سەلمێنران.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} پەسەند کران.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ڕێکخستنەکان",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "تەواو",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "دەستکاریکردنی ڕێکخستنی تۆ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "دەستکاریکردنی ڕێکخستنی ئەم پرۆژەیە، کە لە جیاتی هی تۆ کار دەکات:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "کۆپییەک بۆ ئەم پرۆژەیە دروست بکە",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ڕێکخستنەکان پێویستیان بە تێرمیناڵ، دێسکتۆپ یان VS Code هەیە.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "سنووری {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "ئەو بڕگانەی لە {list} پیشان دەدرێن پێش \"+N زیاتر\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ڕێکخستنی docket لە {path} دروست بکرێت، بە هەموو ڕێکخستنێک لە بەهای بنەڕەتیدا؟ دەتوانیت لەوێ یان بە ⚙ دەستکاری بکەیت.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "سەیری ڕێکخستنە نوێیەکەت بکە: {path}. هەموو ڕێکخستنێک لەوێیە بە بەهای بنەڕەتی.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket ڕێکخستنەکەی لە {path} لە وەشانی {from} بۆ {to} نوێ کردەوە.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket ڕێکخستنەکەی لە {path} لە وەشانی {from} بۆ {to} نوێ کردەوە و {added}ی بە بەهای بنەڕەتی زیاد کرد.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket نەیتوانی ڕێکخستنەکەی لە {path} بخوێنێتەوە، بۆیە تا فایلەکە چاک دەکرێتەوە بەها بنەڕەتییەکان بەکاردەهێنێت.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "{language}ی docket بە ئامێر وەرگێڕدراوە. یارمەتی دەدەیت سروشتی بخوێندرێتەوە؟ ✔ [فایلەکەی]({link}) لە دەستکاریکەری GitHub دا دەکاتەوە: هەر دەقێک چاک بکە، \"ready\"ەکەی بکە بە true، و پاشەکەوتی بکە بۆ پێشنیارکردنی.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket دەقی ئینگلیزیی نوێی هەیە کە {language}ەکەی هێشتا وەرینەگێڕاوە. یارمەتی دەدەیت [نوێی بکەیتەوە]({link})؟ ✔ فایلەکە لە دەستکاریکەری GitHub دا دەکاتەوە: هەر \"text\"ێکی بەتاڵ پڕ بکەوە، و پاشەکەوتی بکە بۆ پێشنیارکردنی.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "زمان",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "زمانی وشەکانی خودی docket: auto ڕێکخستنی زمانی Claude Code پەیڕەو دەکات",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "پیشاندان",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "پەنجەرەیەک لە تەنیشت گفتوگۆکە، یان شریتێک لە سەرووی خانەی نووسین",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ئیمۆجی",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "کلیلی سەرەکی بۆ هەموو ئەو ئیمۆجییانەی docket پیشانیان دەدات",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ئیمۆجیی سەردێڕ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ئیمۆجییەک پێش سەردێڕی هەر لیستێک",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "لیستەکانی بێ ئیمۆجیی بڕگە",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "پیتە ناوخۆییە ئینگلیزییەکانی ئەو لیستانەی بڕگەکانیان ئیمۆجییان نییە، بۆ نموونە \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "لیستەکانی یەک هێڵ",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "پیتە ناوخۆییە ئینگلیزییەکانی ئەو لیستانەی لە یەک هێڵدا پیشان دەدرێن، جیاکراوە بە خاڵ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "درێژیی ئامانج",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "سنووری نەرمی وشە بۆ هەر لیستێک، بە پیتە ناوخۆییە ئینگلیزییەکان، بۆ نموونە \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "پیشاندانی گرنگی",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "نیشانەکانی گرنگی چۆن پیشان دەدرێن",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی بڕگە",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی بڕگەیەک کە لەم نۆرەیەدا گۆڕاوە، hex یان کلیلی ڕووکار",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی بڕگەی کاڵ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی بڕگەیەک کە لە نۆرەی پێشووەوە نەگۆڕاوە",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "تیری زیادبوون",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی ↑ کاتێک لیستێک لەم نۆرەیەدا زیادی کرد",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ژمارەی زیادبوون",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی ژمارەکە لە تەنیشت ↑ی لیستێکی زیادبوو",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "تیری کەمبوونەوە",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی ↓ کاتێک لیستێک لەم نۆرەیەدا کەمی کرد",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ژمارەی کەمبوونەوە",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی ژمارەکە لە تەنیشت ↓ی لیستێکی کەمبوو",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی پێشنیار",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی هێڵی پێشنیار، hex یان کلیلی ڕووکار؛ بەتاڵ بۆ ڕەنگی خودی بڕگەکە",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی پێشنیاری کاڵ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ڕەنگی هێڵی پێشنیار کاتێک بڕگەکەی وەک نەگۆڕاو کاڵ کراوەتەوە",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "مانەوە دوای وەڵام",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "چەند چرکە بڕگەیەکی وەڵامدراو بە دوگمە، بە کاڵی دەمێنێتەوە پێش ئەوەی بڕوات",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "مانەوەی هێڵ بەسەرداهاتوو",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "چەند خولەک بڕگەیەک کە Claude خۆی دایخستووە بە هێڵ بەسەرداهاتوویی دەمێنێتەوە",
+    "ready": "ai translated"
   }
 }

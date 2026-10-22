@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "דערלויבענישן",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "פֿראַגעס",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "באַשטעטיקן",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "מע דאַרף דיך",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "קוקן",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "אין גאַנג",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "שפּעטער",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "וואַרטן",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "צוגעשפּילקעט",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "פֿאָרשלאָג",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(נײַ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} נאָך",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ווייניקער",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "גאָרנישט אויפֿן docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "אָננעמען אַלע פֿאָרשלאָגן",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "באַשטעטיקן אַלץ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "דערלויבן אַלץ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "איך נעם אָן דעם פֿאָרשלאָג אויף {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ניין צום פֿאָרשלאָג אויף {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} איז דערלויבט.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} איז אָפּגעזאָגט.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} איז באַשטעטיקט.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} איז נישט באַשטעטיקט.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "הייב אָן {id} איצט.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "איך נעם אָן די פֿאָרשלאָגן אויף {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} זענען באַשטעטיקט.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} זענען דערלויבט.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "באַשטימונגען",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "פֿאַרטיק",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "מע רעדאַקטירט דײַן קאָנפֿיגוראַציע:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "מע רעדאַקטירט די קאָנפֿיגוראַציע פֿון דעם פּראָיעקט, וואָס גייט פֿאַר דײַנער:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "מאַכן אַ קאָפּיע פֿאַר דעם פּראָיעקט",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "באַשטימונגען דאַרפֿן דעם טערמינאַל, די דעסקטאַפּ־אַפּ אָדער VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "גרענעץ פֿאַר {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "ווי פֿיל זאַכן ווײַזן זיך אין {list} פֿאַר \"+N נאָך\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "שאַפֿן די קאָנפֿיגוראַציע פֿון docket אין {path}, מיט יעדער באַשטימונג אויף איר גרונטווערט? דו קענסט זי דאָרט רעדאַקטירן, אָדער מיט ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "קוק אויף דײַן נײַער קאָנפֿיגוראַציע: {path}. יעדע באַשטימונג איז דאָרט אויף איר גרונטווערט.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket האָט דערהײַנטיקט זײַן קאָנפֿיגוראַציע אין {path} פֿון ווערסיע {from} ביז {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket האָט דערהײַנטיקט זײַן קאָנפֿיגוראַציע אין {path} פֿון ווערסיע {from} ביז {to}, און צוגעגעבן {added} מיט זייערע גרונטווערטן.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket האָט נישט געקענט לייענען זײַן קאָנפֿיגוראַציע אין {path}, טאָ ניצט עס די גרונטווערטן ביז מע פֿאַרריכט די טעקע.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "די {language}־איבערזעצונג פֿון docket איז געמאַכט געוואָרן דורך אַ מאַשין. וועסט העלפֿן מאַכן זי נאַטירלעכער? ✔ עפֿנט [איר טעקע]({link}) אינעם GitHub־רעדאַקטאָר: פֿאַרריכט וועלכן טעקסט דו ווילסט, שטעל זײַן \"ready\" אויף true, און היט אָפּ כּדי עס פֿאָרצולייגן.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket האָט נײַעם ענגלישן טעקסט וואָס די {language}־איבערזעצונג האָט נאָך נישט. וועסט העלפֿן [זי דערהײַנטיקן]({link})? ✔ עפֿנט די טעקע אינעם GitHub־רעדאַקטאָר: פֿיל אויס יעדן ליידיקן \"text\", און היט אָפּ כּדי עס פֿאָרצולייגן.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "שפּראַך",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "שפּראַך פֿון docket־ס אייגענע ווערטער: auto פֿאָלגט דער שפּראַך־באַשטימונג פֿון Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "אַרויסווײַז",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "אַ פֿענצטערל לעבן דעם שמועס, אָדער אַ פּאַס איבער דעם אַרײַנשרײַב־פֿעלד",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "עמאָדזשי",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "הויפּט־שאַלטער פֿאַר אַלע עמאָדזשי וואָס docket ווײַזט",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "עמאָדזשי אין קעפּלעך",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "אַן עמאָדזשי פֿאַר יעדן רשימה־קעפּל",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "רשימות אָן עמאָדזשי",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "אינערלעכע ענגלישע אותיות (למשל Q פֿאַר פֿראַגעס, P פֿאַר צוגעשפּילקעט) פֿון רשימות וועמענס זאַכן ווײַזן נישט קיין עמאָדזשי, למשל \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "רשימות אין איין שורה",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "אינערלעכע ענגלישע אותיות פֿון רשימות וואָס ווײַזן זיך אין איין שורה, צעטיילט מיט פּינטלעך",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ציל־לענגן",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ווייכע ווערטער־גרענעצן פּער רשימה, מיט די אינערלעכע ענגלישע אותיות, למשל \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ווײַזן וויכטיקייט",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ווי אַזוי די וויכטיקייט־סימנים ווײַזן זיך",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "זאַך־קאָליר",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון אַ זאַך וואָס האָט זיך געביטן דעם מאָל, hex אָדער אַ טעמע־שליסל",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "געדעמפּטער זאַך־קאָליר",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון אַ זאַך וואָס האָט זיך נישט געביטן זינט דעם לעצטן מאָל",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "וואַקסנדיקער פֿײַל",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון ↑ ווען אַ רשימה איז דעם מאָל געוואַקסן",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "וואַקסנדיקע צאָל",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון דער צאָל לעבן ↑ פֿון אַ וואַקסנדיקער רשימה",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "פֿאַלנדיקער פֿײַל",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון ↓ ווען אַ רשימה איז דעם מאָל קלענער געוואָרן",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "פֿאַלנדיקע צאָל",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון דער צאָל לעבן ↓ פֿון אַ פֿאַלנדיקער רשימה",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "פֿאָרשלאָג־קאָליר",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון דער פֿאָרשלאָג־שורה, hex אָדער אַ טעמע־שליסל; ליידיק פֿאַר דעם אייגענעם קאָליר פֿון דער זאַך",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "געדעמפּטער פֿאָרשלאָג־קאָליר",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "קאָליר פֿון דער פֿאָרשלאָג־שורה ווען איר זאַך איז געדעמפּט ווײַל זי האָט זיך נישט געביטן",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "בלײַבן נאָך ענטפֿער",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "סעקונדעס וואָס אַ זאַך, געענטפֿערט מיט אַ קנעפּל, בלײַבט געדעמפּט איידער זי גייט אַוועק",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "בלײַבן אויסגעשטראָכן",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "מינוטן וואָס אַ זאַך וואָס Claude האָט אַליין פֿאַרמאַכט בלײַבט אויסגעשטראָכן",
+    "ready": "ai translated"
   }
 }

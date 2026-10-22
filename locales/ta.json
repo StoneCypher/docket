@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "அனுமதிக்கு",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "வினாக்கள்",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "உறுதிசெய்",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "நீங்கள் தேவை",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "பார்க்க",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "செயலில்",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ஒத்திவைத்தவை",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "காத்திருப்பவை",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "தக்கவைத்தவை",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "பரிந்துரை",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(புதியது)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} மேலும்",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "குறைவாக",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket-இல் எதுவும் இல்லை.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "அனைத்து பரிந்துரைகளையும் ஏற்கவும்",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "அனைத்தையும் உறுதிசெய்",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "அனைத்தையும் அனுமதி",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-இன் பரிந்துரையை ஏற்கிறேன்.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-இன் பரிந்துரை வேண்டாம்.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ஐ அனுமதிக்கிறேன்.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ஐ மறுக்கிறேன்.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ஐ உறுதிசெய்கிறேன்.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ஐ உறுதிசெய்யவில்லை.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ஐ இப்போதே தொடங்கு.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}-இன் பரிந்துரைகளை ஏற்கிறேன்.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}-ஐ உறுதிசெய்கிறேன்.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}-ஐ அனுமதிக்கிறேன்.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "அமைப்புகள்",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "முடிந்தது",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "உங்கள் அமைப்புகளைத் திருத்துகிறீர்கள்:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "இந்தத் திட்டத்தின் அமைப்புகளைத் திருத்துகிறீர்கள், இவை உங்களுடையதை மீறும்:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "இந்தத் திட்டத்திற்கு ஒரு நகல் எடு",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "அமைப்புகளுக்கு டெர்மினல், டெஸ்க்டாப் அல்லது VS Code தேவை.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} வரம்பு",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N மேலும்\" என்பதற்கு முன் {list}-இல் காட்டப்படும் உருப்படிகள்",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ஒவ்வொரு அமைப்பும் இயல்புநிலையில் இருக்கும்படி docket-இன் அமைப்புக் கோப்பை {path}-இல் உருவாக்கவா? அதை அங்கே அல்லது ⚙ மூலம் திருத்தலாம்.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "உங்கள் புதிய அமைப்புக் கோப்பைப் பாருங்கள்: {path}. ஒவ்வொரு அமைப்பும் அதன் இயல்புநிலையில் உள்ளது.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket தனது அமைப்புக் கோப்பை {path}-இல் பதிப்பு {from}-இலிருந்து {to}-க்குப் புதுப்பித்தது.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket தனது அமைப்புக் கோப்பை {path}-இல் பதிப்பு {from}-இலிருந்து {to}-க்குப் புதுப்பித்து, {added}-ஐ இயல்புநிலைகளுடன் சேர்த்தது.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ஆல் {path}-இல் உள்ள அமைப்புக் கோப்பைப் படிக்க முடியவில்லை, எனவே கோப்பு சரிசெய்யப்படும் வரை இயல்புநிலைகளைப் பயன்படுத்துகிறது.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-இன் {language} பதிப்பு இயந்திரத்தால் மொழிபெயர்க்கப்பட்டது. அது இயல்பாக வாசிக்க உதவுவீர்களா? ✔ [அதன் கோப்பை]({link}) GitHub எடிட்டரில் திறக்கும்: எந்த வாசகத்தையும் திருத்தி, அதன் \"ready\"-ஐ true என அமைத்து, மாற்றத்தை முன்மொழியச் சேமிக்கவும்.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-இல் அதன் {language} பதிப்பு இன்னும் மொழிபெயர்க்காத புதிய ஆங்கில வாசகங்கள் உள்ளன. [அதைப் புதுப்பிக்க]({link}) உதவுவீர்களா? ✔ கோப்பை GitHub எடிட்டரில் திறக்கும்: காலியாக உள்ள ஒவ்வொரு \"text\"-ஐயும் நிரப்பி, மாற்றத்தை முன்மொழியச் சேமிக்கவும்.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "மொழி",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket-இன் சொந்த வாசகங்களின் மொழி: auto என்பது Claude Code-இன் மொழி அமைப்பைப் பின்பற்றும்",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "காட்சி",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "உரையாடலுக்கு அருகில் ஒரு பலகம், அல்லது உள்ளீட்டுப் பெட்டிக்கு மேலே ஒரு பட்டை",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ஈமோஜி",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket காட்டும் எல்லா ஈமோஜிகளுக்குமான முதன்மை சுவிட்ச்",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "தலைப்பு ஈமோஜி",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ஒவ்வொரு பட்டியலின் தலைப்புக்கும் முன் ஒரு ஈமோஜி",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ஈமோஜி இல்லாத பட்டியல்கள்",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "உருப்படிகளுக்கு ஈமோஜி இல்லாத பட்டியல்களின் உள் (ஆங்கில) எழுத்துகள், எ.கா. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ஒரே வரிப் பட்டியல்கள்",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ஒரே வரியில் புள்ளிகளால் பிரித்துக் காட்டப்படும் பட்டியல்களின் உள் (ஆங்கில) எழுத்துகள்",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "இலக்கு நீளங்கள்",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ஒவ்வொரு பட்டியலுக்குமான நெகிழ்வான சொல் வரம்புகள், உள் ஆங்கில எழுத்துகளுடன், எ.கா. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "முக்கியத்துவக் காட்சி",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "முக்கியத்துவக் குறிகள் எப்படிக் காட்டப்படும்",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "உருப்படி நிறம்",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "இந்த முறை மாறிய உருப்படியின் நிறம், hex அல்லது தீம் விசை",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "மங்கிய உருப்படி நிறம்",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "கடந்த முறையிலிருந்து மாறாத உருப்படியின் நிறம்",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "வளரும் அம்பு",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "இந்த முறை பட்டியல் வளர்ந்தபோது ↑-இன் நிறம்",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "வளரும் எண்",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "வளரும் பட்டியலின் ↑-க்கு அருகிலுள்ள எண்ணிக்கையின் நிறம்",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "சுருங்கும் அம்பு",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "இந்த முறை பட்டியல் சுருங்கியபோது ↓-இன் நிறம்",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "சுருங்கும் எண்",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "சுருங்கும் பட்டியலின் ↓-க்கு அருகிலுள்ள எண்ணிக்கையின் நிறம்",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "பரிந்துரை நிறம்",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "பரிந்துரை வரியின் நிறம், hex அல்லது தீம் விசை; காலியாக இருந்தால் உருப்படியின் சொந்த நிறம்",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "மங்கிய பரிந்துரை நிறம்",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "உருப்படி மாறாததால் மங்கியிருக்கும்போது பரிந்துரை வரியின் நிறம்",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "பதிலுக்குப் பின் தங்கல்",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "பொத்தானால் பதிலளிக்கப்பட்ட உருப்படி மறைவதற்கு முன் மங்கிய நிலையில் தெரியும் வினாடிகள்",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "அடித்தபின் தங்கல்",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude தானாக மூடிய உருப்படி அடித்த கோட்டுடன் தெரியும் நிமிடங்கள்",
+    "ready": "ai translated"
   }
 }

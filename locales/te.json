@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "అభ్యర్థనలు",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ప్రశ్నలు",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "నిర్ధారించండి",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "మీరు కావాలి",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "చూడండి",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "జరుగుతున్నవి",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "తర్వాత",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "వేచి ఉన్నవి",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "స్థిరపరచినవి",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "సూచన",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(కొత్తది)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} మరిన్ని",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "తక్కువ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket లో ఏమీ లేదు.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "అన్ని సూచనలను అంగీకరించు",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "అన్నీ నిర్ధారించు",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "అన్నీ ఆమోదించు",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} పై సూచనను అంగీకరిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} పై సూచన వద్దు.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ఆమోదిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} తిరస్కరిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} నిర్ధారిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} నిర్ధారించడం లేదు.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ఇప్పుడే ప్రారంభించు.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} పై సూచనలను అంగీకరిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} నిర్ధారిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ఆమోదిస్తున్నాను.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "సెట్టింగులు",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "పూర్తయింది",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "మీ కాన్ఫిగరేషన్ సవరిస్తున్నారు:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ఈ ప్రాజెక్ట్ కాన్ఫిగరేషన్ సవరిస్తున్నారు, ఇది మీ దానికంటే ప్రాధాన్యత పొందుతుంది:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ఈ ప్రాజెక్ట్ కోసం ఒక కాపీ చేయండి",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "సెట్టింగులకు టెర్మినల్, డెస్క్‌టాప్ లేదా VS Code అవసరం.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} పరిమితి",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N మరిన్ని\" కి ముందు {list} లో చూపే అంశాలు",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ప్రతి సెట్టింగ్ డిఫాల్ట్ విలువతో docket కాన్ఫిగరేషన్‌ను {path} లో సృష్టించాలా? దాన్ని అక్కడ లేదా ⚙ తో సవరించవచ్చు.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "మీ కొత్త కాన్ఫిగరేషన్ చూడండి: {path}. ప్రతి సెట్టింగ్ అక్కడ డిఫాల్ట్ విలువతో ఉంది.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket తన కాన్ఫిగరేషన్‌ను {path} లో వెర్షన్ {from} నుండి {to} కి నవీకరించింది.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket తన కాన్ఫిగరేషన్‌ను {path} లో వెర్షన్ {from} నుండి {to} కి నవీకరించి, {added} ను డిఫాల్ట్ విలువలతో జోడించింది.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} లోని తన కాన్ఫిగరేషన్‌ను చదవలేకపోయింది, కాబట్టి ఫైల్ సరిచేసే వరకు డిఫాల్ట్ విలువలను ఉపయోగిస్తోంది.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket యొక్క {language} వెర్షన్ యంత్రంతో అనువదించబడింది. అది సహజంగా చదివేలా సహాయం చేస్తారా? ✔ [దాని ఫైల్‌ను]({link}) GitHub ఎడిటర్‌లో తెరుస్తుంది: ఏ వాక్యాన్నైనా సరిచేసి, దాని \"ready\" ను true గా పెట్టి, ప్రతిపాదించడానికి సేవ్ చేయండి.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket లో దాని {language} వెర్షన్ ఇంకా అనువదించని కొత్త ఇంగ్లీష్ పాఠ్యం ఉంది. [దాన్ని తాజాగా చేయడంలో]({link}) సహాయం చేస్తారా? ✔ ఫైల్‌ను GitHub ఎడిటర్‌లో తెరుస్తుంది: ఖాళీగా ఉన్న ప్రతి \"text\" ను నింపి, ప్రతిపాదించడానికి సేవ్ చేయండి.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "భాష",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket సొంత పదాల భాష: auto అంటే Claude Code భాషా సెట్టింగ్‌ను అనుసరిస్తుంది",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ప్రదర్శన",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "సంభాషణ పక్కన ఒక ప్యానెల్, లేదా ప్రాంప్ట్ పైన ఒక పట్టీ",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ఎమోజీ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket చూపే అన్ని ఎమోజీలకు ప్రధాన స్విచ్",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "శీర్షిక ఎమోజీ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ప్రతి జాబితా శీర్షిక ముందు ఒక ఎమోజీ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ఎమోజీ లేని జాబితాలు",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "అంశాలకు ఎమోజీ లేని జాబితాల అంతర్గత (ఇంగ్లీష్) అక్షరాలు, ఉదా. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ఒకే వరుస జాబితాలు",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "చుక్కలతో వేరు చేసి ఒకే వరుసలో చూపే జాబితాల అంతర్గత (ఇంగ్లీష్) అక్షరాలు",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "లక్ష్య పొడవులు",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ప్రతి జాబితాకు సడలింపు పద పరిమితులు, అంతర్గత ఇంగ్లీష్ అక్షరాలతో, ఉదా. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ప్రాధాన్యత ప్రదర్శన",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ప్రాధాన్యత గుర్తులు ఎలా కనిపిస్తాయి",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "అంశం రంగు",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ఈ టర్న్‌లో మారిన అంశం రంగు, hex లేదా థీమ్ కీ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "మసకబారిన అంశం రంగు",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "గత టర్న్ నుండి మారని అంశం రంగు",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "పెరుగుదల బాణం",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ఈ టర్న్‌లో జాబితా పెరిగినప్పుడు ↑ రంగు",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "పెరుగుదల సంఖ్య",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "పెరుగుతున్న జాబితా ↑ పక్కన ఉన్న సంఖ్య రంగు",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "తగ్గుదల బాణం",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ఈ టర్న్‌లో జాబితా తగ్గినప్పుడు ↓ రంగు",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "తగ్గుదల సంఖ్య",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "తగ్గుతున్న జాబితా ↓ పక్కన ఉన్న సంఖ్య రంగు",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "సూచన రంగు",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "సూచన పంక్తి రంగు, hex లేదా థీమ్ కీ; ఖాళీగా ఉంటే అంశం సొంత రంగు",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "మసకబారిన సూచన రంగు",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "అంశం మారనందున మసకబారినప్పుడు సూచన పంక్తి రంగు",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "సమాధానం తర్వాత నిలుపు",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "బటన్‌తో సమాధానమిచ్చిన అంశం వెళ్లిపోయే ముందు మసకగా కనిపించే సెకన్లు",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "కొట్టివేత నిలుపు",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude తనంతట తానే మూసిన అంశం కొట్టివేతతో కనిపించే నిమిషాలు",
+    "ready": "ai translated"
   }
 }

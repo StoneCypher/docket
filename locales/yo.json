@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Àbẹ̀bẹ̀",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Ìbéèrè",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Jẹ́rìísí",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Ó kàn ọ́",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "Wò ó",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "Ti bẹ̀rẹ̀",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Lẹ́yìn náà",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Ń dúró",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Dì mọ́lẹ̀",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Àbá",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(tuntun)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} sí i",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "dín kù",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "Kò sí nǹkan kan lórí docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "Gba gbogbo àbá",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Jẹ́rìísí gbogbo",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Fọwọ́sí gbogbo",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo gba àbá lórí {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mi ò gba àbá lórí {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo fọwọ́sí {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo kọ {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo jẹ́rìísí {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "Mi ò jẹ́rìísí {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "Bẹ̀rẹ̀ {id} báyìí.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo gba àwọn àbá lórí {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo jẹ́rìísí {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "Mo fọwọ́sí {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Ètò",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Ó parí",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "Ò ń ṣàtúnṣe ètò rẹ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "Ò ń ṣàtúnṣe ètò iṣẹ́ àkànṣe yìí, tí ó borí tìrẹ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Ṣe ẹ̀dà kan fún iṣẹ́ àkànṣe yìí",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "Ètò nílò terminal, desktop tàbí VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Òpin {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Iye ohun tí a ó fi hàn nínú {list} kí \"+N sí i\" tó yọ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "Ṣé kí n ṣẹ̀dá ètò docket ní {path}, pẹ̀lú gbogbo ètò ní ipò àìyípadà wọn? O lè ṣàtúnṣe rẹ̀ níbẹ̀, tàbí pẹ̀lú ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "Wo ètò tuntun rẹ: {path}. Gbogbo ètò wà níbẹ̀ ní ipò àìyípadà wọn.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket ti ṣe ìmúdójúìwọ̀n ètò rẹ̀ ní {path} láti ẹ̀yà {from} sí {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket ti ṣe ìmúdójúìwọ̀n ètò rẹ̀ ní {path} láti ẹ̀yà {from} sí {to}, ó sì fi {added} kún un ní ipò àìyípadà wọn.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket kò lè ka ètò rẹ̀ ní {path}, nítorí náà ó ń lo àwọn ètò àìyípadà títí a ó fi tún fáìlì náà ṣe.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "Ẹ̀rọ ló túmọ̀ docket sí {language}. Ṣé o lè ṣèrànwọ́ kí ó dún bí èdè àbínibí? ✔ yóò ṣí [fáìlì rẹ̀]({link}) nínú olóòtú GitHub: ṣàtúnṣe ọ̀rọ̀ èyíkéyìí, ṣètò \"ready\" rẹ̀ sí true, kí o sì fi pamọ́ láti fi ránṣẹ́.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ní ọ̀rọ̀ Gẹ̀ẹ́sì tuntun tí a kò tíì túmọ̀ sí {language}. Ṣé o lè ṣèrànwọ́ láti [mú un dé ìwòyí]({link})? ✔ yóò ṣí fáìlì náà nínú olóòtú GitHub: kọ ọ̀rọ̀ sínú \"text\" kọ̀ọ̀kan tí ó ṣófo, kí o sì fi pamọ́ láti fi ránṣẹ́.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "Èdè",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Èdè tí docket fi ń sọ̀rọ̀: auto ń tẹ̀lé ètò èdè Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Ìfihàn",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "Pánẹ́ẹ̀lì kan lẹ́gbẹ̀ẹ́ ìjíròrò, tàbí ìlà kan lókè àpótí ìkọ̀wé",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Ìyípadà gbogbogbò fún gbogbo emoji tí docket ń fi hàn",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji àkọlé",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "Emoji kan ṣáájú àkọlé àtòjọ kọ̀ọ̀kan",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Àtòjọ láìsí emoji ohun",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Lẹ́tà àwọn àtòjọ tí ohun wọn kò ní emoji (lẹ́tà Gẹ̀ẹ́sì inú), fún àpẹẹrẹ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Àtòjọ ìlà kan",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Lẹ́tà àwọn àtòjọ tí a fi hàn lórí ìlà kan, tí àmì kékeré ń pín wọn (lẹ́tà Gẹ̀ẹ́sì inú)",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Gígùn àfojúsùn",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Ààlà ọ̀rọ̀ fún àtòjọ kọ̀ọ̀kan, fún àpẹẹrẹ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Ìfihàn pàtàkì",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Bí àwọn àmì pàtàkì ṣe ń hàn",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ohun",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ohun tí ó yí padà ní àyípo yìí, hex tàbí kọ́kọ́rọ́ àkòrí",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ohun tí kò tàn",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ohun tí kò yí padà láti àyípo tó kọjá",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ọfà ìpọ̀sí",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ↑ nígbà tí àtòjọ kan pọ̀ sí i ní àyípo yìí",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Nọ́mbà ìpọ̀sí",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ iye tí ó wà lẹ́gbẹ̀ẹ́ ↑ àtòjọ tí ó ń pọ̀ sí i",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ọfà ìdínkù",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ↓ nígbà tí àtòjọ kan dín kù ní àyípo yìí",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Nọ́mbà ìdínkù",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ iye tí ó wà lẹ́gbẹ̀ẹ́ ↓ àtòjọ tí ó ń dín kù",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ àbá",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ìlà àbá, hex tàbí kọ́kọ́rọ́ àkòrí; fi sílẹ̀ ní òfo fún àwọ̀ ohun náà fúnra rẹ̀",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ àbá tí kò tàn",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Àwọ̀ ìlà àbá nígbà tí ohun rẹ̀ kò tàn nítorí pé kò yí padà",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Ìdúró lẹ́yìn ìdáhùn",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Ìṣẹ́jú-àáyá tí ohun tí a fi bọ́tìnì dáhùn yóò fi wà, láìtàn, kí ó tó lọ",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Ìdúró ìlà ìparẹ́",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Ìṣẹ́jú tí ohun tí Claude pa dé fúnra rẹ̀ yóò fi wà pẹ̀lú ìlà ìparẹ́",
+    "ready": "ai translated"
   }
 }

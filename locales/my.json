@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "တောင်းဆိုချက်များ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "မေးခွန်းများ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "အတည်ပြုရန်",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "သင်လုပ်ရန်",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ကြည့်ရန်",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "လုပ်ဆောင်နေဆဲ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "နောက်မှ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "စောင့်ဆိုင်းနေ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ပင်ထိုးထား",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "အကြံပြုချက်",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(အသစ်)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ထပ်",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "လျှော့ပြ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket တွင် ဘာမှမရှိပါ။",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "အကြံပြုချက်အားလုံး လက်ခံရန်",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "အားလုံး အတည်ပြုရန်",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "အားလုံး ခွင့်ပြုရန်",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ရဲ့ အကြံပြုချက်ကို လက်ခံပါတယ်။",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ရဲ့ အကြံပြုချက်ကို မလက်ခံပါ။",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})။",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ခွင့်ပြုပါတယ်။",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ငြင်းပယ်ပါတယ်။",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} အတည်ပြုပါတယ်။",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} အတည်မပြုပါ။",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ကို အခု စလုပ်ပါ။",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ရဲ့ အကြံပြုချက်တွေကို လက်ခံပါတယ်။",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} အတည်ပြုပါတယ်။",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ခွင့်ပြုပါတယ်။",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ဆက်တင်များ",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ပြီးပြီ",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "သင့် config ကို ပြင်နေသည်:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ဤပရောဂျက်၏ config ကို ပြင်နေသည်၊ ၎င်းသည် သင့် config ထက် ဦးစားပေးသည်:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ဤပရောဂျက်အတွက် မိတ္တူကူးရန်",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ဆက်တင်များအတွက် terminal၊ desktop သို့မဟုတ် VS Code လိုအပ်သည်။",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} ကန့်သတ်ချက်",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N ထပ်\" မတိုင်မီ {list} တွင် ပြသမည့် အရာများ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "docket ၏ config ကို {path} တွင် ဆက်တင်တိုင်း မူလတန်ဖိုးဖြင့် ဖန်တီးမလား။ ၎င်းကို ထိုနေရာတွင် သို့မဟုတ် ⚙ ဖြင့် ပြင်နိုင်သည်။",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "သင့် config အသစ်ကို ကြည့်ပါ: {path}။ ဆက်တင်တိုင်း ထိုတွင် မူလတန်ဖိုးဖြင့် ရှိသည်။",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket သည် {path} ရှိ ၎င်း၏ config ကို ဗားရှင်း {from} မှ {to} သို့ အပ်ဒိတ်လုပ်ခဲ့သည်။",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket သည် {path} ရှိ ၎င်း၏ config ကို ဗားရှင်း {from} မှ {to} သို့ အပ်ဒိတ်လုပ်ပြီး {added} ကို မူလတန်ဖိုးများဖြင့် ထည့်ခဲ့သည်။",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket သည် {path} ရှိ ၎င်း၏ config ကို မဖတ်နိုင်ပါ၊ ထို့ကြောင့် ဖိုင်ကို ပြင်ပြီးသည်အထိ မူလတန်ဖိုးများကို အသုံးပြုနေသည်။",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ၏ {language} ကို စက်ဖြင့် ဘာသာပြန်ထားသည်။ သဘာဝကျအောင် ကူညီပေးမလား။ ✔ သည် GitHub ၏ editor တွင် [၎င်း၏ ဖိုင်]({link}) ကို ဖွင့်ပေးသည်: မည်သည့်စာသားကိုမဆို ပြင်ပါ၊ ၎င်း၏ \"ready\" ကို true ထားပါ၊ အဆိုပြုရန် သိမ်းဆည်းပါ။",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket တွင် ၎င်း၏ {language} က မဘာသာပြန်ရသေးသော အင်္ဂလိပ်စာသားအသစ်များ ရှိသည်။ [အပ်ဒိတ်ဖြစ်အောင်]({link}) ကူညီပေးမလား။ ✔ သည် GitHub ၏ editor တွင် ဖိုင်ကို ဖွင့်ပေးသည်: ဗလာဖြစ်နေသော \"text\" တိုင်းကို ဖြည့်ပါ၊ အဆိုပြုရန် သိမ်းဆည်းပါ။",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ဘာသာစကား",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket ၏ ကိုယ်ပိုင်စာသားများ၏ ဘာသာစကား: auto သည် Claude Code ၏ ဘာသာစကားဆက်တင်ကို လိုက်နာသည်",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ပြသပုံ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "စကားဝိုင်းဘေးရှိ အကွက်တစ်ခု၊ သို့မဟုတ် prompt အပေါ်ရှိ တန်းတစ်ခု",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "အီမိုဂျီ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket ပြသော အီမိုဂျီအားလုံးအတွက် ပင်မခလုတ်",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ခေါင်းစဉ် အီမိုဂျီ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "စာရင်းတစ်ခုစီ၏ ခေါင်းစဉ်ရှေ့တွင် အီမိုဂျီတစ်ခု",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "အရာများတွင် အီမိုဂျီမပါသော စာရင်းများ",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "အရာများတွင် အီမိုဂျီမပါသော စာရင်းများ၏ အတွင်းပိုင်း (အင်္ဂလိပ်) စာလုံးများ၊ ဥပမာ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "တစ်ကြောင်းတည်း စာရင်းများ",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "အစက်များဖြင့် ခြားပြီး တစ်ကြောင်းတည်းပြသော စာရင်းများ၏ အတွင်းပိုင်း (အင်္ဂလိပ်) စာလုံးများ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ပစ်မှတ် အရှည်",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "စာရင်းတစ်ခုစီအတွက် ပျော့ပျောင်းသော စကားလုံးကန့်သတ်ချက်၊ အတွင်းပိုင်း အင်္ဂလိပ်စာလုံးများဖြင့်၊ ဥပမာ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "အရေးပါမှု ပြသပုံ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "အရေးပါမှု အမှတ်အသားများ ပြသပုံ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "အရာ၏ အရောင်",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ဤအလှည့်တွင် ပြောင်းလဲသော အရာ၏ အရောင်၊ hex သို့မဟုတ် theme key",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "မှိန်ထားသော အရာ၏ အရောင်",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ယခင်အလှည့်မှစ၍ မပြောင်းလဲသော အရာ၏ အရောင်",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "တိုးလာသော မြှား",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ဤအလှည့်တွင် စာရင်းတိုးလာသောအခါ ↑ ၏ အရောင်",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "တိုးလာသော နံပါတ်",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "တိုးလာသော စာရင်း၏ ↑ ဘေးရှိ အရေအတွက်၏ အရောင်",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "လျော့သွားသော မြှား",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ဤအလှည့်တွင် စာရင်းလျော့သွားသောအခါ ↓ ၏ အရောင်",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "လျော့သွားသော နံပါတ်",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "လျော့သွားသော စာရင်း၏ ↓ ဘေးရှိ အရေအတွက်၏ အရောင်",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "အကြံပြုချက် အရောင်",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "အကြံပြုချက်စာကြောင်း၏ အရောင်၊ hex သို့မဟုတ် theme key၊ အရာ၏ ကိုယ်ပိုင်အရောင်အတွက် ဗလာထားပါ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "မှိန်ထားသော အကြံပြုချက် အရောင်",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "အရာ မပြောင်းလဲသဖြင့် မှိန်ထားစဉ် အကြံပြုချက်စာကြောင်း၏ အရောင်",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ဖြေပြီးနောက် ပြထားချိန်",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ခလုတ်ဖြင့် ဖြေထားသော အရာကို မပျောက်မီ မှိန်လျက် ပြထားမည့် စက္ကန့်",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ဖျက်ကြောင်းဖြင့် ပြထားချိန်",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude က ကိုယ်တိုင်ပိတ်ခဲ့သော အရာကို ဖျက်ကြောင်းဖြင့် ပြထားမည့် မိနစ်",
+    "ready": "ai translated"
   }
 }

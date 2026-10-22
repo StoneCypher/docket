@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "درخواستون",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "سوال",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "تصديق ڪريو",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "اوهان جي ضرورت",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ڏسو",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "جاري",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "پوءِ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "روڪيل",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "مقرر ٿيل",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "تجويز",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(نئون)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} وڌيڪ",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "گهٽ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket تي ڪجهه به ناهي.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "سڀ تجويزون قبول ڪريو",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "سڀ تصديق ڪريو",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "سڀ منظور ڪريو",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} واري تجويز قبول آهي.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} واري تجويز قبول ناهي.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} منظور.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} نامنظور.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} جي تصديق آهي.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} جي تصديق ناهي.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} هاڻي شروع ڪر.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} واريون تجويزون قبول آهن.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} جي تصديق آهي.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} منظور.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "سيٽنگون",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ٿي ويو",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "توهان جي ترتيب ايڊٽ ٿي رهي آهي:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "هن پروجيڪٽ جي ترتيب ايڊٽ ٿي رهي آهي، جيڪا توهان جي ترتيب جي جاءِ وٺي ٿي:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "هن پروجيڪٽ لاءِ ڪاپي ٺاهيو",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "سيٽنگن لاءِ ٽرمينل، ڊيسڪ ٽاپ يا VS Code گهرجي.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} جي حد",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N وڌيڪ\" کان اڳ {list} ۾ ڏيکاريل شيون",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "docket جي ترتيب {path} تي ٺاهيون، هر سيٽنگ ان جي ڊفالٽ تي؟ توهان ان کي اتي يا ⚙ سان ايڊٽ ڪري سگهو ٿا.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "پنهنجي نئين ترتيب ڏسو: {path}. هر سيٽنگ اتي پنهنجي ڊفالٽ تي آهي.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket پنهنجي ترتيب {path} تي ورزن {from} کان {to} تائين اپڊيٽ ڪئي.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket پنهنجي ترتيب {path} تي ورزن {from} کان {to} تائين اپڊيٽ ڪئي، ۽ {added} انهن جي ڊفالٽ تي شامل ڪيون.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket پنهنجي ترتيب {path} تي پڙهي نه سگهيو، تنهن ڪري فائل درست ٿيڻ تائين ڊفالٽ استعمال ڪري رهيو آهي.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket جي {language} مشين ذريعي ترجمو ٿيل آهي. ان کي فطري بڻائڻ ۾ مدد ڪندا؟ ✔ GitHub جي ايڊيٽر ۾ [ان جي فائل]({link}) کوليندو: ڪنهن به لفظ کي درست ڪريو، ان جو \"ready\" true ڪريو، ۽ پيش ڪرڻ لاءِ محفوظ ڪريو.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ۾ نوان انگريزي لفظ آهن جن جو ترجمو ان جي {language} ۾ اڃا ناهي. [ان کي تازو ڪرڻ]({link}) ۾ مدد ڪندا؟ ✔ GitHub جي ايڊيٽر ۾ فائل کوليندو: هر خالي \"text\" ڀريو، ۽ پيش ڪرڻ لاءِ محفوظ ڪريو.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ٻولي",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket جي پنهنجن لفظن جي ٻولي: auto Claude Code جي ٻولي واري سيٽنگ جي پيروي ڪري ٿو",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ڏيک",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "گفتگو جي ڀرسان پين، يا لکڻ واري جاءِ مٿان پٽي",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ايموجي",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket جي سڀني ايموجي لاءِ مکيه سوئچ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "عنوان ايموجي",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "هر لسٽ جي عنوان کان اڳ هڪ ايموجي",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "شين جي ايموجي کان سواءِ لسٽون",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "انهن لسٽن جا اندروني (انگريزي) اکر جن جون شيون ايموجي نه ڏيکارين، مثال \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "هڪ قطار واريون لسٽون",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "هڪ ئي قطار ۾ ڏيکاريل لسٽن جا اندروني (انگريزي) اکر، نقطن سان جدا",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "هدف ڊيگهه",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "هر لسٽ لاءِ لفظن جون نرم حدون، اندروني انگريزي اکرن سان، مثال \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "اهميت جو ڏيک",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "اهميت جا نشان ڪيئن ڏيکارجن ٿا",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "شيءِ جو رنگ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "هن واري ۾ بدليل شيءِ جو رنگ، hex يا ٿيم جي ڪنجي",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "مدهم شيءِ جو رنگ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "پوئين واري کان اڻبدليل شيءِ جو رنگ",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "واڌ جو تير",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "جڏهن هن واري ۾ لسٽ وڌي ته ↑ جو رنگ",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "واڌ جو انگ",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "وڌندڙ لسٽ جي ↑ ڀرسان ڳڻپ جو رنگ",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "گهٽتائي جو تير",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "جڏهن هن واري ۾ لسٽ گهٽي ته ↓ جو رنگ",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "گهٽتائي جو انگ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "گهٽجندڙ لسٽ جي ↓ ڀرسان ڳڻپ جو رنگ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "تجويز جو رنگ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "تجويز واري لڪير جو رنگ، hex يا ٿيم جي ڪنجي؛ خالي ته شيءِ جو پنهنجو رنگ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "مدهم تجويز جو رنگ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "تجويز واري لڪير جو رنگ جڏهن ان جي شيءِ اڻبدليل هجڻ ڪري مدهم هجي",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "جواب کان پوءِ رهڻ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "بٽڻ سان جواب ڏنل شيءِ وڃڻ کان اڳ ڪيترا سيڪنڊ مدهم ٿي نظر اچي",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ليڪ ٿيل رهڻ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude پاڻ بند ڪيل شيءِ ڪيترا منٽ ليڪ ٿيل نظر اچي",
+    "ready": "ai translated"
   }
 }

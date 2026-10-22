@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ඉල්ලීම්",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "විමසීම්",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "තහවුරු කරන්න",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ඔබේ අවධානය",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "බලන්න",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "සිදු වෙමින්",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "පසුව",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "රැඳී ඇත",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "අමුණා ඇත",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "යෝජනාව",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(නව)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} තවත්",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "අඩුවෙන්",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket හි කිසිවක් නැත.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "සියලු යෝජනා පිළිගන්න",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "සියල්ල තහවුරු කරන්න",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "සියල්ල අනුමත කරන්න",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} හි යෝජනාව පිළිගන්නවා.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} හි යෝජනාව එපා.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} අනුමතයි.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ප්‍රතික්ෂේපයි.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} තහවුරුයි.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} තහවුරු නැහැ.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} දැන් පටන් ගන්න.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} හි යෝජනා පිළිගන්නවා.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} තහවුරුයි.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} අනුමතයි.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "සැකසුම්",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "නිමයි",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ඔබේ වින්‍යාසය සංස්කරණය කරමින්:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "මෙම ව්‍යාපෘතියේ වින්‍යාසය සංස්කරණය කරමින්, එය ඔබේ වින්‍යාසය අභිබවයි:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "මෙම ව්‍යාපෘතිය සඳහා පිටපතක් සාදන්න",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "සැකසුම් සඳහා ටර්මිනලය, ඩෙස්ක්ටොප් යෙදුම හෝ VS Code අවශ්‍යයි.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} සීමාව",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N තවත්\" ට පෙර {list} හි පෙන්වන අයිතම ගණන",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "සියලු සැකසුම් පෙරනිමි අගයන්ගෙන් යුතුව docket හි වින්‍යාසය {path} හි සාදන්නද? ඔබට එය එහිදී හෝ ⚙ මගින් සංස්කරණය කළ හැක.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ඔබේ නව වින්‍යාසය බලන්න: {path}. සෑම සැකසුමක්ම එහි පෙරනිමි අගයෙන් ඇත.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket විසින් {path} හි වින්‍යාසය {from} අනුවාදයේ සිට {to} දක්වා යාවත්කාලීන කළා.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket විසින් {path} හි වින්‍යාසය {from} අනුවාදයේ සිට {to} දක්වා යාවත්කාලීන කර, {added} පෙරනිමි අගයන්ගෙන් එක් කළා.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket හට {path} හි වින්‍යාසය කියවිය නොහැකි විය, එබැවින් ගොනුව නිවැරදි කරන තුරු පෙරනිමි අගයන් භාවිත කරයි.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket හි {language} යන්ත්‍ර පරිවර්තනයකි. එය ස්වාභාවිකව කියවෙන්න උදව් කරනවද? ✔ මගින් [එහි ගොනුව]({link}) GitHub හි සංස්කාරකයේ විවෘත වේ: ඕනෑම පාඨයක් නිවැරදි කර, එහි \"ready\" true ලෙස සකසා, යෝජනා කිරීමට සුරකින්න.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket හි {language} තවම පරිවර්තනය නොකළ නව ඉංග්‍රීසි පාඨ ඇත. [එය යාවත්කාලීන කිරීමට]({link}) උදව් කරනවද? ✔ මගින් ගොනුව GitHub හි සංස්කාරකයේ විවෘත වේ: හිස් සෑම \"text\" එකක්ම පුරවා, යෝජනා කිරීමට සුරකින්න.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "භාෂාව",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket හි වචනවල භාෂාව: auto යනු Claude Code හි භාෂා සැකසුම අනුගමනය කිරීමයි",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "සංදර්ශනය",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "සංවාදය අසල කවුළුවක්, හෝ ආදාන කොටුවට ඉහළින් තීරුවක්",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ඉමොජි",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket පෙන්වන සියලු ඉමොජි සඳහා ප්‍රධාන ස්විචය",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ශීර්ෂ ඉමොජි",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "සෑම ලැයිස්තුවකම ශීර්ෂයට පෙර ඉමොජියක්",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ඉමොජි නැති ලැයිස්තු",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "අයිතමවල ඉමොජි නොපෙන්වන ලැයිස්තුවල අභ්‍යන්තර (ඉංග්‍රීසි) අකුරු, උදා. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "එක් පේළියේ ලැයිස්තු",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "තිත්වලින් වෙන් කර එක් පේළියක පෙන්වන ලැයිස්තුවල අභ්‍යන්තර (ඉංග්‍රීසි) අකුරු",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ඉලක්ක දිග",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "අභ්‍යන්තර (ඉංග්‍රීසි) අකුරු සමඟ, එක් එක් ලැයිස්තුවට ලිහිල් වචන සීමා, උදා. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "වැදගත්කම් සංදර්ශනය",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "වැදගත්කම් සලකුණු පෙන්වන ආකාරය",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "අයිතම වර්ණය",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "මෙම වාරයේ වෙනස් වූ අයිතමයක වර්ණය, hex හෝ තේමා යතුරක්",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "අඳුරු කළ අයිතම වර්ණය",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "පසුගිය වාරයේ සිට වෙනස් නොවූ අයිතමයක වර්ණය",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "වැඩිවීමේ ඊතලය",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "මෙම වාරයේ ලැයිස්තුවක් වැඩි වූ විට ↑ හි වර්ණය",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "වැඩිවීමේ අංකය",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "වැඩිවන ලැයිස්තුවක ↑ අසල ගණනේ වර්ණය",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "අඩුවීමේ ඊතලය",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "මෙම වාරයේ ලැයිස්තුවක් අඩු වූ විට ↓ හි වර්ණය",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "අඩුවීමේ අංකය",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "අඩුවන ලැයිස්තුවක ↓ අසල ගණනේ වර්ණය",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "යෝජනා වර්ණය",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "යෝජනා පේළියේ වර්ණය, hex හෝ තේමා යතුරක්; අයිතමයේම වර්ණය සඳහා හිස්ව තබන්න",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "අඳුරු කළ යෝජනා වර්ණය",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "අයිතමය නොවෙනස් ලෙස අඳුරු කර ඇති විට යෝජනා පේළියේ වර්ණය",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "පිළිතුරෙන් පසු රැඳීම",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "බොත්තමකින් පිළිතුරු දුන් අයිතමයක් ඉවත් වීමට පෙර අඳුරුව පෙනෙන තත්පර ගණන",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "කපා හැරීමේ රැඳීම",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude තනිවම වසා දැමූ අයිතමයක් කපා හැරි ලෙස පෙනෙන මිනිත්තු ගණන",
+    "ready": "ai translated"
   }
 }

@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "याचनाः",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "प्रश्नाः",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "दृढीकरणम्",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "त्वदपेक्षितम्",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "अवलोकनम्",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "वर्तमानम्",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "उत्तरत्र",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "स्थगितम्",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "कीलितम्",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "प्रस्तावः",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(नूतनम्)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} अधिकानि",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "न्यूनानि",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket इत्यत्र किमपि नास्ति।",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "सर्वान् प्रस्तावान् स्वीकुरु",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "सर्वं दृढीकुरु",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "सर्वम् अनुमोदय",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} इत्यस्य प्रस्तावं स्वीकरोमि।",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} इत्यस्य प्रस्तावं न स्वीकरोमि।",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})।",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} अनुमोदयामि।",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} निराकरोमि।",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} दृढीकरोमि।",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} न दृढीकरोमि।",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} इदानीम् आरभस्व।",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} इत्येषां प्रस्तावान् स्वीकरोमि।",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} दृढीकरोमि।",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} अनुमोदयामि।",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "विन्यासाः",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "सम्पन्नम्",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "तव विन्यासः सम्पाद्यते:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "अस्य प्रकल्पस्य विन्यासः सम्पाद्यते, यः तव विन्यासम् अतिक्रामति:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "अस्य प्रकल्पस्य कृते प्रतिलिपिं कुरु",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "विन्यासाः टर्मिनल्, डेस्क्टॉप् अथवा VS Code अपेक्षन्ते।",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} सीमा",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N अधिकानि\" इत्यस्मात् पूर्वं {list} मध्ये दर्शितानि वस्तूनि",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "docket इत्यस्य विन्यासः {path} इत्यत्र सर्वैः विन्यासैः पूर्वनिर्धारितमूल्येषु सृज्यतां किम्? तत्र अथवा ⚙ द्वारा तं सम्पादयितुं शक्नोषि।",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "तव नूतनं विन्यासं पश्य: {path}। प्रत्येकः विन्यासः तत्र पूर्वनिर्धारितमूल्ये अस्ति।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} इत्यत्र स्वविन्यासं संस्करणात् {from} इत्यस्मात् {to} पर्यन्तम् अद्यतनम् अकरोत्।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} इत्यत्र स्वविन्यासं संस्करणात् {from} इत्यस्मात् {to} पर्यन्तम् अद्यतनम् अकरोत्, {added} पूर्वनिर्धारितमूल्येषु योजयित्वा।",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} इत्यत्र स्वविन्यासं पठितुं नाशक्नोत्, अतः सञ्चिका यावत् न संशोध्यते तावत् पूर्वनिर्धारितमूल्यानि उपयुङ्क्ते।",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket इत्यस्य {language} यन्त्रेण अनूदितम्। तत् स्वाभाविकं कर्तुं साहाय्यं करोषि किम्? ✔ GitHub इत्यस्य सम्पादके [तस्य सञ्चिकाम्]({link}) उद्घाटयति: किमपि वाक्यं संशोधय, तस्य \"ready\" true इति कुरु, प्रस्तोतुं च रक्ष।",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket इत्यस्मिन् नूतनानि आङ्ग्लवाक्यानि सन्ति यानि तस्य {language} अद्यापि न अनुवदति। [तत् अद्यतनं कर्तुम्]({link}) साहाय्यं करोषि किम्? ✔ GitHub इत्यस्य सम्पादके सञ्चिकाम् उद्घाटयति: प्रत्येकं रिक्तं \"text\" पूरय, प्रस्तोतुं च रक्ष।",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "भाषा",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket इत्यस्य स्वशब्दानां भाषा: auto Claude Code इत्यस्य भाषाविन्यासम् अनुसरति",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "प्रदर्शनम्",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "संवादस्य पार्श्वे फलकम्, अथवा लेखनक्षेत्रस्य उपरि पट्टिका",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "इमोजी",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket द्वारा दर्शितानां सर्वेषाम् इमोजीनां मुख्यनियन्त्रकम्",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "शीर्षक-इमोजी",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "प्रत्येकस्याः सूच्याः शीर्षकात् पूर्वम् एकम् इमोजी",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "वस्तु-इमोजीरहिताः सूच्यः",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "यासां सूचीनां वस्तूनि इमोजी न दर्शयन्ति तासाम् आन्तरिकाः (आङ्ग्लाः) वर्णाः, यथा \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "एकपङ्क्ति-सूच्यः",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "एकस्यां पङ्क्तौ बिन्दुभिः विभज्य दर्शितानां सूचीनाम् आन्तरिकाः (आङ्ग्लाः) वर्णाः",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "लक्ष्य-दैर्घ्याणि",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "प्रतिसूचि मृदवः शब्दसीमाः, आन्तरिकैः आङ्ग्लवर्णैः, यथा \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "महत्त्व-प्रदर्शनम्",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "महत्त्वचिह्नानि कथं दृश्यन्ते",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "वस्तुवर्णः",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "अस्मिन् पर्याये परिवर्तितस्य वस्तुनः वर्णः, hex अथवा थीम्-कुञ्जी",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "मन्दवस्तुवर्णः",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "गतपर्यायात् अपरिवर्तितस्य वस्तुनः वर्णः",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "वृद्धि-बाणः",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "अस्मिन् पर्याये सूची यदा वर्धिता तदा ↑ इत्यस्य वर्णः",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "वृद्धि-संख्या",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "वर्धमानायाः सूच्याः ↑ इत्यस्य पार्श्वे संख्यायाः वर्णः",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ह्रास-बाणः",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "अस्मिन् पर्याये सूची यदा ह्रसिता तदा ↓ इत्यस्य वर्णः",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ह्रास-संख्या",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ह्रसमानायाः सूच्याः ↓ इत्यस्य पार्श्वे संख्यायाः वर्णः",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "प्रस्तावस्य वर्णः",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "प्रस्तावपङ्क्तेः वर्णः, hex अथवा थीम्-कुञ्जी; वस्तुनः स्ववर्णाय रिक्तम्",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "मन्दप्रस्तावस्य वर्णः",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "यदा तस्य वस्तु अपरिवर्तितत्वात् मन्दं भवति तदा प्रस्तावपङ्क्तेः वर्णः",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "उत्तरानन्तर-स्थितिः",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "बटनेन उत्तरितं वस्तु अपगमनात् पूर्वं यावतः सेकण्डान् मन्दरूपेण दृश्यते",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "छेदरेखा-स्थितिः",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude स्वयं पिहितं वस्तु यावतः मिनिटान् छेदरेखया सह दृश्यते",
+    "ready": "ai translated"
   }
 }

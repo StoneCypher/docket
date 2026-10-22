@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "Kole",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi fehuʻi",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "Fakapapauʻi",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "Ho fatongia",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "Vakai",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "Lolotonga fai",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "Mui ange",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "Tatali",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "Pineʻi",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "Fokotuʻu",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(foʻou)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} kehe",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "siʻi ange",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ʻikai ha meʻa ʻi he docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "Tali kotoa e ngaahi fokotuʻu",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "Fakapapauʻi kotoa",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "Fakangofua kotoa",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou tali ʻa e fokotuʻu ki he {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻIkai ki he fokotuʻu ki he {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou fakangofua ʻa e {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou fakafisi ki he {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou fakapapauʻi ʻa e {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ʻikai te u fakapapauʻi ʻa e {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "Kamata ʻa e {id} he taimí ni.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou tali ʻa e ngaahi fokotuʻu ki he {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou fakapapauʻi ʻa e {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ou fakangofua ʻa e {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi fokotuʻutuʻu",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "Kuo lava",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ʻOkú ke liliu hoʻo config:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ʻOkú ke liliu ʻa e config ʻo e poloseki ko ʻeni, ʻa ia ʻoku muʻomuʻa ia ʻi hoʻo meʻa:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "Fai ha tatau ki he poloseki ko ʻeni",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku fiemaʻu ʻe he ngaahi fokotuʻutuʻu ʻa e terminal, desktop pe VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "Ngataʻanga ʻo e {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi meʻa ʻoku fakahaaʻi ʻi he {list} kimuʻa he \"+N kehe\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "Vakai ki hoʻo config foʻou: {path}. ʻOku ʻi ai ʻa e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "Kuo fakafoʻou ʻe he docket ʻene config ʻi he {path} mei he version {from} ki he {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "Kuo fakafoʻou ʻe he docket ʻene config ʻi he {path} mei he version {from} ki he {to}, ʻo tānaki ʻa e {added} ʻi honau tuʻunga angamaheni.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "Naʻe ʻikai lava ʻe he docket ʻo lau ʻene config ʻi he {path}, ko ia ʻoku ne ngāueʻaki ʻa e tuʻunga angamaheni kae ʻoua kuo fakatonutonu ʻa e faile.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "Naʻe liliu ʻe ha misini ʻa e {language} ʻa e docket. Te ke tokoni ke lau fakanatula? ʻOku fakaava ʻe he ✔ ʻa [hono faile]({link}) ʻi he ʻētita ʻa GitHub: fakatonutonu ha konga lea pē, fokotuʻu hono \"ready\" ki he true, pea seivi ke fokotuʻu atu.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "ʻOku ʻi ai ha lea faka-Pilitānia foʻou ʻa e docket ʻoku teʻeki liliu ki heʻene {language}. Te ke tokoni ke [fakafoʻou ia]({link})? ʻOku fakaava ʻe he ✔ ʻa e faile ʻi he ʻētita ʻa GitHub: fakafonu ʻa e \"text\" maha kotoa, pea seivi ke fokotuʻu atu.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "Lea",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "Ko e lea ʻo e ngaahi foʻi lea ʻa e docket: ʻoku muimui ʻa e auto ki he fokotuʻutuʻu lea ʻa Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "Fakahaaʻi",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "Ha pane ʻi he tafaʻaki ʻo e talanoa, pe ha laine ʻi ʻolunga ʻi he feituʻu tohi",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "Kī lahi ki he emoji kotoa ʻa e docket",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "Emoji ʻi he kaveinga",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "Ha emoji kimuʻa he kaveinga ʻo e lisi taki taha",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi lisi ʻoku ʻikai ha emoji",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi mataʻitohi (ʻi loto, faka-Pilitānia) ʻo e ngaahi lisi ʻoku ʻikai ha emoji ʻenau ngaahi meʻa, hangē ko \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi lisi laine taha",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi mataʻitohi (ʻi loto, faka-Pilitānia) ʻo e ngaahi lisi ʻoku fakahaaʻi ʻi ha laine pē taha, vahevahe ʻaki ha ngaahi poini",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi lōloa taumuʻa",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "Ngataʻanga ngofua ʻo e foʻi lea ki he lisi taki taha, ʻaki e mataʻitohi faka-Pilitānia ʻi loto, hangē ko \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "Fakahaaʻi ʻo e mahuʻinga",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "Founga ʻoku hā ai ʻa e ngaahi fakaʻilonga mahuʻinga",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e meʻa",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo ha meʻa naʻe liliu ʻi he taimi ko ʻeni, ko ha hex pe ko ha kī theme",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e meʻa fakapoʻupoʻuli",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo ha meʻa naʻe ʻikai liliu talu mei he taimi kimuʻa",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ngahau tupu",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e ↑ ʻi he taimi kuo tupu ai ha lisi",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "Fika tupu",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e fika ʻi he tafaʻaki ʻo e ↑ ʻo ha lisi ʻoku tupu",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "Ngahau holo",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e ↓ ʻi he taimi kuo holo ai ha lisi",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "Fika holo",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e fika ʻi he tafaʻaki ʻo e ↓ ʻo ha lisi ʻoku holo",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e fokotuʻu",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e laine fokotuʻu, ko ha hex pe ko ha kī theme; maha ki he lanu pē ʻo e meʻa",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e fokotuʻu fakapoʻupoʻuli",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "Lanu ʻo e laine fokotuʻu lolotonga ʻoku fakapoʻupoʻuli ʻene meʻa koeʻuhí ʻoku ʻikai liliu",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "Nofo hili e tali",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi sekoni ʻoku nofo ai ha meʻa naʻe tali ʻaki ha meʻa lomiʻi, fakapoʻupoʻuli, kimuʻa pea mole",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "Nofo kuo tohi-kolosi",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Ngaahi miniti ʻoku nofo ai ha meʻa naʻe tāpuni ʻe Claude, kuo tohi-kolosi",
+    "ready": "ai translated"
   }
 }

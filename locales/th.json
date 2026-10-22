@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ขออนุมัติ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "คำถาม",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ยืนยัน",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ต้องการคุณ",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ดู",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "กำลังทำ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ภายหลัง",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "รออยู่",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ปักหมุด",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ข้อเสนอ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ใหม่)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+อีก {n}",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "น้อยลง",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "ไม่มีอะไรใน docket",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ยอมรับข้อเสนอทั้งหมด",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ยืนยันทั้งหมด",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "อนุมัติทั้งหมด",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ยอมรับข้อเสนอของ {id}",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ไม่เอาข้อเสนอของ {id}",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "อนุมัติ {id}",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ปฏิเสธ {id}",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ยืนยัน {id}",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ไม่ยืนยัน {id}",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "เริ่ม {id} ตอนนี้เลย",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ยอมรับข้อเสนอของ {ids}",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ยืนยัน {ids}",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "อนุมัติ {ids}",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "การตั้งค่า",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "เสร็จ",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "กำลังแก้ไขการตั้งค่าของคุณ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "กำลังแก้ไขการตั้งค่าของโปรเจกต์นี้ ซึ่งมีผลเหนือการตั้งค่าของคุณ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ทำสำเนาสำหรับโปรเจกต์นี้",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "การตั้งค่าต้องใช้เทอร์มินัล เดสก์ท็อป หรือ VS Code",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "จำนวนสูงสุดของ {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "จำนวนข้อที่แสดงใน {list} ก่อน \"+อีก N\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "สร้างไฟล์การตั้งค่าของ docket ที่ {path} โดยให้ทุกค่าเป็นค่าเริ่มต้นไหม? คุณแก้ไขได้ที่นั่น หรือด้วย ⚙",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ดูไฟล์การตั้งค่าใหม่ของคุณ: {path} ทุกค่าอยู่ในนั้นเป็นค่าเริ่มต้น",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket อัปเดตไฟล์การตั้งค่าที่ {path} จากเวอร์ชัน {from} เป็น {to} แล้ว",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket อัปเดตไฟล์การตั้งค่าที่ {path} จากเวอร์ชัน {from} เป็น {to} แล้ว โดยเพิ่ม {added} ด้วยค่าเริ่มต้น",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket อ่านไฟล์การตั้งค่าที่ {path} ไม่ได้ จึงใช้ค่าเริ่มต้นไปจนกว่าจะแก้ไขไฟล์",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket เวอร์ชัน {language} แปลด้วยเครื่อง ช่วยให้อ่านเป็นธรรมชาติขึ้นไหม? ✔ จะเปิด[ไฟล์ของภาษานี้]({link})ในตัวแก้ไขของ GitHub: แก้ข้อความใดก็ได้ ตั้ง \"ready\" ของข้อความนั้นเป็น true แล้วบันทึกเพื่อส่งการแก้ไข",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket มีข้อความภาษาอังกฤษใหม่ที่เวอร์ชัน {language} ยังไม่ได้แปล ช่วย[อัปเดตให้ทัน]({link})ไหม? ✔ จะเปิดไฟล์ในตัวแก้ไขของ GitHub: กรอก \"text\" ที่ว่างอยู่ทุกช่อง แล้วบันทึกเพื่อส่งการแก้ไข",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ภาษา",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "ภาษาของข้อความใน docket: auto จะใช้ตามการตั้งค่าภาษาของ Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "การแสดงผล",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "แผงข้างบทสนทนา หรือแถบเหนือช่องพิมพ์",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "อีโมจิ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "สวิตช์หลักสำหรับอีโมจิทั้งหมดที่ docket แสดง",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "อีโมจิหัวเรื่อง",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "อีโมจิหน้าหัวเรื่องของแต่ละรายการ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "รายการที่ไม่มีอีโมจิ",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ตัวอักษรภายใน (ภาษาอังกฤษ) ของรายการที่ข้อต่างๆ ไม่มีอีโมจิ เช่น \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "รายการแบบบรรทัดเดียว",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ตัวอักษรภายใน (ภาษาอังกฤษ) ของรายการที่แสดงในบรรทัดเดียว คั่นด้วยจุด",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ความยาวเป้าหมาย",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "จำนวนคำโดยประมาณต่อรายการ ใช้ตัวอักษรภายในภาษาอังกฤษ เช่น \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "การแสดงความสำคัญ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "วิธีแสดงเครื่องหมายความสำคัญ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "สีของข้อ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "สีของข้อที่เปลี่ยนในรอบนี้ เป็น hex หรือคีย์ธีม",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "สีของข้อที่หรี่",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "สีของข้อที่ไม่เปลี่ยนตั้งแต่รอบก่อน",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ลูกศรเพิ่มขึ้น",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "สีของ ↑ เมื่อรายการเพิ่มขึ้นในรอบนี้",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ตัวเลขเพิ่มขึ้น",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "สีของจำนวนข้าง ↑ ของรายการที่เพิ่มขึ้น",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ลูกศรลดลง",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "สีของ ↓ เมื่อรายการลดลงในรอบนี้",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ตัวเลขลดลง",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "สีของจำนวนข้าง ↓ ของรายการที่ลดลง",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "สีข้อเสนอ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "สีของบรรทัดข้อเสนอ เป็น hex หรือคีย์ธีม เว้นว่างเพื่อใช้สีของข้อนั้นเอง",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "สีข้อเสนอที่หรี่",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "สีของบรรทัดข้อเสนอเมื่อข้อนั้นถูกหรี่เพราะไม่เปลี่ยน",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ค้างหลังตอบ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "จำนวนวินาทีที่ข้อซึ่งตอบด้วยปุ่มยังแสดงอยู่แบบหรี่ก่อนหายไป",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ค้างแบบขีดฆ่า",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "จำนวนนาทีที่ข้อซึ่ง Claude ปิดเองยังแสดงอยู่แบบขีดฆ่า",
+    "ready": "ai translated"
   }
 }

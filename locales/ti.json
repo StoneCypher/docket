@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ጠለባት",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ሕቶታት",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ኣረጋግጽ",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ናትካ ተራ",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ርአ",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ይካየድ ኣሎ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ደሓር",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ዝጽበ ዘሎ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ተሸኪሉ",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ምኽሪ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ሓድሽ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ተወሳኺ",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ውሑድ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "ኣብ docket ዋላ ሓንቲ የለን።",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ኩሉ ምኽሪ ተቐበል",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ኩሉ ኣረጋግጽ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ኩሉ ኣጽድቕ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ናይ {id} ምኽሪ እቕበሎ ኣለኹ።",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ናይ {id} ምኽሪ ኣይቅበሎን።",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})።",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ኣጽዲቐዮ።",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ነጺገዮ።",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ኣረጋጊጸዮ።",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ኣየረጋገጽኩዎን።",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ሕጂ ጀምሮ።",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ናይ {ids} ምኽሪታት እቕበሎም ኣለኹ።",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ኣረጋጊጸዮም።",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ኣጽዲቐዮም።",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ቅጥዕታት",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ተወዲኡ",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ቅጥዕታትካ ተመሓይሽ ኣለኻ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ናይዚ ፕሮጀክት ቅጥዕታት ተመሓይሽ ኣለኻ፣ ንናትካ ይበልጾ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ነዚ ፕሮጀክት ቅዳሕ ስራሕ",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ቅጥዕታት ተርሚናል፣ ዴስክቶፕ ወይ VS Code የድልዮም።",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "ደረት {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "ቅድሚ \"+N ተወሳኺ\" ኣብ {list} ዝረኣዩ ኣቕሓታት",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ናይ docket ቅጥዕታት ኣብ {path}፣ ኩሉ ቅጥዒ ኣብ ናይ መበገሲ ዋጋኡ ኮይኑ፣ ይፈጠር ዶ? ኣብኡ ወይ ብ ⚙ ክተመሓይሾ ትኽእል ኢኻ።",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ሓድሽ ቅጥዕታትካ ርአ: {path}። ኩሉ ቅጥዒ ኣብ ናይ መበገሲ ዋጋኡ ኣብኡ ኣሎ።",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket ኣብ {path} ዘሎ ቅጥዕታቱ ካብ ስሪት {from} ናብ {to} ኣሐዲስዎ።",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket ኣብ {path} ዘሎ ቅጥዕታቱ ካብ ስሪት {from} ናብ {to} ኣሐዲስዎ፣ {added} ብናይ መበገሲ ዋጋታቶም ወሲኹ።",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket ኣብ {path} ዘሎ ቅጥዕታቱ ከንብቦ ኣይከኣለን፣ ስለዚ እቲ ፋይል ክሳብ ዝእረም ናይ መበገሲ ዋጋታት ይጥቀም ኣሎ።",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "ናይ docket {language} ብማሽን እዩ ተተርጒሙ። ባህርያዊ ኮይኑ ክንበብ ክትሕግዝ ዶ? ✔ [ፋይሉ]({link}) ኣብ ናይ GitHub መመሓይሺ ይኸፍቶ: ዝኾነ ጽሑፍ ኣርም፣ \"ready\" ናብ true ቀይሮ፣ ንምቕራብ ድማ ዕቅቦ።",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ብ{language} ገና ዘይተተርጎመ ሓድሽ እንግሊዝኛ ጽሑፍ ኣለዎ። [ንምሕዳሱ]({link}) ክትሕግዝ ዶ? ✔ ነቲ ፋይል ኣብ ናይ GitHub መመሓይሺ ይኸፍቶ: ነፍሲ ወከፍ ባዶ \"text\" ምላእ፣ ንምቕራብ ድማ ዕቅቦ።",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ቋንቋ",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "ቋንቋ ናይ docket ቃላት: auto ንናይ Claude Code ቅጥዒ ቋንቋ ይስዕብ",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ምርኢት",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ኣብ ጎኒ እቲ ዝርርብ ፓነል፣ ወይ ኣብ ልዕሊ መእተዊ ጽሑፍ ጭረት",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ኢሞጂ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "ንኹሉ ኢሞጂ ናይ docket ቀንዲ መወልዒ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ኢሞጂ ኣርእስቲ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ቅድሚ ኣርእስቲ ነፍሲ ወከፍ ዝርዝር ሓደ ኢሞጂ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ብዘይ ኢሞጂ ዝርዝራት",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ፊደላት ናይቶም ኣቕሓታቶም ኢሞጂ ዘይብሎም ዝርዝራት (ውሽጣዊ እንግሊዝኛ ፊደላት)፣ ንኣብነት \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ብሓደ መስመር ዝርዝራት",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ፊደላት ናይቶም ኣብ ሓደ መስመር ዝረኣዩ ዝርዝራት (ውሽጣዊ እንግሊዝኛ ፊደላት)፣ ብነጥቢ ዝተፈላለዩ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ዕላማ ንውሓት",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ንነፍሲ ወከፍ ዝርዝር ልሙድ ደረት ቃላት (ብውሽጣዊ እንግሊዝኛ ፊደላት)፣ ንኣብነት \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ምርኢት ኣገዳስነት",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ምልክታት ኣገዳስነት ከመይ ከም ዝረኣዩ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ኣቕሓ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ኣብዚ ዙር ዝተቐየረ ኣቕሓ፣ hex ወይ መፍትሕ ቴማ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ዝደብዘዘ ኣቕሓ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ካብ ዝሓለፈ ዙር ጀሚሩ ዘይተቐየረ ኣቕሓ",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ናይ ዕቤት ፍላጻ",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ዝርዝር ኣብዚ ዙር ክዓቢ ከሎ ሕብሪ ↑",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ናይ ዕቤት ቁጽሪ",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ኣብ ጎኒ ↑ ናይ ዝዓቢ ዝርዝር ዘሎ ቁጽሪ",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ናይ ምንካይ ፍላጻ",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ዝርዝር ኣብዚ ዙር ክንኪ ከሎ ሕብሪ ↓",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ናይ ምንካይ ቁጽሪ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ኣብ ጎኒ ↓ ናይ ዝንኪ ዝርዝር ዘሎ ቁጽሪ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ምኽሪ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ መስመር ምኽሪ፣ hex ወይ መፍትሕ ቴማ፤ ናይቲ ኣቕሓ ሕብሪ ንምጥቃም ባዶ ግደፎ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ሕብሪ ዝደብዘዘ ምኽሪ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ኣቕሓኡ ስለ ዘይተቐየረ ክድብዝዝ ከሎ ሕብሪ መስመር ምኽሪ",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ድሕሪ መልሲ ምጽናሕ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ብመልጎም ዝተመለሰ ኣቕሓ ቅድሚ ምኻዱ ደብዚዙ ዝጸንሐሉ ካልኢታት",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ምስ ሰረዝ ምጽናሕ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude ባዕሉ ዝዓጸዎ ኣቕሓ ተሰሪዙ ዝጸንሐሉ ደቓይቕ",
+    "ready": "ai translated"
   }
 }

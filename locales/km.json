@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ការស្នើសុំ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "សំណួរ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "បញ្ជាក់",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ត្រូវការអ្នក",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "មើល",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ដំណើរការ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ពេលក្រោយ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "រង់ចាំ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ខ្ទាស់ទុក",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "យោបល់",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ថ្មី)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ទៀត",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "តិចជាង",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "គ្មានអ្វីនៅលើ docket ទេ។",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ទទួលយកយោបល់ទាំងអស់",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "បញ្ជាក់ទាំងអស់",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "យល់ព្រមទាំងអស់",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ខ្ញុំទទួលយកយោបល់លើ {id}។",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "មិនយកយោបល់លើ {id} ទេ។",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "យល់ព្រម {id}។",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "បដិសេធ {id}។",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "បានបញ្ជាក់ {id}។",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "មិនបញ្ជាក់ {id} ទេ។",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "ចាប់ផ្ដើម {id} ឥឡូវនេះ។",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ខ្ញុំទទួលយកយោបល់លើ {ids}។",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "បានបញ្ជាក់ {ids}។",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "យល់ព្រម {ids}។",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ការកំណត់",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "រួចរាល់",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "កំពុងកែការកំណត់រចនាសម្ព័ន្ធរបស់អ្នក:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "កំពុងកែការកំណត់រចនាសម្ព័ន្ធរបស់គម្រោងនេះ ដែលមានអាទិភាពលើរបស់អ្នក:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ចម្លងសម្រាប់គម្រោងនេះ",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ការកំណត់ត្រូវការទែមីណាល់ កម្មវិធីកុំព្យូទ័រ ឬ VS Code។",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "ដែនកំណត់ {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "ធាតុដែលបង្ហាញក្នុង {list} មុន \"+N ទៀត\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "បង្កើតការកំណត់រចនាសម្ព័ន្ធរបស់ docket នៅ {path} ដោយគ្រប់ការកំណត់ជាតម្លៃលំនាំដើម? អ្នកអាចកែវានៅទីនោះ ឬដោយប្រើ ⚙។",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "មើលការកំណត់រចនាសម្ព័ន្ធថ្មីរបស់អ្នក: {path}។ គ្រប់ការកំណត់មាននៅទីនោះជាតម្លៃលំនាំដើម។",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket បានធ្វើបច្ចុប្បន្នភាពការកំណត់រចនាសម្ព័ន្ធរបស់វានៅ {path} ពីកំណែ {from} ទៅ {to}។",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket បានធ្វើបច្ចុប្បន្នភាពការកំណត់រចនាសម្ព័ន្ធរបស់វានៅ {path} ពីកំណែ {from} ទៅ {to} ដោយបន្ថែម {added} ជាតម្លៃលំនាំដើម។",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket មិនអាចអានការកំណត់រចនាសម្ព័ន្ធរបស់វានៅ {path} បានទេ ដូច្នេះវាប្រើតម្លៃលំនាំដើមរហូតដល់ឯកសារត្រូវបានជួសជុល។",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "ការបកប្រែ{language}របស់ docket ធ្វើឡើងដោយម៉ាស៊ីន។ ជួយធ្វើឱ្យវាស្ដាប់ទៅធម្មជាតិបានទេ? ✔ បើក [ឯកសាររបស់វា]({link}) ក្នុងកម្មវិធីកែរបស់ GitHub: កែអត្ថបទណាមួយ កំណត់ \"ready\" របស់វាជា true ហើយរក្សាទុកដើម្បីស្នើវា។",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket មានអត្ថបទអង់គ្លេសថ្មីដែលការបកប្រែ{language}របស់វាមិនទាន់បកប្រែ។ ជួយ[ធ្វើបច្ចុប្បន្នភាពវា]({link})បានទេ? ✔ បើកឯកសារក្នុងកម្មវិធីកែរបស់ GitHub: បំពេញ \"text\" ទទេនីមួយៗ ហើយរក្សាទុកដើម្បីស្នើវា។",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ភាសា",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "ភាសានៃពាក្យរបស់ docket ផ្ទាល់: auto ធ្វើតាមការកំណត់ភាសារបស់ Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ការបង្ហាញ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ផ្ទាំងនៅក្បែរការសន្ទនា ឬបន្ទះនៅពីលើប្រអប់បញ្ចូល",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "អ៊ីមូជី",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "កុងតាក់មេសម្រាប់អ៊ីមូជីទាំងអស់ដែល docket បង្ហាញ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "អ៊ីមូជីចំណងជើង",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "អ៊ីមូជីមួយនៅមុខចំណងជើងនៃបញ្ជីនីមួយៗ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "បញ្ជីគ្មានអ៊ីមូជី",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "អក្សរខាងក្នុង (អង់គ្លេស) នៃបញ្ជីដែលធាតុមិនមានអ៊ីមូជី ឧ. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "បញ្ជីមួយបន្ទាត់",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "អក្សរខាងក្នុង (អង់គ្លេស) នៃបញ្ជីដែលបង្ហាញលើបន្ទាត់តែមួយ បំបែកដោយចំណុច",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ប្រវែងគោលដៅ",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ដែនកំណត់ពាក្យបត់បែនសម្រាប់បញ្ជីនីមួយៗ ដោយប្រើអក្សរខាងក្នុងអង់គ្លេស ឧ. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ការបង្ហាញកម្រិតសំខាន់",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "របៀបដែលសញ្ញាកម្រិតសំខាន់បង្ហាញ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌ធាតុ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃធាតុដែលបានផ្លាស់ប្ដូរក្នុងវេននេះ ជា hex ឬកូនសោរូបរាង",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌ធាតុស្រអាប់",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃធាតុដែលមិនបានផ្លាស់ប្ដូរតាំងពីវេនមុន",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ព្រួញកើនឡើង",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃ ↑ នៅពេលបញ្ជីកើនឡើងក្នុងវេននេះ",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "លេខកើនឡើង",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃចំនួននៅក្បែរ ↑ នៃបញ្ជីដែលកំពុងកើនឡើង",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ព្រួញថយចុះ",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃ ↓ នៅពេលបញ្ជីថយចុះក្នុងវេននេះ",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "លេខថយចុះ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃចំនួននៅក្បែរ ↓ នៃបញ្ជីដែលកំពុងថយចុះ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌យោបល់",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃបន្ទាត់យោបល់ ជា hex ឬកូនសោរូបរាង; ទុកទទេដើម្បីប្រើពណ៌របស់ធាតុផ្ទាល់",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌យោបល់ស្រអាប់",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ពណ៌នៃបន្ទាត់យោបល់ ខណៈធាតុរបស់វាស្រអាប់ព្រោះមិនបានផ្លាស់ប្ដូរ",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "រយៈពេលនៅក្រោយឆ្លើយ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ចំនួនវិនាទីដែលធាតុដែលបានឆ្លើយដោយប៊ូតុងនៅបង្ហាញ ស្រអាប់ មុនពេលបាត់",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "រយៈពេលនៅពេលគូសឆូត",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "ចំនួននាទីដែលធាតុដែល Claude បានបិទដោយខ្លួនឯងនៅបង្ហាញជាគូសឆូត",
+    "ready": "ai translated"
   }
 }

@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "അഭ്യർത്ഥനകൾ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ചോദ്യങ്ങൾ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "സ്ഥിരീകരിക്കുക",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "നിങ്ങളുടെ ശ്രദ്ധയ്ക്ക്",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "കാണുക",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ഇപ്പോൾ നടക്കുന്നവ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "മാറ്റിവച്ചവ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "തടസ്സപ്പെട്ടവ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "പിൻ ചെയ്തവ",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "നിർദ്ദേശം",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(പുതിയത്)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} കൂടി",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "കുറച്ച്",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ൽ ഒന്നുമില്ല.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "എല്ലാ നിർദ്ദേശങ്ങളും സ്വീകരിക്കുക",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "എല്ലാം സ്ഥിരീകരിക്കുക",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "എല്ലാം അംഗീകരിക്കുക",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ലെ നിർദ്ദേശം സ്വീകരിക്കുന്നു.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}-ലെ നിർദ്ദേശം വേണ്ട.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} അംഗീകരിച്ചു.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} നിരസിച്ചു.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} സ്ഥിരീകരിച്ചു.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} സ്ഥിരീകരിക്കുന്നില്ല.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ഇപ്പോൾ തുടങ്ങൂ.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}-ലെ നിർദ്ദേശങ്ങൾ സ്വീകരിക്കുന്നു.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} സ്ഥിരീകരിച്ചു.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} അംഗീകരിച്ചു.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ക്രമീകരണങ്ങൾ",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "കഴിഞ്ഞു",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "നിങ്ങളുടെ കോൺഫിഗ് എഡിറ്റ് ചെയ്യുന്നു:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ഈ പ്രോജക്റ്റിന്റെ കോൺഫിഗ് എഡിറ്റ് ചെയ്യുന്നു, ഇത് നിങ്ങളുടേതിനെ മറികടക്കും:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ഈ പ്രോജക്റ്റിനായി ഒരു പകർപ്പ് എടുക്കുക",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ക്രമീകരണങ്ങൾക്ക് ടെർമിനൽ, ഡെസ്ക്ടോപ്പ് ആപ്പ് അല്ലെങ്കിൽ VS Code വേണം.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} പരിധി",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N കൂടി\" എന്നതിന് മുമ്പ് {list}-ൽ കാണിക്കുന്ന ഇനങ്ങൾ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "എല്ലാ ക്രമീകരണങ്ങളും ഡിഫോൾട്ടിൽ ആക്കി docket-ന്റെ കോൺഫിഗ് {path}-ൽ സൃഷ്ടിക്കട്ടെ? നിങ്ങൾക്ക് അത് അവിടെയോ ⚙ ഉപയോഗിച്ചോ എഡിറ്റ് ചെയ്യാം.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "നിങ്ങളുടെ പുതിയ കോൺഫിഗ് നോക്കൂ: {path}. എല്ലാ ക്രമീകരണങ്ങളും ഡിഫോൾട്ട് മൂല്യത്തിൽ അവിടെയുണ്ട്.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket അതിന്റെ കോൺഫിഗ് {path}-ൽ പതിപ്പ് {from}-ൽ നിന്ന് {to}-ലേക്ക് അപ്ഡേറ്റ് ചെയ്തു.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket അതിന്റെ കോൺഫിഗ് {path}-ൽ പതിപ്പ് {from}-ൽ നിന്ന് {to}-ലേക്ക് അപ്ഡേറ്റ് ചെയ്തു, {added} ഡിഫോൾട്ട് മൂല്യങ്ങളോടെ ചേർത്തു.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ന് {path}-ലെ കോൺഫിഗ് വായിക്കാനായില്ല, അതിനാൽ ഫയൽ ശരിയാക്കുന്നതുവരെ ഡിഫോൾട്ടുകൾ ഉപയോഗിക്കുന്നു.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ന്റെ {language} മെഷീൻ വിവർത്തനമാണ്. അത് സ്വാഭാവികമാക്കാൻ സഹായിക്കാമോ? ✔ [അതിന്റെ ഫയൽ]({link}) GitHub-ന്റെ എഡിറ്ററിൽ തുറക്കും: ഏത് വാചകവും തിരുത്തുക, അതിന്റെ \"ready\" true ആക്കുക, സമർപ്പിക്കാൻ സേവ് ചെയ്യുക.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ൽ അതിന്റെ {language} ഇതുവരെ വിവർത്തനം ചെയ്യാത്ത പുതിയ ഇംഗ്ലീഷ് വാചകങ്ങളുണ്ട്. [അത് പുതുക്കാൻ]({link}) സഹായിക്കാമോ? ✔ ഫയൽ GitHub-ന്റെ എഡിറ്ററിൽ തുറക്കും: ശൂന്യമായ ഓരോ \"text\"-ഉം പൂരിപ്പിക്കുക, സമർപ്പിക്കാൻ സേവ് ചെയ്യുക.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ഭാഷ",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket-ന്റെ സ്വന്തം വാക്കുകളുടെ ഭാഷ: auto, Claude Code-ന്റെ ഭാഷാ ക്രമീകരണം പിന്തുടരുന്നു",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "പ്രദർശനം",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "സംഭാഷണത്തിനരികിൽ ഒരു പാനൽ, അല്ലെങ്കിൽ പ്രോംപ്റ്റിന് മുകളിൽ ഒരു ബാൻഡ്",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ഇമോജി",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket വരയ്ക്കുന്ന എല്ലാ ഇമോജികൾക്കുമുള്ള പ്രധാന സ്വിച്ച്",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "തലക്കെട്ട് ഇമോജി",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ഓരോ ലിസ്റ്റിന്റെയും തലക്കെട്ടിന് മുമ്പ് ഒരു ഇമോജി",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ഇമോജി ഇല്ലാത്ത ലിസ്റ്റുകൾ",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ഇനങ്ങൾക്ക് ഇമോജി ഇല്ലാത്ത ലിസ്റ്റുകളുടെ ആന്തരിക (ഇംഗ്ലീഷ്) അക്ഷരങ്ങൾ, ഉദാ. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ഒറ്റവരി ലിസ്റ്റുകൾ",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ഒറ്റ വരിയിൽ കാണിക്കുന്ന ലിസ്റ്റുകളുടെ ആന്തരിക (ഇംഗ്ലീഷ്) അക്ഷരങ്ങൾ, കുത്തുകൾ കൊണ്ട് വേർതിരിച്ച്",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ലക്ഷ്യ ദൈർഘ്യം",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ഓരോ ലിസ്റ്റിനുമുള്ള അയഞ്ഞ വാക്ക് പരിധി (ഇംഗ്ലീഷ് അക്ഷരങ്ങളോടെ), ഉദാ. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "പ്രാധാന്യ സൂചന",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "പ്രാധാന്യ അടയാളങ്ങൾ എങ്ങനെ കാണിക്കുന്നു",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ഇനത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ഈ ടേണിൽ മാറിയ ഇനത്തിന്റെ നിറം, hex അല്ലെങ്കിൽ തീം കീ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "മങ്ങിയ ഇനത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "കഴിഞ്ഞ ടേൺ മുതൽ മാറ്റമില്ലാത്ത ഇനത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "വളർച്ചാ അമ്പ്",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ഈ ടേണിൽ ലിസ്റ്റ് വളർന്നപ്പോൾ ↑-ന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "വളർച്ചാ സംഖ്യ",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "വളരുന്ന ലിസ്റ്റിന്റെ ↑-ന് അരികിലുള്ള എണ്ണത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "കുറവിന്റെ അമ്പ്",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ഈ ടേണിൽ ലിസ്റ്റ് ചുരുങ്ങിയപ്പോൾ ↓-ന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "കുറവിന്റെ സംഖ്യ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ചുരുങ്ങുന്ന ലിസ്റ്റിന്റെ ↓-ന് അരികിലുള്ള എണ്ണത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "നിർദ്ദേശത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "നിർദ്ദേശ വരിയുടെ നിറം, hex അല്ലെങ്കിൽ തീം കീ; ഇനത്തിന്റെ സ്വന്തം നിറത്തിന് ശൂന്യമായി വിടുക",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "മങ്ങിയ നിർദ്ദേശത്തിന്റെ നിറം",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ഇനം മാറ്റമില്ലാത്തതായി മങ്ങിയിരിക്കുമ്പോൾ നിർദ്ദേശ വരിയുടെ നിറം",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ഉത്തരം നൽകിയവ നിൽക്കുന്ന സമയം",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ബട്ടൺ വഴി ഉത്തരം നൽകിയ ഇനം പോകുന്നതിന് മുമ്പ് മങ്ങി കാണപ്പെടുന്ന സെക്കൻഡുകൾ",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "വെട്ടിയവ നിൽക്കുന്ന സമയം",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude സ്വയം അടച്ച ഇനം വെട്ടിയ നിലയിൽ കാണപ്പെടുന്ന മിനിറ്റുകൾ",
+    "ready": "ai translated"
   }
 }

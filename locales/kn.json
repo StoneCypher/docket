@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ಮನವಿಗಳು",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರಶ್ನೆಗಳು",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ದೃಢೀಕರಿಸಿ",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ನಿಮ್ಮ ಗಮನ ಬೇಕು",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ವೀಕ್ಷಿಸಿ",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ಚಾಲ್ತಿಯಲ್ಲಿ",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ಆಮೇಲೆ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ಕಾಯುತ್ತಿದೆ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ಸ್ಥಿರಗೊಳಿಸಿದವು",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ಶಿಫಾರಸು",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ಹೊಸದು)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ಇನ್ನಷ್ಟು",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ಕಡಿಮೆ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket ನಲ್ಲಿ ಏನೂ ಇಲ್ಲ.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ಎಲ್ಲಾ ಶಿಫಾರಸುಗಳನ್ನು ಒಪ್ಪಿ",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ಎಲ್ಲವನ್ನೂ ದೃಢೀಕರಿಸಿ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ಎಲ್ಲವನ್ನೂ ಅನುಮೋದಿಸಿ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ಗೆ ನಿಮ್ಮ ಶಿಫಾರಸನ್ನು ಒಪ್ಪುತ್ತೇನೆ.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ಗೆ ನಿಮ್ಮ ಶಿಫಾರಸು ಬೇಡ.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ಅನುಮೋದಿಸಿದ್ದೇನೆ.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ನಿರಾಕರಿಸಿದ್ದೇನೆ.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ದೃಢೀಕರಿಸಿದ್ದೇನೆ.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ದೃಢೀಕರಿಸುವುದಿಲ್ಲ.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ಈಗಲೇ ಶುರು ಮಾಡಿ.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ಗೆ ನಿಮ್ಮ ಶಿಫಾರಸುಗಳನ್ನು ಒಪ್ಪುತ್ತೇನೆ.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ದೃಢೀಕರಿಸಿದ್ದೇನೆ.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ಅನುಮೋದಿಸಿದ್ದೇನೆ.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ಮುಗಿದಿದೆ",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ನಿಮ್ಮ ಕಾನ್ಫಿಗ್ ಸಂಪಾದಿಸಲಾಗುತ್ತಿದೆ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ಈ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಕಾನ್ಫಿಗ್ ಸಂಪಾದಿಸಲಾಗುತ್ತಿದೆ, ಇದು ನಿಮ್ಮದನ್ನು ಅತಿಕ್ರಮಿಸುತ್ತದೆ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ಈ ಪ್ರಾಜೆಕ್ಟ್‌ಗಾಗಿ ಪ್ರತಿ ಮಾಡಿ",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಟರ್ಮಿನಲ್, ಡೆಸ್ಕ್‌ಟಾಪ್ ಅಥವಾ VS Code ಬೇಕು.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} ಮಿತಿ",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N ಇನ್ನಷ್ಟು\" ಗಿಂತ ಮೊದಲು {list} ನಲ್ಲಿ ತೋರಿಸುವ ಐಟಂಗಳು",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ಎಲ್ಲಾ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ನಲ್ಲಿ ಇಟ್ಟು docket ನ ಕಾನ್ಫಿಗ್ ಅನ್ನು {path} ನಲ್ಲಿ ರಚಿಸಬೇಕೇ? ನೀವು ಅದನ್ನು ಅಲ್ಲಿ ಅಥವಾ ⚙ ಮೂಲಕ ಸಂಪಾದಿಸಬಹುದು.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ನಿಮ್ಮ ಹೊಸ ಕಾನ್ಫಿಗ್ ನೋಡಿ: {path}. ಪ್ರತಿಯೊಂದು ಸೆಟ್ಟಿಂಗ್ ಅದರ ಡೀಫಾಲ್ಟ್‌ನಲ್ಲಿದೆ.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} ನಲ್ಲಿರುವ ತನ್ನ ಕಾನ್ಫಿಗ್ ಅನ್ನು ಆವೃತ್ತಿ {from} ರಿಂದ {to} ಗೆ ನವೀಕರಿಸಿದೆ.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} ನಲ್ಲಿರುವ ತನ್ನ ಕಾನ್ಫಿಗ್ ಅನ್ನು ಆವೃತ್ತಿ {from} ರಿಂದ {to} ಗೆ ನವೀಕರಿಸಿ, {added} ಅನ್ನು ಅವುಗಳ ಡೀಫಾಲ್ಟ್‌ನಲ್ಲಿ ಸೇರಿಸಿದೆ.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket ಗೆ {path} ನಲ್ಲಿರುವ ತನ್ನ ಕಾನ್ಫಿಗ್ ಓದಲಾಗಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಫೈಲ್ ಸರಿಯಾಗುವವರೆಗೆ ಡೀಫಾಲ್ಟ್‌ಗಳನ್ನು ಬಳಸುತ್ತಿದೆ.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ನ {language} ಯಂತ್ರದಿಂದ ಅನುವಾದಿಸಲಾಗಿದೆ. ಅದು ಸಹಜವಾಗಿ ಓದುವಂತೆ ಮಾಡಲು ಸಹಾಯ ಮಾಡುವಿರಾ? ✔ [ಅದರ ಫೈಲ್]({link}) ಅನ್ನು GitHub ನ ಸಂಪಾದಕದಲ್ಲಿ ತೆರೆಯುತ್ತದೆ: ಯಾವುದೇ ಪಠ್ಯವನ್ನು ಸರಿಪಡಿಸಿ, ಅದರ \"ready\" ಅನ್ನು true ಮಾಡಿ, ಮತ್ತು ಪ್ರಸ್ತಾಪಿಸಲು ಉಳಿಸಿ.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ನಲ್ಲಿ ಅದರ {language} ಇನ್ನೂ ಅನುವಾದಿಸದ ಹೊಸ ಇಂಗ್ಲಿಷ್ ಪಠ್ಯವಿದೆ. [ಅದನ್ನು ನವೀಕರಿಸಲು]({link}) ಸಹಾಯ ಮಾಡುವಿರಾ? ✔ ಫೈಲ್ ಅನ್ನು GitHub ನ ಸಂಪಾದಕದಲ್ಲಿ ತೆರೆಯುತ್ತದೆ: ಪ್ರತಿಯೊಂದು ಖಾಲಿ \"text\" ಅನ್ನು ತುಂಬಿ, ಮತ್ತು ಪ್ರಸ್ತಾಪಿಸಲು ಉಳಿಸಿ.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ಭಾಷೆ",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket ನ ಸ್ವಂತ ಪದಗಳ ಭಾಷೆ: auto ಆದರೆ Claude Code ನ ಭಾಷಾ ಸೆಟ್ಟಿಂಗ್ ಅನುಸರಿಸುತ್ತದೆ",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರದರ್ಶನ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ಸಂಭಾಷಣೆಯ ಪಕ್ಕದಲ್ಲಿ ಒಂದು ಫಲಕ, ಅಥವಾ ಪ್ರಾಂಪ್ಟ್‌ನ ಮೇಲೆ ಒಂದು ಬ್ಯಾಂಡ್",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ಎಮೋಜಿ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket ತೋರಿಸುವ ಎಲ್ಲಾ ಎಮೋಜಿಗಳ ಮುಖ್ಯ ಸ್ವಿಚ್",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ಶೀರ್ಷಿಕೆ ಎಮೋಜಿ",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರತಿ ಪಟ್ಟಿಯ ಶೀರ್ಷಿಕೆಯ ಮುಂದೆ ಒಂದು ಎಮೋಜಿ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ಐಟಂ ಎಮೋಜಿ ಇಲ್ಲದ ಪಟ್ಟಿಗಳು",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ಐಟಂಗಳಿಗೆ ಎಮೋಜಿ ತೋರಿಸದ ಪಟ್ಟಿಗಳ ಆಂತರಿಕ (ಇಂಗ್ಲಿಷ್) ಅಕ್ಷರಗಳು, ಉದಾ. \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ಒಂದೇ ಸಾಲಿನ ಪಟ್ಟಿಗಳು",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ಚುಕ್ಕೆಗಳಿಂದ ಬೇರ್ಪಡಿಸಿ ಒಂದೇ ಸಾಲಿನಲ್ಲಿ ತೋರಿಸುವ ಪಟ್ಟಿಗಳ ಆಂತರಿಕ (ಇಂಗ್ಲಿಷ್) ಅಕ್ಷರಗಳು",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ಗುರಿ ಉದ್ದಗಳು",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರತಿ ಪಟ್ಟಿಗೆ ಸಡಿಲ ಪದ ಮಿತಿಗಳು, ಆಂತರಿಕ ಇಂಗ್ಲಿಷ್ ಅಕ್ಷರಗಳೊಂದಿಗೆ, ಉದಾ. \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರಾಮುಖ್ಯತೆ ಪ್ರದರ್ಶನ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ಪ್ರಾಮುಖ್ಯತೆ ಗುರುತುಗಳು ಹೇಗೆ ಕಾಣುತ್ತವೆ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ಐಟಂ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ಈ ಸರದಿಯಲ್ಲಿ ಬದಲಾದ ಐಟಂನ ಬಣ್ಣ, hex ಅಥವಾ ಥೀಮ್ ಕೀ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ಮಂದ ಐಟಂ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ಕಳೆದ ಸರದಿಯಿಂದ ಬದಲಾಗದ ಐಟಂನ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ಏರಿಕೆ ಬಾಣ",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ಈ ಸರದಿಯಲ್ಲಿ ಪಟ್ಟಿ ಬೆಳೆದಾಗ ↑ ನ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ಏರಿಕೆ ಸಂಖ್ಯೆ",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ಬೆಳೆಯುತ್ತಿರುವ ಪಟ್ಟಿಯ ↑ ಪಕ್ಕದ ಎಣಿಕೆಯ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ಇಳಿಕೆ ಬಾಣ",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ಈ ಸರದಿಯಲ್ಲಿ ಪಟ್ಟಿ ಕುಗ್ಗಿದಾಗ ↓ ನ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ಇಳಿಕೆ ಸಂಖ್ಯೆ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ಕುಗ್ಗುತ್ತಿರುವ ಪಟ್ಟಿಯ ↓ ಪಕ್ಕದ ಎಣಿಕೆಯ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ಶಿಫಾರಸು ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ಶಿಫಾರಸು ಸಾಲಿನ ಬಣ್ಣ, hex ಅಥವಾ ಥೀಮ್ ಕೀ; ಐಟಂನ ಸ್ವಂತ ಬಣ್ಣಕ್ಕಾಗಿ ಖಾಲಿ ಬಿಡಿ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ಮಂದ ಶಿಫಾರಸು ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ಐಟಂ ಬದಲಾಗದೆ ಮಂದವಾಗಿರುವಾಗ ಶಿಫಾರಸು ಸಾಲಿನ ಬಣ್ಣ",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ಉತ್ತರದ ನಂತರ ಉಳಿಯುವಿಕೆ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ಬಟನ್ ಮೂಲಕ ಉತ್ತರಿಸಿದ ಐಟಂ ಹೋಗುವ ಮೊದಲು ಮಂದವಾಗಿ ಉಳಿಯುವ ಸೆಕೆಂಡುಗಳು",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ಹೊಡೆದುಹಾಕಿದ ಉಳಿಯುವಿಕೆ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude ತಾನಾಗಿಯೇ ಮುಚ್ಚಿದ ಐಟಂ ಹೊಡೆದುಹಾಕಿದಂತೆ ಉಳಿಯುವ ನಿಮಿಷಗಳು",
+    "ready": "ai translated"
   }
 }

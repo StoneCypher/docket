@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ຂໍອະນຸຍາດ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ຄຳຖາມ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ຢືນຢັນ",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ຕ້ອງການທ່ານ",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ກວດເບິ່ງ",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ດຳເນີນຢູ່",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ພາຍຫຼັງ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ລໍຖ້າ",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ປັກໝຸດ",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ຂໍ້ສະເໜີ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ໃໝ່)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ເພີ່ມເຕີມ",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "ໜ້ອຍລົງ",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "ບໍ່ມີຫຍັງໃນ docket.",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ຮັບຂໍ້ສະເໜີທັງໝົດ",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ຢືນຢັນທັງໝົດ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ອະນຸມັດທັງໝົດ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ຮັບຂໍ້ສະເໜີຂອງ {id}.",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ບໍ່ຮັບຂໍ້ສະເໜີຂອງ {id}.",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option}).",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ອະນຸມັດ {id}.",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ປະຕິເສດ {id}.",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ຢືນຢັນ {id}.",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "ບໍ່ຢືນຢັນ {id}.",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "ເລີ່ມ {id} ດຽວນີ້.",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ຮັບຂໍ້ສະເໜີຂອງ {ids}.",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ຢືນຢັນ {ids}.",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "ອະນຸມັດ {ids}.",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ການຕັ້ງຄ່າ",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ສຳເລັດ",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ກຳລັງແກ້ໄຂການຕັ້ງຄ່າຂອງທ່ານ:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ກຳລັງແກ້ໄຂການຕັ້ງຄ່າຂອງໂປຣເຈັກນີ້, ເຊິ່ງມີຜົນເໜືອການຕັ້ງຄ່າຂອງທ່ານ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ສຳເນົາໄວ້ສຳລັບໂປຣເຈັກນີ້",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ການຕັ້ງຄ່າຕ້ອງໃຊ້ເທີມິນອນ, ແອັບເດັສທັອບ ຫຼື VS Code.",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "ຂີດຈຳກັດ {list}",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "ຈຳນວນລາຍການທີ່ສະແດງໃນ {list} ກ່ອນ \"+N ເພີ່ມເຕີມ\"",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "ສ້າງການຕັ້ງຄ່າຂອງ docket ທີ່ {path} ໂດຍໃຊ້ຄ່າເລີ່ມຕົ້ນທັງໝົດບໍ? ທ່ານສາມາດແກ້ໄຂໄດ້ທີ່ນັ້ນ ຫຼື ດ້ວຍ ⚙.",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ເບິ່ງການຕັ້ງຄ່າໃໝ່ຂອງທ່ານ: {path}. ທຸກການຕັ້ງຄ່າຢູ່ທີ່ນັ້ນດ້ວຍຄ່າເລີ່ມຕົ້ນ.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket ໄດ້ອັບເດດການຕັ້ງຄ່າຂອງມັນທີ່ {path} ຈາກເວີຊັນ {from} ເປັນ {to}.",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket ໄດ້ອັບເດດການຕັ້ງຄ່າຂອງມັນທີ່ {path} ຈາກເວີຊັນ {from} ເປັນ {to}, ແລະເພີ່ມ {added} ດ້ວຍຄ່າເລີ່ມຕົ້ນ.",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket ບໍ່ສາມາດອ່ານການຕັ້ງຄ່າທີ່ {path} ໄດ້, ຈຶ່ງໃຊ້ຄ່າເລີ່ມຕົ້ນຈົນກວ່າຈະແກ້ໄຂໄຟລ໌.",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "ພາສາ{language}ຂອງ docket ແປດ້ວຍເຄື່ອງ. ຊ່ວຍໃຫ້ອ່ານເປັນທຳມະຊາດຂຶ້ນບໍ? ✔ ຈະເປີດ [ໄຟລ໌ຂອງມັນ]({link}) ໃນຕົວແກ້ໄຂຂອງ GitHub: ແກ້ຂໍ້ຄວາມໃດກໍໄດ້, ຕັ້ງ \"ready\" ຂອງມັນເປັນ true, ແລ້ວບັນທຶກເພື່ອສົ່ງ.",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ມີຂໍ້ຄວາມພາສາອັງກິດໃໝ່ທີ່ພາສາ{language}ຍັງບໍ່ໄດ້ແປ. ຊ່ວຍ[ອັບເດດມັນ]({link})ບໍ? ✔ ຈະເປີດໄຟລ໌ໃນຕົວແກ້ໄຂຂອງ GitHub: ຕື່ມ \"text\" ທີ່ຫວ່າງແຕ່ລະອັນ, ແລ້ວບັນທຶກເພື່ອສົ່ງ.",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ພາສາ",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "ພາສາຂອງຂໍ້ຄວາມໃນ docket: auto ຈະຕາມການຕັ້ງຄ່າພາສາຂອງ Claude Code",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ການສະແດງຜົນ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ແຜງຂ້າງບົດສົນທະນາ ຫຼື ແຖບເທິງຊ່ອງພິມ",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ອີໂມຈິ",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "ສະວິດຫຼັກສຳລັບອີໂມຈິທັງໝົດທີ່ docket ສະແດງ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ອີໂມຈິຫົວຂໍ້",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ອີໂມຈິກ່ອນຫົວຂໍ້ຂອງແຕ່ລະບັນຊີ",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ບັນຊີທີ່ບໍ່ມີອີໂມຈິ",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ຕົວອັກສອນ (ພາສາອັງກິດພາຍໃນ) ຂອງບັນຊີທີ່ລາຍການບໍ່ມີອີໂມຈິ, ເຊັ່ນ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ບັນຊີແຖວດຽວ",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ຕົວອັກສອນ (ພາສາອັງກິດພາຍໃນ) ຂອງບັນຊີທີ່ສະແດງໃນແຖວດຽວ, ຂັ້ນດ້ວຍຈຸດ",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ຄວາມຍາວເປົ້າໝາຍ",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ຂີດຈຳກັດຈຳນວນຄຳແບບຢືດຢຸ່ນຕໍ່ບັນຊີ (ດ້ວຍຕົວອັກສອນອັງກິດ), ເຊັ່ນ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ການສະແດງຄວາມສຳຄັນ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ວິທີສະແດງເຄື່ອງໝາຍຄວາມສຳຄັນ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ສີລາຍການ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງລາຍການທີ່ປ່ຽນໃນຮອບນີ້, ເປັນ hex ຫຼື ຄີຂອງທີມ",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ສີລາຍການແບບຈາງ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງລາຍການທີ່ບໍ່ປ່ຽນຕັ້ງແຕ່ຮອບກ່ອນ",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ລູກສອນເພີ່ມຂຶ້ນ",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງ ↑ ເມື່ອບັນຊີເພີ່ມຂຶ້ນໃນຮອບນີ້",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ຕົວເລກເພີ່ມຂຶ້ນ",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງຕົວເລກຂ້າງ ↑ ຂອງບັນຊີທີ່ເພີ່ມຂຶ້ນ",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ລູກສອນຫຼຸດລົງ",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງ ↓ ເມື່ອບັນຊີຫຼຸດລົງໃນຮອບນີ້",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ຕົວເລກຫຼຸດລົງ",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງຕົວເລກຂ້າງ ↓ ຂອງບັນຊີທີ່ຫຼຸດລົງ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂໍ້ສະເໜີ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງແຖວຂໍ້ສະເໜີ, ເປັນ hex ຫຼື ຄີຂອງທີມ; ປ່ອຍຫວ່າງເພື່ອໃຊ້ສີຂອງລາຍການເອງ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂໍ້ສະເໜີແບບຈາງ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ສີຂອງແຖວຂໍ້ສະເໜີເມື່ອລາຍການຂອງມັນຈາງລົງເພາະບໍ່ປ່ຽນ",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ເວລາຄ້າງຫຼັງຕອບ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ຈຳນວນວິນາທີທີ່ລາຍການທີ່ຕອບດ້ວຍປຸ່ມຍັງຄ້າງຢູ່ແບບຈາງ ກ່ອນຈະຫາຍໄປ",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "ເວລາຄ້າງແບບຂີດຂ້າ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "ຈຳນວນນາທີທີ່ລາຍການທີ່ Claude ປິດເອງຍັງຄ້າງຢູ່ແບບຂີດຂ້າ",
+    "ready": "ai translated"
   }
 }

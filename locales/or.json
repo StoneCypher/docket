@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "ଅନୁରୋଧ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରଶ୍ନ",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "ନିଶ୍ଚିତ କରନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "ଆପଣଙ୍କ ଦରକାର",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "ଦେଖନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "ଚାଲିଛି",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "ଭବିଷ୍ୟତ ପାଇଁ",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ରୋକାଯାଇଛି",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "ସ୍ଥାୟୀ",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରସ୍ତାବ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(ନୂଆ)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} ଅଧିକ",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "କମ୍",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket ରେ କିଛି ନାହିଁ।",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "ସମସ୍ତ ପ୍ରସ୍ତାବ ଗ୍ରହଣ କରନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "ସବୁ ନିଶ୍ଚିତ କରନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "ସବୁ ଅନୁମୋଦନ କରନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ର ପ୍ରସ୍ତାବ ଗ୍ରହଣ କରୁଛି।",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ର ପ୍ରସ୍ତାବ ଗ୍ରହଣ କରୁନାହିଁ।",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})।",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ଅନୁମୋଦନ କଲି।",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ପ୍ରତ୍ୟାଖ୍ୟାନ କଲି।",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ନିଶ୍ଚିତ କଲି।",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ନିଶ୍ଚିତ କଲି ନାହିଁ।",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} ଏବେ ଆରମ୍ଭ କର।",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ର ପ୍ରସ୍ତାବ ଗ୍ରହଣ କରୁଛି।",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ନିଶ୍ଚିତ କଲି।",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} ଅନୁମୋଦନ କଲି।",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ସେଟିଂସ",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "ହୋଇଗଲା",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "ଆପଣଙ୍କ କନଫିଗ୍ ସମ୍ପାଦନ କରୁଛନ୍ତି:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "ଏହି ପ୍ରୋଜେକ୍ଟର କନଫିଗ୍ ସମ୍ପାଦନ କରୁଛନ୍ତି, ଯାହା ଆପଣଙ୍କ କନଫିଗ୍ ଉପରେ ପ୍ରାଧାନ୍ୟ ପାଏ:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "ଏହି ପ୍ରୋଜେକ୍ଟ ପାଇଁ ଏକ କପି ତିଆରି କରନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ସେଟିଂସ ପାଇଁ ଟର୍ମିନାଲ, ଡେସ୍କଟପ କିମ୍ବା VS Code ଦରକାର।",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list} ସୀମା",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N ଅଧିକ\" ପୂର୍ବରୁ {list} ରେ ଦେଖାଯାଉଥିବା ଆଇଟମ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "{path} ରେ docket ର କନଫିଗ୍ ତିଆରି କରିବେ, ପ୍ରତ୍ୟେକ ସେଟିଂ ଡିଫଲ୍ଟରେ ରହି? ଆପଣ ତାହା ସେଠାରେ କିମ୍ବା ⚙ ସହିତ ସମ୍ପାଦନ କରିପାରିବେ।",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "ଆପଣଙ୍କ ନୂଆ କନଫିଗ୍ ଦେଖନ୍ତୁ: {path}। ପ୍ରତ୍ୟେକ ସେଟିଂ ସେଠାରେ ଡିଫଲ୍ଟରେ ଅଛି।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} ରେ ଥିବା ତାର କନଫିଗ୍ ସଂସ୍କରଣ {from} ରୁ {to} କୁ ଅପଡେଟ କଲା।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} ରେ ଥିବା ତାର କନଫିଗ୍ ସଂସ୍କରଣ {from} ରୁ {to} କୁ ଅପଡେଟ କଲା, ଏବଂ {added} ଡିଫଲ୍ଟରେ ଯୋଡ଼ିଲା।",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket {path} ରେ ଥିବା ତାର କନଫିଗ୍ ପଢ଼ିପାରିଲା ନାହିଁ, ତେଣୁ ଫାଇଲ ଠିକ୍ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଡିଫଲ୍ଟ ବ୍ୟବହାର କରୁଛି।",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ର {language} ମେସିନ ଦ୍ୱାରା ଅନୁବାଦିତ। ଏହାକୁ ସ୍ୱାଭାବିକ କରିବାରେ ସାହାଯ୍ୟ କରିବେ? ✔ GitHub ର ଏଡିଟରରେ [ଏହାର ଫାଇଲ]({link}) ଖୋଲେ: ଯେକୌଣସି ଲେଖା ଠିକ୍ କରନ୍ତୁ, ତାର \"ready\" କୁ true କରନ୍ତୁ, ଏବଂ ପ୍ରସ୍ତାବ ଦେବା ପାଇଁ ସେଭ କରନ୍ତୁ।",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket ରେ ନୂଆ ଇଂରାଜୀ ଲେଖା ଅଛି ଯାହା ଏହାର {language} ଏପର୍ଯ୍ୟନ୍ତ ଅନୁବାଦ କରିନାହିଁ। [ଏହାକୁ ଅଦ୍ୟତନ କରିବାରେ]({link}) ସାହାଯ୍ୟ କରିବେ? ✔ GitHub ର ଏଡିଟରରେ ଫାଇଲଟି ଖୋଲେ: ପ୍ରତ୍ୟେକ ଖାଲି \"text\" ପୂରଣ କରନ୍ତୁ, ଏବଂ ପ୍ରସ୍ତାବ ଦେବା ପାଇଁ ସେଭ କରନ୍ତୁ।",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ଭାଷା",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket ର ନିଜ ଲେଖାର ଭାଷା: auto Claude Code ର ଭାଷା ସେଟିଂ ଅନୁସରଣ କରେ",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରଦର୍ଶନ",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "ଆଲୋଚନା ପାଖରେ ଏକ ପ୍ୟାନେଲ, କିମ୍ବା ପ୍ରମ୍ପ୍ଟ ଉପରେ ଏକ ପଟି",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ଇମୋଜି",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket ଦେଖାଉଥିବା ସମସ୍ତ ଇମୋଜି ପାଇଁ ମୁଖ୍ୟ ସୁଇଚ୍",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "ଶୀର୍ଷକ ଇମୋଜି",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରତ୍ୟେକ ତାଲିକାର ଶୀର୍ଷକ ପୂର୍ବରୁ ଏକ ଇମୋଜି",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "ଆଇଟମ ଇମୋଜି ବିନା ତାଲିକା",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "ଯେଉଁ ତାଲିକାର ଆଇଟମରେ ଇମୋଜି ନଥାଏ ସେଗୁଡ଼ିକର ଆଭ୍ୟନ୍ତରୀଣ (ଇଂରାଜୀ) ଅକ୍ଷର, ଯେପରି ପ୍ରଶ୍ନ ପାଇଁ Q ଓ ସ୍ଥାୟୀ ପାଇଁ P, ଉଦାହରଣ \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "ଏକ ଧାଡ଼ି ତାଲିକା",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "ଏକ ଧାଡ଼ିରେ ଦେଖାଯାଉଥିବା ତାଲିକାର ଆଭ୍ୟନ୍ତରୀଣ (ଇଂରାଜୀ) ଅକ୍ଷର, ବିନ୍ଦୁ ଦ୍ୱାରା ଅଲଗା",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "ଲକ୍ଷ୍ୟ ଦୈର୍ଘ୍ୟ",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରତି ତାଲିକା ନମନୀୟ ଶବ୍ଦ ସୀମା, ଆଭ୍ୟନ୍ତରୀଣ ଇଂରାଜୀ ଅକ୍ଷର ସହିତ, ଉଦାହରଣ \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "ଗୁରୁତ୍ୱ ପ୍ରଦର୍ଶନ",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "ଗୁରୁତ୍ୱ ଚିହ୍ନ କିପରି ଦେଖାଯାଏ",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "ଆଇଟମ ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "ଏହି ପାଳିରେ ବଦଳିଥିବା ଆଇଟମର ରଙ୍ଗ, hex କିମ୍ବା ଥିମ୍ କି",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ଫିକା ଆଇଟମ ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "ଗତ ପାଳି ପରଠାରୁ ଅପରିବର୍ତ୍ତିତ ଆଇଟମର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "ବୃଦ୍ଧି ତୀର",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "ଏହି ପାଳିରେ ତାଲିକା ବଢ଼ିଲେ ↑ ର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "ବୃଦ୍ଧି ସଂଖ୍ୟା",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "ବଢ଼ୁଥିବା ତାଲିକାର ↑ ପାଖରେ ଥିବା ସଂଖ୍ୟାର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "ହ୍ରାସ ତୀର",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "ଏହି ପାଳିରେ ତାଲିକା କମିଲେ ↓ ର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "ହ୍ରାସ ସଂଖ୍ୟା",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "କମୁଥିବା ତାଲିକାର ↓ ପାଖରେ ଥିବା ସଂଖ୍ୟାର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରସ୍ତାବ ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରସ୍ତାବ ଧାଡ଼ିର ରଙ୍ଗ, hex କିମ୍ବା ଥିମ୍ କି; ଆଇଟମର ନିଜ ରଙ୍ଗ ପାଇଁ ଖାଲି ରଖନ୍ତୁ",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ଫିକା ପ୍ରସ୍ତାବ ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "ଆଇଟମ ଅପରିବର୍ତ୍ତିତ ଭାବେ ଫିକା ଥିବା ବେଳେ ପ୍ରସ୍ତାବ ଧାଡ଼ିର ରଙ୍ଗ",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "ଉତ୍ତର ପରେ ରହିବା ସମୟ",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "ବଟନ ଦ୍ୱାରା ଉତ୍ତର ଦିଆଯାଇଥିବା ଆଇଟମ ଚାଲିଯିବା ପୂର୍ବରୁ ଫିକା ହୋଇ ଦେଖାଯାଉଥିବା ସେକେଣ୍ଡ",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "କଟା ରହିବା ସମୟ",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude ନିଜେ ବନ୍ଦ କରିଥିବା ଆଇଟମ କଟା ହୋଇ ଦେଖାଯାଉଥିବା ମିନିଟ",
+    "ready": "ai translated"
   }
 }

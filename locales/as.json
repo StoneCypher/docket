@@ -1,320 +1,320 @@
 {
-  "ready": false,
-  "version": 0,
+  "ready": "ai translated",
+  "version": 1,
   "Requests": {
-    "text": "",
-    "ready": false
+    "text": "অনুৰোধ",
+    "ready": "ai translated"
   },
   "Questions": {
-    "text": "",
-    "ready": false
+    "text": "প্ৰশ্ন",
+    "ready": "ai translated"
   },
   "Confirm": {
-    "text": "",
-    "ready": false
+    "text": "নিশ্চিত কৰক",
+    "ready": "ai translated"
   },
   "Needs you": {
-    "text": "",
-    "ready": false
+    "text": "আপোনাৰ পাল",
+    "ready": "ai translated"
   },
   "View": {
-    "text": "",
-    "ready": false
+    "text": "চাওক",
+    "ready": "ai translated"
   },
   "Underway": {
-    "text": "",
-    "ready": false
+    "text": "কাম চলি আছে",
+    "ready": "ai translated"
   },
   "Later": {
-    "text": "",
-    "ready": false
+    "text": "এতিয়া নহয়",
+    "ready": "ai translated"
   },
   "Waiting": {
-    "text": "",
-    "ready": false
+    "text": "ৰৈ আছে",
+    "ready": "ai translated"
   },
   "Pinned": {
-    "text": "",
-    "ready": false
+    "text": "স্থিৰ কৰা",
+    "ready": "ai translated"
   },
   "Lean": {
-    "text": "",
-    "ready": false
+    "text": "পৰামৰ্শ",
+    "ready": "ai translated"
   },
   "(new)": {
-    "text": "",
-    "ready": false
+    "text": "(নতুন)",
+    "ready": "ai translated"
   },
   "+{n} more": {
-    "text": "",
-    "ready": false
+    "text": "+{n} অধিক",
+    "ready": "ai translated"
   },
   "fewer": {
-    "text": "",
-    "ready": false
+    "text": "কম",
+    "ready": "ai translated"
   },
   "Nothing on the docket.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ত একো নাই।",
+    "ready": "ai translated"
   },
   "Accept all leans": {
-    "text": "",
-    "ready": false
+    "text": "সকলো পৰামৰ্শ গ্ৰহণ কৰক",
+    "ready": "ai translated"
   },
   "Confirm all": {
-    "text": "",
-    "ready": false
+    "text": "সকলো নিশ্চিত কৰক",
+    "ready": "ai translated"
   },
   "Approve all": {
-    "text": "",
-    "ready": false
+    "text": "সকলো অনুমোদন কৰক",
+    "ready": "ai translated"
   },
   "Accept the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}ৰ পৰামৰ্শ গ্ৰহণ কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "No to the lean on {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id}ৰ পৰামৰ্শ নালাগে।",
+    "ready": "ai translated"
   },
   "{id} ({option}).": {
-    "text": "",
-    "ready": false
+    "text": "{id} ({option})।",
+    "ready": "ai translated"
   },
   "Approved {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} অনুমোদন কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Declined {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} নাকচ কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} নিশ্চিত কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Not confirmed {id}.": {
-    "text": "",
-    "ready": false
+    "text": "{id} নিশ্চিত কৰা নাই।",
+    "ready": "ai translated"
   },
   "Start {id} now.": {
-    "text": "",
-    "ready": false
+    "text": "{id} এতিয়াই আৰম্ভ কৰা।",
+    "ready": "ai translated"
   },
   "Accept the leans on {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids}ৰ পৰামৰ্শসমূহ গ্ৰহণ কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Confirmed {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} নিশ্চিত কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Approved {ids}.": {
-    "text": "",
-    "ready": false
+    "text": "{ids} অনুমোদন কৰিলোঁ।",
+    "ready": "ai translated"
   },
   "Settings": {
-    "text": "",
-    "ready": false
+    "text": "ছেটিংছ",
+    "ready": "ai translated"
   },
   "Done": {
-    "text": "",
-    "ready": false
+    "text": "হ'ল",
+    "ready": "ai translated"
   },
   "Editing your config:": {
-    "text": "",
-    "ready": false
+    "text": "আপোনাৰ কনফিগ সম্পাদনা কৰি আছে:",
+    "ready": "ai translated"
   },
   "Editing this project’s config, which overrides yours:": {
-    "text": "",
-    "ready": false
+    "text": "এই প্ৰকল্পৰ কনফিগ সম্পাদনা কৰি আছে, যিয়ে আপোনাৰটোক অগ্ৰাহ্য কৰে:",
+    "ready": "ai translated"
   },
   "Make a copy for this project": {
-    "text": "",
-    "ready": false
+    "text": "এই প্ৰকল্পৰ বাবে এটা কপি বনাওক",
+    "ready": "ai translated"
   },
   "Settings need the terminal, desktop or VS Code.": {
-    "text": "",
-    "ready": false
+    "text": "ছেটিংছৰ বাবে টাৰ্মিনেল, ডেস্কটপ বা VS Code লাগে।",
+    "ready": "ai translated"
   },
   "{list} cap": {
-    "text": "",
-    "ready": false
+    "text": "{list}ৰ সীমা",
+    "ready": "ai translated"
   },
   "Items shown in {list} before \"+N more\"": {
-    "text": "",
-    "ready": false
+    "text": "\"+N অধিক\"ৰ আগতে {list}ত দেখুওৱা বস্তু",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
-    "text": "",
-    "ready": false
+    "text": "{path}ত সকলো ছেটিং ডিফল্ট মানত ৰাখি docket-ৰ কনফিগ সৃষ্টি কৰিবনে? আপুনি তাত বা ⚙ৰে ইয়াক সম্পাদনা কৰিব পাৰিব।",
+    "ready": "ai translated"
   },
   "Look at your new config: {path}. Every setting is there at its default.": {
-    "text": "",
-    "ready": false
+    "text": "আপোনাৰ নতুন কনফিগ চাওক: {path}। প্ৰতিটো ছেটিং তাত ডিফল্ট মানত আছে।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}.": {
-    "text": "",
-    "ready": false
+    "text": "docket-এ {path}ত থকা নিজৰ কনফিগ সংস্কৰণ {from}ৰ পৰা {to}লৈ আপডেট কৰিলে।",
+    "ready": "ai translated"
   },
   "docket updated its config at {path} from version {from} to {to}, adding {added} at their defaults.": {
-    "text": "",
-    "ready": false
+    "text": "docket-এ {path}ত থকা নিজৰ কনফিগ সংস্কৰণ {from}ৰ পৰা {to}লৈ আপডেট কৰিলে, আৰু {added} ডিফল্ট মানত যোগ কৰিলে।",
+    "ready": "ai translated"
   },
   "docket couldn't read its config at {path}, so it's using the defaults until the file is fixed.": {
-    "text": "",
-    "ready": false
+    "text": "docket-এ {path}ত থকা নিজৰ কনফিগ পঢ়িব নোৱাৰিলে, সেয়েহে ফাইলটো ঠিক নোহোৱালৈকে ডিফল্ট মান ব্যৱহাৰ কৰি আছে।",
+    "ready": "ai translated"
   },
   "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ৰ {language} যন্ত্ৰৰে অনুবাদ কৰা। ইয়াক স্বাভাৱিক কৰি তুলিবলৈ সহায় কৰিবনে? ✔-এ GitHubৰ সম্পাদকত [ইয়াৰ ফাইল]({link}) খোলে: যিকোনো পাঠ শুধৰাওক, ইয়াৰ \"ready\" true কৰক, আৰু প্ৰস্তাৱ দিবলৈ ছেভ কৰক।",
+    "ready": "ai translated"
   },
   "docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty \"text\", and save to propose it.": {
-    "text": "",
-    "ready": false
+    "text": "docket-ত নতুন ইংৰাজী পাঠ আছে যিবোৰ ইয়াৰ {language}ত এতিয়াও অনুবাদ হোৱা নাই। [ইয়াক আপডেট কৰাত]({link}) সহায় কৰিবনে? ✔-এ GitHubৰ সম্পাদকত ফাইলটো খোলে: প্ৰতিটো খালী \"text\" পূৰণ কৰক, আৰু প্ৰস্তাৱ দিবলৈ ছেভ কৰক।",
+    "ready": "ai translated"
   },
   "Language": {
-    "text": "",
-    "ready": false
+    "text": "ভাষা",
+    "ready": "ai translated"
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
-    "text": "",
-    "ready": false
+    "text": "docket-ৰ নিজৰ শব্দৰ ভাষা: auto-এ Claude Codeৰ ভাষাৰ ছেটিং অনুসৰণ কৰে",
+    "ready": "ai translated"
   },
   "Display": {
-    "text": "",
-    "ready": false
+    "text": "প্ৰদৰ্শন",
+    "ready": "ai translated"
   },
   "A pane beside the transcript, or a band above the prompt": {
-    "text": "",
-    "ready": false
+    "text": "কথোপকথনৰ কাষত এখন পেন, বা প্ৰম্পটৰ ওপৰত এটা পট্টি",
+    "ready": "ai translated"
   },
   "Emoji": {
-    "text": "",
-    "ready": false
+    "text": "ইমোজি",
+    "ready": "ai translated"
   },
   "Master switch for every emoji the docket draws": {
-    "text": "",
-    "ready": false
+    "text": "docket-এ দেখুওৱা সকলো ইমোজিৰ মূল চুইচ",
+    "ready": "ai translated"
   },
   "Heading emoji": {
-    "text": "",
-    "ready": false
+    "text": "শিৰোনামৰ ইমোজি",
+    "ready": "ai translated"
   },
   "An emoji before each list's heading": {
-    "text": "",
-    "ready": false
+    "text": "প্ৰতিখন তালিকাৰ শিৰোনামৰ আগত এটা ইমোজি",
+    "ready": "ai translated"
   },
   "Lists without item emoji": {
-    "text": "",
-    "ready": false
+    "text": "বস্তুৰ ইমোজি নথকা তালিকা",
+    "ready": "ai translated"
   },
   "Letters of lists whose items draw no emoji, e.g. \"Q,P\"": {
-    "text": "",
-    "ready": false
+    "text": "যিবোৰ তালিকাৰ বস্তুত ইমোজি নাথাকে, সেইবোৰৰ আখৰ (ভিতৰুৱা ইংৰাজী আখৰ), যেনে \"Q,P\"",
+    "ready": "ai translated"
   },
   "Inline lists": {
-    "text": "",
-    "ready": false
+    "text": "এক শাৰীৰ তালিকা",
+    "ready": "ai translated"
   },
   "Letters of lists drawn on one line, separated by dots": {
-    "text": "",
-    "ready": false
+    "text": "এক শাৰীত, বিন্দুৰে পৃথক কৰি দেখুওৱা তালিকাৰ আখৰ (ভিতৰুৱা ইংৰাজী আখৰ)",
+    "ready": "ai translated"
   },
   "Target lengths": {
-    "text": "",
-    "ready": false
+    "text": "লক্ষ্য দৈৰ্ঘ্য",
+    "ready": "ai translated"
   },
   "Soft word limits per list, e.g. \"P=8,Q=30\"": {
-    "text": "",
-    "ready": false
+    "text": "প্ৰতিখন তালিকাৰ নমনীয় শব্দ সীমা, ভিতৰুৱা ইংৰাজী আখৰেৰে, যেনে \"P=8,Q=30\"",
+    "ready": "ai translated"
   },
   "Stakes display": {
-    "text": "",
-    "ready": false
+    "text": "গুৰুত্বৰ প্ৰদৰ্শন",
+    "ready": "ai translated"
   },
   "How stakes markers show": {
-    "text": "",
-    "ready": false
+    "text": "গুৰুত্বৰ চিহ্নবোৰ কেনেকৈ দেখা যায়",
+    "ready": "ai translated"
   },
   "Item color": {
-    "text": "",
-    "ready": false
+    "text": "বস্তুৰ ৰং",
+    "ready": "ai translated"
   },
   "Color of an item changed this turn, a hex or a theme key": {
-    "text": "",
-    "ready": false
+    "text": "এই পালত সলনি হোৱা বস্তুৰ ৰং, hex বা থিম কী",
+    "ready": "ai translated"
   },
   "Dimmed item color": {
-    "text": "",
-    "ready": false
+    "text": "ম্লান বস্তুৰ ৰং",
+    "ready": "ai translated"
   },
   "Color of an item unchanged since the last turn": {
-    "text": "",
-    "ready": false
+    "text": "আগৰ পালৰ পৰা সলনি নোহোৱা বস্তুৰ ৰং",
+    "ready": "ai translated"
   },
   "Growing arrow": {
-    "text": "",
-    "ready": false
+    "text": "বৃদ্ধিৰ কাঁড়",
+    "ready": "ai translated"
   },
   "Color of the ↑ when a list grew this turn": {
-    "text": "",
-    "ready": false
+    "text": "এই পালত তালিকা বাঢ়িলে ↑ৰ ৰং",
+    "ready": "ai translated"
   },
   "Growing number": {
-    "text": "",
-    "ready": false
+    "text": "বৃদ্ধিৰ সংখ্যা",
+    "ready": "ai translated"
   },
   "Color of the count beside a growing list's ↑": {
-    "text": "",
-    "ready": false
+    "text": "বাঢ়ি থকা তালিকাৰ ↑ৰ কাষৰ সংখ্যাৰ ৰং",
+    "ready": "ai translated"
   },
   "Shrinking arrow": {
-    "text": "",
-    "ready": false
+    "text": "হ্ৰাসৰ কাঁড়",
+    "ready": "ai translated"
   },
   "Color of the ↓ when a list shrank this turn": {
-    "text": "",
-    "ready": false
+    "text": "এই পালত তালিকা কমিলে ↓ৰ ৰং",
+    "ready": "ai translated"
   },
   "Shrinking number": {
-    "text": "",
-    "ready": false
+    "text": "হ্ৰাসৰ সংখ্যা",
+    "ready": "ai translated"
   },
   "Color of the count beside a shrinking list's ↓": {
-    "text": "",
-    "ready": false
+    "text": "কমি থকা তালিকাৰ ↓ৰ কাষৰ সংখ্যাৰ ৰং",
+    "ready": "ai translated"
   },
   "Lean color": {
-    "text": "",
-    "ready": false
+    "text": "পৰামৰ্শৰ ৰং",
+    "ready": "ai translated"
   },
   "Color of the lean line, a hex or a theme key; empty for the item's own color": {
-    "text": "",
-    "ready": false
+    "text": "পৰামৰ্শৰ শাৰীৰ ৰং, hex বা থিম কী; বস্তুৰ নিজৰ ৰঙৰ বাবে খালী ৰাখক",
+    "ready": "ai translated"
   },
   "Dimmed lean color": {
-    "text": "",
-    "ready": false
+    "text": "ম্লান পৰামৰ্শৰ ৰং",
+    "ready": "ai translated"
   },
   "Color of the lean line while its item is dimmed as unchanged": {
-    "text": "",
-    "ready": false
+    "text": "বস্তুটো সলনি নোহোৱাৰ বাবে ম্লান হৈ থাকোঁতে পৰামৰ্শৰ শাৰীৰ ৰং",
+    "ready": "ai translated"
   },
   "Answered linger": {
-    "text": "",
-    "ready": false
+    "text": "উত্তৰৰ পাছত থকা সময়",
+    "ready": "ai translated"
   },
   "Seconds an item answered by button stays up, dimmed, before it goes": {
-    "text": "",
-    "ready": false
+    "text": "বুটামেৰে উত্তৰ দিয়া বস্তু আঁতৰি যোৱাৰ আগতে ম্লান হৈ দেখা থকা ছেকেণ্ড",
+    "ready": "ai translated"
   },
   "Strike linger": {
-    "text": "",
-    "ready": false
+    "text": "কাটি দিয়াৰ পাছত থকা সময়",
+    "ready": "ai translated"
   },
   "Minutes an item Claude closed on its own stays up struck through": {
-    "text": "",
-    "ready": false
+    "text": "Claude-এ নিজে বন্ধ কৰা বস্তু কাটি দিয়া অৱস্থাত দেখা থকা মিনিট",
+    "ready": "ai translated"
   }
 }
