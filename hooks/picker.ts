@@ -91,13 +91,34 @@ export const groupsOf = (speaking: string, codes: readonly string[], count = 6):
   return groups
 }
 
-// A language's variants, as the rest of its tag: (none), each region with a file ("BR"), and each
-// dialect of it ("US-startrek"), named in the language docket speaks.
-export const variantsOf = (speaking: string, base: string, files: readonly string[], dialects: readonly Dialect[]): Choice[] => [
-  { value: '', label: '—' },
-  ...files.filter(code => code.startsWith(`${base}-`)).map(code => ({ value: code.slice(base.length + 1), label: nameIn(speaking, code) })),
-  ...dialects.filter(each => each.tag.startsWith(`${base}-`)).map(each => ({ value: each.tag.slice(base.length + 1), label: each.name })),
-]
+// The regions people speak a language in, offered whether or not docket has a file for them yet: one
+// without a file speaks its language's, until someone writes it.
+export const REGIONS: Record<string, readonly string[]> = {
+  en: ['US', 'GB', 'AU', 'CA', 'IE', 'NZ', 'IN', 'ZA'],
+  es: ['ES', 'MX', 'AR', 'CO', 'CL', 'US'],
+  pt: ['PT', 'BR'],
+  fr: ['FR', 'CA', 'BE', 'CH'],
+  de: ['DE', 'AT', 'CH'],
+  zh: ['CN', 'TW', 'HK'],
+  nl: ['NL', 'BE'],
+  ar: ['SA', 'EG', 'MA'],
+}
+
+// A language's variants, as the rest of its tag: (none), then its real regions, from the table and
+// any with a file ("BR"), then its dialects ("US-startrek"), named in the language docket speaks.
+export const variantsOf = (speaking: string, base: string, files: readonly string[], dialects: readonly Dialect[]): Choice[] => {
+  const regions = [
+    ...new Set([...(REGIONS[base] ?? []), ...files.filter(code => code.startsWith(`${base}-`)).map(code => code.slice(base.length + 1))]),
+  ]
+    .map(region => ({ value: region, label: nameIn(speaking, `${base}-${region}`) }))
+    .sort((a, b) => a.label.localeCompare(b.label, speaking))
+
+  return [
+    { value: '', label: '—' },
+    ...regions,
+    ...dialects.filter(each => each.tag.startsWith(`${base}-`)).map(each => ({ value: each.tag.slice(base.length + 1), label: each.name })),
+  ]
+}
 
 // A language setting read back into the pulldowns: its base and the rest of its tag.
 export const pickedOf = (setting: unknown) => {

@@ -48,8 +48,12 @@ describe('names', () => {
 describe('variants', () => {
   test('are none, each region with a file, and each dialect, as the rest of the tag', () => {
     const variants = variantsOf('en', 'en', ['en', 'es', 'pt-BR'], [{ tag: 'en-US-startrek', name: 'Starfleet English' }])
-    assert.deepEqual(variants.map(each => each.value), ['', 'US-startrek'])
-    assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['', 'BR'])
+    // The real Englishes first, by name, then the comic ones.
+    assert.deepEqual(variants.slice(0, 4).map(each => each.value), ['', 'US', 'AU', 'GB'])
+    assert.ok(variants.some(each => each.label === 'American English'))
+    assert.equal(variants[variants.length - 1]?.value, 'US-startrek')
+    assert.deepEqual(variantsOf('en', 'pt', ['pt', 'pt-BR'], []).map(each => each.value), ['', 'BR', 'PT'])
+    assert.deepEqual(variantsOf('en', 'tl', ['tl', 'tl-XX'], []).map(each => each.value), ['', 'XX'])
   })
 
   test('read a saved setting back into its base and the rest of its tag', () => {
