@@ -15,36 +15,36 @@ export type ListDef = {
 
 // Least important first: the band's order, so the most important sits by the prompt. The pane reverses it.
 export const LISTS: readonly ListDef[] = [
-  { letter: 'P', name: 'pinned', emoji: '📌', isRanked: false, capKey: 'pinnedCap' },
-  { letter: 'W', name: 'waiting', emoji: '⏳', isRanked: false, capKey: 'waitingCap' },
-  { letter: 'L', name: 'queued', emoji: '📥', isRanked: false, capKey: 'queuedCap' },
-  { letter: 'U', name: 'underway', emoji: '🔨', isRanked: false, capKey: 'underwayCap' },
-  { letter: 'V', name: 'view', emoji: '👀', isRanked: true, capKey: 'viewCap' },
-  { letter: 'N', name: 'needs you', emoji: '🙋', isRanked: true, capKey: 'needsYouCap' },
+  { letter: 'P', name: 'Pinned', emoji: '📌', isRanked: false, capKey: 'pinnedCap' },
+  { letter: 'W', name: 'Waiting', emoji: '⏳', isRanked: false, capKey: 'waitingCap' },
+  { letter: 'L', name: 'Later', emoji: '📥', isRanked: false, capKey: 'laterCap' },
+  { letter: 'U', name: 'Underway', emoji: '🔨', isRanked: false, capKey: 'underwayCap' },
+  { letter: 'V', name: 'View', emoji: '👀', isRanked: true, capKey: 'viewCap' },
+  { letter: 'N', name: 'Needs you', emoji: '🙋', isRanked: true, capKey: 'needsYouCap' },
   {
     letter: 'C',
-    name: 'confirm',
+    name: 'Confirm',
     emoji: '👍',
     isRanked: true,
     capKey: 'confirmCap',
-    bulk: { label: 'confirm all', verb: 'Confirmed' },
+    bulk: { label: 'Confirm all', verb: 'Confirmed' },
     answers: { yes: 'Confirmed', no: 'Not confirmed' },
   },
   {
     letter: 'Q',
-    name: 'questions',
+    name: 'Questions',
     emoji: '❓',
     isRanked: true,
     capKey: 'questionsCap',
-    bulk: { label: 'accept all leans', verb: 'Accept the leans on' },
+    bulk: { label: 'Accept all leans', verb: 'Accept the leans on' },
   },
   {
     letter: 'R',
-    name: 'requests',
+    name: 'Requests',
     emoji: '🙏',
     isRanked: true,
     capKey: 'requestsCap',
-    bulk: { label: 'approve all', verb: 'Approved' },
+    bulk: { label: 'Approve all', verb: 'Approved' },
     answers: { yes: 'Approved', no: 'Declined' },
   },
 ]
@@ -254,7 +254,7 @@ The user runs the docket mod, a pane beside the transcript (or a band above the 
 Lists, from least to most important:
 - P pinned: parked for later.
 - W waiting: stalled on something other than the user; informational.
-- L queued: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U.
+- L later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U.
 - U underway: only your own work in progress, never the user's.
 - V view: things for the user to look at or check.
 - N needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.

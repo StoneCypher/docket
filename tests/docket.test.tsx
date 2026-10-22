@@ -132,7 +132,7 @@ test('the pane puts the most important list first, and the most urgent item firs
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   const texts = (await ui.findAll({ type: 'Text' })).map(found => found.text ?? '')
   const at = (pattern: RegExp) => texts.findIndex(text => pattern.test(text))
-  expect(at(/^questions/)).toBeLessThan(at(/^pinned/))
+  expect(at(/^Questions/)).toBeLessThan(at(/^Pinned/))
   expect(at(/Urgent question/)).toBeLessThan(at(/Minor question/))
   await ui.unmount()
 })
@@ -280,7 +280,7 @@ test('an answered item stays up dimmed, then leaves after 20 seconds', async ($,
   await later.unmount()
 })
 
-test('queued sits right below underway in the pane', async ($, on) => {
+test('Later sits right below Underway in the pane', async ($, on) => {
   standIns(on)
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
@@ -296,8 +296,8 @@ test('queued sits right below underway in the pane', async ($, on) => {
   const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
   const texts = (await ui.findAll({ type: 'Text' })).map(found => found.text ?? '')
   const at = (pattern: RegExp) => texts.findIndex(text => pattern.test(text))
-  expect(at(/^underway/)).toBeLessThan(at(/^queued/))
-  expect(at(/^queued/)).toBeLessThan(at(/^waiting/))
+  expect(at(/^Underway/)).toBeLessThan(at(/^Later/))
+  expect(at(/^Later/)).toBeLessThan(at(/^Waiting/))
   await ui.unmount()
 })
 

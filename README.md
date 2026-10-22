@@ -22,15 +22,15 @@ In the pane, the most important list comes first:
 
 | Letter | List | What's in it |
 | --- | --- | --- |
-| R | requests | Things Claude wants to do on its own initiative. It waits for your ✔ or ✗. |
-| Q | questions | Decisions only you can make. Each has a lean: the answer Claude would pick. |
-| C | confirm | Claude checking that it read you right, or making sure you know something risky is coming. |
-| N | needs you | Things only you can do: consoles, accounts, hardware. |
-| V | view | Things for you to look at or check. |
-| U | underway | Claude's work in progress. |
-| L | queued | Claude's work that's decided but not started, in order. |
-| W | waiting | Things stalled on something other than you. |
-| P | pinned | Parked for later, drawn on one line. |
+| R | Requests | Things Claude wants to do on its own initiative. It waits for your ✔ or ✗. |
+| Q | Questions | Decisions only you can make. Each has a lean: the answer Claude would pick. |
+| C | Confirm | Claude checking that it read you right, or making sure you know something risky is coming. |
+| N | Needs you | Things only you can do: consoles, accounts, hardware. |
+| V | View | Things for you to look at or check. |
+| U | Underway | Claude's work in progress. |
+| L | Later | Claude's work that's decided but not started, in order. |
+| W | Waiting | Things stalled on something other than you. |
+| P | Pinned | Parked for later, drawn on one line. |
 
 Numbers only ever go up, so `Q12` always means the same question. Unchanged items are dimmed and new ones are marked.
 
@@ -38,7 +38,7 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 - **✔ / ✗** on a lean, a request or a confirm item answers it. The row dims at once and leaves about 20 seconds later.
 - **🗑️** on an item clears just that item. **✕** on a heading clears the whole list. Clearing only empties the display: it never cancels work, answers a question or approves a request.
-- **accept all leans**, **confirm all** and **approve all** answer a whole list.
+- **Accept all leans**, **Confirm all** and **Approve all** answer a whole list.
 - **⚙** at the bottom of the pane opens the settings.
 
 `/docket` reopens the pane if you close it.

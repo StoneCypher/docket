@@ -12,7 +12,7 @@ const features = [
     figure: figures.overview,
     caption: 'The pane docked beside the chat in VS Code.',
     body: [
-      'docket keeps everything open between you and Claude in a pane beside the chat: what it wants to do, what it needs you to decide, what it is working on, what is queued, and what is parked for later.',
+      'docket keeps everything open between you and Claude in a pane beside the chat: what it wants to do, what it needs you to decide, what it is working on, what comes later, and what is parked.',
       'Each item has a letter and a number that never changes meaning, so Q12 is the same question ten turns from now. The most important list is on top. Items that changed this turn are bright and marked (new); everything you have already seen is dimmed.',
     ],
   },
@@ -23,7 +23,7 @@ const features = [
     caption: 'Two new questions, each with Claude’s lean.',
     body: [
       'Every question carries a lean: the answer Claude would pick if you left it up to it. When the lean is right, press ✔. When it is wrong, press ✗ and Claude asks what you want instead.',
-      'When most leans are right, accept all leans settles the whole list in one press.',
+      'When most leans are right, Accept all leans settles the whole list in one press.',
     ],
   },
   {
@@ -33,7 +33,7 @@ const features = [
     caption: 'Q14 answered with ✔, before Claude has acted on it.',
     body: [
       'Pressing a button sends your answer as a prompt, and the row changes immediately: dimmed, struck through, its buttons replaced by a plain mark of what you sent. You can stop thinking about it.',
-      'Claude then settles it on its next turn: the row goes away, comes back changed, or its work moves to underway. If that takes a while, the row hides itself about 20 seconds after you answered.',
+      'Claude then settles it on its next turn: the row goes away, comes back changed, or its work moves to Underway. If that takes a while, the row hides itself about 20 seconds after you answered.',
     ],
   },
   {
@@ -124,15 +124,15 @@ const features = [
           <table>
             <thead><tr><th scope="col">Letter</th><th scope="col">List</th><th scope="col">What's in it</th></tr></thead>
             <tbody>
-              <tr><td class="letter">R</td><td>requests</td><td>Things Claude wants to do on its own initiative. It waits for your ✔.</td></tr>
-              <tr><td class="letter">Q</td><td>questions</td><td>Decisions only you can make, each with Claude's lean.</td></tr>
-              <tr><td class="letter">C</td><td>confirm</td><td>Claude checking it read you right, or warning of something risky.</td></tr>
-              <tr><td class="letter">N</td><td>needs you</td><td>Things only you can do: consoles, accounts, sign-ins.</td></tr>
-              <tr><td class="letter">V</td><td>view</td><td>Things for you to look at.</td></tr>
-              <tr><td class="letter">U</td><td>underway</td><td>Claude's work in progress.</td></tr>
-              <tr><td class="letter">L</td><td>queued</td><td>Claude's work that's decided but not started, in order.</td></tr>
-              <tr><td class="letter">W</td><td>waiting</td><td>Stalled on something other than you.</td></tr>
-              <tr><td class="letter">P</td><td>pinned</td><td>Parked for later, on one line.</td></tr>
+              <tr><td class="letter">R</td><td>Requests</td><td>Things Claude wants to do on its own initiative. It waits for your ✔.</td></tr>
+              <tr><td class="letter">Q</td><td>Questions</td><td>Decisions only you can make, each with Claude's lean.</td></tr>
+              <tr><td class="letter">C</td><td>Confirm</td><td>Claude checking it read you right, or warning of something risky.</td></tr>
+              <tr><td class="letter">N</td><td>Needs you</td><td>Things only you can do: consoles, accounts, sign-ins.</td></tr>
+              <tr><td class="letter">V</td><td>View</td><td>Things for you to look at.</td></tr>
+              <tr><td class="letter">U</td><td>Underway</td><td>Claude's work in progress.</td></tr>
+              <tr><td class="letter">L</td><td>Later</td><td>Claude's work that's decided but not started, in order.</td></tr>
+              <tr><td class="letter">W</td><td>Waiting</td><td>Stalled on something other than you.</td></tr>
+              <tr><td class="letter">P</td><td>Pinned</td><td>Parked for later, on one line.</td></tr>
             </tbody>
           </table>
         </div>
