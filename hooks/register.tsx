@@ -143,14 +143,16 @@ const draw = async (
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
   const trash = surface === 'terminal' ? '✕' : '🗑️'
 
-  // Turns each web address in an item's text into a link; trailing punctuation stays text.
+  // Turns links in an item's text into Link elements: `[label](https://...)` shows the label,
+  // and a bare web address shows itself, its trailing punctuation left as text.
   const linkify = (text: string) => {
     const parts: (string | ReturnType<typeof Link>)[] = []
     let rest = 0
-    for (const match of text.matchAll(/https?:\/\/[^\s<>"')\]]+/g)) {
-      const href = match[0].replace(/[.,;:!?]+$/, '')
-      parts.push(text.slice(rest, match.index), <Link href={href}>{href}</Link>)
-      rest = match.index + href.length
+    for (const match of text.matchAll(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|https?:\/\/[^\s<>"')\]]+/g)) {
+      const [whole, label, target] = match
+      const href = target ?? whole.replace(/[.,;:!?]+$/, '')
+      parts.push(text.slice(rest, match.index), <Link href={href}>{label ?? href}</Link>)
+      rest = match.index + (label ? whole.length : href.length)
     }
     parts.push(text.slice(rest))
 

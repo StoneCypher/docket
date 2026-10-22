@@ -331,7 +331,10 @@ test('a web address in an item is drawn as a link, without its trailing punctuat
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
     tool: 'mcp__docket__update',
-    add: [{ list: 'V', text: 'Look over the site at http://localhost:4321/docket.' }],
+    add: [
+      { list: 'V', text: 'Look over the site at http://localhost:4321/docket.' },
+      { list: 'L', text: 'Then: the [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins) index repo.' },
+    ],
   })
 
   for (const surface of ['terminal', 'vscode'] as const) {
@@ -339,6 +342,10 @@ test('a web address in an item is drawn as a link, without its trailing punctuat
     const link = await ui.find({ type: 'Link' })
     expect(JSON.stringify(link)).toContain('http://localhost:4321/docket')
     expect(JSON.stringify(link)).not.toContain('docket.')
+    // A [label](url) link shows its label, not the brackets or the address.
+    const labeled = (await ui.findAll({ type: 'Link' })).map(found => JSON.stringify(found)).join(' ')
+    expect(labeled).toContain('https://github.com/StoneCypher/claude-plugins')
+    expect(await ui.find({ type: 'Text', text: /\]\(https/ })).toBeUndefined()
     await ui.unmount()
   }
 })
