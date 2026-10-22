@@ -1,0 +1,270 @@
+import type { PluginOptions } from 'claude-code'
+
+import type { Counts, Item, Letter } from '../types'
+
+export type ListDef = {
+  letter: Letter
+  name: string
+  emoji: string
+  isRanked: boolean
+  capKey: string
+  bulk?: { label: string; verb: string }
+  // Yes and no buttons on each item, sending these words with its label.
+  answers?: { yes: string; no: string }
+}
+
+// Least important first: the band's order, so the most important sits by the prompt. The pane reverses it.
+export const LISTS: readonly ListDef[] = [
+  { letter: 'P', name: 'pinned', emoji: '📌', isRanked: false, capKey: 'pinnedCap' },
+  { letter: 'W', name: 'waiting', emoji: '⏳', isRanked: false, capKey: 'waitingCap' },
+  { letter: 'L', name: 'queued', emoji: '📥', isRanked: false, capKey: 'queuedCap' },
+  { letter: 'U', name: 'underway', emoji: '🔨', isRanked: false, capKey: 'underwayCap' },
+  { letter: 'V', name: 'view', emoji: '👀', isRanked: true, capKey: 'viewCap' },
+  { letter: 'N', name: 'needs you', emoji: '🙋', isRanked: true, capKey: 'needsYouCap' },
+  {
+    letter: 'C',
+    name: 'confirm',
+    emoji: '👍',
+    isRanked: true,
+    capKey: 'confirmCap',
+    bulk: { label: 'confirm all', verb: 'Confirmed' },
+    answers: { yes: 'Confirmed', no: 'Not confirmed' },
+  },
+  {
+    letter: 'Q',
+    name: 'questions',
+    emoji: '❓',
+    isRanked: true,
+    capKey: 'questionsCap',
+    bulk: { label: 'accept all leans', verb: 'Accept the leans on' },
+  },
+  {
+    letter: 'R',
+    name: 'requests',
+    emoji: '🙏',
+    isRanked: true,
+    capKey: 'requestsCap',
+    bulk: { label: 'approve all', verb: 'Approved' },
+    answers: { yes: 'Approved', no: 'Declined' },
+  },
+]
+
+export const LETTERS = LISTS.map(list => list.letter)
+
+export type Settings = {
+  display: 'pane' | 'band'
+  caps: Counts
+  isEmoji: boolean
+  isHeadingEmoji: boolean
+  noItemEmoji: Set<string>
+  inline: Set<string>
+  targetWords: Counts
+  stakesDisplay: 'emoji' | 'text' | 'none'
+  lingerMs: number
+  answeredMs: number
+  leanColor?: string
+  leanDimColor?: string
+  itemColor?: string
+  itemDimColor?: string
+}
+
+const letterSet = (value: unknown) =>
+  new Set(
+    String(value ?? '')
+      .toUpperCase()
+      .split(/[\s,]+/)
+      .filter(Boolean),
+  )
+
+// The colors the engine accepts. Anything else would make it refuse the whole tree, so it falls back.
+const COLOR_NAMES = new Set([
+  'text', 'inverseText', 'inactive', 'subtle', 'suggestion', 'remember', 'success', 'error', 'warning',
+  'merged', 'claude', 'permission', 'planMode', 'autoAccept', 'promptBorder', 'bashBorder', 'ide',
+  'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray', 'grey',
+])
+
+const colorOf = (value: unknown, fallback: string) => {
+  const color = String(value ?? fallback).trim()
+  if (!color) {
+    return undefined
+  }
+
+  return /^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(color) || COLOR_NAMES.has(color) ? color : fallback
+}
+
+export const settingsOf = (options: PluginOptions): Settings => {
+  const caps: Counts = {}
+  for (const list of LISTS) {
+    caps[list.letter] = Math.max(1, Number(options[list.capKey] ?? 7))
+  }
+
+  const targetWords: Counts = {}
+  for (const pair of String(options.targetWords ?? 'P=8').split(/[\s,]+/)) {
+    const [, letter, words] = /^([A-Za-z])=(\d+)$/.exec(pair) ?? []
+    if (letter && words) {
+      targetWords[letter.toUpperCase() as Letter] = Number(words)
+    }
+  }
+
+  const stakes = String(options.stakesDisplay ?? 'emoji')
+
+  return {
+    display: options.display === 'band' ? 'band' : 'pane',
+    caps,
+    isEmoji: options.emoji !== false,
+    isHeadingEmoji: options.headingEmoji === true,
+    noItemEmoji: letterSet(options.noItemEmojiLists),
+    inline: letterSet(options.inlineLists ?? 'P'),
+    targetWords,
+    stakesDisplay: stakes === 'text' || stakes === 'none' ? stakes : 'emoji',
+    lingerMs: Math.max(0, Number(options.strikeLingerMinutes ?? 3)) * 60_000,
+    answeredMs: Math.max(0, Number(options.answeredLingerSeconds ?? 20)) * 1000,
+    leanColor: colorOf(options.leanColor, '#b1b1b1'),
+    leanDimColor: colorOf(options.leanDimColor, '#757575'),
+    itemColor: colorOf(options.itemColor, '#e0e0e0'),
+    itemDimColor: colorOf(options.itemDimColor, '#939393'),
+  }
+}
+
+export const isOpen = (item: Item) => item.closed === undefined
+
+export const openCounts = (items: readonly Item[]): Counts => {
+  const counts: Counts = {}
+  for (const item of items) {
+    if (isOpen(item)) {
+      counts[item.list] = (counts[item.list] ?? 0) + 1
+    }
+  }
+
+  return counts
+}
+
+const urgency = (a: Item, b: Item) => (a.rank ?? 9999) - (b.rank ?? 9999) || a.n - b.n
+
+export type Arranged = { shown: Item[]; lingering: Item[]; hidden: number }
+
+// The capped slice of one list, in display order. Items new this turn always show.
+// Beside the prompt the most urgent goes last, nearest it; elsewhere it goes first.
+export const arrange = (
+  items: readonly Item[],
+  list: ListDef,
+  cap: number,
+  turn: number,
+  now: number,
+  lingerMs: number,
+  isUrgentLast: boolean,
+  answeredMs: number,
+): Arranged => {
+  const own = items.filter(item => item.list === list.letter)
+  // An answered item leaves the view once its time is up, closed by Claude or not.
+  const isGone = (item: Item) => item.answeredAt !== undefined && now - item.answeredAt >= answeredMs
+  const open = own.filter(item => isOpen(item) && !isGone(item)).sort(list.isRanked ? urgency : (a, b) => a.n - b.n)
+  const kept = open.filter((item, i) => i < cap || item.addedTurn === turn)
+  const lingering = own.filter(item => item.closed?.isUnasked && now - item.closed.at < lingerMs)
+
+  return {
+    shown: list.isRanked && isUrgentLast ? kept.reverse() : kept,
+    lingering,
+    hidden: open.length - kept.length,
+  }
+}
+
+export const counterText = (hidden: number, delta: number) => {
+  const parts = hidden > 0 ? [`+${hidden} more`] : []
+  parts.push(delta > 0 ? `↑ ${delta}` : delta < 0 ? `↓ ${-delta}` : '+0')
+
+  return `(${parts.join(', ')})`
+}
+
+const describe = (item: Item) =>
+  [
+    `${item.id}${item.emoji ? ` ${item.emoji}` : ''} ${item.text}`,
+    item.lean && `lean: ${item.lean}`,
+    item.stakes && `stakes: ${item.stakes}`,
+    item.rank !== undefined && `rank ${item.rank}`,
+    item.answered && `the user answered ${item.answered === 'yes' ? 'yes' : 'no'} by button`,
+  ]
+    .filter(Boolean)
+    .join(' | ')
+
+// Words a reply uses when it leaves work open: a reply holding them that changed nothing on the docket
+// is flagged, and the next prompt asks for a reconcile.
+const PENDING =
+  /\b(next( up| step)?|later|left( to do)?|remaining|queued|pending|todo|to-do|follow[- ]up|once you|when you're ready|still (need|to)|haven't yet|not yet|after (this|that))\b/i
+
+export const speaksOfPending = (answer: string) => PENDING.test(answer)
+
+export const RECONCILE =
+  'Your last reply spoke of pending or next work but the docket did not change that turn. Make sure every open thread it mentions is an item; nothing open should live only in prose.'
+
+export const snapshot = (items: readonly Item[], dismissed: readonly string[]) => {
+  const open = items.filter(isOpen)
+  const lines = ['Docket, open items (the user sees these in the docket pane or band):']
+  lines.push(...(open.length ? open.map(describe) : ['(empty)']))
+  if (dismissed.length) {
+    lines.push(
+      `The user cleared these from the docket since the last prompt: ${dismissed.join(', ')}. Clearing only empties the display: it cancels no work, answers nothing and approves nothing. Carry on as before, and don't add them back while they stay dormant; if one becomes relevant again, add it fresh, with a new number.`,
+    )
+  }
+
+  return lines.join('\n')
+}
+
+const RANGE = /\b([pwluvncqr])(\d+)\s*(?:-|–|to|through|thru)\s*\1?(\d+)\b/gi
+const SINGLE = /\b([pwluvncqr])(\d+)[a-z]?\b/gi
+
+// The items a prompt names by label ("q10", "c23-c25"), so a closed one is still known.
+export const references = (text: string, items: readonly Item[]) => {
+  const ids = new Set<string>()
+  for (const [, letter = '', from, to] of text.matchAll(RANGE)) {
+    const low = Math.min(Number(from), Number(to))
+    const high = Math.min(Math.max(Number(from), Number(to)), low + 50)
+    for (let n = low; n <= high; n += 1) {
+      ids.add(`${letter.toUpperCase()}${n}`)
+    }
+  }
+  for (const [, letter = '', n] of text.matchAll(SINGLE)) {
+    ids.add(`${letter.toUpperCase()}${Number(n)}`)
+  }
+
+  const named = items.filter(item => ids.has(item.id))
+  if (!named.length) {
+    return undefined
+  }
+
+  return [
+    'Docket items the user named in this prompt:',
+    ...named.map(item => `${describe(item)}${isOpen(item) ? '' : ' (already closed)'}`),
+  ].join('\n')
+}
+
+export const instructions = (settings: Settings, isHeadless: boolean) => {
+  const targets = Object.entries(settings.targetWords)
+    .map(([letter, words]) => `${letter} at most about ${words} words`)
+    .join(', ')
+
+  return `# Docket
+
+The user runs the docket mod, a pane beside the transcript (or a band above the prompt) showing your open items as numbered lists. You keep it current with the mcp__docket__update tool: one call per turn, holding every change, whenever anything changed. ${
+    isHeadless
+      ? 'Nothing draws the band in this session, so end each reply with the open items as plain text, grouped by list, in the order below.'
+      : 'The docket is where the user reads them: never repeat docket items in your prose reply.'
+  }
+
+Lists, from least to most important:
+- P pinned: parked for later.
+- W waiting: stalled on something other than the user; informational.
+- L queued: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to U.
+- U underway: only your own work in progress, never the user's.
+- V view: things for the user to look at or check.
+- N needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
+- C confirm: when you are unsure you read the user right, or something risky is about to happen and you want them certain of it. State your reading, so a bare "yes" settles it. \"Not confirmed C3\" (its ✗ button) means your reading was wrong or the risky step should not go ahead: hold off, and ask what they meant.
+- Q questions: decisions only the user can make. Always give a lean: the answer you would pick.
+- R requests: things you want to do on your own initiative. Wait for permission. Use sparingly. \"Declined R3\" (its ✗ button) means don't do it.
+
+The docket is the complete set of open threads: anything your reply calls pending, queued, next, later or left must also be an item (L, P, R or another list), never only prose.
+
+Writing items: verify cheaply before adding one, and never ask what you can look up. Each item is answerable without scrolling back: define each named thing at its first mention, and give issue or PR numbers. Keep items to one to three lines${targets ? `, and ${targets}` : ''}. Give each item one emoji: a single code point with default emoji presentation from Unicode 9 or earlier (no VS16, ZWJ, flags or skin tones). Set stakes only when they matter: emergency and high sparingly, med otherwise, none for low. On V, N, C, Q and R, rank 1 is the most urgent.
+
+Answers: the user answers by label ("q10 yes", "c23-c25 confirmed", "accept all other leans"). Act on every answer first, then make one update call closing what is resolved and adding what is new, and confirm each answer briefly by its label in prose. "No to the lean on Q5" (the lean's ✗ button) rejects only your lean: keep the question open, and ask what they want instead, or take the obvious other answer when there are only two. Never re-ask unless the answer was ambiguous; then ask once, in C. Close items on common-sense grounds. Answered items vanish from the user's view on their own about 20 seconds after their button is pressed, so close them, and when an answer starts work you haven't finished, add that work to U (underway) in the same update. The user can also clear items or whole lists from the docket; that only empties the display and never cancels work, answers a question or approves a request. A cleared thread that becomes relevant again comes back as a new item, with a new number. When you close an item the user did not resolve themselves, set unasked: true, and mention every such closure in one \`\`\`diff block of "- " lines. The tool assigns the labels, and numbers only ever go up. Change an item only to correct or sharpen the same item; anything the user would read as a new question or a new item, such as a follow-up after a \"no\" or a reworded ask, closes the old one and is added fresh, so it gets a new number. A label that suddenly means something else looks like a bug.`
+}

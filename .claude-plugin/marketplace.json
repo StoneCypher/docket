@@ -1,0 +1,6 @@
+{
+  "name": "docket",
+  "owner": { "name": "StoneCypher" },
+  "metadata": { "description": "docket, a Claude Code mod that keeps Claude's open threads in numbered lists beside the chat" },
+  "plugins": [{ "name": "docket", "source": "./" }]
+}
