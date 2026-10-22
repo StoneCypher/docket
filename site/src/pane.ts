@@ -15,6 +15,8 @@ export type Item = {
   isNew?: boolean
   // Unchanged since the last turn.
   isDim?: boolean
+  // About a local file: 👁️ above its 🗑️ opens it.
+  open?: boolean
 }
 
 export type List = {
@@ -41,7 +43,7 @@ const row = (item: Item, list: List) => {
   const tail = item.isNew && !isSent ? ' <span class="new">(new)</span>' : ''
   const side = item.isLingering
     ? ''
-    : `${list.hasAnswers ? buttons(item, ['✔', '✗']) : ''}<span class="qbtn">🗑️</span>`
+    : `${list.hasAnswers ? buttons(item, ['✔', '✗']) : ''}<span class="stack">${item.open ? '<span class="qbtn">👁️</span>' : ''}<span class="qbtn">🗑️</span></span>`
 
   return `
     <div class="${classes.filter(Boolean).join(' ')}">
@@ -54,6 +56,20 @@ const row = (item: Item, list: List) => {
     </div>`
 }
 
+// A counter as the pane draws it: a rise's ↑ and number in greens, a fall's in purples, +0 dim.
+const counter = (text: string) => {
+  const [, more = '', arrow = '', number = text] = /^(\+\d+ more · )?([↑↓]?)(.*)$/.exec(text) ?? []
+  const direction = arrow === '↑' ? 'up' : arrow === '↓' ? 'down' : ''
+
+  return `<span class="count">${escape(more)}${
+    direction ? `<span class="${direction}-arrow">${arrow}</span><span class="${direction}-number">${escape(number)}</span>` : escape(number)
+  }</span>`
+}
+
+// A bulk button shows only where two or more items can take it, as in the pane.
+const bulkable = (list: List) =>
+  list.items.filter(item => item.sent === undefined && !item.isLingering && (list.name !== 'Questions' || item.lean)).length
+
 export const render = (lists: List[], options: { isGear?: boolean } = {}) => `
   <div class="pane-title"><span>Docket</span><span aria-hidden="true">✕</span></div>
   <div class="attr">From the docket plugin</div>
@@ -61,8 +77,8 @@ export const render = (lists: List[], options: { isGear?: boolean } = {}) => `
     .map(
       list => `
     <div class="list">
-      <div class="head"><b>${list.name}</b> <span class="count">${escape(list.counter)}</span><span class="ctrls">${
-        list.bulk ? `<span class="btn">${list.bulk}</span>` : ''
+      <div class="head"><b>${list.name}</b> ${counter(list.counter)}<span class="ctrls">${
+        list.bulk && bulkable(list) > 1 ? `<span class="btn">${list.bulk}</span>` : ''
       }<span class="qbtn">✕</span></span></div>
       ${
         list.isInline
@@ -72,7 +88,7 @@ export const render = (lists: List[], options: { isGear?: boolean } = {}) => `
     </div>`,
     )
     .join('')}
-  ${options.isGear ? '<div class="gear"><span class="qbtn">⚙️</span></div>' : ''}`
+  ${options.isGear ? '<div class="gear"><span class="repo">GitHub</span><span class="qbtn">⚙️</span></div>' : ''}`
 
 // The figures, one per section, with real items from the session that built docket.
 export const figures = {
@@ -96,6 +112,19 @@ export const figures = {
             text: "Should docket's repository be public or private?",
             lean: 'Public. The point is for others to install it.',
             isDim: true,
+          },
+        ],
+      },
+      {
+        name: 'View',
+        counter: '↑1',
+        items: [
+          {
+            id: 'V17',
+            emoji: '⚙️',
+            text: 'Look at your new config: ~/.claude/docket/config.json. Every setting is there at its default.',
+            open: true,
+            isNew: true,
           },
         ],
       },

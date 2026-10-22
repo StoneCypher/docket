@@ -136,7 +136,13 @@ figcaption { font-size: 0.82rem; color: var(--muted); }
 .pane .mark { color: var(--pane-muted); font-size: 11px; font-style: normal; }
 .pane .new { color: var(--pane-muted); }
 .pane .inline { margin: 0.2rem 0 0.5rem 1.15rem; color: var(--pane-item-dim); }
-.pane .gear { margin-top: 0.4rem; display: flex; justify-content: flex-end; }
+.pane .gear { margin-top: 0.4rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.9rem; }
+.pane .repo { color: var(--pane-link); font-size: 11px; text-decoration: underline; opacity: 0.75; }
+.pane .stack { display: flex; flex-direction: column; gap: 2px; }
+.pane .up-arrow { color: #5fb878; }
+.pane .up-number { color: #7c9a84; }
+.pane .down-arrow { color: #a885e6; }
+.pane .down-number { color: #8f83a8; }
 
 /* Reference sections. */
 .reference { max-width: 46rem; }
