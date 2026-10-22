@@ -96,7 +96,7 @@ h2 { margin: 0 0 0.75rem; font: 600 1.45rem/1.25 var(--face-body); letter-spacin
 p { margin: 0 0 0.9rem; max-width: 36rem; }
 
 /* A feature: the still on one side, its explanation on the other. */
-.feature { display: grid; grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.feature { display: grid; grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
 .feature.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); }
 .feature.flip figure { order: 2; }
 .copy-col { min-width: 0; }
