@@ -19,7 +19,7 @@ import {
 import type { Settings } from './lists'
 import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
 import type { ConfigFile } from './config'
-import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
+import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
 import type { Language, Strings } from './i18n'
@@ -30,6 +30,9 @@ const CLOSED_KEPT = 200
 
 type Dollar = EngineInterface
 type Kit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Link'>
+// Every surface but the terminal draws SVG.
+type Svg = Elements['vscode']['Svg']
+const svgOf = (kit: object, surface: string): Svg | undefined => (surface === 'terminal' ? undefined : (kit as { Svg?: Svg }).Svg)
 type FieldKit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Input' | 'Select'>
 
 const items = atom({ plugin: 'docket', key: 'items' } as const, [] as Item[])
@@ -157,6 +160,7 @@ const draw = async (
   surface: string,
   onAction: (item: Item, kind: string) => Promise<void>,
   text: Strings,
+  Svg?: Svg,
 ) => {
   const label = (item: Pick<Item, 'list' | 'n'>) => labelOf(text, item)
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
@@ -347,9 +351,16 @@ const draw = async (
   const yesNo = (item: Item, yes: string, no: string, beside: string, reserve = 0) =>
     item.answered ? (
       <Box flexShrink={0} marginLeft={1}>
-        <Text size="caption" dimColor>
-          {item.answered === 'yes' ? text.marks.yes : item.answered === 'no' ? text.marks.no : item.answered}
-        </Text>
+        {/* A button holds only text, so a dialect's picture shows here, as the mark of what was sent. */}
+        {Svg && item.answered === 'yes' && text.marks.yesImage ? (
+          <Svg source={text.marks.yesImage} alt={text.marks.yes} width={16} height={16} />
+        ) : Svg && item.answered === 'no' && text.marks.noImage ? (
+          <Svg source={text.marks.noImage} alt={text.marks.no} width={16} height={16} />
+        ) : (
+          <Text size="caption" dimColor>
+            {item.answered === 'yes' ? text.marks.yes : item.answered === 'no' ? text.marks.no : item.answered}
+          </Text>
+        )}
       </Box>
     ) : (
       <Box flexShrink={0} marginLeft={1} flexDirection={isOneLine(beside, reserve) ? 'row' : 'column'} columnGap={1}>
@@ -728,8 +739,18 @@ const stringsOf = async ($: Dollar, language: Language, dialect = ''): Promise<{
     return { text: EN, voice }
   }
   const name = typeof spoken.name === 'string' ? spoken.name : englishName(language)
+  const text = translate({ ...words, ...regional, ...spoken }, name)
+  for (const key of ['yes', 'no'] as const) {
+    const image = markImage(spoken, key)
+    if (!image) continue
+    try {
+      text.marks[`${key}Image`] = await $.fs.read(`${$.plugin.root}/locales/dialects/${image}`)
+    } catch {
+      // No picture: the button keeps its text.
+    }
+  }
 
-  return { text: translate({ ...words, ...regional, ...spoken }, name), voice }
+  return { text, voice }
 }
 
 // The voice in force: the config's own, set by hand, over any file's. Claudeville.
@@ -1150,7 +1171,7 @@ export const register: Register = on => {
       )
     }
 
-    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction, text)
+    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction, text, svgOf(kit, e.surface))
 
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
@@ -1177,6 +1198,8 @@ export const register: Register = on => {
       }
     }
 
-    return (await draw($, $.ui.resolve(e), settings, e.props.bodyColumns, true, e.surface, onAction, text)) ?? next(e)
+    const kit = $.ui.resolve(e)
+
+    return (await draw($, kit, settings, e.props.bodyColumns, true, e.surface, onAction, text, svgOf(kit, e.surface))) ?? next(e)
   })
 }

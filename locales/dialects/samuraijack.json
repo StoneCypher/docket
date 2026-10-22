@@ -1,7 +1,14 @@
 {
   "name": "Samurai Jack English",
   "marks": {
-    "yes": "🙇"
+    "yes": {
+      "text": "🗡",
+      "image": "samuraijack-sword.svg"
+    },
+    "no": {
+      "text": "👹",
+      "image": "samuraijack-aku.svg"
+    }
   },
   "voice": "Samurai Jack: a soft-spoken, honorable samurai flung into a future ruled by the shape-shifting master of darkness, Aku. Calm and formal, few words, no contractions, images from nature; any obstacle is Aku's doing",
   "voices": {

@@ -41,6 +41,8 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('fs.list', () => ({ value: Object.keys(locales).map(code => ({ name: `${code}.json`, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }))
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
+    const picture = /\/locales\/(dialects\/[\w.-]+\.svg)$/.exec(path)?.[1]
+    if (picture && typeof locales[picture] === 'string') return { value: locales[picture] }
     const locale = /\/locales\/((?:dialects\/)?[\w-]+)\.json$/.exec(path)?.[1]
 
     return { value: locale && locales[locale] ? JSON.stringify(locales[locale]) : (files.get(path) ?? '') }
@@ -688,4 +690,37 @@ test('a dialect set by hand in the config lays its words over the language', asy
   await ui.press({ key: 'ok-Q1' })
   await ui.unmount()
   expect(submitted).toEqual(['Yeah, go wit your gut on W1.'])
+})
+
+test("a dialect's picture marks a sent answer where the surface draws SVG; its text stands in elsewhere", async ($, on) => {
+  standIns(on, {
+    'dialects/samuraijack': {
+      name: 'Samurai Jack English',
+      marks: { yes: { text: '🗡', image: 'samuraijack-sword.svg' }, no: { text: '👹', image: 'samuraijack-aku.svg' } },
+      ready: 'ai translated',
+      version: 1,
+    },
+    'dialects/samuraijack-sword.svg': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 22 L22 2" stroke="#ccc"/></svg>',
+    'dialects/samuraijack-aku.svg': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>',
+  })
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), dialect: 'samuraijack' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'C', text: 'Face Aku at dawn?' }] })
+  const pictured = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await pictured.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  expect(await pictured.find({ type: 'Svg' })).toBeUndefined()
+  // A button holds only text: the picture marks the answer once it's sent.
+  await pictured.press({ key: 'ok-C1' })
+  await pictured.unmount()
+  const sent = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const sword = await sent.find({ type: 'Svg' })
+  expect(sword?.props.alt).toBe('🗡')
+  expect(String(sword?.props.source)).toContain('<svg')
+  await sent.unmount()
+  const plain = await $.ui.mount({ ...PANE, surface: 'terminal' })
+  expect(await plain.find({ type: 'Svg' })).toBeUndefined()
+  expect(await plain.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  await plain.unmount()
 })

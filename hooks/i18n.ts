@@ -45,8 +45,9 @@ export type Strings = {
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
   translate: { machine: string; behind: string }
-  // The yes and no buttons. Never translated: only a dialect changes them.
-  marks: { yes: string; no: string }
+  // The yes and no buttons. Never translated: only a dialect changes them, with text and perhaps an
+  // image's file name, which the mod reads into the SVG's source where a surface draws SVG.
+  marks: { yes: string; no: string; yesImage?: string; noImage?: string }
   fields: Record<string, [string, string]>
 }
 
@@ -224,11 +225,21 @@ export const firstLetter = (name: string) => {
   return /[\u1C90-\u1CBF]/u.test(upper) ? first : upper
 }
 
-// A dialect's own button, or the usual one.
+// A dialect's own button, as text or { text, image }, or the usual one.
 const markOf = (marks: unknown, key: string, usual: string) => {
   const mark = isRecord(marks) ? marks[key] : undefined
+  const text = isRecord(mark) ? mark.text : mark
 
-  return typeof mark === 'string' && mark.trim() ? mark : usual
+  return typeof text === 'string' && text.trim() ? text : usual
+}
+
+// The file a dialect's button draws where it can, if it names one: an .svg beside the dialect.
+export const markImage = (file: unknown, key: 'yes' | 'no') => {
+  const marks = isRecord(file) ? file.marks : undefined
+  const mark = isRecord(marks) ? marks[key] : undefined
+  const image = isRecord(mark) ? mark.image : undefined
+
+  return typeof image === 'string' && /^[\w.-]+\.svg$/.test(image) ? image : undefined
 }
 
 // docket's words in a language, from its file: each translated string over the English. Each list's

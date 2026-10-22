@@ -1,3 +1,4 @@
 # Language files are compared byte for byte with what `npm run locales` writes.
 locales/*.json text eol=lf
 locales/dialects/*.json text eol=lf
+locales/dialects/*.svg text eol=lf

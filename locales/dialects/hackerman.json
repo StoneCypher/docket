@@ -1,5 +1,9 @@
 {
   "name": "Hackerman English",
+  "marks": {
+    "yes": "🚢",
+    "no": "🐞"
+  },
   "ready": "ai translated",
   "version": 1,
   "Requests": {
