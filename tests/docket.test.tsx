@@ -1,6 +1,7 @@
 import { expect, test } from 'claude-code/testing'
 
 import { CONFIG_VERSION, defaults, serialize } from '../hooks/config'
+import { groupsOf } from '../hooks/picker'
 
 const PANE = {
   plugin: 'docket',
@@ -38,7 +39,15 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('ui.open', () => ({ value: { isPlaced: true } }))
   on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
-  on('fs.list', () => ({ value: Object.keys(locales).map(code => ({ name: `${code}.json`, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }))
+  on('fs.list', (_, e) => {
+    const isDialects = plain((e as { path: string }).path).endsWith('/dialects')
+    const names = Object.keys(locales)
+      .filter(key => key.startsWith('dialects/') === isDialects)
+      .map(key => key.replace(/^dialects\//, ''))
+      .map(name => (/\.\w+$/.test(name) ? name : `${name}.json`))
+
+    return { value: names.map(name => ({ name, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }
+  })
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
     const picture = /\/locales\/(dialects\/[\w.-]+\.svg)$/.exec(path)?.[1]
@@ -725,18 +734,34 @@ test("a dialect's picture marks a sent answer where the surface draws SVG; its t
   await plain.unmount()
 })
 
-test('the settings view draws with more languages than a Select can hold, and saves a typed one', async ($, on) => {
+test('the language picker is three pulldowns: a group, a language in it, and its variant', async ($, on) => {
   const many = Object.fromEntries(Array.from({ length: 80 }, (_, i) => [`x${String.fromCharCode(97 + (i % 26))}${String.fromCharCode(97 + Math.floor(i / 26))}`, { ready: 'ai translated', version: 1 }]))
-  standIns(on, { ...many, es: { ready: 'ai translated', version: 1, Settings: { text: 'Ajustes', ready: 'ai translated' } } })
+  standIns(on, {
+    ...many,
+    es: { ready: 'ai translated', version: 1, Settings: { text: 'Ajustes', ready: 'ai translated' } },
+    'dialects/startrek': { name: 'Starfleet English (Star Trek)', tag: 'en-US-startrek', ready: 'ai translated', version: 1 },
+  })
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'gear' })
-  const field = await ui.find({ type: 'Input', key: 'language' })
-  expect(field).toBeDefined()
-  await ui.input({ key: 'language', text: 'Español' })
+  const group = await ui.find({ type: 'Select', key: 'language-group' })
+  expect(group?.props.value).toBe('auto')
+  expect(await ui.find({ type: 'Select', key: 'language' })).toBeUndefined()
+  // No pulldown holds more than 64.
+  const bases = ['en', 'es', ...Object.keys(many)]
+  const groups = groupsOf('en', bases)
+  expect(groups.every(each => each.codes.length <= 64)).toBe(true)
+
+  await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('en'))?.value ?? '' })
+  await ui.select({ key: 'language', value: 'en' })
+  await ui.select({ key: 'language-variant', value: 'US-startrek' })
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US-startrek')
+
+  await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('es'))?.value ?? '' })
+  await ui.select({ key: 'language', value: 'es' })
   await ui.unmount()
-  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('Español')
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('es')
 
   const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await after.find({ type: 'Text', text: /^Ajustes$/ })).toBeDefined()

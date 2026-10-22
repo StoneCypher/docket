@@ -1,5 +1,6 @@
 {
   "name": "Starfleet English (Star Trek)",
+  "tag": "en-US-startrek",
   "marks": {
     "yes": "👉",
     "no": "🤦"

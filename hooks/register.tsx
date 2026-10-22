@@ -22,6 +22,8 @@ import type { ConfigFile } from './config'
 import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
+import { groupsOf, labelFor, pickedOf, variantsOf } from './picker'
+import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 
 const TOOL = 'mcp__docket__update'
@@ -44,6 +46,7 @@ const isSettings = atom({ plugin: 'docket', key: 'isSettings' } as const, false)
 const expanded = atom({ plugin: 'docket', key: 'expanded' } as const, [] as string[])
 const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
+const languageGroup = atom({ plugin: 'docket', key: 'languageGroup' } as const, '')
 
 type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number; options?: string[]; open?: string }
 type UpdateInput = {
@@ -639,8 +642,51 @@ export type SettingsView = {
   userPath: string
   onSave: (key: string, value: string | number | boolean) => Promise<void>
   onCopyToProject?: () => Promise<void>
-  // The language setting's choices: auto, then each language docket has a file for.
+  // The language picker: the language docket speaks, the languages it can, its dialects, and the
+  // group of initials open in it.
+  speaking: string
   languages: string[]
+  dialects: Dialect[]
+  group: string
+  onGroup: (group: string) => void
+}
+
+// The language as three pulldowns, since a pulldown holds at most 64 choices: a group of initials (or
+// auto), then a language in it, then its variant. Picking a group alone saves nothing.
+const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: SettingsView, value: unknown) => {
+  const { base, variant } = pickedOf(value)
+  const bases = [...new Set(view.languages.map(code => code.split('-')[0] ?? code))]
+  const groups = groupsOf(view.speaking, bases)
+  const open = view.group || (base === 'auto' ? 'auto' : (groups.find(group => group.codes.includes(base))?.value ?? 'auto'))
+  const inGroup = groups.find(group => group.value === open)
+  const variants = base === 'auto' ? [] : variantsOf(view.speaking, base, view.languages, view.dialects)
+
+  return (
+    <Box flexDirection="column" rowGap={1}>
+      <Select
+        key="language-group"
+        value={open}
+        options={[{ value: 'auto', label: 'auto' }, ...groups.map(({ value, label }) => ({ value, label }))]}
+        onSelect={choice => (choice === 'auto' ? void view.onSave('language', 'auto') : view.onGroup(choice))}
+      />
+      {inGroup ? (
+        <Select
+          key="language"
+          value={inGroup.codes.includes(base) ? base : undefined}
+          options={inGroup.codes.map(code => ({ value: code, label: labelFor(view.speaking, code) }))}
+          onSelect={choice => void view.onSave('language', choice)}
+        />
+      ) : null}
+      {inGroup?.codes.includes(base) && variants.length > 1 ? (
+        <Select
+          key="language-variant"
+          value={variants.some(each => each.value === variant) ? variant : ''}
+          options={variants}
+          onSelect={choice => void view.onSave('language', choice ? `${base}-${choice}` : base)}
+        />
+      ) : null}
+    </Box>
+  )
 }
 
 // The ⚙ view: every setting, edited straight into the config file it names.
@@ -680,14 +726,7 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
         field.kind === 'boolean' ? (
           <Select key={key} value={value ? 'on' : 'off'} options={[{ value: 'on' }, { value: 'off' }]} onSelect={choice => view.onSave(key, choice === 'on')} />
         ) : key === 'language' ? (
-          // Too many languages for a Select, which takes at most 64: typed instead, as a code or a name.
-          <Input
-            key={key}
-            value={String(value)}
-            placeholder={`auto, ${view.languages.filter(code => code !== 'en').slice(0, 3).join(', ')}…`}
-            submitLabel="save"
-            onSubmit={typed => view.onSave(key, typed.trim() || 'auto')}
-          />
+          languagePicker(Box, Select, view, value)
         ) : field.kind === 'choice' && field.options ? (
           <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
         ) : (
@@ -795,6 +834,22 @@ const localesOf = async ($: Dollar): Promise<Record<string, FileState>> => {
   }
 }
 
+// The dialects, by the language tags that pick them ("en-US-startrek") and their names.
+const dialectsOf = async ($: Dollar): Promise<Dialect[]> => {
+  try {
+    const names = (await $.fs.list(`${$.plugin.root}/locales/dialects`))
+      .filter(entry => entry.kind === 'file' && entry.name.endsWith('.json'))
+      .map(entry => entry.name.slice(0, -'.json'.length))
+    const found = await Promise.all(names.map(async name => ({ name, file: await wordsOf($, `dialects/${name}`) })))
+
+    return found
+      .filter(({ file }) => typeof file.tag === 'string')
+      .map(({ name, file }) => ({ tag: String(file.tag), name: typeof file.name === 'string' ? file.name : name }))
+  } catch {
+    return []
+  }
+}
+
 // The languages docket can speak: English, and each file not marked unready.
 const readyOf = (locales: Record<string, FileState>) =>
   ['en', ...Object.keys(locales).filter(code => locales[code]?.ready !== false)].sort()
@@ -895,6 +950,7 @@ export type Reloaded = {
   voice: Voice
   languages: string[]
   locales: Record<string, FileState>
+  dialects: Dialect[]
 }
 
 // Loads the config, then the language it names, registering the tool again in a new language, then
@@ -903,6 +959,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   const loaded = await loadConfig($, paths)
   // The files are read once a session: they change only with docket itself.
   const locales = was?.locales ?? (await localesOf($))
+  const dialects = was?.dialects ?? (await dialectsOf($))
   const languages = readyOf(locales)
   const language = await languageFor($, loaded, languages)
   const dialect = dialectOf(loaded)
@@ -920,7 +977,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await offerTranslation($, language, locales, text)
   }
 
-  return { loaded, language, dialect, text, spoken, voice, languages, locales }
+  return { loaded, language, dialect, text, spoken, voice, languages, locales, dialects }
 }
 
 export const register: Register = on => {
@@ -936,6 +993,7 @@ export const register: Register = on => {
   let voice: Voice = { all: '', lists: {} }
   let languages = ['en']
   let locales: Record<string, FileState> = {}
+  let dialects: Dialect[] = []
 
   const apply = (loaded: LoadedConfig) => {
     files = loaded
@@ -952,6 +1010,7 @@ export const register: Register = on => {
     voice = next.voice
     languages = next.languages
     locales = next.locales
+    dialects = next.dialects
   }
 
   on('session.start', async ($, e, next) => {
@@ -1096,7 +1155,7 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -1145,7 +1204,7 @@ export const register: Register = on => {
         return
       }
       if (!(await ownAnswer($, item, kind, paths, locales))) return
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -1157,19 +1216,24 @@ export const register: Register = on => {
         path: target ?? paths.user,
         isProject: Boolean(files.project),
         userPath: paths.user,
+        speaking: language,
         languages,
+        dialects,
+        group: await read($, languageGroup),
+        onGroup: group => void update($, languageGroup, () => group),
         onSave: async (key, value) => {
+          if (key === 'language') await update($, languageGroup, () => '')
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1209,7 +1273,7 @@ export const register: Register = on => {
         return
       }
       if (await ownAnswer($, item, kind, paths, locales)) {
-        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales }))
+        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
       }
     }
 

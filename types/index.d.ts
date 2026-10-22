@@ -54,6 +54,8 @@ declare module 'claude-code' {
       // The turn the docket last changed in, and whether the last reply spoke of pending work without changing it.
       updatedTurn: number
       isUnreconciled: boolean
+      // The group of initials open in the language picker, before a language in it is picked.
+      languageGroup: string
     }
   }
 }

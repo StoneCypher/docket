@@ -1,5 +1,6 @@
 {
   "name": "Pittsburgh English (Yinzer)",
+  "tag": "en-US-yinzer",
   "marks": {
     "yes": "👍",
     "no": "🛑"

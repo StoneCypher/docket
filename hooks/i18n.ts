@@ -189,7 +189,7 @@ export const synced = (file: unknown) => {
   const { ready, version } = stateOf(found)
   const words = Object.fromEntries(keysOf().map(key => [key, translationOf(found[key])]))
   const kept = Object.fromEntries(
-    (['name', 'marks', 'voice', 'voices'] as const).filter(key => found[key] !== undefined).map(key => [key, found[key]]),
+    (['name', 'tag', 'marks', 'voice', 'voices'] as const).filter(key => found[key] !== undefined).map(key => [key, found[key]]),
   )
 
   return `${JSON.stringify({ ...kept, ready, version, ...words }, null, 2)}

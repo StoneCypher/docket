@@ -1,5 +1,6 @@
 {
   "name": "Hackerman English",
+  "tag": "en-US-hackerman",
   "marks": {
     "yes": "🚢",
     "no": "🐞"
