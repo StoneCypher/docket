@@ -10,7 +10,9 @@ At the prompt of a Claude Code session:
 /plugin install docket --marketplace StoneCypher/docket
 ```
 
-Answer `y` to add the marketplace, then pick a scope. From a shell instead:
+Answer `y` to add the marketplace, then pick a scope.
+
+docket is also listed in [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins), alongside StoneCypher's other plugins: `/plugin marketplace add StoneCypher/claude-plugins`, then `/plugin install docket@stonecypher`. From a shell instead:
 
 ```
 claude plugin install docket --marketplace StoneCypher/docket

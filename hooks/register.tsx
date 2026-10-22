@@ -395,9 +395,12 @@ const draw = async (
                   <Text size="caption">{eye}</Text>
                 </Button>
               ) : null}
-              <Button key={`x-${item.id}`} plain dimColor onPress={dismiss(item.id)}>
-                <Text size="caption">{trash}</Text>
-              </Button>
+              {/* Once sent, the row leaves on its own: nothing left to clear by hand. */}
+              {item.answered ? null : (
+                <Button key={`x-${item.id}`} plain dimColor onPress={dismiss(item.id)}>
+                  <Text size="caption">{trash}</Text>
+                </Button>
+              )}
             </Box>
           </Box>
         )}

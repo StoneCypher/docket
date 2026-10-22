@@ -180,6 +180,8 @@ test("a request's ✔ and ✗ approve or decline it", async ($, on) => {
   // Answered: the pair is gone at once, so it can't be pressed twice.
   expect(await ui.find({ key: 'ok-R1' })).toBeUndefined()
   expect(await ui.find({ key: 'no-R1' })).toBeUndefined()
+  // And the 🗑️ goes too: a sent row leaves on its own.
+  expect(await ui.find({ key: 'x-R1' })).toBeUndefined()
   await ui.unmount()
 
   // Claude changing the item hands the buttons back.
