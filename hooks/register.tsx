@@ -256,7 +256,8 @@ const draw = async (
 
   // An item's own line: label, emoji, stakes, text.
   const line = (item: Item, isLingering: boolean, isDim: boolean) => (
-    <Text {...itemColor(isLingering, isDim)} strikethrough={isLingering}>
+    // Struck through while lingering, and once sent: the answer is out, the item is on its way.
+    <Text {...itemColor(isLingering, isDim)} strikethrough={isLingering || item.answered !== undefined}>
       <Text bold>{item.id}.</Text>
       {marker(item)}
       {stakesTag(item)} {linkify(item.text)}

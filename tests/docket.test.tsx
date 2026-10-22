@@ -110,6 +110,9 @@ test("a lean's ✔ answers that one lean, and the pair goes at once", async ($, 
   await ui.press({ key: 'ok-Q1' })
   expect(submitted).toContain('Accept the lean on Q1.')
   expect(await ui.find({ key: 'no-Q1' })).toBeUndefined()
+  // Sent: the question's own text is struck through.
+  const struck = (await ui.findAll({ type: 'Text' })).find(found => /Ship it\?/.test(found.text) && found.props.strikethrough === true)
+  expect(struck).toBeDefined()
   await ui.unmount()
 })
 
