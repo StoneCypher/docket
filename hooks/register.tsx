@@ -40,6 +40,10 @@ type Dollar = EngineInterface
 type Kit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Link'>
 // Every surface but the terminal draws SVG.
 type Svg = Elements['vscode']['Svg']
+// Every surface but the terminal hands docket a press on a Markdown link without opening it.
+type MarkdownElement = Elements['vscode']['Markdown']
+const markdownOf = (kit: object, surface: string): MarkdownElement | undefined =>
+  surface === 'terminal' ? undefined : (kit as { Markdown?: MarkdownElement }).Markdown
 const svgOf = (kit: object, surface: string): Svg | undefined => (surface === 'terminal' ? undefined : (kit as { Svg?: Svg }).Svg)
 type FieldKit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Input' | 'Select'>
 
@@ -154,8 +158,19 @@ let isPaneShown = false
 let isPaneClosed = false
 
 // The docket's own pane, docked beside the transcript where the surface docks one.
-const openPane = async ($: Dollar) => {
-  const { isPlaced } = await $.ui.open({ id: PANE, title: 'Docket' })
+// docket's version, from its own manifest, as the engine doesn't say it: shown in the pane's title.
+const versionOf = async ($: Dollar) => {
+  try {
+    const { version } = JSON.parse(await $.fs.read(`${$.plugin.root}/.claude-plugin/plugin.json`)) as { version?: unknown }
+
+    return typeof version === 'string' ? version : ''
+  } catch {
+    return ''
+  }
+}
+
+const openPane = async ($: Dollar, version = '') => {
+  const { isPlaced } = await $.ui.open({ id: PANE, title: version ? `Docket 📋 ${version}` : 'Docket 📋' })
   isPaneShown = isPlaced
   isPaneClosed = false
   $.ui.invalidate('ui.render')
@@ -174,6 +189,7 @@ const draw = async (
   onAction: (item: Item, kind: string) => Promise<void>,
   text: Strings,
   Svg?: Svg,
+  Markdown?: MarkdownElement,
 ) => {
   const label = (item: Pick<Item, 'list' | 'n'>) => labelOf(text, item)
   // An item's clear button: a trash can, apart from the ✗ beside it, but the terminal can't size 🗑️.
@@ -371,41 +387,52 @@ const draw = async (
     if (isCopied) await $.ui.toast(`📋 ${label(item)}`)
   }
 
-  // An item's own line: label, emoji, stakes, text. The label is a button that copies the item; a
-  // struck-through item's is plain, as it's on its way out.
+  // A bare web address as a Markdown link, its trailing punctuation left as text, as linkify does; one
+  // already written [label](https://...) is kept.
+  const linked = (words: string) =>
+    words.replace(/\[[^\]]+\]\((?:https?|file):\/\/[^\s)]+\)|https?:\/\/[^\s<>"')\]]+/g, whole => {
+      if (whole.startsWith('[')) return whole
+      const href = whole.replace(/[.,;:!?]+$/, '')
+
+      return `[${href}](${href})${whole.slice(href.length)}`
+    })
+
+  // Where a copy link points, should a surface open it instead of handing docket the press: the site.
+  const copyHref = (item: Item) => `${SITE}/#copy-${item.id}`
+
+  const stakesWords = (item: Item) =>
+    !item.stakes || settings.stakesDisplay === 'none'
+      ? ''
+      : ` ${settings.isEmoji && settings.stakesDisplay === 'emoji' ? STAKES_GLYPH[item.stakes] : STAKES_TEXT[item.stakes]}`
+
+  // An item's own line: label, emoji, stakes, text. Where a surface hands docket a link's press, the
+  // line is Markdown and its label a link that copies the item, flowing with the text; the terminal,
+  // which may open a link before docket hears of it, keeps a plain label, its text selectable anyway.
   const line = (item: Item, isLingering: boolean, isDim: boolean) => {
     // Struck through while lingering, and once sent: the answer is out, the item is on its way.
-    const style = { ...itemColor(isLingering, isDim), strikethrough: isLingering || item.answered !== undefined }
-    const rest = (
-      <Text {...style}>
-        {marker(item)}
-        {stakesTag(item)} {linkify(item.text)}
-        {item.addedTurn === at && !isLingering ? ` ${text.new}` : ''}
-      </Text>
-    )
-    if (isLingering) {
+    const isStruck = isLingering || item.answered !== undefined
+    const isNew = item.addedTurn === at && !isLingering
+    if (Markdown && !isLingering) {
+      const words = `**[${label(item)}.](${copyHref(item)})**${marker(item)}${stakesWords(item)} ${linked(item.text)}${isNew ? ` ${text.new}` : ''}`
+
       return (
-        <Text {...style}>
-          <Text bold>{label(item)}.</Text>
-          {marker(item)}
-          {stakesTag(item)} {linkify(item.text)}
-        </Text>
+        <Markdown
+          key={`line-${item.id}`}
+          text={isStruck ? `~~${words}~~` : words}
+          dimColor={isDim}
+          pressableLinks={[copyHref(item)]}
+          onLinkPress={() => void copyItem(item)()}
+        />
       )
     }
 
     return (
-      <Box flexDirection="row" alignItems="flex-start">
-        <Box flexShrink={0}>
-          <Button key={`copy-${item.id}`} plain onPress={copyItem(item)}>
-            <Text bold {...style}>
-              {label(item)}.
-            </Text>
-          </Button>
-        </Box>
-        <Box flexShrink={1} minWidth={0}>
-          {rest}
-        </Box>
-      </Box>
+      <Text {...itemColor(isLingering, isDim)} strikethrough={isStruck}>
+        <Text bold>{label(item)}.</Text>
+        {marker(item)}
+        {stakesTag(item)} {linkify(item.text)}
+        {isNew ? ` ${text.new}` : ''}
+      </Text>
     )
   }
 
@@ -595,6 +622,7 @@ const draw = async (
 // The ⚙ that flips the pane between the lists and the settings view, at the pane's bottom right.
 // Beside it, a link to docket's repository.
 const REPO = 'https://github.com/StoneCypher/docket'
+const SITE = 'https://stonecypher.github.io/docket'
 
 const gear = ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string) => (
   <Box flexDirection="row" justifyContent="flex-end" alignItems="center" columnGap={2} marginTop={1}>
@@ -1162,6 +1190,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
 export const register: Register = on => {
   // The settings come from docket's config files, read at the session's start and on every prompt.
   let settings = settingsOf(merged())
+  let version = ''
   let paths: ConfigPaths = { user: '' }
   let files: LoadedConfig = { notes: [] }
   // docket's own words, in the language its config names, or Claude Code's.
@@ -1198,6 +1227,7 @@ export const register: Register = on => {
 
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'docket', description: 'Open the docket pane' })
+    version = await versionOf($)
     paths = await configPaths($, e.cwd)
     // Settled afresh in each process, so the tool is registered whatever the language.
     adopt(await reloadConfig($, paths))
@@ -1217,7 +1247,7 @@ export const register: Register = on => {
       ])
     }
     if (settings.display === 'pane') {
-      void openPane($)
+      void openPane($, version)
     }
 
     return next(e)
@@ -1392,7 +1422,7 @@ export const register: Register = on => {
   })
 
   on('command.run', { command: 'docket' }, async $ => {
-    const isPlaced = await openPane($)
+    const isPlaced = await openPane($, version)
 
     return { text: isPlaced ? 'Docket pane opened.' : 'This surface draws no pane, so the docket stays above the prompt.' }
   })
@@ -1471,7 +1501,7 @@ export const register: Register = on => {
       )
     }
 
-    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction, text, svgOf(kit, e.surface))
+    const lists = await draw($, kit, settings, e.props.bodyColumns, false, e.surface, onAction, text, svgOf(kit, e.surface), markdownOf(kit, e.surface))
 
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
@@ -1500,6 +1530,6 @@ export const register: Register = on => {
 
     const kit = $.ui.resolve(e)
 
-    return (await draw($, kit, settings, e.props.bodyColumns, true, e.surface, onAction, text, svgOf(kit, e.surface))) ?? next(e)
+    return (await draw($, kit, settings, e.props.bodyColumns, true, e.surface, onAction, text, svgOf(kit, e.surface), markdownOf(kit, e.surface))) ?? next(e)
   })
 }

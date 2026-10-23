@@ -28,10 +28,19 @@ const env = new Map<string, string>()
 const clock = { now: 1_000 }
 // Folders a test fills, beyond the plugin's own locales: an editor's install, say.
 const folders = new Map<string, string[]>()
-// What the mod put on the clipboard.
+// What the mod put on the clipboard, and the titles it opened its pane with.
 const copied: string[] = []
+const titles: string[] = []
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
+
+
+// Text as the pane shows it: in a Text, or, off the terminal, in an item's Markdown line.
+type Found = { props: Record<string, unknown> }
+type Mounted = { find: (query: never) => Promise<Found | undefined>; findAll: (query: never) => Promise<readonly Found[]> }
+const findText = async (ui: Mounted, text: RegExp) =>
+  ((await ui.find({ type: 'Text', text } as never)) as Found | undefined) ??
+  ((await ui.findAll({ type: 'Markdown' } as never)) as readonly Found[]).find(found => text.test(String(found.props.text)))
 
 // `locales` stands for the plugin's own language files, wherever the engine puts the plugin.
 const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record<string, unknown> = {}) => {
@@ -40,6 +49,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   env.clear()
   folders.clear()
   copied.length = 0
+  titles.length = 0
   clock.now = 1_000
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
@@ -48,7 +58,11 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('clock.now', () => ({ value: clock.now }))
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
-  on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('ui.open', (_, e) => {
+    titles.push(String((e as { title?: string }).title))
+
+    return { value: { isPlaced: true } }
+  })
   on('ui.copy', (_, e) => {
     copied.push(String((e as { text: string }).text))
 
@@ -74,6 +88,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   })
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
+    if (path.endsWith('/.claude-plugin/plugin.json')) return { value: JSON.stringify({ name: 'docket', version: '9.9.9' }) }
     const picture = /\/locales\/((?:dialects|voices)\/[\w.-]+\.svg)$/.exec(path)?.[1]
     if (picture && typeof locales[picture] === 'string') return { value: locales[picture] }
     const locale = /\/locales\/((?:dialects\/|voices\/)?[\w-]+)\.json$/.exec(path)?.[1]
@@ -108,8 +123,8 @@ test('an added question shows in the pane, on every surface', async ($, on) => {
 
   for (const surface of ['terminal', 'desktop', 'vscode', 'mobile'] as const) {
     const ui = await $.ui.mount({ ...PANE, surface })
-    expect(await ui.find({ type: 'Text', text: /Ship it on Friday/ })).toBeDefined()
-    expect(await ui.find({ type: 'Text', text: /after the tests pass/ })).toBeDefined()
+    expect(await findText(ui, /Ship it on Friday/)).toBeDefined()
+    expect(await findText(ui, /after the tests pass/)).toBeDefined()
     await ui.unmount()
   }
 })
@@ -153,8 +168,8 @@ test("a heading's ✕ dismisses that whole list and leaves the others", async ($
 
   const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
   await ui.press({ key: 'x-Q' })
-  expect(await ui.find({ type: 'Text', text: /First question/ })).toBeUndefined()
-  expect(await ui.find({ type: 'Text', text: /Keep this pinned/ })).toBeDefined()
+  expect(await findText(ui, /First question/)).toBeUndefined()
+  expect(await findText(ui, /Keep this pinned/)).toBeDefined()
   await ui.unmount()
 })
 
@@ -177,8 +192,8 @@ test("a lean's ✔ answers that one lean, and the pair goes at once", async ($, 
   await ui.press({ key: 'ok-Q1' })
   expect(submitted).toContain('Accept the lean on Q1.')
   expect(await ui.find({ key: 'no-Q1' })).toBeUndefined()
-  // Sent: the question's own text is struck through.
-  const struck = (await ui.findAll({ type: 'Text' })).find(found => /Ship it\?/.test(found.text) && found.props.strikethrough === true)
+  // Sent: the question's own text is struck through, as Markdown off the terminal.
+  const struck = (await ui.findAll({ type: 'Markdown' })).find(found => /^~~.*Ship it\?.*~~$/.test(String(found.props.text)))
   expect(struck).toBeDefined()
   await ui.unmount()
 })
@@ -196,7 +211,7 @@ test('the pane puts the most important list first, and the most urgent item firs
     ],
   })
 
-  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
   const texts = (await ui.findAll({ type: 'Text' })).map(found => found.text ?? '')
   const at = (pattern: RegExp) => texts.findIndex(text => pattern.test(text))
   expect(at(/^Questions/)).toBeLessThan(at(/^Pinned/))
@@ -248,8 +263,8 @@ test("an item's ✕ dismisses just that item", async ($, on) => {
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'x-U1' })
-  expect(await ui.find({ type: 'Text', text: /Building the parser/ })).toBeUndefined()
-  expect(await ui.find({ type: 'Text', text: /Writing the docs/ })).toBeDefined()
+  expect(await findText(ui, /Building the parser/)).toBeUndefined()
+  expect(await findText(ui, /Writing the docs/)).toBeDefined()
   await ui.unmount()
 })
 
@@ -285,7 +300,7 @@ test('the ⚙ opens the settings view, and a field saves to the config file', as
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'gear' })
-  expect(await ui.find({ type: 'Text', text: /Lean color/ })).toBeDefined()
+  expect(await findText(ui, /Lean color/)).toBeDefined()
   await ui.input({ key: 'leanColor', text: '#aaaaaa' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#aaaaaa')
   await ui.press({ key: 'done' })
@@ -305,7 +320,7 @@ test("with no config, the pane offers one, and its ✔ writes every key at its d
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /Create docket's config/ })).toBeDefined()
+  expect(await findText(ui, /Create docket's config/)).toBeDefined()
   await ui.press({ key: 'ok-R1' })
   await ui.unmount()
 
@@ -317,7 +332,7 @@ test("with no config, the pane offers one, and its ✔ writes every key at its d
   expect(submitted).toEqual([])
 
   const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await after.find({ type: 'Text', text: /Look at your new config/ })).toBeDefined()
+  expect(await findText(after, /Look at your new config/)).toBeDefined()
   await after.unmount()
 })
 
@@ -332,7 +347,7 @@ test('an old config is migrated in place, and View says so', async ($, on) => {
   expect(migrated.questionsCap).toBe(7)
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /updated its config/ })).toBeDefined()
+  expect(await findText(ui, /updated its config/)).toBeDefined()
   await ui.unmount()
 })
 
@@ -378,12 +393,12 @@ test('an answered item stays up dimmed, then leaves after 20 seconds', async ($,
 
   now += 19_000
   const soon = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await soon.find({ type: 'Text', text: /Ship it/ })).toBeDefined()
+  expect(await findText(soon, /Ship it/)).toBeDefined()
   await soon.unmount()
 
   now += 2_000
   const later = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await later.find({ type: 'Text', text: /Ship it/ })).toBeUndefined()
+  expect(await findText(later, /Ship it/)).toBeUndefined()
   await later.unmount()
 })
 
@@ -447,17 +462,23 @@ test('a web address in an item is drawn as a link, without its trailing punctuat
     ],
   })
 
-  for (const surface of ['terminal', 'vscode'] as const) {
-    const ui = await $.ui.mount({ ...PANE, surface })
-    const link = await ui.find({ type: 'Link' })
-    expect(JSON.stringify(link)).toContain('http://localhost:4321/docket')
-    expect(JSON.stringify(link)).not.toContain('docket.')
-    // A [label](url) link shows its label, not the brackets or the address.
-    const labeled = (await ui.findAll({ type: 'Link' })).map(found => JSON.stringify(found)).join(' ')
-    expect(labeled).toContain('https://github.com/StoneCypher/claude-plugins')
-    expect(await ui.find({ type: 'Text', text: /\]\(https/ })).toBeUndefined()
-    await ui.unmount()
-  }
+  // The terminal draws its own Link elements.
+  const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
+  const link = await ui.find({ type: 'Link' })
+  expect(JSON.stringify(link)).toContain('http://localhost:4321/docket')
+  expect(JSON.stringify(link)).not.toContain('docket.')
+  // A [label](url) link shows its label, not the brackets or the address.
+  const labeled = (await ui.findAll({ type: 'Link' })).map(found => JSON.stringify(found)).join(' ')
+  expect(labeled).toContain('https://github.com/StoneCypher/claude-plugins')
+  expect(await findText(ui, /\]\(https/)).toBeUndefined()
+  await ui.unmount()
+
+  // Elsewhere the line is Markdown: a bare address becomes a link, its full stop left as text.
+  const md = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const lines = (await md.findAll({ type: 'Markdown' })).map(found => String(found.props.text)).join('\n')
+  expect(lines).toContain('[http://localhost:4321/docket](http://localhost:4321/docket).')
+  expect(lines).toContain('[StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins)')
+  await md.unmount()
 })
 
 test("a growing list's counter draws its arrow and number in greens", async ($, on) => {
@@ -597,11 +618,11 @@ test('"+N more" expands its list, and "fewer" folds it back', async ($, on) => {
   await $.prompt.submit({ text: 'next' })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeUndefined()
+  expect(await findText(ui, /Three\?/)).toBeUndefined()
   await ui.press({ key: 'more-Q' })
-  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeDefined()
+  expect(await findText(ui, /Three\?/)).toBeDefined()
   await ui.press({ key: 'fewer-Q' })
-  expect(await ui.find({ type: 'Text', text: /Three\?/ })).toBeUndefined()
+  expect(await findText(ui, /Three\?/)).toBeUndefined()
   await ui.unmount()
 })
 
@@ -636,8 +657,8 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   expect(JSON.stringify(ran)).toContain('Added P1, F1')
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Preguntas$/ })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /^Propuesta$/ })).toBeDefined()
+  expect(await findText(ui, /^Preguntas$/)).toBeDefined()
+  expect(await findText(ui, /^Propuesta$/)).toBeDefined()
   await ui.press({ key: 'ok-Q1' })
   await ui.unmount()
   expect(submitted).toEqual(['Acepto la propuesta de P1.'])
@@ -666,9 +687,9 @@ test('a language docket has no file for gets English, and one offer to help tran
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Requests$/ })).toBeDefined()
-  const link = await ui.find({ type: 'Link' })
-  expect(link?.props.href).toBe('https://github.com/StoneCypher/docket/edit/main/locales/fr.json')
+  expect(await findText(ui, /^Requests$/)).toBeDefined()
+  const offer = (await ui.findAll({ type: 'Markdown' })).map(found => String(found.props.text)).join('\n')
+  expect(offer).toContain('(https://github.com/StoneCypher/docket/edit/main/locales/fr.json)')
   await ui.press({ key: 'ok-R1' })
   await ui.unmount()
   expect(ran.some(argv => argv.includes('https://github.com/StoneCypher/docket/edit/main/locales/fr.json'))).toBe(true)
@@ -677,7 +698,7 @@ test('a language docket has no file for gets English, and one offer to help tran
   // Asked once: a new session doesn't ask again.
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await again.find({ type: 'Text', text: /speak French/ })).toBeUndefined()
+  expect(await findText(again, /speak French/)).toBeUndefined()
   await again.unmount()
 })
 
@@ -695,8 +716,8 @@ test('a machine-translated language is used, with one offer, in that language, t
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Anfragen$/ })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /Das Deutsch von docket wurde maschinell/ })).toBeDefined()
+  expect(await findText(ui, /^Anfragen$/)).toBeDefined()
+  expect(await findText(ui, /Das Deutsch von docket wurde maschinell/)).toBeDefined()
   await ui.press({ key: 'no-R1' })
   await ui.unmount()
   expect(store.get('translateAsked')).toEqual(['de:machine@2'])
@@ -733,8 +754,8 @@ test('a dialect set by hand in the config lays its words over the language', asy
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'W', text: 'Pierogies or haluski?', lean: 'pierogies' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Whaddaya think$/ })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /^Gut call$/ })).toBeDefined()
+  expect(await findText(ui, /^Whaddaya think$/)).toBeDefined()
+  expect(await findText(ui, /^Gut call$/)).toBeDefined()
   await ui.press({ key: 'ok-Q1' })
   await ui.unmount()
   expect(submitted).toEqual(['Yeah, go wit your gut on W1.'])
@@ -757,7 +778,7 @@ test("a dialect's picture marks a sent answer where the surface draws SVG; its t
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'C', text: 'Face Aku at dawn?' }] })
   const pictured = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await pictured.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  expect(await findText(pictured, /^🗡$/)).toBeDefined()
   expect(await pictured.find({ type: 'Svg' })).toBeUndefined()
   // A button holds only text: the picture marks the answer once it's sent.
   await pictured.press({ key: 'ok-C1' })
@@ -769,7 +790,7 @@ test("a dialect's picture marks a sent answer where the surface draws SVG; its t
   await sent.unmount()
   const plain = await $.ui.mount({ ...PANE, surface: 'terminal' })
   expect(await plain.find({ type: 'Svg' })).toBeUndefined()
-  expect(await plain.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  expect(await findText(plain, /^🗡$/)).toBeDefined()
   await plain.unmount()
 })
 
@@ -818,7 +839,7 @@ test('the language picker is three pulldowns: a group, a language in it, and its
   await ui.unmount()
 
   const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await after.find({ type: 'Text', text: /^Ajustes$/ })).toBeDefined()
+  expect(await findText(after, /^Ajustes$/)).toBeDefined()
   await after.unmount()
 })
 
@@ -844,8 +865,8 @@ test('a language tag can end in a dialect, as en-US-startrek', async ($, on) => 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'O', text: 'Set course for Risa?' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Orders, Captain\?$/ })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /Set course for Risa/ })).toBeDefined()
+  expect(await findText(ui, /^Orders, Captain\?$/)).toBeDefined()
+  expect(await findText(ui, /Set course for Risa/)).toBeDefined()
   await ui.unmount()
 })
 
@@ -923,8 +944,8 @@ test('a voice is its own setting, apart from the language: Samurai Jack in Spani
   expect(told).toContain('Aku, gloating')
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Preguntas$/ })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  expect(await findText(ui, /^Preguntas$/)).toBeDefined()
+  expect(await findText(ui, /^🗡$/)).toBeDefined()
   await ui.press({ key: 'gear' })
   expect((await ui.find({ type: 'Select', key: 'voice' }))?.props.value).toBe('samuraijack')
   await ui.select({ key: 'voice', value: 'none' })
@@ -947,13 +968,13 @@ test("the config offer's ✔ never writes over a file made since, and 🗑️ de
   files.delete(USER_CONFIG)
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  const offer = await again.find({ type: 'Text', text: /Create docket's config/ })
+  const offer = await findText(again, /Create docket's config/)
   expect(offer).toBeDefined()
   await again.press({ key: 'x-R2' })
   await again.unmount()
   expect(store.get('configDeclined')).toBe(true)
   const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await after.find({ type: 'Text', text: /Create docket's config/ })).toBeUndefined()
+  expect(await findText(after, /Create docket's config/)).toBeUndefined()
   await after.unmount()
 })
 
@@ -966,10 +987,10 @@ test('a config that will not parse is noted once, and settings never save over i
   await $.prompt.submit({ text: 'one' })
   await $.prompt.submit({ text: 'two' })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  const notes = await ui.findAll({ type: 'Text', text: /couldn't read its config/ })
+  const notes = (await ui.findAll({ type: 'Markdown' })).filter(found => /couldn't read its config/.test(String(found.props.text)))
   expect(notes.length).toBe(1)
   // No offer to create a file that's there.
-  expect(await ui.find({ type: 'Text', text: /Create docket's config/ })).toBeUndefined()
+  expect(await findText(ui, /Create docket's config/)).toBeUndefined()
   await ui.press({ key: 'gear' })
   await ui.input({ key: 'leanColor', text: '#aaaaaa' })
   await ui.unmount()
@@ -1010,7 +1031,7 @@ test("auto follows VS Code's display language when Claude Code names none", asyn
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'F', text: 'Freitag?' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await ui.find({ type: 'Text', text: /^Fragen$/ })).toBeDefined()
+  expect(await findText(ui, /^Fragen$/)).toBeDefined()
   await ui.unmount()
 })
 
@@ -1044,7 +1065,19 @@ test("an item's label copies the item, as text can't be selected in the pane", a
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  await ui.press({ key: 'copy-Q1' })
+  await ui.press({ key: 'line-Q1', link: { href: 'https://stonecypher.github.io/docket/#copy-Q1' } })
   await ui.unmount()
   expect(copied).toEqual(['Q1. Ship it on Friday?\nLean: yes, after the tests pass'])
+
+  // The terminal, which may open a link itself, keeps a plain label.
+  const plain = await $.ui.mount({ ...PANE, surface: 'terminal' })
+  expect(await plain.find({ type: 'Markdown' })).toBeUndefined()
+  expect(await findText(plain, /Ship it on Friday/)).toBeDefined()
+  await plain.unmount()
+})
+
+test("the pane's title carries docket's version", async ($, on) => {
+  standIns(on)
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  expect(titles).toContain('Docket 📋 9.9.9')
 })
