@@ -149,6 +149,10 @@
     "text": "بدون صدا",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "پیکربندی docket در {path} با همهٔ تنظیمات روی مقدار پیش‌فرض ساخته شود؟ می‌توانید آن را همان‌جا یا با ⚙ ویرایش کنید.",
     "ready": "ai translated"

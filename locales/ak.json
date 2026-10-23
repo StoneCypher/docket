@@ -149,6 +149,10 @@
     "text": "Nne biara nni hɔ",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yɛ docket nhyehyɛeɛ wɔ {path}, na nhyehyɛeɛ biara wɔ ne default so? Wobɛtumi asesa no wɔ hɔ, anaa ⚙ so.",
     "ready": "ai translated"

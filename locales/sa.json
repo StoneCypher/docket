@@ -149,6 +149,10 @@
     "text": "स्वरः नास्ति",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket इत्यस्य विन्यासः {path} इत्यत्र सर्वैः विन्यासैः पूर्वनिर्धारितमूल्येषु सृज्यतां किम्? तत्र अथवा ⚙ द्वारा तं सम्पादयितुं शक्नोषि।",
     "ready": "ai translated"

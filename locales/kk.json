@@ -149,6 +149,10 @@
     "text": "Дауыссыз",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket конфигурациясын {path} жолында барлық баптаулары әдепкі мәнде болатындай етіп жасау керек пе? Оны сол жерде немесе ⚙ арқылы өңдей аласыз.",
     "ready": "ai translated"

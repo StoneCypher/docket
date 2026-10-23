@@ -42,6 +42,7 @@ export type Strings = {
     capTitle: string
     capDescription: string
     noVoice: string
+    about: string
   }
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
@@ -94,6 +95,7 @@ export const EN: Strings = {
     capTitle: '{list} cap',
     capDescription: 'Items shown in {list} before "+N more"',
     noVoice: 'No voice',
+    about: 'Docket 📋 version {version}, built {date}',
   },
   config: {
     offer: "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.",
@@ -158,7 +160,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 2
+export const STRINGS_VERSION = 3
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'

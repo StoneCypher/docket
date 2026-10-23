@@ -1,6 +1,6 @@
 {
   "name": "docket",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "description": "A Claude Code mod: Claude's open threads in numbered lists beside the chat",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "test": "node --test --experimental-test-coverage --test-coverage-include=\"hooks/**\" --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 \"test-node/**/*.spec.ts\"",
     "test:mod": "claude plugin test .",
     "locales": "node scripts/locales.ts",
+    "release": "node scripts/release.ts",
     "validate": "claude plugin validate ."
   }
 }

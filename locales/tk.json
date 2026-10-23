@@ -149,6 +149,10 @@
     "text": "Sessiz",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-iň sazlamalaryny {path} ýerinde, ähli sazlamalar deslapky bahasynda bolar ýaly döredeýinmi? Olary şol ýerde ýa-da ⚙ bilen üýtgedip bilersiň.",
     "ready": "ai translated"

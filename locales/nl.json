@@ -149,6 +149,10 @@
     "text": "Geen stem",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Configuratie van docket aanmaken in {path}, met elke instelling op de standaardwaarde? Je kunt hem daar bewerken, of met ⚙.",
     "ready": "ai translated"

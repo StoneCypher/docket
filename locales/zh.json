@@ -149,6 +149,10 @@
     "text": "不使用口吻",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "要在 {path} 创建 docket 的配置文件，所有设置均为默认值吗？之后可以在该文件中或通过 ⚙ 编辑。",
     "ready": "ai translated"

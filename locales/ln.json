@@ -149,6 +149,10 @@
     "text": "Mongongo te",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Nasala mibongiseli ya docket na {path}, na mibongiseli nyonso na motuya na yango ya ebandeli? Okoki kobongola yango kuna, to na ⚙.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "Pa gen vwa",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Kreye konfigirasyon docket la nan {path}, ak chak paramèt sou valè pa defo li? Ou ka modifye l la, oswa ak ⚙.",
     "ready": "ai translated"

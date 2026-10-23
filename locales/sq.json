@@ -149,6 +149,10 @@
     "text": "Pa zë",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Të krijohet konfigurimi i docket në {path}, me çdo cilësim në vlerën e paracaktuar? Mund ta redaktosh atje, ose me ⚙.",
     "ready": "ai translated"

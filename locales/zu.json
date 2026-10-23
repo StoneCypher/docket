@@ -149,6 +149,10 @@
     "text": "Alikho izwi",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ngidale izilungiselelo ze-docket ku-{path}, zonke zisesimeni esizenzakalelayo? Ungazihlela lapho, noma nge-⚙.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "কোনো কণ্ঠ নাই",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path}ত সকলো ছেটিং ডিফল্ট মানত ৰাখি docket-ৰ কনফিগ সৃষ্টি কৰিবনে? আপুনি তাত বা ⚙ৰে ইয়াক সম্পাদনা কৰিব পাৰিব।",
     "ready": "ai translated"

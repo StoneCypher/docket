@@ -149,6 +149,10 @@
     "text": "Тауышһыҙ",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket конфигурацияһын {path} юлында, бөтә көйләүҙәрҙе ғәҙәттәге ҡиммәттә ҡалдырып, булдырайыммы? Уны шунда йәки ⚙ аша мөхәррирләй алаһың.",
     "ready": "ai translated"

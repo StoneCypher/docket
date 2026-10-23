@@ -149,6 +149,10 @@
     "text": "Bez balss",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Izveidot docket konfigurāciju {path} ar visiem iestatījumiem pēc noklusējuma? To var rediģēt tur vai ar ⚙.",
     "ready": "ai translated"

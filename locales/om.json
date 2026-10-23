@@ -149,6 +149,10 @@
     "text": "Sagalee hin qabu",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Qindaa'ina docket {path} irratti, qindaa'ina hunda durtii isaa irratti, haa uumu? Achitti ykn ⚙ fayyadamuun gulaaluu dandeessa.",
     "ready": "ai translated"

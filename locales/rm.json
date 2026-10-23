@@ -149,6 +149,10 @@
     "text": "Nagina vusch",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Crear la configuraziun da docket en {path}, cun mintga parameter a sia valur da standard? Ti la pos modifitgar là u cun ⚙.",
     "ready": "ai translated"

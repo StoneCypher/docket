@@ -149,6 +149,10 @@
     "text": "Nta jwi",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Docket ikore igenamiterere ryayo kuri {path}, buri gice kiri ku gaciro gasanzwe? Urashobora kurihindurira aho cyangwa ukoresheje ⚙.",
     "ready": "ai translated"

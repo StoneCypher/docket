@@ -149,6 +149,10 @@
     "text": "Ovozsiz",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket konfiguratsiyasi {path} manzilida barcha sozlamalar standart qiymatda boʻlgan holda yaratilsinmi? Uni oʻsha yerda yoki ⚙ orqali tahrirlashingiz mumkin.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "Keng Stëmm",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "D'Konfiguratioun vum docket an {path} uleeën, mat all Astellung op hirem Standardwäert? Du kanns se do änneren, oder mat ⚙.",
     "ready": "ai translated"

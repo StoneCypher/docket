@@ -149,6 +149,10 @@
     "text": "आवाज नाही",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket चे कॉन्फिग {path} येथे, प्रत्येक सेटिंग डीफॉल्टवर ठेवून तयार करायचे? तुम्ही ते तिथे किंवा ⚙ ने संपादित करू शकता.",
     "ready": "ai translated"

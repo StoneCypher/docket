@@ -149,6 +149,10 @@
     "text": "Kò sí ohùn",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ṣé kí n ṣẹ̀dá ètò docket ní {path}, pẹ̀lú gbogbo ètò ní ipò àìyípadà wọn? O lè ṣàtúnṣe rẹ̀ níbẹ̀, tàbí pẹ̀lú ⚙.",
     "ready": "ai translated"

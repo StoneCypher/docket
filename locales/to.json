@@ -149,6 +149,10 @@
     "text": "ʻIkai ha leʻo",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",
     "ready": "ai translated"

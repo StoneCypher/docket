@@ -149,6 +149,10 @@
     "text": "Walay tingog",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Himoon ba ang config sa docket sa {path}, nga ang matag setting naa sa default? Mahimo nimo kining usbon didto, o pinaagi sa ⚙.",
     "ready": "ai translated"

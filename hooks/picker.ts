@@ -152,6 +152,25 @@ export const defaultVariant = (base: string, variants: readonly Choice[]) => {
 // Whether a language's variants need a pulldown: only with two or more to choose between.
 export const isChoosing = (variants: readonly Choice[]) => variants.filter(each => each.value !== DIVIDER).length > 1
 
+// A release's day ("2026-10-23") as the language docket speaks writes a date: "Oct 23 2026" in
+// English, the runtime's own short form elsewhere.
+export const dayOf = (speaking: string, iso: string) => {
+  const day = new Date(`${iso}T12:00:00Z`)
+  if (Number.isNaN(day.getTime())) return iso
+  try {
+    if (speaking.split('-')[0] === 'en') {
+      const parts = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).formatToParts(day)
+      const part = (type: string) => parts.find(each => each.type === type)?.value ?? ''
+
+      return `${part('month')} ${part('day')} ${part('year')}`
+    }
+
+    return new Intl.DateTimeFormat(speaking, { dateStyle: 'medium', timeZone: 'UTC' }).format(day)
+  } catch {
+    return iso
+  }
+}
+
 // A language setting read back into the pulldowns: its base and the rest of its tag.
 export const pickedOf = (setting: unknown) => {
   const text = String(setting ?? '').trim()

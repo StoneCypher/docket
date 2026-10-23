@@ -149,6 +149,10 @@
     "text": "Eingin rødd",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Stovna uppseting hjá docket á {path}, við øllum stillingum á forsetta virðinum? Tú kanst rætta hana har ella við ⚙.",
     "ready": "ai translated"

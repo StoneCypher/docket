@@ -149,6 +149,10 @@
     "text": "Ahotsik ez",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketen konfigurazioa sortu {path} kokalekuan, ezarpen guztiak lehenetsitako balioekin? Bertan edita dezakezu, edo ⚙ bidez.",
     "ready": "ai translated"

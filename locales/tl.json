@@ -149,6 +149,10 @@
     "text": "Walang boses",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gawin ang config ng docket sa {path}, na nasa default ang bawat setting? Maaari mo itong i-edit doon, o gamit ang ⚙.",
     "ready": "ai translated"

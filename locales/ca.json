@@ -149,6 +149,10 @@
     "text": "Sense veu",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Vols crear la configuració de docket a {path}, amb cada opció al valor per defecte? La pots editar allà o amb ⚙.",
     "ready": "ai translated"

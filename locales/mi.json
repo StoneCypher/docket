@@ -149,6 +149,10 @@
     "text": "Kāore he āhua kōrero",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me hanga te whirihoranga o docket ki {path}, me ngā tautuhinga katoa ki ō rātou taunoa? Ka taea e koe te whakatika i reira, mā te ⚙ rānei.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "ไม่ใช้น้ำเสียง",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "สร้างไฟล์การตั้งค่าของ docket ที่ {path} โดยให้ทุกค่าเป็นค่าเริ่มต้นไหม? คุณแก้ไขได้ที่นั่น หรือด้วย ⚙",
     "ready": "ai translated"

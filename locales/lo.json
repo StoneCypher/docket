@@ -149,6 +149,10 @@
     "text": "ບໍ່ມີສຽງ",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ສ້າງການຕັ້ງຄ່າຂອງ docket ທີ່ {path} ໂດຍໃຊ້ຄ່າເລີ່ມຕົ້ນທັງໝົດບໍ? ທ່ານສາມາດແກ້ໄຂໄດ້ທີ່ນັ້ນ ຫຼື ດ້ວຍ ⚙.",
     "ready": "ai translated"

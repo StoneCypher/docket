@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { describe, test } from 'node:test'
 
-import { DIVIDER, MOST, basesOf, defaultVariant, isChoosing, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
+import { DIVIDER, MOST, basesOf, dayOf, defaultVariant, isChoosing, groupsOf, labelFor, nameIn, pickedOf, variantsOf } from '../hooks/picker.ts'
 
 describe('groups', () => {
   for (const speaking of ['en', 'de', 'ja']) {
@@ -42,6 +42,15 @@ describe('names', () => {
   test('fall back to the table where the runtime has none', () => {
     assert.equal(labelFor('en', 'tlh'), 'Klingon (tlhIngan Hol)')
     assert.equal(nameIn('xx', 'xx'), 'xx')
+  })
+})
+
+describe('a release day', () => {
+  test('reads Mon D YYYY in English, and as the language writes dates elsewhere', () => {
+    assert.equal(dayOf('en', '2026-10-23'), 'Oct 23 2026')
+    assert.equal(dayOf('en-GB', '2026-02-03'), 'Feb 3 2026')
+    assert.match(dayOf('de', '2026-10-23'), /23\.10\.2026/)
+    assert.equal(dayOf('en', 'not a day'), 'not a day')
   })
 })
 

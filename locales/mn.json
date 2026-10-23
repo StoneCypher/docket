@@ -149,6 +149,10 @@
     "text": "Дуу хоолойгүй",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-ийн тохиргоог {path}-д бүх тохиргоог анхдагч утгаар нь үүсгэх үү? Үүнийг тэнд эсвэл ⚙-ээр засварлаж болно.",
     "ready": "ai translated"

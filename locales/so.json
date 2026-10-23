@@ -149,6 +149,10 @@
     "text": "Cod la'aan",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ma abuuraa dejinta docket ee {path}, iyadoo dejin kasta ay ku jirto qiimaheeda caadiga ah? Waxaad wax ka beddeli kartaa halkaas, ama ⚙.",
     "ready": "ai translated"

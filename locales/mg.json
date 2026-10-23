@@ -149,6 +149,10 @@
     "text": "Tsy misy feo",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Hamorona ny fandrindran'ny docket ao amin'ny {path}, ka ny sanda fototra avokoa no apetraka? Azonao ovaina any izany, na amin'ny ⚙.",
     "ready": "ai translated"

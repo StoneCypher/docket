@@ -149,6 +149,10 @@
     "text": "Không có giọng văn",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Tạo cấu hình của docket tại {path}, với mọi cài đặt ở giá trị mặc định? Bạn có thể sửa nó ở đó, hoặc bằng ⚙.",
     "ready": "ai translated"

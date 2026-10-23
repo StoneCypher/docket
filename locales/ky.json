@@ -149,6 +149,10 @@
     "text": "Үнсүз",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket'тин конфигурациясы {path} жолунда, бардык жөндөөлөрү демейки маанилер менен түзүлсүнбү? Аны ошол жерден же ⚙ аркылуу түзөтө аласыз.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "Enweghị olu",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mepụta nhazi docket na {path}, ebe ntọala ọ bụla nọ n'ọnọdụ mbụ ya? Ị nwere ike idezi ya ebe ahụ, ma ọ bụ site na ⚙.",
     "ready": "ai translated"

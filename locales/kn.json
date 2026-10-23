@@ -149,6 +149,10 @@
     "text": "ಧ್ವನಿ ಇಲ್ಲ",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ಎಲ್ಲಾ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ನಲ್ಲಿ ಇಟ್ಟು docket ನ ಕಾನ್ಫಿಗ್ ಅನ್ನು {path} ನಲ್ಲಿ ರಚಿಸಬೇಕೇ? ನೀವು ಅದನ್ನು ಅಲ್ಲಿ ಅಥವಾ ⚙ ಮೂಲಕ ಸಂಪಾದಿಸಬಹುದು.",
     "ready": "ai translated"

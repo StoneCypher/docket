@@ -149,6 +149,10 @@
     "text": "គ្មានសំឡេង",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "បង្កើតការកំណត់រចនាសម្ព័ន្ធរបស់ docket នៅ {path} ដោយគ្រប់ការកំណត់ជាតម្លៃលំនាំដើម? អ្នកអាចកែវានៅទីនោះ ឬដោយប្រើ ⚙។",
     "ready": "ai translated"

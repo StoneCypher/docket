@@ -149,6 +149,10 @@
     "text": "بێ دەنگ",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ڕێکخستنی docket لە {path} دروست بکرێت، بە هەموو ڕێکخستنێک لە بەهای بنەڕەتیدا؟ دەتوانیت لەوێ یان بە ⚙ دەستکاری بکەیت.",
     "ready": "ai translated"

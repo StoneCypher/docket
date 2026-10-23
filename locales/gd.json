@@ -149,6 +149,10 @@
     "text": "Gun ghuth",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "An cruthaichear rèiteachadh docket aig {path}, le gach roghainn air a' bhun-roghainn? 'S urrainn dhut a dheasachadh an sin, no le ⚙.",
     "ready": "ai translated"

@@ -149,6 +149,10 @@
     "text": "Ei ääntä",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Luodaanko docketin asetustiedosto polkuun {path}, kaikki asetukset oletusarvoissaan? Voit muokata sitä siellä tai ⚙:lla.",
     "ready": "ai translated"

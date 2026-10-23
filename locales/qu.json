@@ -149,6 +149,10 @@
     "text": "Mana kunkayuq",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketpa kamachiyninta {path}pi ruranayta munankichu, sapa allichaypas qallariy chaninpi? Chaypi utaq ⚙-wan allichanki.",
     "ready": "ai translated"

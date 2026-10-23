@@ -149,6 +149,10 @@
     "text": "Jan kunkani",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Docket wakicht'awip {path} ukan lurañati, sapa wakicht'aw nayra chimpupampi? Ukanwa jan ukax ⚙ ukamp askichasma.",
     "ready": "ai translated"

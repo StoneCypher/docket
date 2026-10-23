@@ -1,6 +1,7 @@
 import { expect, test } from 'claude-code/testing'
 
 import { CONFIG_VERSION, defaults, serialize } from '../hooks/config'
+import { STRINGS_VERSION } from '../hooks/i18n'
 import { groupsOf } from '../hooks/picker'
 
 const PANE = {
@@ -301,6 +302,8 @@ test('the ⚙ opens the settings view, and a field saves to the config file', as
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'gear' })
   expect(await findText(ui, /Lean color/)).toBeDefined()
+  // Which docket this is, above the copy button.
+  expect(await findText(ui, /^Docket 📋 version 9\.9\.9, built [A-Z][a-z]{2} \d{1,2} \d{4}$/)).toBeDefined()
   await ui.input({ key: 'leanColor', text: '#aaaaaa' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#aaaaaa')
   await ui.press({ key: 'done' })
@@ -706,7 +709,7 @@ test('a machine-translated language is used, with one offer, in that language, t
   standIns(on, {
     de: {
       ready: 'ai translated',
-      version: 2,
+      version: STRINGS_VERSION,
       Requests: { text: 'Anfragen', ready: 'ai translated' },
       "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.":
         { text: 'Das {language} von docket wurde maschinell übersetzt. [Datei]({link})', ready: 'ai translated' },
@@ -720,7 +723,7 @@ test('a machine-translated language is used, with one offer, in that language, t
   expect(await findText(ui, /Das Deutsch von docket wurde maschinell/)).toBeDefined()
   await ui.press({ key: 'no-R1' })
   await ui.unmount()
-  expect(store.get('translateAsked')).toEqual(['de:machine@2'])
+  expect(store.get('translateAsked')).toEqual([`de:machine@${STRINGS_VERSION}`])
 })
 
 test('a dialect set by hand in the config lays its words over the language', async ($, on) => {

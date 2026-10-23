@@ -25,7 +25,8 @@ import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, lo
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
 import { appDirOf, exeDirsOf, exeIn, launchOf, scriptDirsOf, scriptIn } from './editor'
-import { DIVIDER, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
+import { BUILT } from './release'
+import { DIVIDER, dayOf, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 
@@ -760,6 +761,8 @@ export type SettingsView = {
   userPath: string
   onSave: (key: string, value: string | number | boolean) => Promise<void>
   onCopyToProject?: () => Promise<void>
+  // docket's version, for the line that says which docket this is.
+  version: string
   // The language picker: the language docket speaks, the languages it can, its dialects, and the
   // group of initials open in it.
   speaking: string
@@ -873,6 +876,11 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
       <Text dimColor size="footnote">
         {view.isProject ? text.settings.editingProject : text.settings.editingYours} {view.path}
       </Text>
+      <Box marginTop={1}>
+        <Text dimColor size="footnote">
+          {fill(text.settings.about, { version: view.version || '?', date: dayOf(view.speaking, BUILT) })}
+        </Text>
+      </Box>
       {view.onCopyToProject ? (
         <Box marginTop={1}>
           <Button key="copy-project" label={text.settings.copyToProject} onPress={view.onCopyToProject} />
@@ -1463,6 +1471,7 @@ export const register: Register = on => {
         isProject: Boolean(files.project),
         userPath: paths.user,
         speaking: language,
+        version,
         languages,
         dialects,
         casts,

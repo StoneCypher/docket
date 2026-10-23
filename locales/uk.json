@@ -149,6 +149,10 @@
     "text": "Без голосу",
     "ready": "ai translated"
   },
+  "Docket 📋 version {version}, built {date}": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Створити конфігурацію docket у {path} з усіма налаштуваннями за замовчуванням? Її можна редагувати там або через ⚙.",
     "ready": "ai translated"
