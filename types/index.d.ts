@@ -27,6 +27,8 @@ export type Item = {
   answered?: string
   // When it was answered: the docket hides it a little later, whatever Claude has done by then.
   answeredAt?: number
+  // When Claude last added or changed it: a bulk button leaves it out for a few seconds after.
+  changedAt?: number
   // An item the mod itself handles, rather than Claude: its buttons act locally.
   action?: 'createConfig' | 'translate'
   // For a translate offer: the language it asks for.

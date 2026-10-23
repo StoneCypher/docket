@@ -24,6 +24,8 @@ const files = new Map<string, string>()
 const store = new Map<string, unknown>()
 // The environment beyond HOME, for a test to set.
 const env = new Map<string, string>()
+// The time, for a test to move on.
+const clock = { now: 1_000 }
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
@@ -32,11 +34,12 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   files.clear()
   store.clear()
   env.clear()
+  clock.now = 1_000
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
   on('tool.register', () => ({ value: undefined }))
-  on('clock.now', () => ({ value: 1_000 }))
+  on('clock.now', () => ({ value: clock.now }))
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
   on('ui.open', () => ({ value: { isPlaced: true } }))
@@ -462,13 +465,20 @@ test('a bulk button shows only when more than one item can take it', async ($, o
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'One?', lean: 'yes' }, { list: 'Q', text: 'No lean here?' }] })
 
+  clock.now += 10_000
   const one = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await one.find({ key: 'bulk-Q' })).toBeUndefined()
   await one.unmount()
 
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Two?', lean: 'no' }] })
+  // Just added: not counted for a few seconds, so there's still only one to answer.
+  const fresh = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await fresh.find({ key: 'bulk-Q' })).toBeUndefined()
+  await fresh.unmount()
+
+  clock.now += 10_000
   const two = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await two.find({ key: 'bulk-Q' })).toBeDefined()
+  expect((await two.find({ key: 'bulk-Q' }))?.props.label).toBe('Accept all leans (2)')
   await two.unmount()
 })
 
@@ -528,6 +538,7 @@ test('a bulk button answers only the items on screen, not the ones past the cap'
   // Items added this turn always show; a new prompt starts a turn, so the cap applies.
   await $.prompt.submit({ text: 'next' })
   submitted.length = 0
+  clock.now += 10_000
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'bulk-Q' })

@@ -31,6 +31,9 @@ import type { Language, Strings } from './i18n'
 const TOOL = 'mcp__docket__update'
 const PANE = 'docket'
 const CLOSED_KEPT = 200
+// How long an item Claude just added or changed stays out of a bulk button's answer, so one that lands
+// under the person's finger isn't swept up with the rest.
+const BULK_SETTLE_MS = 5_000
 
 type Dollar = EngineInterface
 type Kit = Pick<Elements['terminal'], 'Box' | 'Button' | 'Text' | 'Link'>
@@ -314,13 +317,22 @@ const draw = async (
 
   // What a list's bulk button would answer: open items not already sent, and for questions only
   // those with a lean to accept.
-  const bulkable = (list: readonly Item[], letter: Letter) =>
-    list.filter(item => item.list === letter && isOpen(item) && !item.answered && (letter !== 'Q' || item.lean))
+  // Never the mod's own items, and never one changed in the last few seconds.
+  const bulkable = (list: readonly Item[], letter: Letter, at: number) =>
+    list.filter(
+      item =>
+        item.list === letter &&
+        isOpen(item) &&
+        !item.answered &&
+        !item.action &&
+        (letter !== 'Q' || item.lean) &&
+        at - (item.changedAt ?? 0) >= BULK_SETTLE_MS,
+    )
 
   // A bulk button answers only the items on screen: never the ones hidden past the cap.
   const accept = (send: keyof Strings['send'], letter: Letter, shown: readonly Item[]) => async () => {
     const onScreen = new Set(shown.map(item => item.id))
-    const ids = bulkable(await read($, items), letter)
+    const ids = bulkable(await read($, items), letter, await $.clock.now())
       .filter(item => onScreen.has(item.id))
       .map(item => item.id)
     if (ids.length) {
@@ -521,8 +533,13 @@ const draw = async (
               // About 2em past the heading and 1em between buttons: a cell is near 0.6em.
               <Box flexDirection="row" marginLeft={3} columnGap={2}>
                 {/* A bulk button only where there's more than one thing for it to answer. */}
-                {list.bulk && bulkable(shown, list.letter).length > 1 ? (
-                  <Button key={`bulk-${list.letter}`} label={text.bulk[list.letter as 'Q' | 'C' | 'R']} onPress={accept(list.bulk, list.letter, shown)} />
+                {/* It says how many it answers, so a new arrival changes what's pressed visibly. */}
+                {list.bulk && bulkable(shown, list.letter, now).length > 1 ? (
+                  <Button
+                    key={`bulk-${list.letter}`}
+                    label={`${text.bulk[list.letter as 'Q' | 'C' | 'R']} (${bulkable(shown, list.letter, now).length})`}
+                    onPress={accept(list.bulk, list.letter, shown)}
+                  />
                 ) : null}
                 <Button key={`x-${list.letter}`} plain dimColor onPress={dismissList(list.letter)}>
                   <Text size="caption">✕</Text>
@@ -1181,6 +1198,7 @@ export const register: Register = on => {
           text: spec.text,
           addedTurn: at,
           changedTurn: at,
+          changedAt: now,
         })
       }
 
@@ -1205,7 +1223,7 @@ export const register: Register = on => {
         }
         known.add(item.id)
         // A change is Claude's answer to the reply, so the row takes its buttons back.
-        let out: Item = change ? { ...withoutAnswer(item), ...change, changedTurn: at } : item
+        let out: Item = change ? { ...withoutAnswer(item), ...change, changedTurn: at, changedAt: now } : item
         if (isUnasked !== undefined && isOpen(out)) {
           out = { ...out, closed: { at: now, isUnasked }, changedTurn: at }
           isUnaskedClose ||= isUnasked
@@ -1220,6 +1238,10 @@ export const register: Register = on => {
       return [...next.filter(item => !dropped.has(item)), ...added]
     })
 
+    // Redraw once the new and changed items are settled enough for the bulk buttons to count them.
+    if (added.length || changes.size) {
+      $.clock.after(BULK_SETTLE_MS + 200, () => $.ui.invalidate('ui.render'))
+    }
     if (isUnaskedClose) {
       // Redraw once the struck-through items have outstayed their linger.
       $.clock.after(settings.lingerMs + 1000, () => $.ui.invalidate('ui.render'))
