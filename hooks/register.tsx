@@ -1,5 +1,5 @@
 import { atom, read, update } from 'claude-code'
-import type { Elements, EngineInterface, Register } from 'claude-code'
+import type { Elements, EngineInterface, Register, RenderSurface } from 'claude-code'
 
 import type { Counts, Item, Letter, Stakes } from '../types'
 import {
@@ -24,6 +24,7 @@ import type { ConfigFile } from './config'
 import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, localeOf, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
+import { appDirOf, exeDirsOf, exeIn, launchOf, scriptDirsOf, scriptIn } from './editor'
 import { DIVIDER, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
@@ -362,16 +363,51 @@ const draw = async (
   const itemColor = (isLingering: boolean, isDim: boolean) =>
     isLingering ? { dimColor: true } : { color: isDim ? settings.itemDimColor : settings.itemColor }
 
-  // An item's own line: label, emoji, stakes, text.
-  const line = (item: Item, isLingering: boolean, isDim: boolean) => (
+  // The pane's text can't be selected, so an item's label copies it: label, text and any lean, the way
+  // the person would quote it. A toast says it took.
+  const copyItem = (item: Item) => async () => {
+    const quoted = [`${label(item)}. ${item.text}`, item.lean ? `${text.lean}: ${item.lean}` : ''].filter(Boolean).join('\n')
+    const { isCopied } = await $.ui.copy({ text: quoted, surface: surface as RenderSurface })
+    if (isCopied) await $.ui.toast(`📋 ${label(item)}`)
+  }
+
+  // An item's own line: label, emoji, stakes, text. The label is a button that copies the item; a
+  // struck-through item's is plain, as it's on its way out.
+  const line = (item: Item, isLingering: boolean, isDim: boolean) => {
     // Struck through while lingering, and once sent: the answer is out, the item is on its way.
-    <Text {...itemColor(isLingering, isDim)} strikethrough={isLingering || item.answered !== undefined}>
-      <Text bold>{label(item)}.</Text>
-      {marker(item)}
-      {stakesTag(item)} {linkify(item.text)}
-      {item.addedTurn === at && !isLingering ? ` ${text.new}` : ''}
-    </Text>
-  )
+    const style = { ...itemColor(isLingering, isDim), strikethrough: isLingering || item.answered !== undefined }
+    const rest = (
+      <Text {...style}>
+        {marker(item)}
+        {stakesTag(item)} {linkify(item.text)}
+        {item.addedTurn === at && !isLingering ? ` ${text.new}` : ''}
+      </Text>
+    )
+    if (isLingering) {
+      return (
+        <Text {...style}>
+          <Text bold>{label(item)}.</Text>
+          {marker(item)}
+          {stakesTag(item)} {linkify(item.text)}
+        </Text>
+      )
+    }
+
+    return (
+      <Box flexDirection="row" alignItems="flex-start">
+        <Box flexShrink={0}>
+          <Button key={`copy-${item.id}`} plain onPress={copyItem(item)}>
+            <Text bold {...style}>
+              {label(item)}.
+            </Text>
+          </Button>
+        </Box>
+        <Box flexShrink={1} minWidth={0}>
+          {rest}
+        </Box>
+      </Box>
+    )
+  }
 
   // A ✔ and ✗ pair, side by side when the text beside them fits on one line, stacked when it wraps.
   // `reserve` is the cells other controls take on the same line.
@@ -623,10 +659,32 @@ const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> 
   return loaded
 }
 
-// Opens a file in VS Code, reusing its window, or else in the system's default app for it. Windows
-// needs cmd for both, since code is a .cmd script there and start is a shell command.
+// Opens a file in the editor hosting the session, reusing its window; else VS Code by PATH, else the
+// system's default app for it.
 const openFile = async ($: Dollar, path: string) => {
   const isWindows = (await $.env.get('OS')) === 'Windows_NT'
+  // First, the editor hosting the session, by where it's installed rather than by PATH.
+  const appDir = appDirOf(await $.env.get('VSCODE_NLS_CONFIG'))
+  const namesIn = async (dir: string) => {
+    try {
+      return (await $.fs.list(dir)).filter(entry => entry.kind === 'file').map(entry => entry.name)
+    } catch {
+      return []
+    }
+  }
+  if (appDir) {
+    for (const dir of isWindows ? exeDirsOf(appDir) : scriptDirsOf(appDir)) {
+      const names = await namesIn(dir)
+      const found = isWindows ? exeIn(names) : scriptIn(names)
+      if (!found) continue
+      const { argv, env } = isWindows ? launchOf(`${dir}/${found}`, appDir, path) : { argv: [`${dir}/${found}`, '-r', path], env: {} }
+      try {
+        if ((await $.process.run(argv, { env })).exitCode === 0) return
+      } catch {
+        // That one wouldn't start; try the next way.
+      }
+    }
+  }
   // cmd reparses what it runs, so a path with &, ^, % or quotes skips VS Code for the system's own opener.
   const isPlain = /^[\w:\\/. ()-]+$/.test(path)
   const tries = isWindows

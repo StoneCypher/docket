@@ -26,6 +26,10 @@ const store = new Map<string, unknown>()
 const env = new Map<string, string>()
 // The time, for a test to move on.
 const clock = { now: 1_000 }
+// Folders a test fills, beyond the plugin's own locales: an editor's install, say.
+const folders = new Map<string, string[]>()
+// What the mod put on the clipboard.
+const copied: string[] = []
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
@@ -34,6 +38,8 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   files.clear()
   store.clear()
   env.clear()
+  folders.clear()
+  copied.length = 0
   clock.now = 1_000
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
@@ -43,6 +49,12 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
   on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('ui.copy', (_, e) => {
+    copied.push(String((e as { text: string }).text))
+
+    return { value: { isCopied: true } }
+  })
+  on('ui.toast', () => ({ value: undefined }))
   on('env.get', (_, e) => {
     const { name } = e as { name: string }
 
@@ -50,6 +62,8 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   })
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
   on('fs.list', (_, e) => {
+    const listed = folders.get(plain((e as { path: string }).path))
+    if (listed) return { value: listed.map(name => ({ name, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }
     const folder = /\/(dialects|voices)$/.exec(plain((e as { path: string }).path))?.[1]
     const names = Object.keys(locales)
       .filter(key => (folder ? key.startsWith(`${folder}/`) : !key.includes('/')))
@@ -998,4 +1012,39 @@ test("auto follows VS Code's display language when Claude Code names none", asyn
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await ui.find({ type: 'Text', text: /^Fragen$/ })).toBeDefined()
   await ui.unmount()
+})
+
+test('the 👁️ opens a file in the editor hosting the session, not whatever answers to code', async ($, on) => {
+  const ran: { argv: string[]; env?: Record<string, string> }[] = []
+  standIns(on)
+  on('process.run', (_, e) => {
+    const { argv, init } = e as { argv: string[]; init?: { env?: Record<string, string> } }
+    ran.push({ argv: [...argv], env: init?.env })
+
+    return { value: { exitCode: 0, stdout: '', stderr: '' } }
+  })
+  env.set('OS', 'Windows_NT')
+  env.set('VSCODE_NLS_CONFIG', JSON.stringify({ defaultMessagesFile: String.raw`C:\VS Code\6d62\resources\app\out\nls.messages.json` }))
+  folders.set('/VS Code/6d62', ['LICENSE', 'ffmpeg.dll'])
+  folders.set('/VS Code', ['unins000.exe', 'Code.exe', 'new_Code.exe'])
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at it', open: String.raw`C:\site\index.php` }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'open-V1' })
+  await ui.unmount()
+  expect(ran.length).toBe(1)
+  expect(ran[0]?.argv).toEqual(['C:/VS Code/Code.exe', 'C:/VS Code/6d62/resources/app/out/cli.js', '-r', String.raw`C:\site\index.php`])
+  expect(ran[0]?.env).toEqual({ ELECTRON_RUN_AS_NODE: '1' })
+})
+
+test("an item's label copies the item, as text can't be selected in the pane", async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'copy-Q1' })
+  await ui.unmount()
+  expect(copied).toEqual(['Q1. Ship it on Friday?\nLean: yes, after the tests pass'])
 })

@@ -1,6 +1,6 @@
 {
   "name": "docket",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Keeps Claude's open questions, confirmations and hand-offs in numbered lists in a pane beside the chat, answerable by label or by button",
   "author": {
     "name": "StoneCypher",
