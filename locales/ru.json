@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Запросы",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Нужно ваше участие",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Смотреть",
+  "Verify": {
+    "text": "Стоит проверить",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Глубокий разбор",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Принять все предложения",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Включён ли по умолчанию переключатель «Глубокий разбор»: перед концом хода Claude ещё раз просматривает его, выискивая решения, принятые за вас, и вопросы, оставленные открытыми",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Отображение",

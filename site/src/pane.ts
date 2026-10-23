@@ -116,7 +116,7 @@ export const figures = {
         ],
       },
       {
-        name: 'View',
+        name: 'Verify',
         counter: '↑1',
         items: [
           {

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Anmodninger",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Kræver dig",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Gennemse",
+  "Verify": {
+    "text": "Efterprøv",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Grundigt tjek",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Accepter alle forslag",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Om kontakten »Grundigt tjek« starter slået til: før en tur slutter, går Claude turen igennem én gang til for at finde beslutninger, der er truffet på dine vegne, og løse ender",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Visning",

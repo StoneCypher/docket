@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "tlhob",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "SoH poQ",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "bej",
+  "Verify": {
+    "text": "chov",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "nuDchu'",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Hoch qeS yIlaj",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "nuDchu' SeHwI' chu'lu''a' wa'DIch: poH rInpa' Claude, poH nuDqa' wa'logh; SoHvaD wuqbogh ghu'mey 'ej rInbe'bogh ghu'mey nej",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "cha'",

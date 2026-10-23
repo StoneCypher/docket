@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Demann",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Bezwen ou",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Gade",
+  "Verify": {
+    "text": "Verifye",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Revizyon apwofondi",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aksepte tout pwopozisyon yo",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Si bouton “Revizyon apwofondi” a limen depi nan kòmansman: anvan yon tou fini, Claude repase l yon fwa pou l chèche desizyon li pran pou ou ak bagay li kite san rezoud",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Afichaj",

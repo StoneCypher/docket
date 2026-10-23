@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Үтенестәр",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Эш һиндә",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Ҡарау",
+  "Verify": {
+    "text": "Тикшереү",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Ентекле тикшереү",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Бөтә тәҡдимдәрҙе ҡабул итергә",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "«Ентекле тикшереү» ҡабыҙғысы башта ҡабыҙылғанмы: йөрөш тамамланғанға тиклем Claude уны бер тапҡыр ҡабат ҡарап сыға, һинең өсөн ҡабул иткән ҡарарҙарҙы һәм асыҡ ҡалдырған мәсьәләләрҙе эҙләй",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Күрһәтеү",

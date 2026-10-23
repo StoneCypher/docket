@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Beiðnir",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Þarfnast þín",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Að skoða",
+  "Verify": {
+    "text": "Að prófa",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Ítarleg yfirferð",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Samþykkja allar tillögur",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Hvort rofinn „Ítarleg yfirferð“ er á í byrjun: áður en umferð lýkur fer Claude einu sinni aftur yfir hana og leitar að ákvörðunum sem teknar voru fyrir þig og lausum endum",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Birting",

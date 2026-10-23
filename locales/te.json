@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "అభ్యర్థనలు",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "మీరు కావాలి",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "చూడండి",
+  "Verify": {
+    "text": "చెక్ చేయండి",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "లోతైన సమీక్ష",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "అన్ని సూచనలను అంగీకరించు",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“లోతైన సమీక్ష” స్విచ్ మొదట్లోనే ఆన్‌లో ఉండాలా: టర్న్ ముగిసే ముందు, మీ తరఫున తీసుకున్న నిర్ణయాలు, అసంపూర్తిగా వదిలిన విషయాల కోసం Claude దాన్ని ఒకసారి మళ్లీ పరిశీలిస్తుంది",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ప్రదర్శన",

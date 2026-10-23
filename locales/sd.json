@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "درخواستون",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "اوهان جي ضرورت",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ڏسو",
+  "Verify": {
+    "text": "ڏسي پرکيو",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "گهري جاچ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "سڀ تجويزون قبول ڪريو",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "ڇا «گهري جاچ» سوئچ شروع ۾ چالو هجي: واري ختم ٿيڻ کان اڳ Claude ان کي هڪ ڀيرو ٻيهر ڏسي ٿو ته جيئن اوهان جي طرفان ڪيل فيصلا ۽ اڌورا ڇڏيل معاملا ڳولي سگهي",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ڏيک",

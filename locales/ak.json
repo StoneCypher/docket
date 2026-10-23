@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Abisadeɛ",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Ɛhia wo",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Hwɛ",
+  "Verify": {
+    "text": "Hwɛ mu",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Hwehwɛ mu yie",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Gye nyansahyɛ nyinaa",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Sɛ switch “Hwehwɛ mu yie” no bɛfiri ase a ɛwɔ so: ansa na turn bi aba awieeɛ no, Claude san hwɛ mu prɛko pɛ hwehwɛ gyinaeɛ a ɔsii maa wo ne nsɛm a ɔgyaeɛ a ɛda so bue",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Sɛnea ɛda adi",

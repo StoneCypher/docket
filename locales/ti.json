@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "ጠለባት",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "ናትካ ተራ",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ርአ",
+  "Verify": {
+    "text": "ፈትሽ",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ዕሙቕ ምርመራ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ኩሉ ምኽሪ ተቐበል",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "«ዕሙቕ ምርመራ» መወልዒ ካብ መጀመርታ ዝተወለዐ ይኹን ኣይኹን፦ ዙር ቅድሚ ምውዳኡ፡ Claude ኣብ ክንዳኻ ዝወሰኖ ውሳነታትን ክፉታት ዝገደፎም ጉዳያትን ንምርካብ ሓደ ግዜ ደጊሙ ይርእዮ",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ምርኢት",

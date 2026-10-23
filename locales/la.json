@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Petita",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Te requirit",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vide",
+  "Verify": {
+    "text": "Verifica",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Recognitio diligens",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Omnia consilia accipe",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Utrum commutator «Recognitio diligens» initio accensus sit: ante finem vicis Claude eam semel retractat, quaerens consilia pro te capta et quaestiones apertas relictas",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Species",

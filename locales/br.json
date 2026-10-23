@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Rekedennoù",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Ezhomm ac'hanout",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Taol-lagad",
+  "Verify": {
+    "text": "Amprouiñ",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Adwel don",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Asantiñ an holl ginnigoù",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ma vez enaouet ar bouton “Adwel don” en deroù: a-raok fin un dro e tistro Claude warni ur wech evit klask an divizoù en deus kemeret evidout hag an traoù en deus lezet digor",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Diskwel",

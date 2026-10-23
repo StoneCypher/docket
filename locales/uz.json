@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ruxsat soʻrovlari",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Navbat sizda",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Qarab chiqish",
+  "Verify": {
+    "text": "Qarab tekshiring",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Chuqur tekshiruv",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Barcha takliflarni qabul qilish",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“Chuqur tekshiruv” kaliti boshidan yoqilgan boʻlsinmi: navbat tugashidan oldin Claude uni yana bir bor koʻrib chiqadi va siz uchun qabul qilgan qarorlarini hamda ochiq qoldirgan masalalarini qidiradi",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Koʻrinish",

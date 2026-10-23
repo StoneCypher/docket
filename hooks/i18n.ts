@@ -64,7 +64,7 @@ export const EN: Strings = {
     Q: { name: 'Questions', letter: 'Q' },
     C: { name: 'Confirm', letter: 'C' },
     N: { name: 'Needs you', letter: 'N' },
-    V: { name: 'View', letter: 'V' },
+    V: { name: 'Verify', letter: 'V' },
     U: { name: 'Underway', letter: 'U' },
     L: { name: 'Later', letter: 'L' },
     W: { name: 'Waiting', letter: 'W' },
@@ -209,7 +209,7 @@ export const synced = (file: unknown) => {
 }
 
 // How Claude writes the docket's items, if a file or the config says: a voice for everything, and
-// one per list. A file names lists by their English names ("View") or letters ("V"); later files
+// one per list. A file names lists by their English names ("Verify") or letters ("V"); later files
 // win, list by list.
 export type Voice = { all: string; lists: Partial<Record<Letter, string>> }
 

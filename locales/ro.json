@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Cereri",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Necesită acțiunea ta",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vezi",
+  "Verify": {
+    "text": "Verifică",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Verificare atentă",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Acceptă toate propunerile",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Dacă comutatorul „Verificare atentă” pornește activat: înainte să se încheie o tură, Claude o reia o dată, căutând decizii luate în locul tău și chestiuni rămase deschise",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Afișare",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "请求",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "需要你",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "查看",
+  "Verify": {
+    "text": "检查",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "深度复查",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "全部采纳建议",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“深度复查”开关是否默认开启：每轮结束前，Claude 会回头再检查一遍，找出替你做的决定和留下的未尽事项",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "显示方式",

@@ -28,7 +28,7 @@ In the pane, the most important list comes first:
 | Q | Questions | Decisions only you can make. Each has a lean: the answer Claude would pick. |
 | C | Confirm | Claude checking that it read you right, or making sure you know something risky is coming. |
 | N | Needs you | Things only you can do: consoles, accounts, hardware. |
-| V | View | Things for you to look at or check. |
+| V | Verify | Things for you to check: that a change works, reads right or looks right. |
 | U | Underway | Claude's work in progress. |
 | L | Later | Claude's work that's decided but not started, in order. |
 | W | Waiting | Things stalled on something other than you. |
@@ -47,7 +47,7 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 ## Settings
 
-Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in View. Edit the file directly, or use ⚙ at the bottom of the pane:
+Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in Verify. Edit the file directly, or use ⚙ at the bottom of the pane:
 
 - `language`: `auto` (the default) follows Claude Code's language setting, then VS Code's display language, then the terminal's locale; or a language code with a file in `locales/`, such as `es`, `ja` or `de`
 - `turnReview`: whether the **Deep dive** switch, at the pane's bottom left, starts each session on (it does by default); the switch decides from then on. With it on, before each turn ends, Claude goes back over it once for decisions it made on your behalf and threads it left open, and adds them to the docket. It costs one short extra pass per turn.
@@ -80,7 +80,7 @@ Every language docket recognizes already has a file, so helping means editing on
 
 A language can also end in a dialect, as BCP 47 tags end in a variant (`en-US-something`): a file in `locales/dialects/` with its own `"name"` and `"tag"`, laying its words over English and listed below the real Englishes in the picker. docket ships none; the novelty lives in voices.
 
-**Voices** are their own setting, in any language: a character Claude writes the docket's items as. The casts live in `locales/voices/` (Star Trek, Samurai Jack, Yinzer, Hackerman), each a `"voice"` for every item and `"voices"` per list by English name, and each may bring its own ✔ and ✗, as text or a picture: Star Trek has Uhura on View, Chekov on Underway and Sulu on Questions, with 👉 and 🤦; Samurai Jack has Aku gloating over Waiting, with a katana and Aku. Pick one in ⚙, or write a character into the config's `"voice"`, such as `"drunk Optimus Prime"`. When the language or voice changes, Claude rewrites the open items to match.
+**Voices** are their own setting, in any language: a character Claude writes the docket's items as. The casts live in `locales/voices/` (Star Trek, Samurai Jack, Yinzer, Hackerman), each a `"voice"` for every item and `"voices"` per list by English name, and each may bring its own ✔ and ✗, as text or a picture: Star Trek has Uhura on Verify, Chekov on Underway and Sulu on Questions, with 👉 and 🤦; Samurai Jack has Aku gloating over Waiting, with a katana and Aku. Pick one in ⚙, or write a character into the config's `"voice"`, such as `"drunk Optimus Prime"`. When the language or voice changes, Claude rewrites the open items to match.
 
 When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run locales` brings every file in line: new strings arrive blank, and strings English no longer says are dropped. `npm test` checks that each file is in line, keeps every placeholder, is no readier than its strings, and gives each list its own letter.
 

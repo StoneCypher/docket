@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "याचनाः",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "त्वदपेक्षितम्",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "अवलोकनम्",
+  "Verify": {
+    "text": "निरीक्षणम्",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "गहनपरीक्षा",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "सर्वान् प्रस्तावान् स्वीकुरु",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“गहनपरीक्षा” नियन्त्रकम् आरम्भे सक्रियं भवेत् वा न वा: पर्यायस्य समाप्तेः पूर्वं Claude तं एकवारं पुनः पश्यति, त्वदर्थं कृतान् निर्णयान् अनिर्णीतान् विषयान् च अन्विष्यति",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "प्रदर्शनम्",

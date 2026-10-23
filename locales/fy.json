@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Oanfragen",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Hat jo nedich",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Sjen",
+  "Verify": {
+    "text": "Kontrolearje",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Grûndige kontrôle",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Alle foarstellen akseptearje",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Oft de skeakelder ‘Grûndige kontrôle’ by it begjin oan stiet: foardat in beurt einiget, giet Claude dy ien kear nochris troch op syk nei besluten dy't foar jo nommen binne en dingen dy't iepen bleaun binne",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Werjefte",

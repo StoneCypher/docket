@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Izin diminta",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Butuh Anda",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Lihat",
+  "Verify": {
+    "text": "Cek",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Tinjauan mendalam",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Terima semua usulan",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Apakah sakelar “Tinjauan mendalam” menyala sejak awal: sebelum giliran berakhir, Claude meninjaunya sekali lagi untuk mencari keputusan yang diambilnya atas nama Anda dan hal-hal yang dibiarkannya terbuka",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Tampilan",

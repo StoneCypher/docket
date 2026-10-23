@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "ඉල්ලීම්",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "ඔබේ අවධානය",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "බලන්න",
+  "Verify": {
+    "text": "බලා පරීක්ෂා කරන්න",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ගැඹුරු සමාලෝචනය",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "සියලු යෝජනා පිළිගන්න",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“ගැඹුරු සමාලෝචනය” ස්විචය ආරම්භයේදීම සක්‍රිය විය යුතුද යන්න: වාරයක් අවසන් වීමට පෙර, Claude ඔබ වෙනුවෙන් ගත් තීරණ සහ විවෘතව තැබූ කරුණු සොයමින් එය එක් වරක් නැවත පරීක්ෂා කරයි",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "සංදර්ශනය",

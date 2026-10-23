@@ -822,8 +822,9 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
     void view.onSave('language', isChoosing(choices) ? `${code}-${defaultVariant(code, choices)}` : code)
   }
 
+  // One line, wrapping only where the pane is too narrow for all three.
   return (
-    <Box flexDirection="column" rowGap={1}>
+    <Box flexDirection="row" flexWrap="wrap" columnGap={1} rowGap={1}>
       <Select
         key="language-group"
         value={open}
@@ -879,6 +880,38 @@ const voicePicker = (Select: FieldKit['Select'], view: SettingsView, value: unkn
   )
 }
 
+// A text field, saved on Enter or its 💾: the engine's own submit button, which the surface always draws.
+const savedField = ({ Input }: FieldKit, view: SettingsView, key: string, value: unknown, isNumber: boolean) => (
+  <Input key={key} value={String(value)} submitLabel="💾" onSubmit={typed => view.onSave(key, isNumber ? Number(typed) : typed)} />
+)
+
+// Every list's cap in one table: its title right-aligned in a column as wide as the longest, then its
+// field with its 💾. Markdown tables hold only text, so it's laid out in Boxes.
+const capsTable = (kit: FieldKit, view: SettingsView, text: Strings) => {
+  const { Box, Text } = kit
+  const rows = LISTS.map(list => ({
+    key: list.capKey,
+    title: fieldWords(text, list.capKey, '', '')[0],
+    value: view.values[list.capKey] ?? FIELDS[list.capKey]?.default ?? 7,
+  }))
+  const width = Math.max(...rows.map(row => [...row.title].length)) + 1
+
+  return (
+    <Box key="row-caps" flexDirection="column" marginBottom={1} rowGap={0}>
+      {rows.map(row => (
+        <Box key={`cap-${row.key}`} flexDirection="row" flexWrap="nowrap" alignItems="center" columnGap={1}>
+          <Box width={width} flexShrink={0} justifyContent="flex-end">
+            <Text bold>{row.title}</Text>
+          </Box>
+          <Box flexGrow={1} flexShrink={1} minWidth={0}>
+            {savedField(kit, view, row.key, row.value, true)}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  )
+}
+
 // The ⚙ view: every setting, edited straight into the config file it names.
 // A field's title and description in the user's language; a list's cap names its list.
 const fieldWords = (text: Strings, key: string, title: string, description: string): [string, string] => {
@@ -916,6 +949,11 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
       ) : null}
     </Box>
     {Object.entries(FIELDS).map(([key, field]) => {
+      // The caps go in one table, where the first of them stands; the rest are in it.
+      const capKeys = LISTS.map(list => list.capKey)
+      if (capKeys.includes(key)) {
+        return key === capKeys.find(each => each in FIELDS) ? capsTable({ Box, Button, Text, Input, Select }, view, text) : null
+      }
       const value = view.values[key] ?? field.default
       const control =
         field.kind === 'boolean' ? (
@@ -927,7 +965,7 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
         ) : field.kind === 'choice' && field.options ? (
           <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
         ) : (
-          <Input key={key} value={String(value)} submitLabel="save" onSubmit={text => view.onSave(key, field.kind === 'number' ? Number(text) : text)} />
+          savedField({ Box, Button, Text, Input, Select }, view, key, value, field.kind === 'number')
         )
 
       const [title, description] = fieldWords(text, key, field.title, field.description)

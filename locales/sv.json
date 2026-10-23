@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Begäranden",
     "ready": "ai translated"
@@ -17,7 +17,7 @@
     "text": "Din tur",
     "ready": "ai translated"
   },
-  "View": {
+  "Verify": {
     "text": "Granska",
     "ready": "ai translated"
   },
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Grundlig genomgång",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Godta alla förslag",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Om brytaren ”Grundlig genomgång” är på från start: innan en tur tar slut går Claude igenom den en gång till och letar efter beslut som fattats åt dig och lösa trådar",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Visning",

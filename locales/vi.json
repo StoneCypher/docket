@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Yêu cầu",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Bạn cần xử lý",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Nên xem",
+  "Verify": {
+    "text": "Kiểm tra",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Rà soát kỹ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Chấp nhận mọi đề xuất",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Công tắc “Rà soát kỹ” có bật sẵn hay không: trước khi kết thúc một lượt, Claude xem lại lượt đó một lần để tìm những quyết định đã đưa ra thay bạn và những việc còn bỏ ngỏ",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Hiển thị",

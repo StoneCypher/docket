@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Kole",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Ho fatongia",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vakai",
+  "Verify": {
+    "text": "Siviʻi",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Vakai fakalelei",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Tali kotoa e ngaahi fokotuʻu",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Pe ʻe kamata ʻo ulo ʻa e kī “Vakai fakalelei”: ki muʻa pea ngata ha taimi, ʻoku toe vakai ʻa Claude ki ai ʻo tuʻo taha ke kumi ʻa e ngaahi fili naʻá ne fai maʻau mo e ngaahi meʻa naʻá ne tuku ke kei ava",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Fakahaaʻi",

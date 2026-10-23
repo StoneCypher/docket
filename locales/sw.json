@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ruhusa",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Unahitajika",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Angalia",
+  "Verify": {
+    "text": "Hakiki",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Ukaguzi wa kina",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Kubali mapendekezo yote",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Kama swichi ya “Ukaguzi wa kina” huanza ikiwa imewashwa: kabla zamu haijaisha, Claude huipitia tena mara moja kutafuta maamuzi aliyokufanyia na mambo aliyoyaacha wazi",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Mwonekano",

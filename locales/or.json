@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "ଅନୁରୋଧ",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "ଆପଣଙ୍କ ଦରକାର",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ଦେଖନ୍ତୁ",
+  "Verify": {
+    "text": "ଯାଞ୍ଚ କରନ୍ତୁ",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ଗଭୀର ସମୀକ୍ଷା",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ସମସ୍ତ ପ୍ରସ୍ତାବ ଗ୍ରହଣ କରନ୍ତୁ",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“ଗଭୀର ସମୀକ୍ଷା” ସୁଇଚ୍ ଆରମ୍ଭରୁ ଚାଲୁ ରହିବ କି ନାହିଁ: ପାଳି ଶେଷ ହେବା ପୂର୍ବରୁ Claude ତାହାକୁ ଥରେ ପୁଣି ଦେଖେ, ଆପଣଙ୍କ ତରଫରୁ ନେଇଥିବା ନିଷ୍ପତ୍ତି ଓ ଅଧୁରା ଛାଡିଥିବା ବିଷୟ ଖୋଜେ",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ପ୍ରଦର୍ଶନ",

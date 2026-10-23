@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Kopo",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "O a hlokahala",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Sheba",
+  "Verify": {
+    "text": "Leka",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Tlhahlobo e tebileng",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Amohela ditlhahiso tsohle",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Hore na konopo ya “Tlhahlobo e tebileng” e qala e butswe: pele nako e fela, Claude o e hlahloba hape hang ho batla diqeto tseo a di entseng sebakeng sa hao le ditaba tseo a di siileng di butswe",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Pontsho",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Menta idin",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Butuh anjeun",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Tingali",
+  "Verify": {
+    "text": "Cék",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Pariksa jero",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Tampi sadaya usulan",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Naha saklar “Pariksa jero” hurung ti mimiti: saméméh giliran réngsé, Claude mariksa deui sakali pikeun milari putusan anu dicandak pikeun anjeun sareng hal-hal anu ditinggalkeun kénéh kabuka",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Tampilan",

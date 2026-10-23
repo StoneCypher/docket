@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Mañakuykuna",
     "ready": "ai translated"
@@ -17,7 +17,7 @@
     "text": "Qamta munan",
     "ready": "ai translated"
   },
-  "View": {
+  "Verify": {
     "text": "Rikuy",
     "ready": "ai translated"
   },
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Allin qhaway",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Llapan yuyaychaykunata chaskiy",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "«Allin qhaway» kichanaqa qallariypi kichasqachu: muyu manaraq tukukuchkaptin, Claudeqa huk kutita kutipayan, qampa rantiykipi akllasqanta, kichasqa saqisqanta ima maskaspa",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Rikuchiy",

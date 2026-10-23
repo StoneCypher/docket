@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "თხოვნები",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "საჭიროებს თქვენ",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ნახვა",
+  "Verify": {
+    "text": "შესამოწმებელი",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "სიღრმისეული შემოწმება",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ყველა შეთავაზების მიღება",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "ჩართულია თუ არა თავიდან გადამრთველი „სიღრმისეული შემოწმება“: სვლის დასრულებამდე Claude კიდევ ერთხელ გადახედავს მას და ეძებს თქვენ ნაცვლად მიღებულ გადაწყვეტილებებს და ღიად დატოვებულ საკითხებს",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ჩვენება",

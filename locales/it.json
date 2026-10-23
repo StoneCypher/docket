@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Richieste",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Tocca a te",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vedi",
+  "Verify": {
+    "text": "Verifica",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Revisione a fondo",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Accetta tutte le proposte",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Se l'interruttore «Revisione a fondo» parte attivo: prima che un turno finisca, Claude lo ripercorre una volta per cercare decisioni prese al posto tuo e questioni lasciate in sospeso",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Visualizzazione",

@@ -3,7 +3,7 @@
 import type { PluginOptions } from 'claude-code'
 
 // Raise this whenever FIELDS changes, and say what changed in MIGRATIONS.
-export const CONFIG_VERSION = 4
+export const CONFIG_VERSION = 5
 
 export type FieldKind = 'number' | 'boolean' | 'choice' | 'text'
 export type Field = { kind: FieldKind; title: string; description: string; default: string | number | boolean; options?: string[] }
@@ -17,7 +17,7 @@ export const FIELDS: Record<string, Field> = {
   waitingCap: { kind: 'number', title: "Waiting cap", description: "Items shown in waiting before \"+N more\"", default: 7 },
   laterCap: { kind: 'number', title: "Later cap", description: "Items shown in Later before \"+N more\"", default: 7 },
   underwayCap: { kind: 'number', title: "Underway cap", description: "Items shown in underway before \"+N more\"", default: 7 },
-  viewCap: { kind: 'number', title: "View cap", description: "Items shown in view before \"+N more\"", default: 7 },
+  verifyCap: { kind: 'number', title: "Verify cap", description: "Items shown in Verify before \"+N more\"", default: 7 },
   needsYouCap: { kind: 'number', title: "Needs you cap", description: "Items shown in needs you before \"+N more\"", default: 7 },
   confirmCap: { kind: 'number', title: "Confirm cap", description: "Items shown in confirm before \"+N more\"", default: 7 },
   questionsCap: { kind: 'number', title: "Questions cap", description: "Items shown in questions before \"+N more\"", default: 7 },
@@ -46,6 +46,7 @@ export const MIGRATIONS: Record<number, string> = {
   2: 'adds language',
   3: 'adds voice',
   4: 'adds turnReview',
+  5: 'renames viewCap to verifyCap',
 }
 
 export type ConfigFile = { version: number } & Record<string, string | number | boolean>
@@ -59,6 +60,9 @@ export const defaults = (): ConfigFile => {
   return config
 }
 
+// Keys a version renamed, old name to new: a migration carries the value across and drops the old key.
+export const RENAMES: Record<string, string> = { viewCap: 'verifyCap' }
+
 export type Migration = { config: ConfigFile; from: number; added: string[]; isChanged: boolean }
 
 // Brings a config read from disk up to date: every missing key gets its default, unknown keys are
@@ -68,15 +72,22 @@ export const migrate = (raw: unknown, isPartial = false): Migration => {
   const found = raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {}
   const from = typeof found.version === 'number' ? found.version : 0
   const config: ConfigFile = { ...(found as ConfigFile), version: Math.max(from, CONFIG_VERSION) }
+  let isRenamed = false
+  for (const [old, now] of Object.entries(RENAMES)) {
+    if (!(old in config)) continue
+    if (!(now in config)) config[now] = config[old] as string | number | boolean
+    delete config[old]
+    isRenamed = true
+  }
   const added: string[] = []
   for (const [key, field] of Object.entries(FIELDS)) {
-    if (!(key in found) && !isPartial) {
+    if (!(key in config) && !isPartial) {
       config[key] = field.default
       added.push(key)
     }
   }
 
-  return { config, from, added, isChanged: added.length > 0 || from < CONFIG_VERSION }
+  return { config, from, added, isChanged: added.length > 0 || isRenamed || from < CONFIG_VERSION }
 }
 
 // The settings in force: the project's keys over the user's, both over the defaults.

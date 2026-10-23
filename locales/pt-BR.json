@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Solicitações",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Depende de você",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Ver",
+  "Verify": {
+    "text": "Verificar",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Pente-fino",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aceitar todas as sugestões",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Se a chave “Pente-fino” começa ligada: antes de um turno terminar, o Claude revisa o turno mais uma vez, procurando decisões que tomou por você e pontas soltas que deixou",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Exibição",

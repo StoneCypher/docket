@@ -249,7 +249,7 @@ describe('labels', () => {
 
 describe('voices', () => {
   test('come from files, later ones winning list by list, by English name or letter', () => {
-    const voice = voiceOf({ voice: 'a pirate', voices: { View: 'Uhura', Q: 'Sulu', Bogus: 'x' } }, { voices: { View: 'Kirk' } })
+    const voice = voiceOf({ voice: 'a pirate', voices: { Verify: 'Uhura', Q: 'Sulu', Bogus: 'x' } }, { voices: { Verify: 'Kirk' } })
     assert.deepEqual(voice, { all: 'a pirate', lists: { V: 'Kirk', Q: 'Sulu' } })
   })
 

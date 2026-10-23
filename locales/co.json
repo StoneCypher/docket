@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Richieste",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Tocca à tè",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vede",
+  "Verify": {
+    "text": "Verificà",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Rivista à fondu",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Accettà tutte e pruposte",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "S'è l'interruttore «Rivista à fondu» principia accesu: nanzu chì un turnu finisca, Claude u ripassa una volta per truvà e decisioni ch'ellu hà pigliatu per tè è e quistioni ch'ellu hà lasciatu aperte",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Affissera",

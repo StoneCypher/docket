@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "خواستەکان",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "کاری تۆ",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "بینین",
+  "Verify": {
+    "text": "تاقیکردنەوە",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "پشکنینی ورد",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "هەموو پێشنیارەکان قبوڵ بکە",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "ئایا کلیلی «پشکنینی ورد» لە سەرەتاوە هەڵکراوە: پێش کۆتایی هاتنی نۆرەیەک، Claude جارێک پێیدا دەچێتەوە بۆ ئەو بڕیارانەی لە جیاتی تۆ داونی و ئەو بابەتانەی بە کراوەیی جێی هێشتوون",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "پیشاندان",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Āpono",
     "ready": "ai translated"
@@ -17,7 +17,7 @@
     "text": "Pono ʻoe",
     "ready": "ai translated"
   },
-  "View": {
+  "Verify": {
     "text": "E nānā",
     "ready": "ai translated"
   },
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Nānā pono",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ʻAe i nā manaʻo a pau",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Inā e hoʻā ʻia ke kī ʻo “Nānā pono” i ka hoʻomaka: ma mua o ka pau ʻana o kahi huli, nānā hou ʻo Claude iā ia i hoʻokahi manawa no nā hoʻoholo āna i hana ai nou a me nā mea āna i waiho hāmama ai",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Hōʻike",

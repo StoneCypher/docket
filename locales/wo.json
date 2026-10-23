@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ñaan yi",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Sa yoon",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Xool",
+  "Verify": {
+    "text": "Xoolal",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Saytu bu xóot",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Nangu ndigle yépp",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ndax butoŋ “Saytu bu xóot” dafay tàmbalee taal: balaa yoon wi di jeex, Claude dafay delloo ci kanam benn yoon ngir wut ndogal yi mu jël ci sa wàll ak mbir yi mu bàyyi ñu ubbeeku",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Wone",

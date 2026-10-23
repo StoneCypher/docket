@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "درخواست‌ها",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "نیاز به شما",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "مشاهده",
+  "Verify": {
+    "text": "وارسی",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "بازبینی دقیق",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "پذیرفتن همهٔ پیشنهادها",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "اینکه کلید «بازبینی دقیق» از ابتدا روشن باشد یا نه: پیش از پایان هر نوبت، Claude یک بار آن را مرور می‌کند تا تصمیم‌هایی را که به جای شما گرفته و موضوع‌هایی را که باز گذاشته پیدا کند",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "نمایش",

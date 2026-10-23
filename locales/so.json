@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Codsiyo",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Laguu baahan yahay",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Eeg",
+  "Verify": {
+    "text": "Eeg oo hubi",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Hubin qoto dheer",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aqbal dhammaan talooyinka",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "In furaha “Hubin qoto dheer” uu shidan yahay bilowga: ka hor inta uusan wareeg dhammaan, Claude mar kale ayuu dib u eegaa si uu u helo go'aamadii uu kuu gaadhay iyo arrimihii uu furan ka tagay",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Muuqaalka",

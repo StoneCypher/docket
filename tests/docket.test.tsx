@@ -306,6 +306,11 @@ test('the ⚙ opens the settings view, and a field saves to the config file', as
   expect(await findText(ui, /^Docket 📋 version 9\.9\.9, built [A-Z][a-z]{2} \d{1,2} \d{4}$/)).toBeDefined()
   await ui.input({ key: 'leanColor', text: '#aaaaaa' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#aaaaaa')
+  // The caps are one table: a row each, its title then its field.
+  expect(await ui.find({ key: 'cap-questionsCap' })).toBeDefined()
+  expect(await findText(ui, /^Questions cap$/)).toBeDefined()
+  await ui.input({ key: 'questionsCap', text: '4' })
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').questionsCap).toBe(4)
   await ui.press({ key: 'done' })
   await ui.unmount()
 })
@@ -738,7 +743,7 @@ test('a dialect set by hand in the config lays its words over the language', asy
       Questions: { text: 'Whaddaya think', ready: 'ai translated' },
       Confirm: { text: 'Yinz sure?', ready: 'ai translated' },
       'Needs you': { text: 'Needs yinz', ready: 'ai translated' },
-      View: { text: 'Lookit', ready: 'ai translated' },
+      Verify: { text: 'Lookit', ready: 'ai translated' },
       Underway: { text: 'On it', ready: 'ai translated' },
       Later: { text: 'Dahn the road', ready: 'ai translated' },
       Waiting: { text: 'Stuck in the tunnel', ready: 'ai translated' },
@@ -856,7 +861,7 @@ test('a language tag can end in a dialect, as en-US-startrek', async ($, on) => 
       Questions: { text: 'Orders, Captain?', ready: 'ai translated' },
       Confirm: { text: 'Confirm, Number One', ready: 'ai translated' },
       'Needs you': { text: 'Bridge to Captain', ready: 'ai translated' },
-      View: { text: 'Viewscreen', ready: 'ai translated' },
+      Verify: { text: 'Viewscreen', ready: 'ai translated' },
       Underway: { text: 'At warp', ready: 'ai translated' },
       Later: { text: 'Log for later', ready: 'ai translated' },
       Waiting: { text: 'Holding position', ready: 'ai translated' },

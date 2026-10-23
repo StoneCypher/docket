@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "درخواستیں",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "آپ کی باری",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ملاحظہ",
+  "Verify": {
+    "text": "معائنہ",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "گہرا جائزہ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "تمام تجاویز قبول کریں",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "کیا «گہرا جائزہ» سوئچ شروع سے آن ہو: باری ختم ہونے سے پہلے Claude اسے ایک بار پھر دیکھتا ہے تاکہ آپ کی جگہ کیے گئے فیصلے اور ادھوری چھوڑی گئی باتیں ڈھونڈ سکے",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ڈسپلے",

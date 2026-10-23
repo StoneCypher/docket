@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Αιτήματα",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Χρειάζεται εσένα",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Προβολή",
+  "Verify": {
+    "text": "Προς έλεγχο",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Διεξοδικός έλεγχος",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Αποδοχή όλων των προτάσεων",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Αν ο διακόπτης «Διεξοδικός έλεγχος» ξεκινά ενεργός: πριν τελειώσει ένας γύρος, ο Claude τον ξανακοιτάζει μία φορά για αποφάσεις που πήρε για λογαριασμό σου και εκκρεμότητες που άφησε ανοιχτές",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Εμφάνιση",

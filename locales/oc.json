@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Demandas",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Per tu",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Veire",
+  "Verify": {
+    "text": "Verificar",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Revision prigonda",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Acceptar totas las proposicions",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Se l'interruptor «Revision prigonda» comença activat: abans que s'acabe un torn, Claude lo repassa un còp per trobar las decisions que prenguèt per tu e las questions que daissèt dobèrtas",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Afichatge",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Zahteve",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Na tebi",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Ogled",
+  "Verify": {
+    "text": "Oglej in preveri",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Temeljit pregled",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Sprejmi vse predloge",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ali je stikalo »Temeljit pregled« na začetku vklopljeno: preden se krog konča, ga Claude še enkrat pregleda in išče odločitve, ki jih je sprejel namesto tebe, in vprašanja, ki jih je pustil odprta",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Prikaz",

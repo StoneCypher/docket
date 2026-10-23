@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Aanvragen",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Jouw beurt",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Ter inzage",
+  "Verify": {
+    "text": "Controleren",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Grondige check",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Alle voorstellen accepteren",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Of de schakelaar ‘Grondige check’ standaard aan staat: voordat een beurt eindigt, loopt Claude die nog één keer na op beslissingen die voor jou zijn genomen en losse eindjes",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Weergave",

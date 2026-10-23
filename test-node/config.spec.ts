@@ -69,3 +69,23 @@ describe('a project file', () => {
     assert.equal(merged({ ...defaults(), language: 'es' }, migration.config).display, 'band')
   })
 })
+
+describe('a renamed key', () => {
+  test('carries its value to the new name and drops the old', () => {
+    const migration = migrate({ version: 4, viewCap: 3 })
+    assert.equal(migration.config.verifyCap, 3)
+    assert.ok(!('viewCap' in migration.config))
+    assert.ok(migration.isChanged)
+    assert.ok(!migration.added.includes('verifyCap'))
+  })
+
+  test('leaves a new name already set alone', () => {
+    const migration = migrate({ version: 4, viewCap: 3, verifyCap: 9 })
+    assert.equal(migration.config.verifyCap, 9)
+    assert.ok(!('viewCap' in migration.config))
+  })
+
+  test('renames in a project file too, without filling it in', () => {
+    assert.deepEqual(migrate({ version: 4, viewCap: 2 }, true).config, { version: CONFIG_VERSION, verifyCap: 2 })
+  })
+})

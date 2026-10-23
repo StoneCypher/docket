@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "요청",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "조치 필요",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "보기",
+  "Verify": {
+    "text": "검증",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "심층 검토",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "모든 제안 수락",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "‘심층 검토’ 스위치를 켠 상태로 시작할지 여부: 턴이 끝나기 전에 Claude가 그 턴을 한 번 더 살펴보며 사용자 대신 내린 결정과 남겨 둔 미결 사항을 찾습니다",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "표시 방식",

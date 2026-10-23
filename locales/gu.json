@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "વિનંતીઓ",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "તમારી જરૂર",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "જુઓ",
+  "Verify": {
+    "text": "જાતે ચકાસો",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ઊંડી સમીક્ષા",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "બધાં સૂચનો સ્વીકારો",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“ઊંડી સમીક્ષા” સ્વિચ શરૂઆતમાં ચાલુ રહે કે નહીં: ટર્ન પૂરો થાય તે પહેલાં, Claude તમારા વતી લીધેલા નિર્ણયો અને અધૂરી છોડેલી બાબતો શોધવા તેને એક વાર ફરી તપાસે છે",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "દેખાવ",

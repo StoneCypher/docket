@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Kopo",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Go tlhoka wena",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Leba",
+  "Verify": {
+    "text": "Leka",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Tlhatlhobo ka botlalo",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Amogela ditshitshinyo tsotlhe",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Gore a konopo ya “Tlhatlhobo ka botlalo” e simolola e tshubilwe: pele nako e fela, Claude o e sekaseka gape ga ngwe go batla ditshwetso tse a di dirileng mo boemong jwa gago le dikgang tse a di tlogetseng di bulegile",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Ponagalo",

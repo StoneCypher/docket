@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "غوښتنې",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "ستاسو ته اړتیا",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "کتنه",
+  "Verify": {
+    "text": "کره کتنه",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ژوره کتنه",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ټول وړاندیزونه ومنئ",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "آیا د «ژوره کتنه» سویچ له پیله روښانه وي: مخکې له دې چې وار پای ته ورسېږي، Claude یو ځل بیا ورته ګوري ترڅو هغه پرېکړې چې ستاسو پر ځای یې کړې او هغه خبرې چې پرانیستې یې پرېښې ومومي",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ښودنه",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Sol·licituds",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Necessita la teva acció",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Veure",
+  "Verify": {
+    "text": "Revisar",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Revisió a fons",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Accepta totes les propostes",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Si l'interruptor «Revisió a fons» comença activat: abans que acabi un torn, Claude el repassa una vegada per trobar decisions que ha pres per tu i qüestions que ha deixat obertes",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Visualització",

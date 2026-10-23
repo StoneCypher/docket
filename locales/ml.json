@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "അഭ്യർത്ഥനകൾ",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "നിങ്ങളുടെ ശ്രദ്ധയ്ക്ക്",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "കാണുക",
+  "Verify": {
+    "text": "ഉറപ്പാക്കുക",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ആഴത്തിലുള്ള പരിശോധന",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "എല്ലാ നിർദ്ദേശങ്ങളും സ്വീകരിക്കുക",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“ആഴത്തിലുള്ള പരിശോധന” സ്വിച്ച് തുടക്കത്തിൽ ഓൺ ആയിരിക്കണോ: ഒരു ടേൺ അവസാനിക്കുന്നതിന് മുമ്പ്, നിങ്ങൾക്കുവേണ്ടി എടുത്ത തീരുമാനങ്ങളും തീർക്കാതെ വിട്ട കാര്യങ്ങളും കണ്ടെത്താൻ Claude അത് ഒരിക്കൽ കൂടി പരിശോധിക്കുന്നു",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "പ്രദർശനം",

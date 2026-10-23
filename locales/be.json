@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Запыты",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Чакае цябе",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Глядзець",
+  "Verify": {
+    "text": "Да праверкі",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Глыбокая праверка",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Прыняць усе прапановы",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ці ўключаны на старце выключальнік «Глыбокая праверка»: перад канцом ходу Claude яшчэ раз пераглядае яго, шукаючы рашэнні, прынятыя за цябе, і пытанні, пакінутыя адкрытымі",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Адлюстраванне",

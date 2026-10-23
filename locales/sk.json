@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Žiadosti",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Tvoj ťah",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Zobraziť",
+  "Verify": {
+    "text": "Skontrolovať",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Dôkladná kontrola",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Prijať všetky návrhy",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Či je vypínač „Dôkladná kontrola“ na začiatku zapnutý: pred koncom kola ho Claude ešte raz prejde a hľadá rozhodnutia, ktoré urobil za teba, a otázky, ktoré nechal otvorené",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Zobrazenie",

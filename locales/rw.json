@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Gusaba",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Ukenewe",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Reba",
+  "Verify": {
+    "text": "Suzuma",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Isuzuma ryimbitse",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Emera inama zose",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Niba “Isuzuma ryimbitse” ritangira ryatse: mbere y'uko icyiciro kirangira, Claude agisubiramo rimwe ashaka ibyemezo yafashe mu izina ryawe n'ibibazo yasize bidakemuwe",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Kugaragaza",

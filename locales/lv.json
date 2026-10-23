@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Lūgumi",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Nepieciešama rīcība",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Skatīt",
+  "Verify": {
+    "text": "Izmēģināt",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Rūpīga pārskatīšana",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Pieņemt visus ieteikumus",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Vai slēdzis “Rūpīga pārskatīšana” sākumā ir ieslēgts: pirms gājiena beigām Claude vēlreiz to pārskata, meklējot lēmumus, kas pieņemti tavā vietā, un atstātus vaļējus jautājumus",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Attēlojums",

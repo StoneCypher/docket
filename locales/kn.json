@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "ಮನವಿಗಳು",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "ನಿಮ್ಮ ಗಮನ ಬೇಕು",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "ವೀಕ್ಷಿಸಿ",
+  "Verify": {
+    "text": "ತಪಾಸಣೆಗೆ",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "ಆಳವಾದ ಪರಿಶೀಲನೆ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ಎಲ್ಲಾ ಶಿಫಾರಸುಗಳನ್ನು ಒಪ್ಪಿ",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“ಆಳವಾದ ಪರಿಶೀಲನೆ” ಸ್ವಿಚ್ ಆರಂಭದಲ್ಲೇ ಆನ್ ಆಗಿರಬೇಕೇ: ಸರದಿ ಮುಗಿಯುವ ಮುನ್ನ Claude ಅದನ್ನು ಒಮ್ಮೆ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ, ನಿಮ್ಮ ಪರವಾಗಿ ತೆಗೆದುಕೊಂಡ ನಿರ್ಧಾರಗಳು ಮತ್ತು ಬಾಕಿ ಬಿಟ್ಟ ವಿಷಯಗಳನ್ನು ಹುಡುಕುತ್ತದೆ",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ಪ್ರದರ್ಶನ",

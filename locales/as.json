@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "অনুৰোধ",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "আপোনাৰ পাল",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "চাওক",
+  "Verify": {
+    "text": "যাচাই কৰক",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "গভীৰ পৰীক্ষা",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "সকলো পৰামৰ্শ গ্ৰহণ কৰক",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "“গভীৰ পৰীক্ষা” চুইচটো অন অৱস্থাত আৰম্ভ হ'ব নে নহয়: পাল শেষ হোৱাৰ আগতে Claude-এ আপোনাৰ হৈ লোৱা সিদ্ধান্ত আৰু খোলা ৰৈ যোৱা বিষয়বোৰ বিচাৰি এবাৰ পুনৰ চায়",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "প্ৰদৰ্শন",

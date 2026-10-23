@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ezicelwayo",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Ufuneka",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Jonga",
+  "Verify": {
+    "text": "Hlola",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Uphononongo olunzulu",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Yamkela zonke iziphakamiso",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ingaba iswitshi ethi “Uphononongo olunzulu” iqala ivuliwe: phambi kokuba ijika liphele, u-Claude ulijonga kwakhona kanye ukuze afumane izigqibo azenzileyo egameni lakho kunye nemiba ayishiye ivulekile",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Umboniso",

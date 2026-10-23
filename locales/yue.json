@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "請求",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "要你處理",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "睇吓",
+  "Verify": {
+    "text": "檢查",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "仔細覆查",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "全部接受建議",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "「仔細覆查」開關一開始係咪開咗：每輪完結之前，Claude 會由頭再睇一次，搵出佢幫你做咗嘅決定同埋未搞掂嘅嘢",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "顯示方式",

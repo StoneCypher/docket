@@ -22,7 +22,7 @@ export const LISTS: readonly ListDef[] = [
   { letter: 'W', name: 'Waiting', emoji: '⏳', isRanked: false, capKey: 'waitingCap' },
   { letter: 'L', name: 'Later', emoji: '📥', isRanked: false, capKey: 'laterCap' },
   { letter: 'U', name: 'Underway', emoji: '🔨', isRanked: false, capKey: 'underwayCap' },
-  { letter: 'V', name: 'View', emoji: '👀', isRanked: true, capKey: 'viewCap' },
+  { letter: 'V', name: 'Verify', emoji: '👀', isRanked: true, capKey: 'verifyCap' },
   { letter: 'N', name: 'Needs you', emoji: '🙋', isRanked: true, capKey: 'needsYouCap' },
   {
     letter: 'C',
@@ -366,7 +366,7 @@ Lists, from least to most important:
 - ${named('W')} waiting: stalled on something other than the user; informational.
 - ${named('L')} later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to ${L('U')}. Its 🏗️ button (▶ in the terminal) sends ${say('start', `${L('L')}3`)}: the user wants that one started now, ahead of the order, so start it and move it to ${L('U')}.
 - ${named('U')} underway: only your own work in progress, never the user's.
-- ${named('V')} view: things for the user to look at or check.
+- ${named('V')} verify: things for the user to look at and confirm: that a change works, reads right or looks right.
 - ${named('N')} needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
 - ${named('C')} confirm: when you are unsure you read the user right, or something risky is about to happen and you want them certain of it. State your reading, so a bare "yes" settles it. ${say('confirm', `${L('C')}3`)} (its ✔ button) settles it; ${say('notConfirm', `${L('C')}3`)} (its ✗ button) means your reading was wrong or the risky step should not go ahead: hold off, and ask what they meant.
 - ${named('Q')} questions: decisions only the user can make. Always give a lean: the answer you would pick. When the question offers up to three choices, pass their labels as options: one to three buttons, each label a single letter or a single emoji, whichever reads best ("a", "b", "c" or "🌐", "📄"), and write each label in the text beside the choice it picks. Their buttons replace ✔ and ✗ and send ${say('pick', `${L('Q')}4`, { option: 'b' })}, meaning the user picked (b).

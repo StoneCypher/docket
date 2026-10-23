@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Anfragen",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Dein Zug",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Sichten",
+  "Verify": {
+    "text": "Prüfen",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Gründliche Prüfung",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Alle Vorschläge annehmen",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ob der Schalter „Gründliche Prüfung“ anfangs an ist: Bevor ein Zug endet, geht Claude ihn noch einmal durch und sucht nach Entscheidungen, die für dich getroffen wurden, und nach losen Enden",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Anzeige",

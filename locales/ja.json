@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "依頼",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "要対応",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "閲覧",
+  "Verify": {
+    "text": "検証",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "念入り見直し",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "推奨をすべて採用",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "「念入り見直し」スイッチを最初からオンにするかどうか：ターンを終える前に、Claude がそのターンを一度見直し、あなたの代わりに決めたことややり残したことを探します",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "表示方法",

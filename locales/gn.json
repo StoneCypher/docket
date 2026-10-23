@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Jerure",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Nde rehegua",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Hecha",
+  "Verify": {
+    "text": "Ehecha",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Jesareko porã",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Emoneĩ opaite ñeikuave'ẽ",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Oñepyrũvo piko hendy «Jesareko porã» botõ: turno opa mboyve, Claude ohechajey peteĩ jey, ohekávo umi mba'e odesidiva'ekue nde rérape ha umi mba'e ohejava'ekue ipe'apyre",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Jehechauka",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ufroen",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Du bass drun",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Kucken",
+  "Verify": {
+    "text": "Préiwen",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Grëndlech Kontroll",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "All Virschléi unhuelen",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Ob de Schalter „Grëndlech Kontroll“ am Ufank un ass: ier en Tour op en Enn geet, geet Claude en nach eng Kéier duerch a sicht no Decisiounen, déi fir dech geholl goufen, an no oppene Punkten",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Usiicht",

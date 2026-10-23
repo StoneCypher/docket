@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Ceisiadau",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Angen chi",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Gweld",
+  "Verify": {
+    "text": "Gwirio",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Adolygiad trylwyr",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Derbyn pob awgrym",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "A yw'r switsh ‘Adolygiad trylwyr’ ymlaen i ddechrau: cyn i dro ddod i ben, mae Claude yn mynd drosto unwaith eto i chwilio am benderfyniadau a wnaeth ar eich rhan a phethau a adawodd ar agor",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Arddangos",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Kadhaa",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Si barbaada",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Ilaali",
+  "Verify": {
+    "text": "Qoradhu",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Qorannoo gadi fagoo",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Yaadota hunda fudhadhu",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Furtuun “Qorannoo gadi fagoo” jalqabarratti banamee jiraachuu isaa: osoo marsaan hin xumuramin, Claude murtiiwwan siif murteesse fi dhimmoota banaa dhiise barbaaduuf yeroo tokko deebi'ee ilaala",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Agarsiisa",

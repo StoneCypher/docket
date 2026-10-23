@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "İstəklər",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Növbə sizdə",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Bax",
+  "Verify": {
+    "text": "Yoxla",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Dərin yoxlama",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Bütün təklifləri qəbul et",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "«Dərin yoxlama» açarı açıq başlasınmı: növbə bitməzdən əvvəl Claude onu bir dəfə yenidən nəzərdən keçirir, sizin adınıza verdiyi qərarları və açıq qoyduğu məsələləri axtarır",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Görünüş",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 3,
+  "version": 4,
   "Requests": {
     "text": "Giavischs",
     "ready": "ai translated"
@@ -17,8 +17,8 @@
     "text": "Basegna tai",
     "ready": "ai translated"
   },
-  "View": {
-    "text": "Vesair",
+  "Verify": {
+    "text": "Verifitgar",
     "ready": "ai translated"
   },
   "Underway": {
@@ -62,8 +62,8 @@
     "ready": "ai translated"
   },
   "Deep dive": {
-    "text": "",
-    "ready": false
+    "text": "Revisiun profunda",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Acceptar tut las propostas",
@@ -206,8 +206,8 @@
     "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
-    "text": "",
-    "ready": false
+    "text": "Sche l'interruptur «Revisiun profunda» cumenza activà: avant che in turn finescha, passa Claude anc ina giada tras el per tschertgar decisiuns ch'el ha prendì per tai e dumondas ch'el ha laschà avertas",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Preschentaziun",
