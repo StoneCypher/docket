@@ -165,6 +165,10 @@
     "text": "Mafi yawan abubuwa a kowane jeri",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "A ƙirƙiri saitunan docket a {path}, kowane saiti a yadda yake na asali? Kuna iya gyara su a can, ko da ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Wani hali da Claude ke rubuta abubuwan docket da muryarsa, a kowane harshe",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ko maɓallin “Bincike mai zurfi” zai fara a kunne: kafin zagaye ya ƙare, Claude yakan sake duba shi sau ɗaya don neman shawarwarin da ya yanke a madadinku da batutuwan da ya bari a buɗe",

@@ -165,6 +165,10 @@
     "text": "Dumber maximal d'elements per glista",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Crear la configuraziun da docket en {path}, cun mintga parameter a sia valur da standard? Ti la pos modifitgar là u cun ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "In persunagi cun la vusch dal qual Claude scriva ils elements da docket, en mintga lingua",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Sche l'interruptur «Revisiun profunda» cumenza activà: avant che in turn finescha, passa Claude anc ina giada tras el per tschertgar decisiuns ch'el ha prendì per tai e dumondas ch'el ha laschà avertas",

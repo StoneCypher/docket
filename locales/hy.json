@@ -165,6 +165,10 @@
     "text": "Տարրերի առավելագույն քանակը յուրաքանչյուր ցուցակում",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ստեղծե՞լ docket-ի կարգավորումների ֆայլը {path} հասցեում՝ բոլոր կարգավորումները լռելյայն արժեքներով։ Կարող եք այն խմբագրել այնտեղ կամ ⚙-ով։",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Կերպար, որի ձայնով Claude-ը գրում է docket-ի տարրերը, ցանկացած լեզվով",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Արդյոք «Խորը ստուգում» անջատիչը սկզբում միացված է․ նախքան քայլի ավարտը Claude-ը մեկ անգամ վերանայում է այն՝ փնտրելով ձեր փոխարեն կայացրած որոշումները և իր թողած բաց հարցերը",

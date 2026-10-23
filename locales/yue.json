@@ -165,6 +165,10 @@
     "text": "每個清單最多顯示幾多項",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "喺 {path} 建立 docket 嘅設定檔，所有設定都用預設值？之後可以喺嗰度改，或者用 ⚙ 改。",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Claude 寫 docket 啲項目時扮演嘅角色，咩語言都得",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "「仔細覆查」開關一開始係咪開咗：每輪完結之前，Claude 會由頭再睇一次，搵出佢幫你做咗嘅決定同埋未搞掂嘅嘢",

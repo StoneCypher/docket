@@ -165,6 +165,10 @@
     "text": "Колькасць элементаў у кожным спісе",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Стварыць канфігурацыю docket у {path} з усімі наладамі па змаўчанні? Яе можна рэдагаваць там або праз ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Персанаж, ад імя якога Claude піша элементы docket, на любой мове",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ці ўключаны на старце выключальнік «Глыбокая праверка»: перад канцом ходу Claude яшчэ раз пераглядае яго, шукаючы рашэнні, прынятыя за цябе, і пытанні, пакінутыя адкрытымі",

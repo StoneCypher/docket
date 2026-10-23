@@ -165,6 +165,10 @@
     "text": "ចំនួនធាតុអតិបរមាក្នុងបញ្ជីនីមួយៗ",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "បង្កើតការកំណត់រចនាសម្ព័ន្ធរបស់ docket នៅ {path} ដោយគ្រប់ការកំណត់ជាតម្លៃលំនាំដើម? អ្នកអាចកែវានៅទីនោះ ឬដោយប្រើ ⚙។",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "តួអង្គដែល Claude ប្រើសំឡេងរបស់វាដើម្បីសរសេរធាតុរបស់ docket ជាភាសាណាក៏បាន",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "ថាតើកុងតាក់ «ពិនិត្យស៊ីជម្រៅ» បើកតាំងពីដំបូងឬអត់៖ មុនពេលវេនមួយបញ្ចប់ Claude ត្រឡប់ទៅពិនិត្យវាម្តងទៀត ដើម្បីរកការសម្រេចចិត្តដែលខ្លួនបានធ្វើជំនួសអ្នក និងរឿងដែលនៅទុកចោលមិនទាន់បិទ",

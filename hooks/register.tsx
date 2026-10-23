@@ -984,6 +984,42 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
   </Box>
 )
 
+// docket's published manifest, read for the update check.
+const LATEST_MANIFEST = 'https://raw.githubusercontent.com/StoneCypher/docket/main/.claude-plugin/plugin.json'
+const UPDATE_CHECK_MS = 24 * 60 * 60 * 1000
+
+// Whether version a comes after version b, part by part.
+export const isNewer = (a: string, b: string) => {
+  const parts = (version: string) => version.split('.').map(part => Number.parseInt(part, 10) || 0)
+  const [x, y] = [parts(a), parts(b)]
+  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
+    if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) > (y[i] ?? 0)
+  }
+
+  return false
+}
+
+// Once a day at most, reads docket's manifest on GitHub; when it's newer, says so in Verify, once per
+// version. Off with updateCheck, which also stops the request.
+const checkForUpdate = async ($: Dollar, current: string, settings: Settings, text: Strings) => {
+  if (!settings.isUpdateCheck || !current) return
+  const now = await $.clock.now()
+  const checkedAt = Number(await $.store.get('updateCheckedAt'))
+  if (checkedAt && now - checkedAt < UPDATE_CHECK_MS) return
+  await $.store.set('updateCheckedAt', now)
+  let latest = ''
+  try {
+    const { ok, text: body } = await $.http.fetch(LATEST_MANIFEST)
+    const { version } = (ok ? JSON.parse(body) : {}) as { version?: unknown }
+    latest = typeof version === 'string' ? version : ''
+  } catch {
+    return
+  }
+  if (!latest || !isNewer(latest, current) || (await $.store.get('updateNoticed')) === latest) return
+  await $.store.set('updateNoticed', latest)
+  await addOwn($, [{ list: 'V', emoji: '🔔', rank: 1, text: fill(text.update, { latest, current }), action: 'update' }])
+}
+
 // The tool, described in the user's language.
 const toolSpec = (text: Strings) => ({
   name: 'update',
@@ -1306,6 +1342,8 @@ export const register: Register = on => {
     paths = await configPaths($, e.cwd)
     // Settled afresh in each process, so the tool is registered whatever the language.
     adopt(await reloadConfig($, paths))
+    // After the config, which may turn the check off.
+    void checkForUpdate($, version, settings, text)
     const loaded = files
     if (!(await read($, spokenAs))) await update($, spokenAs, () => speechOf(text, voice))
     // With no config of the user's own, offer to write one: once, and not again after a no.
@@ -1467,6 +1505,7 @@ export const register: Register = on => {
     }
 
     await update($, turn, n => n + 1)
+    void checkForUpdate($, version, settings, text)
     if (paths.user) {
       adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
     }

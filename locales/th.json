@@ -165,6 +165,10 @@
     "text": "จำนวนข้อสูงสุดในแต่ละรายการ",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "สร้างไฟล์การตั้งค่าของ docket ที่ {path} โดยให้ทุกค่าเป็นค่าเริ่มต้นไหม? คุณแก้ไขได้ที่นั่น หรือด้วย ⚙",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "ตัวละครที่ Claude ใช้น้ำเสียงเขียนรายการใน docket ได้ทุกภาษา",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "สวิตช์ “ตรวจละเอียด” เปิดไว้ตั้งแต่แรกหรือไม่: ก่อนจบแต่ละรอบ Claude จะย้อนกลับไปทบทวนรอบนั้นอีกครั้ง เพื่อหาสิ่งที่ตัดสินใจแทนคุณและเรื่องที่ยังค้างไว้",

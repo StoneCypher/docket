@@ -165,6 +165,10 @@
     "text": "ஒவ்வொரு பட்டியலிலும் அதிகபட்ச உருப்படிகள்",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ஒவ்வொரு அமைப்பும் இயல்புநிலையில் இருக்கும்படி docket-இன் அமைப்புக் கோப்பை {path}-இல் உருவாக்கவா? அதை அங்கே அல்லது ⚙ மூலம் திருத்தலாம்.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Claude docket உருப்படிகளை எழுதும் கதாபாத்திரத்தின் குரல், எந்த மொழியிலும்",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“ஆழ்ந்த மறுஆய்வு” சுவிட்ச் தொடக்கத்திலேயே இயக்கத்தில் இருக்க வேண்டுமா: ஒரு முறை முடிவதற்கு முன், உங்கள் சார்பாக எடுத்த முடிவுகளையும் முடிக்காமல் விட்ட விஷயங்களையும் தேட Claude அதை மீண்டும் ஒருமுறை பார்க்கும்",

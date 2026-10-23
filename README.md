@@ -51,6 +51,7 @@ Settings live in `~/.claude/docket/config.json`, a versioned JSON file with ever
 
 - `language`: `auto` (the default) follows Claude Code's language setting, then VS Code's display language, then the terminal's locale; or a language code with a file in `locales/`, such as `es`, `ja` or `de`
 - `turnReview`: whether the **Deep dive** switch, at the pane's bottom left, starts each session on (it does by default); the switch decides from then on. With it on, before each turn ends, Claude goes back over it once for decisions it made on your behalf and threads it left open, and adds them to the docket. It costs one short extra pass per turn.
+- `updateCheck`: on by default. Once a day docket reads its `plugin.json` on GitHub, its only outside request, and says in Verify when a newer version is out. Off stops the request too.
 - `display`: `pane` beside the chat (the default), or `band` above the prompt
 - a cap for each list (7 by default) before "+N more"
 - `itemColor`, `itemDimColor`, `leanColor`, `leanDimColor`: hex colors or theme keys

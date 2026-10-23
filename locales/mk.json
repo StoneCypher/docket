@@ -165,6 +165,10 @@
     "text": "Најмногу ставки по листа",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Да се создаде конфигурацијата на docket во {path}, со сите поставки на стандардните вредности? Можеш да ја уредуваш таму или преку ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Лик со чиј глас Claude ги пишува ставките на docket, на кој било јазик",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Дали прекинувачот „Темелна проверка“ е вклучен на почеток: пред крајот на потегот, Claude уште еднаш го прегледува и бара одлуки што ги донел наместо тебе и прашања што ги оставил отворени",

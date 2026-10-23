@@ -58,6 +58,8 @@ export type Settings = {
   display: 'pane' | 'band'
   // The once-a-turn pass for what the turn decided or left open.
   isTurnReview: boolean
+  // The once-a-day look on GitHub for a newer docket.
+  isUpdateCheck: boolean
   caps: Counts
   isEmoji: boolean
   isHeadingEmoji: boolean
@@ -128,6 +130,7 @@ export const settingsOf = (options: PluginOptions): Settings => {
   return {
     display: options.display === 'band' ? 'band' : 'pane',
     isTurnReview: options.turnReview !== false,
+    isUpdateCheck: options.updateCheck !== false,
     caps,
     isEmoji: options.emoji !== false,
     isHeadingEmoji: options.headingEmoji === true,

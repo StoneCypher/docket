@@ -49,6 +49,8 @@ export type Strings = {
     about: string
     capsHeading: string
   }
+  // Said in Verify when GitHub has a newer docket.
+  update: string
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
   translate: { machine: string; behind: string }
@@ -105,6 +107,7 @@ export const EN: Strings = {
     about: 'Docket 📋 version {version}, built {date}',
     capsHeading: 'List caps by item count',
   },
+  update: 'docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.',
   config: {
     offer: "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.",
     lookAt: 'Look at your new config: {path}. Every setting is there at its default.',
@@ -122,6 +125,7 @@ export const EN: Strings = {
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
     voice: ['Voice', "A character Claude writes the docket's items as, in any language"],
+    updateCheck: ['Update check', 'Once a day, look on GitHub for a newer docket and say so in Verify'],
     turnReview: ['Deep dive', 'Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open'],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
     emoji: ['Emoji', 'Master switch for every emoji the docket draws'],
@@ -169,7 +173,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 5
+export const STRINGS_VERSION = 6
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'

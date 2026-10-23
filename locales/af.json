@@ -165,6 +165,10 @@
     "text": "Hoeveel items elke lys wys",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Skep docket se konfigurasie by {path}, met elke instelling op sy verstekwaarde? Jy kan dit daar wysig, of met ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "'n Karakter in wie se stem Claude die docket se items skryf, in enige taal",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Of die skakelaar “Deeglike hersiening” aan begin: voordat 'n beurt eindig, gaan Claude dit een keer weer deur vir besluite wat namens jou geneem is en drade wat oopgelaat is",

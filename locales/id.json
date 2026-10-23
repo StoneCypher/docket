@@ -165,6 +165,10 @@
     "text": "Item maksimum per daftar",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Buat konfigurasi docket di {path}, dengan semua pengaturan pada nilai bawaannya? Anda bisa mengeditnya di sana, atau dengan ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Karakter yang suaranya dipakai Claude untuk menulis item docket, dalam bahasa apa pun",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Apakah sakelar “Tinjauan mendalam” menyala sejak awal: sebelum giliran berakhir, Claude meninjaunya sekali lagi untuk mencari keputusan yang diambilnya atas nama Anda dan hal-hal yang dibiarkannya terbuka",

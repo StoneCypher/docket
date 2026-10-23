@@ -165,6 +165,10 @@
     "text": "목록별 최대 항목 수",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "모든 설정을 기본값으로 둔 docket 설정 파일을 {path}에 만들까요? 거기서 직접 또는 ⚙로 편집할 수 있습니다.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Claude가 docket 항목을 쓸 때 연기하는 캐릭터(언어 무관)",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "‘심층 검토’ 스위치를 켠 상태로 시작할지 여부: 턴이 끝나기 전에 Claude가 그 턴을 한 번 더 살펴보며 사용자 대신 내린 결정과 남겨 둔 미결 사항을 찾습니다",

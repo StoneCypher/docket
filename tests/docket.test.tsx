@@ -31,6 +31,9 @@ const clock = { now: 1_000 }
 const folders = new Map<string, string[]>()
 // What the mod put on the clipboard, and the titles it opened its pane with.
 const copied: string[] = []
+// What GitHub's manifest says, for the update check, and what the mod fetched.
+const published = { version: '0.0.1' }
+const fetched: string[] = []
 const titles: string[] = []
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
@@ -51,6 +54,8 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   folders.clear()
   copied.length = 0
   titles.length = 0
+  fetched.length = 0
+  published.version = '0.0.1'
   clock.now = 1_000
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
@@ -70,6 +75,11 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
     return { value: { isCopied: true } }
   })
   on('ui.toast', () => ({ value: undefined }))
+  on('http.fetch', (_, e) => {
+    fetched.push(String((e as { url: string }).url))
+
+    return { value: { status: 200, ok: true, headers: {}, text: JSON.stringify({ version: published.version }) } }
+  })
   on('env.get', (_, e) => {
     const { name } = e as { name: string }
 
@@ -1130,4 +1140,33 @@ test('the Deep dive switch starts as the config says, and drives the review from
   expect(await findText(plain, /^☑ Deep dive$/)).toBeDefined()
   await plain.unmount()
   expect(String((await $.classic.Stop({ stop_hook_active: false }))?.block)).toContain('go back over it once')
+})
+
+test('once a day, docket looks for a newer version on GitHub and says so once in Verify', async ($, on) => {
+  standIns(on)
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  published.version = '99.0.0'
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit({ text: 'one' })
+  expect(fetched.filter(url => url.includes('plugin.json')).length).toBe(1)
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await findText(ui, /docket 99\.0\.0 is out; you have 9\.9\.9/)).toBeDefined()
+  await ui.unmount()
+
+  // A day later, the same version isn't said again.
+  clock.now += 25 * 60 * 60 * 1000
+  await $.prompt.submit({ text: 'two' })
+  expect(fetched.filter(url => url.includes('plugin.json')).length).toBe(2)
+  const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect((await again.findAll({ type: 'Markdown' })).filter(found => /is out; you have/.test(String(found.props.text))).length).toBe(1)
+  await again.unmount()
+})
+
+test('the update check asks nothing when turned off, and says nothing when up to date', async ($, on) => {
+  standIns(on)
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), updateCheck: false }))
+  published.version = '99.0.0'
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  expect(fetched.length).toBe(0)
 })

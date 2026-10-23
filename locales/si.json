@@ -165,6 +165,10 @@
     "text": "එක් එක් ලැයිස්තුවේ උපරිම අයිතම ගණන",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "සියලු සැකසුම් පෙරනිමි අගයන්ගෙන් යුතුව docket හි වින්‍යාසය {path} හි සාදන්නද? ඔබට එය එහිදී හෝ ⚙ මගින් සංස්කරණය කළ හැක.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Claude docket හි අයිතම ලියන්නේ යම් චරිතයක හඬින්ද ඒ චරිතය, ඕනෑම භාෂාවකින්",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“ගැඹුරු සමාලෝචනය” ස්විචය ආරම්භයේදීම සක්‍රිය විය යුතුද යන්න: වාරයක් අවසන් වීමට පෙර, Claude ඔබ වෙනුවෙන් ගත් තීරණ සහ විවෘතව තැබූ කරුණු සොයමින් එය එක් වරක් නැවත පරීක්ෂා කරයි",

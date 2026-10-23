@@ -30,7 +30,7 @@ export type Item = {
   // When Claude last added or changed it: a bulk button leaves it out for a few seconds after.
   changedAt?: number
   // An item the mod itself handles, rather than Claude: its buttons act locally.
-  action?: 'createConfig' | 'translate'
+  action?: 'createConfig' | 'translate' | 'update'
   // For a translate offer: the language it asks for.
   language?: string
   // A local file the item is about: it gets an Open button that opens the file in the editor.

@@ -165,6 +165,10 @@
     "text": "Največ elementov na seznam",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ustvarim konfiguracijo docketa v {path} z vsemi nastavitvami na privzetih vrednostih? Urediš jo lahko tam ali z ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Lik, s katerega glasom Claude piše elemente docketa, v katerem koli jeziku",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ali je stikalo »Temeljit pregled« na začetku vklopljeno: preden se krog konča, ga Claude še enkrat pregleda in išče odločitve, ki jih je sprejel namesto tebe, in vprašanja, ki jih je pustil odprta",

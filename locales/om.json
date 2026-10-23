@@ -165,6 +165,10 @@
     "text": "Baay'ina wantootaa olaanaa tarree tokkoo tokkoo keessatti",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Qindaa'ina docket {path} irratti, qindaa'ina hunda durtii isaa irratti, haa uumu? Achitti ykn ⚙ fayyadamuun gulaaluu dandeessa.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Amala Claude sagalee isaatiin wantoota docket barreessu, afaan kamiinuu",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Furtuun “Qorannoo gadi fagoo” jalqabarratti banamee jiraachuu isaa: osoo marsaan hin xumuramin, Claude murtiiwwan siif murteesse fi dhimmoota banaa dhiise barbaaduuf yeroo tokko deebi'ee ilaala",

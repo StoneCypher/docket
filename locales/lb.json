@@ -165,6 +165,10 @@
     "text": "Maximal Elementer pro Lëscht",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "D'Konfiguratioun vum docket an {path} uleeën, mat all Astellung op hirem Standardwäert? Du kanns se do änneren, oder mat ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "Eng Figur, mat där hirer Stëmm Claude d'Elementer vum docket schreift, an all Sprooch",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ob de Schalter „Grëndlech Kontroll“ am Ufank un ass: ier en Tour op en Enn geet, geet Claude en nach eng Kéier duerch a sicht no Decisiounen, déi fir dech geholl goufen, an no oppene Punkten",

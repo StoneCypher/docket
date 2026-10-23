@@ -165,6 +165,10 @@
     "text": "מספר פריטים מרבי בכל רשימה",
     "ready": "ai translated"
   },
+  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ליצור את קובץ ההגדרות של docket ב-{path}, עם כל ההגדרות בברירת המחדל? אפשר לערוך אותו שם, או דרך ⚙.",
     "ready": "ai translated"
@@ -208,6 +212,14 @@
   "A character Claude writes the docket's items as, in any language": {
     "text": "דמות שבקולה Claude כותב את הפריטים של ה-docket, בכל שפה",
     "ready": "ai translated"
+  },
+  "Update check": {
+    "text": "",
+    "ready": false
+  },
+  "Once a day, look on GitHub for a newer docket and say so in Verify": {
+    "text": "",
+    "ready": false
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "האם המתג ”סקירה מעמיקה” מופעל בהתחלה: לפני שתור מסתיים, Claude עובר עליו שוב פעם אחת ומחפש החלטות שקיבל בשבילך וקצוות פתוחים שהשאיר",
