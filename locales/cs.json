@@ -57,6 +57,10 @@
     "text": "V docketu nic není.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Přijmout všechny návrhy",
     "ready": "ai translated"

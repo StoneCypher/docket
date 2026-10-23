@@ -57,6 +57,10 @@
     "text": "Kò sí nǹkan kan lórí docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Gba gbogbo àbá",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "docket kol kas tuščias.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Priimti visus siūlymus",
     "ready": "ai translated"

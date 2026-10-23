@@ -57,6 +57,10 @@
     "text": "Xejn fuq id-docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aċċetta l-proposti kollha",
     "ready": "ai translated"

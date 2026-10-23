@@ -57,6 +57,10 @@
     "text": "docket లో ఏమీ లేదు.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "అన్ని సూచనలను అంగీకరించు",
     "ready": "ai translated"

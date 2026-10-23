@@ -57,6 +57,10 @@
     "text": "Docket irra homtuu hin jiru.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Yaadota hunda fudhadhu",
     "ready": "ai translated"

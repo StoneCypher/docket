@@ -57,6 +57,10 @@
     "text": "Does dim ar y docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Derbyn pob awgrym",
     "ready": "ai translated"

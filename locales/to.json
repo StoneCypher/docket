@@ -57,6 +57,10 @@
     "text": "ʻOku ʻikai ha meʻa ʻi he docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Tali kotoa e ngaahi fokotuʻu",
     "ready": "ai translated"

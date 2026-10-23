@@ -57,6 +57,10 @@
     "text": "Ndaipóri mba'eve docket-pe.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Emoneĩ opaite ñeikuave'ẽ",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "У docket-у нема ништа.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Прихвати све предлоге",
     "ready": "ai translated"

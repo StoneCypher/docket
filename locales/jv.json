@@ -57,6 +57,10 @@
     "text": "Ora ana apa-apa ing docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Tampa kabeh usulan",
     "ready": "ai translated"

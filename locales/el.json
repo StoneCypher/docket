@@ -57,6 +57,10 @@
     "text": "Δεν υπάρχει τίποτα στο docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Αποδοχή όλων των προτάσεων",
     "ready": "ai translated"

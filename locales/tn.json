@@ -57,6 +57,10 @@
     "text": "Ga go sepe mo docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Amogela ditshitshinyo tsotlhe",
     "ready": "ai translated"

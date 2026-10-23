@@ -414,7 +414,7 @@ const draw = async (
     const isStruck = isLingering || item.answered !== undefined
     const isNew = item.addedTurn === at && !isLingering
     if (Markdown && !isLingering) {
-      const words = `**[${label(item)}.](${copyHref(item)})**${marker(item)}${stakesWords(item)} ${linked(item.text)}${isNew ? ` ${text.new}` : ''}`
+      const words = `**[${label(item)}.](${copyHref(item)} "${text.copyItem.replace(/"/g, "'")}")**${marker(item)}${stakesWords(item)} ${linked(item.text)}${isNew ? ` ${text.new}` : ''}`
 
       return (
         <Markdown

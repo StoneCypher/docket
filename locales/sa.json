@@ -57,6 +57,10 @@
     "text": "docket इत्यत्र किमपि नास्ति।",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "सर्वान् प्रस्तावान् स्वीकुरु",
     "ready": "ai translated"

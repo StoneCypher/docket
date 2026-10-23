@@ -57,6 +57,10 @@
     "text": "Níl aon rud ar an docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Glac le gach moladh",
     "ready": "ai translated"

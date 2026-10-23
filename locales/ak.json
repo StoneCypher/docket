@@ -57,6 +57,10 @@
     "text": "Biribiara nni docket no so.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Gye nyansahyɛ nyinaa",
     "ready": "ai translated"

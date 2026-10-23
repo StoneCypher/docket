@@ -57,6 +57,10 @@
     "text": "docket에 아무것도 없습니다.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "모든 제안 수락",
     "ready": "ai translated"

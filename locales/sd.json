@@ -57,6 +57,10 @@
     "text": "docket تي ڪجهه به ناهي.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "سڀ تجويزون قبول ڪريو",
     "ready": "ai translated"

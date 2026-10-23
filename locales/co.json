@@ -57,6 +57,10 @@
     "text": "Ùn ci hè nunda in u docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Accettà tutte e pruposte",
     "ready": "ai translated"

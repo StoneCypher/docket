@@ -57,6 +57,10 @@
     "text": "Walay sulod ang docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Dawata tanang sugyot",
     "ready": "ai translated"

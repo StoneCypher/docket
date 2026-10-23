@@ -57,6 +57,10 @@
     "text": "Asgjë në docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Prano të gjitha propozimet",
     "ready": "ai translated"

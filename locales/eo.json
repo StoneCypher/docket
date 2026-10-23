@@ -57,6 +57,10 @@
     "text": "Nenio en la docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Akcepti ĉiujn proponojn",
     "ready": "ai translated"

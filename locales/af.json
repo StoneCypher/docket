@@ -57,6 +57,10 @@
     "text": "Niks op die docket nie.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aanvaar alle voorstelle",
     "ready": "ai translated"

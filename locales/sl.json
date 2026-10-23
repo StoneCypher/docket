@@ -57,6 +57,10 @@
     "text": "V docketu ni ničesar.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Sprejmi vse predloge",
     "ready": "ai translated"

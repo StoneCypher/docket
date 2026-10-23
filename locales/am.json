@@ -57,6 +57,10 @@
     "text": "በdocket ላይ ምንም የለም።",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ሁሉንም ምክረ ሐሳቦች ተቀበል",
     "ready": "ai translated"

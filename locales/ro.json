@@ -57,6 +57,10 @@
     "text": "Nimic în docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Acceptă toate propunerile",
     "ready": "ai translated"

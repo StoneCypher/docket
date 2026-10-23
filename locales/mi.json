@@ -57,6 +57,10 @@
     "text": "Kāore he mea i te docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Whakaae ki ngā tūtohu katoa",
     "ready": "ai translated"

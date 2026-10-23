@@ -57,6 +57,10 @@
     "text": "docket буш.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Барлык тәкъдимнәрне кабул итү",
     "ready": "ai translated"

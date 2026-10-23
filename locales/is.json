@@ -57,6 +57,10 @@
     "text": "Ekkert á docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Samþykkja allar tillögur",
     "ready": "ai translated"

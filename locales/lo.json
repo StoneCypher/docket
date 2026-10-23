@@ -57,6 +57,10 @@
     "text": "ບໍ່ມີຫຍັງໃນ docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ຮັບຂໍ້ສະເໜີທັງໝົດ",
     "ready": "ai translated"

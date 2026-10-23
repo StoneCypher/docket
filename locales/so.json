@@ -57,6 +57,10 @@
     "text": "Waxba kuma jiraan docket-ka.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aqbal dhammaan talooyinka",
     "ready": "ai translated"

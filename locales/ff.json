@@ -57,6 +57,10 @@
     "text": "Alaa hay huunde e docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Jaɓ miijooji fof",
     "ready": "ai translated"

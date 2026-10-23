@@ -57,6 +57,10 @@
     "text": "Intet på docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Accepter alle forslag",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "docket-ում ոչինչ չկա։",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Ընդունել բոլոր առաջարկները",
     "ready": "ai translated"

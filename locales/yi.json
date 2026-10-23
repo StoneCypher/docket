@@ -57,6 +57,10 @@
     "text": "גאָרנישט אויפֿן docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "אָננעמען אַלע פֿאָרשלאָגן",
     "ready": "ai translated"

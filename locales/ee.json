@@ -57,6 +57,10 @@
     "text": "Naneke meli le docket dzi o.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Xɔ aɖaŋuɖoɖowo katã",
     "ready": "ai translated"

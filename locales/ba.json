@@ -57,6 +57,10 @@
     "text": "docket-та бер нәмә лә юҡ.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Бөтә тәҡдимдәрҙе ҡабул итергә",
     "ready": "ai translated"

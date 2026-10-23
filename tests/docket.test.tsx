@@ -1068,6 +1068,8 @@ test("an item's label copies the item, as text can't be selected in the pane", a
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  // Hovering the label says what it does.
+  expect(String((await findText(ui, /Ship it on Friday/))?.props.text)).toContain('"Copy this item")')
   await ui.press({ key: 'line-Q1', link: { href: 'https://stonecypher.github.io/docket/#copy-Q1' } })
   await ui.unmount()
   expect(copied).toEqual(['Q1. Ship it on Friday?\nLean: yes, after the tests pass'])

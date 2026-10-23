@@ -57,6 +57,10 @@
     "text": "I a pas res sul docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Acceptar totas las proposicions",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "په docket کې هیڅ نشته.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ټول وړاندیزونه ومنئ",
     "ready": "ai translated"

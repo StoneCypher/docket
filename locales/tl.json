@@ -57,6 +57,10 @@
     "text": "Walang laman ang docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Tanggapin lahat ng mungkahi",
     "ready": "ai translated"

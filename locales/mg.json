@@ -57,6 +57,10 @@
     "text": "Tsy misy na inona na inona ao amin'ny docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Ekeo ny soso-kevitra rehetra",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "Nta kiri kuri docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Emera inama zose",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "אין כלום ב-docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "קבלת כל ההמלצות",
     "ready": "ai translated"

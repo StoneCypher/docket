@@ -57,6 +57,10 @@
     "text": "Neat op it docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Alle foarstellen akseptearje",
     "ready": "ai translated"

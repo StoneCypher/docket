@@ -57,6 +57,10 @@
     "text": "docket-ზე არაფერია.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ყველა შეთავაზების მიღება",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "A docketen nincs semmi.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Minden javaslat elfogadása",
     "ready": "ai translated"

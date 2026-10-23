@@ -57,6 +57,10 @@
     "text": "docket'ta hiçbir şey yok.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Tüm önerileri kabul et",
     "ready": "ai translated"

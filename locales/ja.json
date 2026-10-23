@@ -57,6 +57,10 @@
     "text": "docket には何もありません。",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "推奨をすべて採用",
     "ready": "ai translated"

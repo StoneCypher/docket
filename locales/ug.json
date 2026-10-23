@@ -57,6 +57,10 @@
     "text": "docket بوش.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "بارلىق تەۋسىيەلەرنى قوبۇل قىلىش",
     "ready": "ai translated"

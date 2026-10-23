@@ -57,6 +57,10 @@
     "text": "No hi ha res al docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Accepta totes les propostes",
     "ready": "ai translated"

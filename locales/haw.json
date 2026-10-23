@@ -57,6 +57,10 @@
     "text": "ʻAʻohe mea ma ka docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ʻAe i nā manaʻo a pau",
     "ready": "ai translated"

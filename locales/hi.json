@@ -57,6 +57,10 @@
     "text": "docket पर कुछ नहीं है।",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "सभी सुझाव मंज़ूर करें",
     "ready": "ai translated"

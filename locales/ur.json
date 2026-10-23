@@ -57,6 +57,10 @@
     "text": "docket خالی ہے۔",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "تمام تجاویز قبول کریں",
     "ready": "ai translated"

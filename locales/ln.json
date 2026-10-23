@@ -57,6 +57,10 @@
     "text": "Eloko moko te na docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Ndima matoli nyonso",
     "ready": "ai translated"

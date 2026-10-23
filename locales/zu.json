@@ -57,6 +57,10 @@
     "text": "Akukho lutho ku-docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Yamukela zonke iziphakamiso",
     "ready": "ai translated"

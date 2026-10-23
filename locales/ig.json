@@ -57,6 +57,10 @@
     "text": "Ọ dịghị ihe dị na docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Nabata ndụmọdụ niile",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "هیچ شتێک لە docket دا نییە.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "هەموو پێشنیارەکان قبوڵ بکە",
     "ready": "ai translated"

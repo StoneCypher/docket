@@ -57,6 +57,10 @@
     "text": "Nagut sin il docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Acceptar tut las propostas",
     "ready": "ai translated"

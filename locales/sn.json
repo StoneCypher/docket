@@ -57,6 +57,10 @@
     "text": "Hapana chiri pa docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Bvuma mazano ese",
     "ready": "ai translated"

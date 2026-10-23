@@ -57,6 +57,10 @@
     "text": "docket chIm.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Hoch qeS yIlaj",
     "ready": "ai translated"

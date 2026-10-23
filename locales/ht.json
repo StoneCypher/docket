@@ -57,6 +57,10 @@
     "text": "Pa gen anyen nan docket la.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aksepte tout pwopozisyon yo",
     "ready": "ai translated"

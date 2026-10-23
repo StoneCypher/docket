@@ -57,6 +57,10 @@
     "text": "Palibe kanthu pa docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Landirani malingaliro onse",
     "ready": "ai translated"

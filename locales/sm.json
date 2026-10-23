@@ -57,6 +57,10 @@
     "text": "E leai se mea i le docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Talia fautuaga uma",
     "ready": "ai translated"

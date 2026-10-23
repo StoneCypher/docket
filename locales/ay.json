@@ -57,6 +57,10 @@
     "text": "Docket ukanxa janiw kunas utjkiti.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Taqi amtawinak katuqaña",
     "ready": "ai translated"

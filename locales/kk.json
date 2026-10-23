@@ -57,6 +57,10 @@
     "text": "docket-те ештеңе жоқ.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Барлық ұсынысты қабылдау",
     "ready": "ai translated"

@@ -57,6 +57,10 @@
     "text": "ኣብ docket ዋላ ሓንቲ የለን።",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ኩሉ ምኽሪ ተቐበል",
     "ready": "ai translated"

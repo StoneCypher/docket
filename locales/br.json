@@ -57,6 +57,10 @@
     "text": "Netra war an docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Asantiñ an holl ginnigoù",
     "ready": "ai translated"

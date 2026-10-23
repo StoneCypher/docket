@@ -57,6 +57,10 @@
     "text": "Teu aya nanaon dina docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Tampi sadaya usulan",
     "ready": "ai translated"

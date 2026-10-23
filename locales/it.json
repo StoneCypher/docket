@@ -57,6 +57,10 @@
     "text": "Niente nel docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Accetta tutte le proposte",
     "ready": "ai translated"

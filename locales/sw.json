@@ -57,6 +57,10 @@
     "text": "Hakuna kitu kwenye docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Kubali mapendekezo yote",
     "ready": "ai translated"

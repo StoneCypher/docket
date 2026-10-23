@@ -57,6 +57,10 @@
     "text": "docket-ൽ ഒന്നുമില്ല.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "എല്ലാ നിർദ്ദേശങ്ങളും സ്വീകരിക്കുക",
     "ready": "ai translated"

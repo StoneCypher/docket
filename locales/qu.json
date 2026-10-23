@@ -57,6 +57,10 @@
     "text": "Docketpiqa manam imapas kanchu.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Llapan yuyaychaykunata chaskiy",
     "ready": "ai translated"

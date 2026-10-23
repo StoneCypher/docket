@@ -57,6 +57,10 @@
     "text": "E sega ni dua na ka ena docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Ciqoma na vakatutu kece",
     "ready": "ai translated"

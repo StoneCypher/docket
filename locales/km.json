@@ -57,6 +57,10 @@
     "text": "គ្មានអ្វីនៅលើ docket ទេ។",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "ទទួលយកយោបល់ទាំងអស់",
     "ready": "ai translated"

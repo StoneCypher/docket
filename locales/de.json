@@ -57,6 +57,10 @@
     "text": "Nichts auf dem Docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Alle Vorschläge annehmen",
     "ready": "ai translated"

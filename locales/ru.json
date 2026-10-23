@@ -57,6 +57,10 @@
     "text": "В docket ничего нет.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Принять все предложения",
     "ready": "ai translated"

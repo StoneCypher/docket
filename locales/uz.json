@@ -57,6 +57,10 @@
     "text": "docket boʻsh.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Barcha takliflarni qabul qilish",
     "ready": "ai translated"

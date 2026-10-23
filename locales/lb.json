@@ -57,6 +57,10 @@
     "text": "Näischt um docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "All Virschléi unhuelen",
     "ready": "ai translated"

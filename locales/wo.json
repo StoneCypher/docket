@@ -57,6 +57,10 @@
     "text": "Dara nekkul ci docket bi.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Nangu ndigle yépp",
     "ready": "ai translated"

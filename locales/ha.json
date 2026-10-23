@@ -57,6 +57,10 @@
     "text": "Babu komai a docket.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Karɓi duk shawarwari",
     "ready": "ai translated"

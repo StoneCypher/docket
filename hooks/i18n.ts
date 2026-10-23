@@ -18,6 +18,8 @@ export type Strings = {
   more: string
   fewer: string
   nothing: string
+  // Hover text on an item's label, which copies the item.
+  copyItem: string
   bulk: { Q: string; C: string; R: string }
   send: {
     acceptLean: string
@@ -71,6 +73,7 @@ export const EN: Strings = {
   more: '+{n} more',
   fewer: 'fewer',
   nothing: 'Nothing on the docket.',
+  copyItem: 'Copy this item',
   bulk: { Q: 'Accept all leans', C: 'Confirm all', R: 'Approve all' },
   send: {
     acceptLean: 'Accept the lean on {id}.',

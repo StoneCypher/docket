@@ -57,6 +57,10 @@
     "text": "docket on tühi.",
     "ready": "ai translated"
   },
+  "Copy this item": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Nõustu kõigi soovitustega",
     "ready": "ai translated"
