@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Mga hangyo",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopyaha kini nga butang",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Dawata tanang sugyot",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 bersyon {version}, gihimo {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Himoon ba ang config sa docket sa {path}, nga ang matag setting naa sa default? Mahimo nimo kining usbon didto, o pinaagi sa ⚙.",

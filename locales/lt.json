@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Užklausos",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopijuoti šį elementą",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Priimti visus siūlymus",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 versija {version}, sukurta {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Sukurti docket konfigūraciją {path} su visais numatytaisiais nustatymais? Ją galėsite redaguoti ten arba per ⚙.",

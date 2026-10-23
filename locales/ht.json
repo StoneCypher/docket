@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Demann",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopye eleman sa a",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aksepte tout pwopozisyon yo",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 vèsyon {version}, konstwi {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Kreye konfigirasyon docket la nan {path}, ak chak paramèt sou valè pa defo li? Ou ka modifye l la, oswa ak ⚙.",

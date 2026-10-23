@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "ការស្នើសុំ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ចម្លងធាតុនេះ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ទទួលយកយោបល់ទាំងអស់",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 កំណែ {version} បង្កើតនៅ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "បង្កើតការកំណត់រចនាសម្ព័ន្ធរបស់ docket នៅ {path} ដោយគ្រប់ការកំណត់ជាតម្លៃលំនាំដើម? អ្នកអាចកែវានៅទីនោះ ឬដោយប្រើ ⚙។",

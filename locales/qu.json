@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Mañakuykuna",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kay imata copiay",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Llapan yuyaychaykunata chaskiy",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 {version} version, {date} p'unchawpi ruwasqa",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketpa kamachiyninta {path}pi ruranayta munankichu, sapa allichaypas qallariy chaninpi? Chaypi utaq ⚙-wan allichanki.",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "درخواستیں",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "یہ آئٹم کاپی کریں",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "تمام تجاویز قبول کریں",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ورژن {version}، تیار کردہ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "کیا {path} پر docket کی کنفیگریشن بنائیں، ہر ترتیب اپنی ڈیفالٹ قدر پر؟ آپ اس میں وہاں یا ⚙ سے ترمیم کر سکتے ہیں۔",

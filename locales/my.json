@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "တောင်းဆိုချက်များ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ဤအရာကို မိတ္တူကူးရန်",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "အကြံပြုချက်အားလုံး လက်ခံရန်",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ဗားရှင်း {version}၊ {date} တွင် တည်ဆောက်သည်",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket ၏ config ကို {path} တွင် ဆက်တင်တိုင်း မူလတန်ဖိုးဖြင့် ဖန်တီးမလား။ ၎င်းကို ထိုနေရာတွင် သို့မဟုတ် ⚙ ဖြင့် ပြင်နိုင်သည်။",

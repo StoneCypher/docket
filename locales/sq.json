@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Kërkesa",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopjo këtë element",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Prano të gjitha propozimet",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 versioni {version}, ndërtuar më {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Të krijohet konfigurimi i docket në {path}, me çdo cilësim në vlerën e paracaktuar? Mund ta redaktosh atje, ose me ⚙.",

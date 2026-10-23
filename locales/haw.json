@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Āpono",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kope i kēia mea",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ʻAe i nā manaʻo a pau",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 mana {version}, i kūkulu ʻia i ka {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "E hana i ka hoʻonohonoho o docket ma {path}, me kēlā me kēia hoʻonohonoho ma kona kūmau? Hiki iā ʻoe ke hoʻoponopono ma laila, a i ʻole me ⚙.",

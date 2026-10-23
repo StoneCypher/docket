@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "דערלויבענישן",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "קאָפּירן די זאַך",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "אָננעמען אַלע פֿאָרשלאָגן",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ווערסיע {version}, געבויט {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "שאַפֿן די קאָנפֿיגוראַציע פֿון docket אין {path}, מיט יעדער באַשטימונג אויף איר גרונטווערט? דו קענסט זי דאָרט רעדאַקטירן, אָדער מיט ⚙.",

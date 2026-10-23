@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Αιτήματα",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Αντιγραφή αυτού του στοιχείου",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Αποδοχή όλων των προτάσεων",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 έκδοση {version}, δημιουργήθηκε {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Να δημιουργηθούν οι ρυθμίσεις του docket στο {path}, με κάθε ρύθμιση στην προεπιλογή της; Μπορείς να τις επεξεργαστείς εκεί ή με το ⚙.",

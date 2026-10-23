@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Gusaba",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Koporora iki kintu",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Emera inama zose",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 verisiyo {version}, yakozwe {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Docket ikore igenamiterere ryayo kuri {path}, buri gice kiri ku gaciro gasanzwe? Urashobora kurihindurira aho cyangwa ukoresheje ⚙.",

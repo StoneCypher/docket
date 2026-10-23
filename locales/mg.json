@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Alalana",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Adikao ity zavatra ity",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Ekeo ny soso-kevitra rehetra",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 dikan-teny {version}, natsangana tamin'ny {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Hamorona ny fandrindran'ny docket ao amin'ny {path}, ka ny sanda fototra avokoa no apetraka? Azonao ovaina any izany, na amin'ny ⚙.",

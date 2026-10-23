@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "अनुरोध",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "यो वस्तु प्रतिलिपि गर्नुहोस्",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "सबै सुझाव स्वीकार गर्नुहोस्",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 संस्करण {version}, निर्माण {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket को कन्फिग {path} मा, हरेक सेटिङ पूर्वनिर्धारितमा राखेर बनाउने? तपाईं यसलाई त्यहीँ वा ⚙ बाट सम्पादन गर्न सक्नुहुन्छ।",

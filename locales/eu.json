@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Eskaerak",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopiatu elementu hau",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Onartu proposamen guztiak",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 {version} bertsioa, {date} egunean sortua",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketen konfigurazioa sortu {path} kokalekuan, ezarpen guztiak lehenetsitako balioekin? Bertan edita dezakezu, edo ⚙ bidez.",

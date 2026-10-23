@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "অনুৰোধ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "এই বস্তুটো কপি কৰক",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "সকলো পৰামৰ্শ গ্ৰহণ কৰক",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 সংস্কৰণ {version}, নিৰ্মাণ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path}ত সকলো ছেটিং ডিফল্ট মানত ৰাখি docket-ৰ কনফিগ সৃষ্টি কৰিবনে? আপুনি তাত বা ⚙ৰে ইয়াক সম্পাদনা কৰিব পাৰিব।",

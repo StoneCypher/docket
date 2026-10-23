@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Ngā tono",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Tāruatia tēnei tūemi",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Whakaae ki ngā tūtohu katoa",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 putanga {version}, i hangaia i te {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me hanga te whirihoranga o docket ki {path}, me ngā tautuhinga katoa ki ō rātou taunoa? Ka taea e koe te whakatika i reira, mā te ⚙ rānei.",

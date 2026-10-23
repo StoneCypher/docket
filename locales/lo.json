@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "ຂໍອະນຸຍາດ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ສຳເນົາລາຍການນີ້",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ຮັບຂໍ້ສະເໜີທັງໝົດ",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ເວີຊັນ {version}, ສ້າງເມື່ອ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ສ້າງການຕັ້ງຄ່າຂອງ docket ທີ່ {path} ໂດຍໃຊ້ຄ່າເລີ່ມຕົ້ນທັງໝົດບໍ? ທ່ານສາມາດແກ້ໄຂໄດ້ທີ່ນັ້ນ ຫຼື ດ້ວຍ ⚙.",

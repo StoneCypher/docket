@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Iarratais",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Cóipeáil an mhír seo",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Glac le gach moladh",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 leagan {version}, tógtha {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "An gcruthófar cumraíocht docket ag {path}, le gach socrú ar a réamhshocrú? Is féidir leat í a chur in eagar ansin, nó le ⚙.",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Okucelwayo",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopisha le nto",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Yamukela zonke iziphakamiso",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 inguqulo {version}, yakhiwe ngo-{date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ngidale izilungiselelo ze-docket ku-{path}, zonke zisesimeni esizenzakalelayo? Ungazihlela lapho, noma nge-⚙.",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Talbiet",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Ikkopja dan l-oġġett",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aċċetta l-proposti kollha",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 verżjoni {version}, mibnija {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Noħloq il-konfigurazzjoni ta' docket f'{path}, b'kull issettjar fil-valur predefinit tiegħu? Tista' teditjaha hemm, jew b'⚙.",

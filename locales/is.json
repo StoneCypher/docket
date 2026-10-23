@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Beiðnir",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Afrita þetta atriði",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Samþykkja allar tillögur",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 útgáfa {version}, smíðuð {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Búa til stillingaskrá docket í {path}, með allar stillingar á sjálfgefnu gildi? Þú getur breytt henni þar, eða með ⚙.",

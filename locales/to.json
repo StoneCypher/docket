@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Kole",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Fai ha tatau ʻo e meʻa ko ʻeni",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Tali kotoa e ngaahi fokotuʻu",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 version {version}, naʻe langa ʻi he {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",

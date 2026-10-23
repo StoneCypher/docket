@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Haýyşlar",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Bu elementi göçür",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Ähli teklipleri kabul et",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 wersiýa {version}, ýygnalan {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-iň sazlamalaryny {path} ýerinde, ähli sazlamalar deslapky bahasynda bolar ýaly döredeýinmi? Olary şol ýerde ýa-da ⚙ bilen üýtgedip bilersiň.",

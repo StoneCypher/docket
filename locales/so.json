@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Codsiyo",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Koobi shaygan",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Aqbal dhammaan talooyinka",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 nooca {version}, la dhisay {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ma abuuraa dejinta docket ee {path}, iyadoo dejin kasta ay ku jirto qiimaheeda caadiga ah? Waxaad wax ka beddeli kartaa halkaas, ama ⚙.",

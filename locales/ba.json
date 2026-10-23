@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Үтенестәр",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Был элементты күсерергә",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Бөтә тәҡдимдәрҙе ҡабул итергә",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 версия {version}, йыйылған {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket конфигурацияһын {path} юлында, бөтә көйләүҙәрҙе ғәҙәттәге ҡиммәттә ҡалдырып, булдырайыммы? Уны шунда йәки ⚙ аша мөхәррирләй алаһың.",

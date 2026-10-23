@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "خواستەکان",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ئەم بڕگەیە کۆپی بکە",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "هەموو پێشنیارەکان قبوڵ بکە",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 وەشانی {version}، دروستکراوی {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ڕێکخستنی docket لە {path} دروست بکرێت، بە هەموو ڕێکخستنێک لە بەهای بنەڕەتیدا؟ دەتوانیت لەوێ یان بە ⚙ دەستکاری بکەیت.",

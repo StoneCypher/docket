@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "İstekler",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Bu öğeyi kopyala",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Tüm önerileri kabul et",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 sürüm {version}, derleme {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket'ın yapılandırması {path} konumunda, tüm ayarlar varsayılan değerlerinde olacak şekilde oluşturulsun mu? Orada ya da ⚙ ile düzenleyebilirsin.",

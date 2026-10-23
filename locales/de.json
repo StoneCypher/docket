@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Anfragen",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Diesen Eintrag kopieren",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Alle Vorschläge annehmen",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 Version {version}, erstellt am {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Die docket-Konfiguration unter {path} anlegen, mit allen Einstellungen auf ihrem Standardwert? Bearbeiten kannst du sie dort oder über ⚙.",

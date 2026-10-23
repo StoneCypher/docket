@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "ඉල්ලීම්",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "මෙම අයිතමය පිටපත් කරන්න",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "සියලු යෝජනා පිළිගන්න",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 අනුවාදය {version}, සාදන ලද්දේ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "සියලු සැකසුම් පෙරනිමි අගයන්ගෙන් යුතුව docket හි වින්‍යාසය {path} හි සාදන්නද? ඔබට එය එහිදී හෝ ⚙ මගින් සංස්කරණය කළ හැක.",

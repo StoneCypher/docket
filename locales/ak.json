@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Abisadeɛ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kɔpi adeɛ yi",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Gye nyansahyɛ nyinaa",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 version {version}, wɔyɛe {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yɛ docket nhyehyɛeɛ wɔ {path}, na nhyehyɛeɛ biara wɔ ne default so? Wobɛtumi asesa no wɔ hɔ, anaa ⚙ so.",

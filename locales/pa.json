@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "ਬੇਨਤੀਆਂ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ਇਹ ਆਈਟਮ ਕਾਪੀ ਕਰੋ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ਸਾਰੇ ਸੁਝਾਅ ਮੰਨੋ",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ਵਰਜਨ {version}, ਬਣਾਇਆ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} 'ਤੇ docket ਦੀ ਸੰਰਚਨਾ ਬਣਾਈਏ, ਹਰ ਸੈਟਿੰਗ ਡਿਫ਼ਾਲਟ 'ਤੇ? ਤੁਸੀਂ ਇਸਨੂੰ ਉੱਥੇ ਜਾਂ ⚙ ਨਾਲ ਸੋਧ ਸਕਦੇ ਹੋ।",

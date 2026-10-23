@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Kerekere",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopitaka na ka oqo",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Ciqoma na vakatutu kece",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 vesioni {version}, caka ena {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me buli na ituvatuva ni docket ena {path}, ka tu kece ena kena ivakarau taumada? O rawa ni veisautaka kina, se ena ⚙.",

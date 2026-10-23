@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "རེ་ཞུ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "རྣམ་གྲངས་འདི་འདྲ་བཤུས་བྱེད།",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "བསམ་འཆར་ཚང་མ་དང་ལེན་བྱེད།",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 པར་གཞི་ {version}། བཟོས་ཚེས་ {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} ལ་ docket ཡི་སྒྲིག་འགོད་གསར་བཟོ་བྱེད་དམ། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད། དེ་གར་རམ་ ⚙ བརྒྱུད་ནས་བཟོ་བཅོས་བྱེད་ཆོག",

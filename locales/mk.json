@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Барања",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Копирај ја оваа ставка",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Прифати ги сите предлози",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 верзија {version}, изградена на {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Да се создаде конфигурацијата на docket во {path}, со сите поставки на стандардните вредности? Можеш да ја уредуваш таму или преку ⚙.",

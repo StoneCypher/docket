@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "요청",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "이 항목 복사",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "모든 제안 수락",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 버전 {version}, {date} 빌드",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "모든 설정을 기본값으로 둔 docket 설정 파일을 {path}에 만들까요? 거기서 직접 또는 ⚙로 편집할 수 있습니다.",

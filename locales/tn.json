@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Kopo",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopolola selo se",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Amogela ditshitshinyo tsotlhe",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 version {version}, e agilwe {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "A ke dire dipeakanyo tsa docket kwa {path}, peakanyo nngwe le nngwe e le mo boemong jwa ntlha? O ka di fetola koo, kgotsa ka ⚙.",

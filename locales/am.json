@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "ትዕዛዞች",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ይህን ንጥል ቅዳ",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "ሁሉንም ምክረ ሐሳቦች ተቀበል",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 ስሪት {version}፣ የተገነባው {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "የdocket ውቅር በ{path} ላይ፣ ሁሉም ቅንብሮች በነባሪ እሴታቸው ይፈጠር? እዚያ ወይም በ⚙ ማርትዕ ይችላሉ።",

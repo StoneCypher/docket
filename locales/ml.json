@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "അഭ്യർത്ഥനകൾ",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "ഈ ഇനം പകർത്തുക",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "എല്ലാ നിർദ്ദേശങ്ങളും സ്വീകരിക്കുക",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 പതിപ്പ് {version}, നിർമ്മിച്ചത് {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "എല്ലാ ക്രമീകരണങ്ങളും ഡിഫോൾട്ടിൽ ആക്കി docket-ന്റെ കോൺഫിഗ് {path}-ൽ സൃഷ്ടിക്കട്ടെ? നിങ്ങൾക്ക് അത് അവിടെയോ ⚙ ഉപയോഗിച്ചോ എഡിറ്റ് ചെയ്യാം.",

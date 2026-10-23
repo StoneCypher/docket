@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "அனுமதிக்கு",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "இந்த உருப்படியை நகலெடு",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "அனைத்து பரிந்துரைகளையும் ஏற்கவும்",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 பதிப்பு {version}, உருவாக்கப்பட்டது {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ஒவ்வொரு அமைப்பும் இயல்புநிலையில் இருக்கும்படி docket-இன் அமைப்புக் கோப்பை {path}-இல் உருவாக்கவா? அதை அங்கே அல்லது ⚙ மூலம் திருத்தலாம்.",

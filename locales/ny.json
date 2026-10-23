@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Zopempha",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopera chinthu ichi",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Landirani malingaliro onse",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 mtundu {version}, wapangidwa {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mupange zokonda za docket pa {path}, chilichonse chili pa mulingo wake woyambira? Mutha kuzisintha pamenepo, kapena ndi ⚙.",

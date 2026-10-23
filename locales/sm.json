@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Talosaga",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Kopi lenei mea",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Talia fautuaga uma",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 lomiga {version}, fausia i le {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Fai le faʻatulagaga a docket i {path}, ma faʻatulagaga uma i o latou tulaga masani? E mafai ona e faʻasaʻoina iina, poʻo le ⚙.",

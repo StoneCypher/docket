@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 2,
+  "version": 3,
   "Requests": {
     "text": "Umbønir",
     "ready": "ai translated"
@@ -58,8 +58,8 @@
     "ready": "ai translated"
   },
   "Copy this item": {
-    "text": "",
-    "ready": false
+    "text": "Avrita henda lutin",
+    "ready": "ai translated"
   },
   "Accept all leans": {
     "text": "Góðtak øll uppskot",
@@ -154,8 +154,8 @@
     "ready": "ai translated"
   },
   "Docket 📋 version {version}, built {date}": {
-    "text": "",
-    "ready": false
+    "text": "Docket 📋 útgáva {version}, bygd {date}",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Stovna uppseting hjá docket á {path}, við øllum stillingum á forsetta virðinum? Tú kanst rætta hana har ella við ⚙.",
