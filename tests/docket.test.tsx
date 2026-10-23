@@ -1112,7 +1112,7 @@ test('the Deep dive switch starts as the config says, and drives the review from
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await findText(ui, /⬜ Deep dive/)).toBeDefined()
+  expect(await findText(ui, /☐ Deep dive/)).toBeDefined()
   expect((await $.classic.Stop({ stop_hook_active: false }))?.block).toBeUndefined()
 
   // A quiet link off the terminal.

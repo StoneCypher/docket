@@ -637,7 +637,7 @@ const DEEP_DIVE_HREF = 'https://stonecypher.github.io/docket/#deep-dive'
 
 const gear = async ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string, settings: Settings, text: Strings, Markdown?: MarkdownElement) => {
   const isOn = await isDeepDiving($, settings)
-  const words = `${isOn ? '✅' : '⬜'} ${text.deepDive}`
+  const words = `${isOn ? '✅' : '☐'} ${text.deepDive}`
   const flip = () => void update($, deepDive, () => !isOn)
 
   return (
