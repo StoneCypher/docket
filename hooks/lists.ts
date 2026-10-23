@@ -279,6 +279,38 @@ export const rewriteNote = (text: Strings, voice: Voice) => {
   }`
 }
 
+// The docket as it is now, told with every prompt: the system prompt is composed once a session, so a
+// language or voice chosen since never reaches it. Empty for plain English with no voice, which the
+// system prompt already says.
+export const nowNote = (text: Strings, voice: Voice) => {
+  const isEnglish = text.language === 'English'
+  const voiced = (Object.keys(voice.lists) as Letter[]).map(letter => `- ${text.lists[letter].letter} (${text.lists[letter].name}): ${voice.lists[letter]}`)
+  if (isEnglish && !voice.all && !voiced.length) {
+    return ''
+  }
+  const letters = LETTERS.map(letter => `${text.lists[letter].letter} ${text.lists[letter].name}`).join(', ')
+  const id = (letter: Letter, n: number) => `${text.lists[letter].letter}${n}`
+  const say = (key: keyof Strings['send'], values: Record<string, string>) => `"${fill(text.send[key], values)}"`
+
+  return [
+    'The docket right now, which overrides the docket instructions where they differ:',
+    isEnglish
+      ? ''
+      : `- It is in ${text.language}. Write every item's text, lean and options in ${text.language}.`,
+    `- Its lists and their letters, which label items and go in the tool's list field: ${letters}.`,
+    `- Its buttons send ${say('acceptLean', { id: id('Q', 5) })}, ${say('rejectLean', { id: id('Q', 5) })}, ${say('approve', { id: id('R', 3) })}, ${say('decline', { id: id('R', 3) })}, ${say('confirm', { id: id('C', 3) })}, ${say('notConfirm', { id: id('C', 3) })} and ${say('start', { id: id('L', 3) })}.`,
+    voice.all || voiced.length
+      ? `- Write every item, new or changed, in character${voice.all ? `, as ${voice.all}` : ''}${voiced.length ? '; in these lists, as follows:' : '.'}`
+      : '',
+    ...voiced,
+    voice.all || voiced.length
+      ? "  The voice is for the items' wording only: they still say exactly what they need to, and the labels, links and paths stay as they are."
+      : '',
+  ]
+    .filter(Boolean)
+    .join('\n')
+}
+
 export const instructions = (settings: Settings, isHeadless: boolean, text: Strings, voice: Voice = { all: '', lists: {} }) => {
   const L = (letter: Letter) => text.lists[letter].letter
   const named = (letter: Letter) => (text.language === 'English' ? L(letter) : `${L(letter)} (${text.lists[letter].name})`)

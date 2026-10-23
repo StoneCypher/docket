@@ -6,7 +6,7 @@ import { describe, test } from 'node:test'
 
 import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
 import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
-import { instructions, rewriteNote, settingsOf } from '../hooks/lists.ts'
+import { instructions, nowNote, rewriteNote, settingsOf } from '../hooks/lists.ts'
 
 const folder = new URL('../locales/', import.meta.url)
 const read = (file: string): unknown => JSON.parse(readFileSync(new URL(file, folder), 'utf8'))
@@ -236,6 +236,17 @@ describe('voices', () => {
     assert.match(text, /Write the docket's items in character, as the Enterprise crew; in these lists, as follows:\n- V: Uhura/)
     assert.match(text, /still say exactly what they need to/)
     assert.doesNotMatch(instructions(settingsOf({}), false, EN), /in character/)
+  })
+
+  test("tell Claude the docket's language, letters, buttons and voice with every prompt", () => {
+    assert.equal(nowNote(EN, { all: '', lists: {} }), '')
+    const jack = nowNote(EN, { all: 'Samurai Jack', lists: { W: 'Aku' } })
+    assert.match(jack, /in character, as Samurai Jack; in these lists, as follows:\n- W \(Waiting\): Aku/)
+    const es = nowNote(translate(read('es.json'), 'Spanish'), { all: '', lists: {} })
+    assert.match(es, /It is in Spanish/)
+    assert.match(es, /P Preguntas/)
+    assert.match(es, /"Acepto la propuesta de P5\."/)
+    assert.doesNotMatch(es, /in character/)
   })
 
   test('ask for the open items to be rewritten in a new voice, or plainly without one', () => {

@@ -11,6 +11,7 @@ import {
   isOpen,
   openCounts,
   RECONCILE,
+  nowNote,
   references,
   rewriteNote,
   settingsOf,
@@ -1170,7 +1171,7 @@ export const register: Register = on => {
     return {
       sections: [
         ...composed.sections,
-        { id: 'docket', text: instructions(settings, e.surfaces.length === 0, text, voice), scope: 'session' },
+        { id: 'docket:instructions', text: instructions(settings, e.surfaces.length === 0, text, voice), scope: 'session' },
       ],
     }
   })
@@ -1191,6 +1192,8 @@ export const register: Register = on => {
     await update($, dismissed, () => [])
 
     const context = [snapshot(all, gone, text)]
+    const now = nowNote(text, voice)
+    if (now) context.push(now)
     // Switched into a voice, out of one, or to another language: the open items follow.
     const speech = speechOf(text, voice)
     const wasSpoken = await read($, spokenAs)
