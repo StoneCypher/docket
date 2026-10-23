@@ -145,6 +145,10 @@
     "text": "Kantite eleman ki parèt nan {list} anvan \"+N ankò\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Kreye konfigirasyon docket la nan {path}, ak chak paramèt sou valè pa defo li? Ou ka modifye l la, oswa ak ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Lang mo docket la: auto swiv paramèt lang Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Afichaj",

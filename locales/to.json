@@ -145,6 +145,10 @@
     "text": "Ngaahi meʻa ʻoku fakahaaʻi ʻi he {list} kimuʻa he \"+N kehe\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Ko e lea ʻo e ngaahi foʻi lea ʻa e docket: ʻoku muimui ʻa e auto ki he fokotuʻutuʻu lea ʻa Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Fakahaaʻi",

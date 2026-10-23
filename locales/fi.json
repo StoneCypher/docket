@@ -145,6 +145,10 @@
     "text": "Montako kohdetta listassa {list} näytetään ennen tekstiä \"+N lisää\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Luodaanko docketin asetustiedosto polkuun {path}, kaikki asetukset oletusarvoissaan? Voit muokata sitä siellä tai ⚙:lla.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docketin omien tekstien kieli: auto seuraa Claude Coden kieliasetusta",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Näyttö",

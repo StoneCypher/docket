@@ -1,21 +1,7 @@
 {
   "name": "Samurai Jack English",
   "tag": "en-US-samuraijack",
-  "marks": {
-    "yes": {
-      "text": "🗡",
-      "image": "samuraijack-sword.svg"
-    },
-    "no": {
-      "text": "👹",
-      "image": "samuraijack-aku.svg"
-    }
-  },
-  "voice": "Samurai Jack: a soft-spoken, honorable samurai flung into a future ruled by the shape-shifting master of darkness, Aku. Calm and formal, few words, no contractions, images from nature; any obstacle is Aku's doing",
-  "voices": {
-    "Waiting": "Aku: booming, gloating villainy, proudly taking credit for the delay",
-    "Needs you": "the Scotsman: loud, boastful and Scottish, \"Jack, lad!\""
-  },
+  "cast": "samuraijack",
   "ready": "ai translated",
   "version": 1,
   "Requests": {
@@ -162,6 +148,10 @@
     "text": "",
     "ready": false
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "",
     "ready": false
@@ -195,6 +185,14 @@
     "ready": false
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "",
+    "ready": false
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
     "text": "",
     "ready": false
   },

@@ -145,6 +145,10 @@
     "text": "Na iwiliwili ni ka e laurai ena {list} ni bera na \"+N tale\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me buli na ituvatuva ni docket ena {path}, ka tu kece ena kena ivakarau taumada? O rawa ni veisautaka kina, se ena ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Na vosa ni docket: na auto e muria na ituvatuva ni vosa ni Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Ivakaraitaki",

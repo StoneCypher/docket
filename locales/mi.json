@@ -145,6 +145,10 @@
     "text": "Ngā tūemi ka whakaaturia ki {list} i mua i te \"+N anō\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me hanga te whirihoranga o docket ki {path}, me ngā tautuhinga katoa ki ō rātou taunoa? Ka taea e koe te whakatika i reira, mā te ⚙ rānei.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Te reo o ngā kupu a docket: ka whai a auto i te tautuhinga reo o Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Whakaaturanga",

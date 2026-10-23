@@ -145,6 +145,10 @@
     "text": "Унсурҳое, ки дар {list} пеш аз \"+N боз\" нишон дода мешаванд",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Танзимоти docket дар {path} бо ҳамаи қиматҳои пешфарз сохта шавад? Онро дар он ҷо ё бо ⚙ таҳрир карда метавонед.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Забони матнҳои худи docket: auto аз танзими забони Claude Code пайравӣ мекунад",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Намоиш",

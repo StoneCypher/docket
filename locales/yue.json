@@ -145,6 +145,10 @@
     "text": "{list}顯示幾多項先會變成「仲有 N 項」",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "喺 {path} 建立 docket 嘅設定檔，所有設定都用預設值？之後可以喺嗰度改，或者用 ⚙ 改。",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket 自己啲字用嘅語言：auto 會跟 Claude Code 嘅語言設定",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "顯示方式",

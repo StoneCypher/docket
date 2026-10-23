@@ -145,6 +145,10 @@
     "text": "ئەو بڕگانەی لە {list} پیشان دەدرێن پێش \"+N زیاتر\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ڕێکخستنی docket لە {path} دروست بکرێت، بە هەموو ڕێکخستنێک لە بەهای بنەڕەتیدا؟ دەتوانیت لەوێ یان بە ⚙ دەستکاری بکەیت.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "زمانی وشەکانی خودی docket: auto ڕێکخستنی زمانی Claude Code پەیڕەو دەکات",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "پیشاندان",

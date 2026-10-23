@@ -145,6 +145,10 @@
     "text": "\"+N ထပ်\" မတိုင်မီ {list} တွင် ပြသမည့် အရာများ",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket ၏ config ကို {path} တွင် ဆက်တင်တိုင်း မူလတန်ဖိုးဖြင့် ဖန်တီးမလား။ ၎င်းကို ထိုနေရာတွင် သို့မဟုတ် ⚙ ဖြင့် ပြင်နိုင်သည်။",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket ၏ ကိုယ်ပိုင်စာသားများ၏ ဘာသာစကား: auto သည် Claude Code ၏ ဘာသာစကားဆက်တင်ကို လိုက်နာသည်",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "ပြသပုံ",

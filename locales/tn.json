@@ -145,6 +145,10 @@
     "text": "Dilo tse di bontshiwang mo {list} pele ga \"+N tse dingwe\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "A ke dire dipeakanyo tsa docket kwa {path}, peakanyo nngwe le nngwe e le mo boemong jwa ntlha? O ka di fetola koo, kgotsa ka ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Puo ya mafoko a docket: auto e latela peakanyo ya puo ya Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Ponagalo",

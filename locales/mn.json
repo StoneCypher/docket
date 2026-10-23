@@ -145,6 +145,10 @@
     "text": "\"+N бусад\" гарахаас өмнө {list}-д харуулах зүйлсийн тоо",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-ийн тохиргоог {path}-д бүх тохиргоог анхдагч утгаар нь үүсгэх үү? Үүнийг тэнд эсвэл ⚙-ээр засварлаж болно.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket-ийн өөрийн үгсийн хэл: auto нь Claude Code-ийн хэлний тохиргоог дагана",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Харагдац",

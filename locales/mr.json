@@ -145,6 +145,10 @@
     "text": "\"+N आणखी\" च्या आधी {list} मध्ये दाखवले जाणारे आयटम",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket चे कॉन्फिग {path} येथे, प्रत्येक सेटिंग डीफॉल्टवर ठेवून तयार करायचे? तुम्ही ते तिथे किंवा ⚙ ने संपादित करू शकता.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket च्या स्वतःच्या शब्दांची भाषा: auto हे Claude Code च्या भाषा सेटिंगनुसार चालते",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "प्रदर्शन",

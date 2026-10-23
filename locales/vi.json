@@ -145,6 +145,10 @@
     "text": "Số mục hiển thị trong {list} trước \"+N mục nữa\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Tạo cấu hình của docket tại {path}, với mọi cài đặt ở giá trị mặc định? Bạn có thể sửa nó ở đó, hoặc bằng ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Ngôn ngữ cho chữ của chính docket: auto theo cài đặt ngôn ngữ của Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Hiển thị",

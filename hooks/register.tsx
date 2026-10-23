@@ -655,6 +655,10 @@ export type SettingsView = {
   dialects: Dialect[]
   group: string
   onGroup: (group: string) => void
+  // The voice pulldown: the casts, and the cast the dialect brings when the config names none.
+  casts: Cast[]
+  dialectCast: string
+  noVoice: string
 }
 
 // The language as three pulldowns, since a pulldown holds at most 64 choices: a group of initials (or
@@ -710,6 +714,28 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
   )
 }
 
+// The voice as a pulldown: no voice, or a cast. A character described in words in the config file shows
+// as itself; picking from the pulldown replaces it.
+const voicePicker = (Select: FieldKit['Select'], view: SettingsView, value: unknown) => {
+  const setting = String(value ?? '').trim()
+  const isCast = view.casts.some(cast => cast.id === setting)
+  const shown = setting === 'none' || isCast ? setting : setting ? 'own' : view.dialectCast || 'none'
+
+  return (
+    <Select
+      key="voice"
+      value={shown}
+      options={[
+        { value: 'none', label: view.noVoice },
+        // A pulldown holds 64: room for no voice, the casts and a described character.
+        ...view.casts.slice(0, 62).map(cast => ({ value: cast.id, label: cast.name })),
+        ...(shown === 'own' ? [{ value: 'own', label: setting }] : []),
+      ]}
+      onSelect={choice => (choice === 'own' ? undefined : void view.onSave('voice', choice))}
+    />
+  )
+}
+
 // The ⚙ view: every setting, edited straight into the config file it names.
 // A field's title and description in the user's language; a list's cap names its list.
 const fieldWords = (text: Strings, key: string, title: string, description: string): [string, string] => {
@@ -748,6 +774,8 @@ const drawSettings = ({ Box, Button, Text, Input, Select }: FieldKit, view: Sett
           <Select key={key} value={value ? 'on' : 'off'} options={[{ value: 'on' }, { value: 'off' }]} onSelect={choice => view.onSave(key, choice === 'on')} />
         ) : key === 'language' ? (
           languagePicker(Box, Select, view, value)
+        ) : key === 'voice' ? (
+          voicePicker(Select, view, value)
         ) : field.kind === 'choice' && field.options ? (
           <Select key={key} value={String(value)} options={field.options.map(option => ({ value: option }))} onSelect={choice => view.onSave(key, choice)} />
         ) : (
@@ -791,24 +819,29 @@ const wordsOf = async ($: Dollar, code: string): Promise<Record<string, unknown>
 
 // docket's own words in a language. A regional file (es-MX) says only what differs, over its
 // language's (es); a dialect, from locales/dialects/, says what it changes over both; English
-// underlies all of them. A dialect's name is what Claude is told the docket is written in. Any of
-// the files may give Claude a voice to write in, the later ones winning.
-const stringsOf = async ($: Dollar, language: Language, dialect = ''): Promise<{ text: Strings; voice: Voice }> => {
+// underlies all of them. A dialect's name is what Claude is told the docket is written in.
+// A cast, from locales/voices/, is the voice Claude writes in and the buttons it brings, in any
+// language: the one the config names, or else the dialect's own.
+const stringsOf = async ($: Dollar, language: Language, dialect = '', voiceSetting = '', casts: readonly Cast[] = []) => {
   const [base = 'en'] = language.split('-')
   const spoken = dialect ? await wordsOf($, `dialects/${dialect}`) : {}
+  const castId = castIdOf(voiceSetting, casts, typeof spoken.cast === 'string' ? spoken.cast : '')
+  const cast = castId ? await wordsOf($, `voices/${castId}`) : {}
   const words = base === 'en' ? {} : await wordsOf($, base)
   const regional = language === base ? {} : await wordsOf($, language)
-  const voice = voiceOf(words, regional, spoken)
-  if (base === 'en' && !dialect) {
+  const voice = voiceOf(words, regional, spoken, cast)
+  const name = typeof spoken.name === 'string' ? spoken.name : englishName(language)
+  const marks = cast.marks ?? spoken.marks
+  if (base === 'en' && !dialect && !marks) {
     return { text: EN, voice }
   }
-  const name = typeof spoken.name === 'string' ? spoken.name : englishName(language)
-  const text = translate({ ...words, ...regional, ...spoken }, name)
+  const text = translate({ ...words, ...regional, ...spoken, marks }, base === 'en' && !dialect ? EN.language : name)
+  const pictured = cast.marks ? { file: cast, folder: 'voices' } : { file: spoken, folder: 'dialects' }
   for (const key of ['yes', 'no'] as const) {
-    const image = markImage(spoken, key)
+    const image = markImage(pictured.file, key)
     if (!image) continue
     try {
-      text.marks[`${key}Image`] = await $.fs.read(`${$.plugin.root}/locales/dialects/${image}`)
+      text.marks[`${key}Image`] = await $.fs.read(`${$.plugin.root}/locales/${pictured.folder}/${image}`)
     } catch {
       // No picture: the button keeps its text.
     }
@@ -817,12 +850,32 @@ const stringsOf = async ($: Dollar, language: Language, dialect = ''): Promise<{
   return { text, voice }
 }
 
-// The voice in force: the config's own, set by hand, over any file's. Claudeville.
-const voiceFor = (loaded: LoadedConfig, files: Voice): Voice => {
-  const own = String(loaded.project?.voice ?? loaded.user?.voice ?? '').trim()
+// The casts, from locales/voices/: each one's file name and its name.
+export type Cast = { id: string; name: string }
 
-  return own ? { all: own, lists: {} } : files
+const castsOf = async ($: Dollar): Promise<Cast[]> => {
+  try {
+    const ids = (await $.fs.list(`${$.plugin.root}/locales/voices`))
+      .filter(entry => entry.kind === 'file' && entry.name.endsWith('.json'))
+      .map(entry => entry.name.slice(0, -'.json'.length))
+    const found = await Promise.all(ids.map(async id => ({ id, file: await wordsOf($, `voices/${id}`) })))
+
+    return found.map(({ id, file }) => ({ id, name: typeof file.name === 'string' ? file.name : id })).sort((x, y) => x.name.localeCompare(y.name))
+  } catch {
+    return []
+  }
 }
+
+// The config's voice: a cast's file name, "none", a character described in words (Claudeville), or
+// nothing, which leaves the dialect's own cast if it has one.
+const voiceSettingOf = (loaded: LoadedConfig) => String(loaded.project?.voice ?? loaded.user?.voice ?? '').trim()
+
+export const castIdOf = (setting: string, casts: readonly Cast[], dialectCast: string) =>
+  setting === 'none' ? '' : casts.some(cast => cast.id === setting) ? setting : setting ? '' : dialectCast
+
+// The voice in force: a character the config describes in words, over any file's.
+const voiceFor = (setting: string, casts: readonly Cast[], files: Voice): Voice =>
+  setting && setting !== 'none' && !casts.some(cast => cast.id === setting) ? { all: setting, lists: {} } : files
 
 // A language setting may end in a dialect, as BCP 47's variant does: "en-US-startrek" is English with
 // the startrek dialect. A variant is at least five characters, so "zh-Hant" is still a script.
@@ -865,7 +918,11 @@ const dialectsOf = async ($: Dollar): Promise<Dialect[]> => {
 
     return found
       .filter(({ file }) => typeof file.tag === 'string')
-      .map(({ name, file }) => ({ tag: String(file.tag), name: typeof file.name === 'string' ? file.name : name }))
+      .map(({ name, file }) => ({
+        tag: String(file.tag),
+        name: typeof file.name === 'string' ? file.name : name,
+        cast: typeof file.cast === 'string' ? file.cast : undefined,
+      }))
   } catch {
     return []
   }
@@ -972,6 +1029,8 @@ export type Reloaded = {
   languages: string[]
   locales: Record<string, FileState>
   dialects: Dialect[]
+  voiceSetting: string
+  casts: Cast[]
 }
 
 // Loads the config, then the language it names, registering the tool again in a new language, then
@@ -984,9 +1043,11 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   const languages = readyOf(locales)
   const language = await languageFor($, loaded, languages)
   const dialect = dialectOf(loaded)
-  const isSame = was !== undefined && was.language === language && was.dialect === dialect
-  const { text, voice: spoken } = isSame ? { text: was.text, voice: was.spoken } : await stringsOf($, language, dialect)
-  const voice = voiceFor(loaded, spoken)
+  const casts = was?.casts ?? (await castsOf($))
+  const voiceSetting = voiceSettingOf(loaded)
+  const isSame = was !== undefined && was.language === language && was.dialect === dialect && was.voiceSetting === voiceSetting
+  const { text, voice: spoken } = isSame ? { text: was.text, voice: was.spoken } : await stringsOf($, language, dialect, voiceSetting, casts)
+  const voice = voiceFor(voiceSetting, casts, spoken)
   if (!isSame) {
     await $.tool.register(toolSpec(text))
     $.ui.invalidate('ui.render')
@@ -998,7 +1059,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await offerTranslation($, language, locales, text)
   }
 
-  return { loaded, language, dialect, text, spoken, voice, languages, locales, dialects }
+  return { loaded, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }
 }
 
 export const register: Register = on => {
@@ -1015,6 +1076,8 @@ export const register: Register = on => {
   let languages = ['en']
   let locales: Record<string, FileState> = {}
   let dialects: Dialect[] = []
+  let voiceSetting = ''
+  let casts: Cast[] = []
 
   const apply = (loaded: LoadedConfig) => {
     files = loaded
@@ -1032,6 +1095,8 @@ export const register: Register = on => {
     languages = next.languages
     locales = next.locales
     dialects = next.dialects
+    voiceSetting = next.voiceSetting
+    casts = next.casts
   }
 
   on('session.start', async ($, e, next) => {
@@ -1184,7 +1249,7 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -1242,7 +1307,7 @@ export const register: Register = on => {
         return
       }
       if (!(await ownAnswer($, item, kind, paths, locales))) return
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -1261,6 +1326,9 @@ export const register: Register = on => {
         speaking: language,
         languages,
         dialects,
+        casts,
+        dialectCast: dialects.find(each => each.tag.toLowerCase().endsWith(`-${dialect}`))?.cast ?? '',
+        noVoice: text.settings.noVoice,
         group: await read($, languageGroup),
         onGroup: group => void update($, languageGroup, () => group),
         onSave: async (key, value) => {
@@ -1268,14 +1336,14 @@ export const register: Register = on => {
           const path = target ?? paths.user
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1315,7 +1383,7 @@ export const register: Register = on => {
         return
       }
       if (await ownAnswer($, item, kind, paths, locales)) {
-        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, text, spoken, voice, languages, locales, dialects }))
+        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
       }
     }
 

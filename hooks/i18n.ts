@@ -41,6 +41,7 @@ export type Strings = {
     mobile: string
     capTitle: string
     capDescription: string
+    noVoice: string
   }
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
@@ -92,6 +93,7 @@ export const EN: Strings = {
     mobile: 'Settings need the terminal, desktop or VS Code.',
     capTitle: '{list} cap',
     capDescription: 'Items shown in {list} before "+N more"',
+    noVoice: 'No voice',
   },
   config: {
     offer: "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.",
@@ -109,6 +111,7 @@ export const EN: Strings = {
   marks: { yes: '✔', no: '✗' },
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
+    voice: ['Voice', "A character Claude writes the docket's items as, in any language"],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
     emoji: ['Emoji', 'Master switch for every emoji the docket draws'],
     headingEmoji: ['Heading emoji', "An emoji before each list's heading"],
@@ -155,7 +158,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 1
+export const STRINGS_VERSION = 2
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'
@@ -189,7 +192,7 @@ export const synced = (file: unknown) => {
   const { ready, version } = stateOf(found)
   const words = Object.fromEntries(keysOf().map(key => [key, translationOf(found[key])]))
   const kept = Object.fromEntries(
-    (['name', 'tag', 'marks', 'voice', 'voices'] as const).filter(key => found[key] !== undefined).map(key => [key, found[key]]),
+    (['name', 'tag', 'cast', 'marks', 'voice', 'voices'] as const).filter(key => found[key] !== undefined).map(key => [key, found[key]]),
   )
 
   return `${JSON.stringify({ ...kept, ready, version, ...words }, null, 2)}

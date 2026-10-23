@@ -145,6 +145,10 @@
     "text": "\"+N daha\" yazısından əvvəl {list} siyahısında göstərilən elementlər",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket konfiqurasiyası {path} ünvanında, bütün parametrlər standart dəyərlərində olmaqla yaradılsın? Onu orada və ya ⚙ ilə redaktə edə bilərsiniz.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket-in öz sözlərinin dili: auto Claude Code-un dil parametrinə uyğunlaşır",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Görünüş",

@@ -145,6 +145,10 @@
     "text": "\"+N ಇನ್ನಷ್ಟು\" ಗಿಂತ ಮೊದಲು {list} ನಲ್ಲಿ ತೋರಿಸುವ ಐಟಂಗಳು",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ಎಲ್ಲಾ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ನಲ್ಲಿ ಇಟ್ಟು docket ನ ಕಾನ್ಫಿಗ್ ಅನ್ನು {path} ನಲ್ಲಿ ರಚಿಸಬೇಕೇ? ನೀವು ಅದನ್ನು ಅಲ್ಲಿ ಅಥವಾ ⚙ ಮೂಲಕ ಸಂಪಾದಿಸಬಹುದು.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket ನ ಸ್ವಂತ ಪದಗಳ ಭಾಷೆ: auto ಆದರೆ Claude Code ನ ಭಾಷಾ ಸೆಟ್ಟಿಂಗ್ ಅನುಸರಿಸುತ್ತದೆ",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "ಪ್ರದರ್ಶನ",

@@ -1,0 +1,18 @@
+{
+  "name": "Samurai Jack",
+  "voice": "Samurai Jack: a soft-spoken, honorable samurai flung into a future ruled by the shape-shifting master of darkness, Aku. Calm and formal, few words, no contractions, images from nature; any obstacle is Aku's doing",
+  "voices": {
+    "Waiting": "Aku: booming, gloating villainy, proudly taking credit for the delay",
+    "Needs you": "the Scotsman: loud, boastful and Scottish, \"Jack, lad!\""
+  },
+  "marks": {
+    "yes": {
+      "text": "🗡",
+      "image": "samuraijack-sword.svg"
+    },
+    "no": {
+      "text": "👹",
+      "image": "samuraijack-aku.svg"
+    }
+  }
+}

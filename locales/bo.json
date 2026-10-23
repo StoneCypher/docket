@@ -145,6 +145,10 @@
     "text": "\"+ད་དུང་ N\" གི་སྔོན་ལ་ {list} ནང་སྟོན་པའི་རྣམ་གྲངས།",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} ལ་ docket ཡི་སྒྲིག་འགོད་གསར་བཟོ་བྱེད་དམ། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད། དེ་གར་རམ་ ⚙ བརྒྱུད་ནས་བཟོ་བཅོས་བྱེད་ཆོག",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket རང་གི་ཡི་གེའི་སྐད་ཡིག auto ནི་ Claude Code ཡི་སྐད་ཡིག་སྒྲིག་འགོད་ལྟར་འགྲོ།",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "མངོན་སྟོན",

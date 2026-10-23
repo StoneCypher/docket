@@ -145,6 +145,10 @@
     "text": "\"+N ýene\" ýazgysyndan öň {list} sanawynda görkezilýän elementler",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-iň sazlamalaryny {path} ýerinde, ähli sazlamalar deslapky bahasynda bolar ýaly döredeýinmi? Olary şol ýerde ýa-da ⚙ bilen üýtgedip bilersiň.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket-iň öz sözleriniň dili: auto Claude Code-yň dil sazlamasyna eýerýär",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Görkeziş",

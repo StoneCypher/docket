@@ -145,6 +145,10 @@
     "text": "\"+N మరిన్ని\" కి ముందు {list} లో చూపే అంశాలు",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ప్రతి సెట్టింగ్ డిఫాల్ట్ విలువతో docket కాన్ఫిగరేషన్‌ను {path} లో సృష్టించాలా? దాన్ని అక్కడ లేదా ⚙ తో సవరించవచ్చు.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket సొంత పదాల భాష: auto అంటే Claude Code భాషా సెట్టింగ్‌ను అనుసరిస్తుంది",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "ప్రదర్శన",

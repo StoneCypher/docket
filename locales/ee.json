@@ -145,6 +145,10 @@
     "text": "Nu siwo dzena le {list} me hafi \"+N bubuwo\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mawɔ docket ƒe ɖoɖowo ɖe {path}, kple ɖoɖo ɖesiaɖe le eƒe gɔmeɖoanyi nɔnɔme me? Àte ŋu atrɔ wo le afima, alo kple ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Gbe si me docket ƒe nyawo le: auto dzea Claude Code ƒe gbeɖoɖo yome",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Ɖeɖefia",

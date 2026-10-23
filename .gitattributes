@@ -2,3 +2,4 @@
 locales/*.json text eol=lf
 locales/dialects/*.json text eol=lf
 locales/dialects/*.svg text eol=lf
+locales/voices/* text eol=lf

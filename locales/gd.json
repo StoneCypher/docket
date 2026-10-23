@@ -145,6 +145,10 @@
     "text": "Nithean a chithear ann an {list} ro \"+N a bharrachd\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "An cruthaichear rèiteachadh docket aig {path}, le gach roghainn air a' bhun-roghainn? 'S urrainn dhut a dheasachadh an sin, no le ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Cànan faclan an docket fhèin: leanaidh auto roghainn cànain Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Taisbeanadh",

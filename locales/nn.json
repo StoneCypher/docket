@@ -145,6 +145,10 @@
     "text": "Element som blir viste i {list} før «+N til»",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Opprette konfigurasjonen til docket i {path}, med alle innstillingar på standardverdi? Du kan redigere han der, eller med ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Språket for docket sine eigne tekstar: auto følgjer språkinnstillinga i Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Vising",

@@ -145,6 +145,10 @@
     "text": "Eroj montrataj en {list} antaŭ \"+N pliaj\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ĉu krei la agordon de docket ĉe {path}, kun ĉiu agordo je sia defaŭlto? Vi povas redakti ĝin tie aŭ per ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Lingvo de la propraj vortoj de docket: auto sekvas la lingvo-agordon de Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Montrado",

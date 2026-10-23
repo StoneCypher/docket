@@ -145,6 +145,10 @@
     "text": "Items wat in {list} gewys word voor \"+N meer\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Skep docket se konfigurasie by {path}, met elke instelling op sy verstekwaarde? Jy kan dit daar wysig, of met ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Taal van die docket se eie woorde: auto volg Claude Code se taalinstelling",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Vertoning",

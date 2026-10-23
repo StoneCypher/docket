@@ -145,6 +145,10 @@
     "text": "Item yang ditampilkan di {list} sebelum \"+N lagi\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Buat konfigurasi docket di {path}, dengan semua pengaturan pada nilai bawaannya? Anda bisa mengeditnya di sana, atau dengan ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Bahasa untuk teks docket sendiri: auto mengikuti pengaturan bahasa Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Tampilan",

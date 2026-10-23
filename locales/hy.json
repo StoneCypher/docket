@@ -145,6 +145,10 @@
     "text": "{list} ցուցակում ցուցադրվող տարրերը մինչև «+N ևս»",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ստեղծե՞լ docket-ի կարգավորումների ֆայլը {path} հասցեում՝ բոլոր կարգավորումները լռելյայն արժեքներով։ Կարող եք այն խմբագրել այնտեղ կամ ⚙-ով։",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "docket-ի սեփական տեքստերի լեզուն: auto-ն հետևում է Claude Code-ի լեզվի կարգավորմանը",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Ցուցադրում",

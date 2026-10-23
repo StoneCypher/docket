@@ -5,7 +5,7 @@ import { NAMES, englishName, nativeName } from './languages.ts'
 
 export type Choice = { value: string; label: string }
 export type Group = Choice & { codes: string[] }
-export type Dialect = { tag: string; name: string }
+export type Dialect = { tag: string; name: string; cast?: string }
 
 // A language's name in another, from the runtime's own names where it has them, else the table's.
 export const nameIn = (speaking: string, code: string) => {

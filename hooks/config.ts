@@ -3,13 +3,14 @@
 import type { PluginOptions } from 'claude-code'
 
 // Raise this whenever FIELDS changes, and say what changed in MIGRATIONS.
-export const CONFIG_VERSION = 2
+export const CONFIG_VERSION = 3
 
 export type FieldKind = 'number' | 'boolean' | 'choice' | 'text'
 export type Field = { kind: FieldKind; title: string; description: string; default: string | number | boolean; options?: string[] }
 
 export const FIELDS: Record<string, Field> = {
   language: { kind: 'choice', title: "Language", description: "Language of the docket's own words: auto follows Claude Code's language setting", default: "auto", options: ["auto", "en", "es", "ja", "de"] },
+  voice: { kind: 'text', title: "Voice", description: "A character Claude writes the docket's items as, in any language", default: "" },
   display: { kind: 'choice', title: "Display", description: "A pane beside the transcript, or a band above the prompt", default: "pane", options: ["pane", "band"] },
   pinnedCap: { kind: 'number', title: "Pinned cap", description: "Items shown in pinned before \"+N more\"", default: 7 },
   waitingCap: { kind: 'number', title: "Waiting cap", description: "Items shown in waiting before \"+N more\"", default: 7 },
@@ -42,6 +43,7 @@ export const FIELDS: Record<string, Field> = {
 export const MIGRATIONS: Record<number, string> = {
   1: 'the first versioned config',
   2: 'adds language',
+  3: 'adds voice',
 }
 
 export type ConfigFile = { version: number } & Record<string, string | number | boolean>

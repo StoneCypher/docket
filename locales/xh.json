@@ -145,6 +145,10 @@
     "text": "Izinto eziboniswa kwi-{list} phambi kwe-\"+N ngaphezulu\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yenza uqwalaselo lwe-docket ku-{path}, zonke iisetingi zikwixabiso elisisiseko? Ungaluhlela apho, okanye nge-⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Ulwimi lwamagama e-docket uqobo: auto ilandela isetingi yolwimi ye-Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Umboniso",

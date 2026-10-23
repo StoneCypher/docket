@@ -145,6 +145,10 @@
     "text": "په {list} کې د \"+N نور\" نه مخکې ښودل شوي توکي",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "د docket تنظیمات په {path} کې جوړ کړو، هر تنظیم په خپل اصلي ارزښت؟ تاسو یې هلته یا د ⚙ په مرسته سمولی شئ.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "د docket د خپلو ټکو ژبه: auto د Claude Code د ژبې تنظیم تعقیبوي",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "ښودنه",

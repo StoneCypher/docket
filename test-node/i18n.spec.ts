@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
 import { describe, test } from 'node:test'
 
-import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
+import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, markImage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
 import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
 import { instructions, nowNote, rewriteNote, settingsOf } from '../hooks/lists.ts'
 
@@ -44,7 +44,10 @@ describe('locale files', () => {
     test(`${file} is no readier than its strings`, () => {
       if (state.ready === false) return
       assert.ok(state.version <= STRINGS_VERSION)
+      // A file behind English's strings may lack the newer ones, which show in English meanwhile.
+      const isBehind = state.version < STRINGS_VERSION
       for (const [english, { text, ready }] of translations) {
+        if (isBehind && !text.trim()) continue
         assert.ok(text.trim() && ready !== false, english)
         if (state.ready === true) assert.equal(ready, true, english)
       }
@@ -258,4 +261,26 @@ describe('voices', () => {
     assert.equal(firstLetter('თხოვნები'), 'თ')
     assert.equal(firstLetter('énfasis'), 'É')
   })
+})
+
+describe('voice files', () => {
+  const voicesFolder = new URL('voices/', folder)
+  for (const file of readdirSync(voicesFolder).filter(name => name.endsWith('.json'))) {
+    const cast = JSON.parse(readFileSync(new URL(file, voicesFolder), 'utf8')) as Record<string, unknown>
+
+    test(`voice ${file} has a name, a voice, and lists it knows`, () => {
+      assert.equal(typeof cast.name, 'string')
+      const voice = voiceOf(cast)
+      assert.ok(voice.all || Object.keys(voice.lists).length)
+      const names = Object.values(EN.lists).map(list => list.name)
+      for (const key of Object.keys((cast.voices as Record<string, string> | undefined) ?? {})) assert.ok(names.includes(key), key)
+    })
+
+    test(`voice ${file} has the pictures its buttons name`, () => {
+      for (const key of ['yes', 'no'] as const) {
+        const image = markImage(cast, key)
+        if (image) assert.ok(readdirSync(voicesFolder).includes(image), image)
+      }
+    })
+  }
 })

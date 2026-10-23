@@ -145,6 +145,10 @@
     "text": "Колькасць элементаў у {list} перад «+яшчэ N»",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Стварыць канфігурацыю docket у {path} з усімі наладамі па змаўчанні? Яе можна рэдагаваць там або праз ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Мова тэкстаў docket: auto ідзе за наладай мовы Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Адлюстраванне",

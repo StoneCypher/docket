@@ -145,6 +145,10 @@
     "text": "Počet položek zobrazených v {list} před „+N dalších“",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Vytvořit konfiguraci aplikace docket v {path} se všemi nastaveními na výchozích hodnotách? Upravit ji můžeš tam nebo přes ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Jazyk textů aplikace docket: auto se řídí nastavením jazyka v Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Zobrazení",

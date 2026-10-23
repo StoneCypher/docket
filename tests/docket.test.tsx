@@ -40,19 +40,19 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
   on('fs.list', (_, e) => {
-    const isDialects = plain((e as { path: string }).path).endsWith('/dialects')
+    const folder = /\/(dialects|voices)$/.exec(plain((e as { path: string }).path))?.[1]
     const names = Object.keys(locales)
-      .filter(key => key.startsWith('dialects/') === isDialects)
-      .map(key => key.replace(/^dialects\//, ''))
+      .filter(key => (folder ? key.startsWith(`${folder}/`) : !key.includes('/')))
+      .map(key => key.replace(/^(dialects|voices)\//, ''))
       .map(name => (/\.\w+$/.test(name) ? name : `${name}.json`))
 
     return { value: names.map(name => ({ name, kind: 'file', size: 1, mtimeMs: 0, isLink: false })) }
   })
   on('fs.read', (_, e) => {
     const path = plain((e as { path: string }).path)
-    const picture = /\/locales\/(dialects\/[\w.-]+\.svg)$/.exec(path)?.[1]
+    const picture = /\/locales\/((?:dialects|voices)\/[\w.-]+\.svg)$/.exec(path)?.[1]
     if (picture && typeof locales[picture] === 'string') return { value: locales[picture] }
-    const locale = /\/locales\/((?:dialects\/)?[\w-]+)\.json$/.exec(path)?.[1]
+    const locale = /\/locales\/((?:dialects\/|voices\/)?[\w-]+)\.json$/.exec(path)?.[1]
 
     return { value: locale && locales[locale] ? JSON.stringify(locales[locale]) : (files.get(path) ?? '') }
   })
@@ -653,7 +653,7 @@ test('a machine-translated language is used, with one offer, in that language, t
   standIns(on, {
     de: {
       ready: 'ai translated',
-      version: 1,
+      version: 2,
       Requests: { text: 'Anfragen', ready: 'ai translated' },
       "docket's {language} was machine-translated. Help make it read naturally? ✔ opens [its file]({link}) in GitHub's editor: fix any string, set its \"ready\" to true, and save to propose it.":
         { text: 'Das {language} von docket wurde maschinell übersetzt. [Datei]({link})', ready: 'ai translated' },
@@ -667,7 +667,7 @@ test('a machine-translated language is used, with one offer, in that language, t
   expect(await ui.find({ type: 'Text', text: /Das Deutsch von docket wurde maschinell/ })).toBeDefined()
   await ui.press({ key: 'no-R1' })
   await ui.unmount()
-  expect(store.get('translateAsked')).toEqual(['de:machine@1'])
+  expect(store.get('translateAsked')).toEqual(['de:machine@2'])
 })
 
 test('a dialect set by hand in the config lays its words over the language', async ($, on) => {
@@ -861,4 +861,41 @@ test('switching into a voice or out of one asks Claude to rewrite the open items
   files.set(USER_CONFIG, JSON.stringify({ ...defaults() }))
   await $.prompt.submit({ text: 'voice off' })
   expect(context.join('\n')).toContain('Write them plainly, out of character.')
+})
+
+test('a voice is its own setting, apart from the language: Samurai Jack in Spanish', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on, {
+    es: { ready: 'ai translated', version: 2, Questions: { text: 'Preguntas', ready: 'ai translated' }, Pinned: { text: 'Fijado', ready: 'ai translated' } },
+    'voices/samuraijack': {
+      name: 'Samurai Jack',
+      voice: 'Samurai Jack: calm, formal, few words',
+      voices: { Waiting: 'Aku, gloating' },
+      marks: { yes: { text: '🗡', image: 'samuraijack-sword.svg' }, no: '👹' },
+    },
+    'voices/samuraijack-sword.svg': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 22 L22 2"/></svg>',
+  })
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), language: 'es', voice: 'samuraijack' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: '¿Al amanecer?' }, { list: 'C', text: '¿Vamos?' }] })
+  await $.prompt.submit({ text: 'hola' })
+  const told = context.join('\n')
+  expect(told).toContain('It is in Spanish')
+  expect(told).toContain('in character, as Samurai Jack: calm, formal, few words')
+  expect(told).toContain('Aku, gloating')
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Preguntas$/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /^🗡$/ })).toBeDefined()
+  await ui.press({ key: 'gear' })
+  expect((await ui.find({ type: 'Select', key: 'voice' }))?.props.value).toBe('samuraijack')
+  await ui.select({ key: 'voice', value: 'none' })
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').voice).toBe('none')
+  await ui.unmount()
 })

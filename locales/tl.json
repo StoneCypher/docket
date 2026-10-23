@@ -145,6 +145,10 @@
     "text": "Mga item na ipinapakita sa {list} bago ang \"+N pa\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gawin ang config ng docket sa {path}, na nasa default ang bawat setting? Maaari mo itong i-edit doon, o gamit ang ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Wika ng sariling mga salita ng docket: sinusunod ng auto ang setting ng wika ng Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Pagpapakita",

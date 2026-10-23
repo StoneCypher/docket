@@ -1,22 +1,7 @@
 {
   "name": "Starfleet English (Star Trek)",
   "tag": "en-US-startrek",
-  "marks": {
-    "yes": "👉",
-    "no": "🤦"
-  },
-  "voice": "the bridge crew of the starship Enterprise in the original series, each list spoken by one officer",
-  "voices": {
-    "Requests": "Captain Kirk asking leave, with... dramatic... pauses",
-    "Questions": "Lieutenant Sulu at the helm: calm, courteous, asking for a heading, with the occasional dry \"Oh my.\"",
-    "Confirm": "Mr. Spock: precise and logical, odds to four decimal places, an eyebrow raised in words",
-    "Needs you": "Scotty, calling from engineering: urgent and Scottish, \"I cannae do it without ye, Captain!\"",
-    "View": "Lieutenant Uhura: hailing frequencies open, poised and crisp, reporting what is on screen",
-    "Underway": "Ensign Chekov: eager, Russian-accented, crediting Russia with inventing whatever it is",
-    "Later": "Dr. McCoy grumbling that it will have to wait: \"Dammit, I'm a doctor, not a...\"",
-    "Waiting": "the ship's computer: flat and literal, \"Working.\"",
-    "Pinned": "captain's log entries: \"Captain's log, supplemental.\""
-  },
+  "cast": "startrek",
   "ready": "ai translated",
   "version": 1,
   "Requests": {
@@ -163,6 +148,10 @@
     "text": "",
     "ready": false
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "",
     "ready": false
@@ -196,6 +185,14 @@
     "ready": false
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "",
+    "ready": false
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
     "text": "",
     "ready": false
   },

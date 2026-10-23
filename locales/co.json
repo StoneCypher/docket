@@ -145,6 +145,10 @@
     "text": "Elementi mustrati in {list} nanzu à \"+N di più\"",
     "ready": "ai translated"
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Creà a cunfigurazione di docket in {path}, cù ogni parametru à u so valore predefinitu? A poi mudificà quallà, o cù ⚙.",
     "ready": "ai translated"
@@ -180,6 +184,14 @@
   "Language of the docket's own words: auto follows Claude Code's language setting": {
     "text": "Lingua di e parolle di u docket: auto seguita u parametru di lingua di Claude Code",
     "ready": "ai translated"
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
+    "text": "",
+    "ready": false
   },
   "Display": {
     "text": "Affissera",

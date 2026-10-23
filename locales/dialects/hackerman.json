@@ -1,10 +1,7 @@
 {
   "name": "Hackerman English",
   "tag": "en-US-hackerman",
-  "marks": {
-    "yes": "🚢",
-    "no": "🐞"
-  },
+  "cast": "hackerman",
   "ready": "ai translated",
   "version": 1,
   "Requests": {
@@ -151,6 +148,10 @@
     "text": "",
     "ready": false
   },
+  "No voice": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "",
     "ready": false
@@ -184,6 +185,14 @@
     "ready": false
   },
   "Language of the docket's own words: auto follows Claude Code's language setting": {
+    "text": "",
+    "ready": false
+  },
+  "Voice": {
+    "text": "",
+    "ready": false
+  },
+  "A character Claude writes the docket's items as, in any language": {
     "text": "",
     "ready": false
   },
