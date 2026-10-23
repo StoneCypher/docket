@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "അഭ്യർത്ഥനകൾ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ശബ്ദമില്ല",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "എല്ലാ ക്രമീകരണങ്ങളും ഡിഫോൾട്ടിൽ ആക്കി docket-ന്റെ കോൺഫിഗ് {path}-ൽ സൃഷ്ടിക്കട്ടെ? നിങ്ങൾക്ക് അത് അവിടെയോ ⚙ ഉപയോഗിച്ചോ എഡിറ്റ് ചെയ്യാം.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "ശബ്ദം",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude docket-ലെ ഇനങ്ങൾ ഏത് കഥാപാത്രത്തിന്റെ ശബ്ദത്തിൽ എഴുതുന്നുവോ ആ കഥാപാത്രം, ഏത് ഭാഷയിലും",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "പ്രദർശനം",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Solicitúes",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Ensin voz",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "¿Crear la configuración de docket en {path}, con cada axuste nel so valor predetermináu? Pues editala ellí o con ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Voz",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Un personaxe con cuya voz Claude escribe los elementos del docket, en cualquier llingua",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Presentación",

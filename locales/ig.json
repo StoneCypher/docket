@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ihe a rịọrọ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Enweghị olu",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mepụta nhazi docket na {path}, ebe ntọala ọ bụla nọ n'ọnọdụ mbụ ya? Ị nwere ike idezi ya ebe ahụ, ma ọ bụ site na ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Olu",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Agwa Claude ji olu ya ede ihe ndị dị na docket, n'asụsụ ọ bụla",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Ngosipụta",

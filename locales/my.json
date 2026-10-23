@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "တောင်းဆိုချက်များ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "အသံ မရှိ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket ၏ config ကို {path} တွင် ဆက်တင်တိုင်း မူလတန်ဖိုးဖြင့် ဖန်တီးမလား။ ၎င်းကို ထိုနေရာတွင် သို့မဟုတ် ⚙ ဖြင့် ပြင်နိုင်သည်။",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "အသံ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude က docket ၏ အရာများကို ၎င်း၏အသံဖြင့် ရေးသားသည့် ဇာတ်ကောင်၊ မည်သည့်ဘာသာစကားဖြင့်မဆို",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ပြသပုံ",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "თხოვნები",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ხმის გარეშე",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "შევქმნა docket-ის კონფიგურაცია {path}-ში, ყველა პარამეტრით ნაგულისხმევ მნიშვნელობაზე? მისი რედაქტირება იქ შეგიძლიათ, ან ⚙-ით.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "ხმა",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "პერსონაჟი, რომლის ხმითაც Claude წერს docket-ის ელემენტებს, ნებისმიერ ენაზე",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ჩვენება",

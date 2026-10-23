@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "בקשות",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ללא קול",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ליצור את קובץ ההגדרות של docket ב-{path}, עם כל ההגדרות בברירת המחדל? אפשר לערוך אותו שם, או דרך ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "קול",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "דמות שבקולה Claude כותב את הפריטים של ה-docket, בכל שפה",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "תצוגה",

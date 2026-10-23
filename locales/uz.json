@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ruxsat soʻrovlari",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Ovozsiz",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket konfiguratsiyasi {path} manzilida barcha sozlamalar standart qiymatda boʻlgan holda yaratilsinmi? Uni oʻsha yerda yoki ⚙ orqali tahrirlashingiz mumkin.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Ovoz",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude docket elementlarini uning nomidan yozadigan personaj, istalgan tilda",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Koʻrinish",

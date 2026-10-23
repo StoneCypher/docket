@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Kole",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ʻIkai ha leʻo",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Leʻo",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Ko ha tokotaha ʻoku ngāueʻaki ʻe Claude hono leʻo ke tohi ʻaki ʻa e ngaahi meʻa ʻa e docket, ʻi ha lea pē",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Fakahaaʻi",

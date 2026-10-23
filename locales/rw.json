@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Gusaba",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Nta jwi",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Docket ikore igenamiterere ryayo kuri {path}, buri gice kiri ku gaciro gasanzwe? Urashobora kurihindurira aho cyangwa ukoresheje ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Ijwi",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Umuntu Claude akoresha ijwi rye yandika ibiri muri docket, mu rurimi urwo ari rwo rwose",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Kugaragaza",

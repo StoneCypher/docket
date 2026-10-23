@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "tlhob",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ghogh pagh",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} Daq docket De' vIchenmoH'a'? Hoch SeHlaw motlh. pa' DachoHlaH, ⚙ Dalo'laH joq.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "ghogh",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "docket Doch ghItlhmeH nuv ghogh lo' Claude; Hoch Hol",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "cha'",

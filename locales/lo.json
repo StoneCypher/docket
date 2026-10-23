@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "ຂໍອະນຸຍາດ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ບໍ່ມີສຽງ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ສ້າງການຕັ້ງຄ່າຂອງ docket ທີ່ {path} ໂດຍໃຊ້ຄ່າເລີ່ມຕົ້ນທັງໝົດບໍ? ທ່ານສາມາດແກ້ໄຂໄດ້ທີ່ນັ້ນ ຫຼື ດ້ວຍ ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "ສຽງ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "ຕົວລະຄອນທີ່ Claude ໃຊ້ສຽງຂອງມັນຂຽນລາຍການຂອງ docket, ໃນພາສາໃດກໍໄດ້",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ການສະແດງຜົນ",

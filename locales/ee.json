@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Biabiawo",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Gbeɖiɖi aɖeke meli o",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mawɔ docket ƒe ɖoɖowo ɖe {path}, kple ɖoɖo ɖesiaɖe le eƒe gɔmeɖoanyi nɔnɔme me? Àte ŋu atrɔ wo le afima, alo kple ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Gbeɖiɖi",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Ame aɖe si ƒe gbeɖiɖi Claude zãna tsɔ ŋlɔa docket ƒe nuwo, le gbe ɖesiaɖe me",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Ɖeɖefia",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Abisadeɛ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Nne biara nni hɔ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yɛ docket nhyehyɛeɛ wɔ {path}, na nhyehyɛeɛ biara wɔ ne default so? Wobɛtumi asesa no wɔ hɔ, anaa ⚙ so.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Nne",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Onipa bi a Claude de ne nne kyerɛw docket no nneɛma, wɔ kasa biara mu",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Sɛnea ɛda adi",

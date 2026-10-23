@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Idin dijaluk",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Tanpa swara",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gawe konfigurasi docket ing {path}, kanthi saben setelan ing nilai standare? Sampeyan bisa ngowahi ing kana, utawa nganggo ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Swara",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Paraga sing swarane dienggo Claude kanggo nulis item docket, ing basa apa wae",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Tampilan",

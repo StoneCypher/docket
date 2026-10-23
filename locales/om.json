@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Kadhaa",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Sagalee hin qabu",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Qindaa'ina docket {path} irratti, qindaa'ina hunda durtii isaa irratti, haa uumu? Achitti ykn ⚙ fayyadamuun gulaaluu dandeessa.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Sagalee",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Amala Claude sagalee isaatiin wantoota docket barreessu, afaan kamiinuu",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Agarsiisa",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Mga hangyo",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Walay tingog",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Himoon ba ang config sa docket sa {path}, nga ang matag setting naa sa default? Mahimo nimo kining usbon didto, o pinaagi sa ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Tingog",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Usa ka karakter nga tingog ang gamiton ni Claude sa pagsulat sa mga butang sa docket, sa bisan unsang pinulongan",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Pagpakita",

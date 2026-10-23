@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "خواستەکان",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "بێ دەنگ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ڕێکخستنی docket لە {path} دروست بکرێت، بە هەموو ڕێکخستنێک لە بەهای بنەڕەتیدا؟ دەتوانیت لەوێ یان بە ⚙ دەستکاری بکەیت.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "دەنگ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "کارەکتەرێک کە Claude بڕگەکانی docket بە دەنگی ئەو دەنووسێت، بە هەر زمانێک",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "پیشاندان",

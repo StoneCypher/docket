@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Iarratais",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Gan ghuth",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "An gcruthófar cumraíocht docket ag {path}, le gach socrú ar a réamhshocrú? Is féidir leat í a chur in eagar ansin, nó le ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Guth",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Carachtar a scríobhann Claude míreanna an docket ina ghuth, in aon teanga",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Taispeáint",

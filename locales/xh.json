@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ezicelwayo",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Akukho lizwi",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yenza uqwalaselo lwe-docket ku-{path}, zonke iisetingi zikwixabiso elisisiseko? Ungaluhlela apho, okanye nge-⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Ilizwi",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Umlinganiswa u-Claude abhala izinto ze-docket ngelizwi lakhe, nangaluphi na ulwimi",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Umboniso",

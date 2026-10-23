@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "অনুৰোধ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "কোনো কণ্ঠ নাই",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path}ত সকলো ছেটিং ডিফল্ট মানত ৰাখি docket-ৰ কনফিগ সৃষ্টি কৰিবনে? আপুনি তাত বা ⚙ৰে ইয়াক সম্পাদনা কৰিব পাৰিব।",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "কণ্ঠ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "এটা চৰিত্ৰ, যাৰ কণ্ঠত Claude-এ docket-ৰ বস্তুবোৰ লিখে, যিকোনো ভাষাত",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "প্ৰদৰ্শন",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Խնդրանքներ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Առանց ձայնի",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ստեղծե՞լ docket-ի կարգավորումների ֆայլը {path} հասցեում՝ բոլոր կարգավորումները լռելյայն արժեքներով։ Կարող եք այն խմբագրել այնտեղ կամ ⚙-ով։",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Ձայն",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Կերպար, որի ձայնով Claude-ը գրում է docket-ի տարրերը, ցանկացած լեզվով",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Ցուցադրում",

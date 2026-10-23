@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ñaan yi",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Amul baat",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ndax ñu sos config bu docket ci {path}, ak tànneef yépp ni ñu leen defaree ci njëlbéen? Man nga ko fa soppi, walla ak ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Baat",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Ab nit bu Claude di jëfandikoo baatam ngir bind lim yu docket, ci làkk bu mu mënti doon",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Wone",

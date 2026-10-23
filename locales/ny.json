@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Zopempha",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Palibe liwu",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mupange zokonda za docket pa {path}, chilichonse chili pa mulingo wake woyambira? Mutha kuzisintha pamenepo, kapena ndi ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Liwu",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Munthu amene Claude amagwiritsa ntchito liwu lake polemba zinthu za docket, m'chilankhulo chilichonse",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Mawonekedwe",

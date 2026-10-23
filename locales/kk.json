@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Өтініштер",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Дауыссыз",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket конфигурациясын {path} жолында барлық баптаулары әдепкі мәнде болатындай етіп жасау керек пе? Оны сол жерде немесе ⚙ арқылы өңдей аласыз.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Дауыс",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude docket элементтерін оның атынан жазатын кейіпкер, кез келген тілде",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Көрініс",

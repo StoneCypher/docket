@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "ඉල්ලීම්",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "හඬක් නැත",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "සියලු සැකසුම් පෙරනිමි අගයන්ගෙන් යුතුව docket හි වින්‍යාසය {path} හි සාදන්නද? ඔබට එය එහිදී හෝ ⚙ මගින් සංස්කරණය කළ හැක.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "හඬ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude docket හි අයිතම ලියන්නේ යම් චරිතයක හඬින්ද ඒ චරිතය, ඕනෑම භාෂාවකින්",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "සංදර්ශනය",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ruhusa",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Hakuna sauti",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Unda usanidi wa docket katika {path}, kila mpangilio ukiwa kwenye chaguo-msingi lake? Unaweza kuuhariri hapo, au kwa ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Sauti",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Mhusika ambaye Claude huandika vipengee vya docket kwa sauti yake, kwa lugha yoyote",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Mwonekano",

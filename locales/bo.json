@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "རེ་ཞུ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "སྐད་ཚུལ་མེད།",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} ལ་ docket ཡི་སྒྲིག་འགོད་གསར་བཟོ་བྱེད་དམ། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད། དེ་གར་རམ་ ⚙ བརྒྱུད་ནས་བཟོ་བཅོས་བྱེད་ཆོག",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "སྐད་ཚུལ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude ཡིས་ docket གི་རྣམ་གྲངས་འབྲི་སྐབས་ཁོང་གིས་ཚབ་བྱེད་པའི་མི་སྣ། སྐད་ཡིག་གང་རུང་ནང་།",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "མངོན་སྟོན",

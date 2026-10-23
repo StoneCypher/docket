@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "דערלויבענישן",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "אָן קול",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "שאַפֿן די קאָנפֿיגוראַציע פֿון docket אין {path}, מיט יעדער באַשטימונג אויף איר גרונטווערט? דו קענסט זי דאָרט רעדאַקטירן, אָדער מיט ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "קול",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "אַ פּערזאָן אין וועמענס קול Claude שרײַבט די זאַכן פֿון docket, אין יעדער שפּראַך",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "אַרויסווײַז",

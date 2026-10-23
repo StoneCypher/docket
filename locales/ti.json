@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "ጠለባት",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ድምጺ የለን",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ናይ docket ቅጥዕታት ኣብ {path}፣ ኩሉ ቅጥዒ ኣብ ናይ መበገሲ ዋጋኡ ኮይኑ፣ ይፈጠር ዶ? ኣብኡ ወይ ብ ⚙ ክተመሓይሾ ትኽእል ኢኻ።",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "ድምጺ",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude ብድምጹ ናይ docket ኣቕሓታት ዝጽሕፈሉ ገጸ-ባህሪ፣ ብዝኾነ ቋንቋ",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ምርኢት",

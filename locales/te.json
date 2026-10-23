@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "అభ్యర్థనలు",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "స్వరం లేదు",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ప్రతి సెట్టింగ్ డిఫాల్ట్ విలువతో docket కాన్ఫిగరేషన్‌ను {path} లో సృష్టించాలా? దాన్ని అక్కడ లేదా ⚙ తో సవరించవచ్చు.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "స్వరం",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude docket అంశాలను ఏ పాత్ర స్వరంలో రాస్తుందో ఆ పాత్ర, ఏ భాషలోనైనా",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ప్రదర్శన",

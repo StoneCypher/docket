@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "याचनाः",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "स्वरः नास्ति",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket इत्यस्य विन्यासः {path} इत्यत्र सर्वैः विन्यासैः पूर्वनिर्धारितमूल्येषु सृज्यतां किम्? तत्र अथवा ⚙ द्वारा तं सम्पादयितुं शक्नोषि।",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "स्वरः",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "पात्रं यस्य स्वरेण Claude docket इत्यस्य वस्तूनि लिखति, कस्याम् अपि भाषायाम्",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "प्रदर्शनम्",

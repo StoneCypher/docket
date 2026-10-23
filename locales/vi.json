@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Yêu cầu",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Không có giọng văn",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Tạo cấu hình của docket tại {path}, với mọi cài đặt ở giá trị mặc định? Bạn có thể sửa nó ở đó, hoặc bằng ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Giọng văn",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Nhân vật mà Claude nhập vai để viết các mục của docket, bằng bất kỳ ngôn ngữ nào",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Hiển thị",

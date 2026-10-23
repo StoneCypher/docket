@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Pyynnöt",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Ei ääntä",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Luodaanko docketin asetustiedosto polkuun {path}, kaikki asetukset oletusarvoissaan? Voit muokata sitä siellä tai ⚙:lla.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Ääni",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Hahmo, jonka äänellä Claude kirjoittaa docketin kohteet, millä tahansa kielellä",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Näyttö",

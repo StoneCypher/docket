@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Ufroen",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Keng Stëmm",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "D'Konfiguratioun vum docket an {path} uleeën, mat all Astellung op hirem Standardwäert? Du kanns se do änneren, oder mat ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Stëmm",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Eng Figur, mat där hirer Stëmm Claude d'Elementer vum docket schreift, an all Sprooch",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Usiicht",

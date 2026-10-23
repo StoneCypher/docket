@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Jóváhagyandó",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Nincs hang",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Létrehozzam a docket beállításfájlját itt: {path}, minden beállítás alapértékével? Ott szerkesztheted, vagy a ⚙ gombbal.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Hang",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Egy karakter, akinek a hangján Claude a docket elemeit írja, bármilyen nyelven",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Megjelenítés",

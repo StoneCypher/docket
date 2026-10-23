@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Āpono",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "ʻAʻohe leo",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "E hana i ka hoʻonohonoho o docket ma {path}, me kēlā me kēia hoʻonohonoho ma kona kūmau? Hiki iā ʻoe ke hoʻoponopono ma laila, a i ʻole me ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Leo",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "He kanaka a Claude e kākau ai i nā mea o ka docket me kona leo, ma kekahi ʻōlelo",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Hōʻike",

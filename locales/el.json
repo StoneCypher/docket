@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Αιτήματα",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Χωρίς φωνή",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Να δημιουργηθούν οι ρυθμίσεις του docket στο {path}, με κάθε ρύθμιση στην προεπιλογή της; Μπορείς να τις επεξεργαστείς εκεί ή με το ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Φωνή",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Ένας χαρακτήρας με τη φωνή του οποίου ο Claude γράφει τα στοιχεία του docket, σε οποιαδήποτε γλώσσα",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Εμφάνιση",

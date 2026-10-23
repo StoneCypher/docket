@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "요청",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "말투 없음",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "모든 설정을 기본값으로 둔 docket 설정 파일을 {path}에 만들까요? 거기서 직접 또는 ⚙로 편집할 수 있습니다.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "말투",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "Claude가 docket 항목을 쓸 때 연기하는 캐릭터(언어 무관)",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "표시 방식",

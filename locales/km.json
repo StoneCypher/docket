@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "ការស្នើសុំ",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "គ្មានសំឡេង",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "បង្កើតការកំណត់រចនាសម្ព័ន្ធរបស់ docket នៅ {path} ដោយគ្រប់ការកំណត់ជាតម្លៃលំនាំដើម? អ្នកអាចកែវានៅទីនោះ ឬដោយប្រើ ⚙។",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "សំឡេង",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "តួអង្គដែល Claude ប្រើសំឡេងរបស់វាដើម្បីសរសេរធាតុរបស់ docket ជាភាសាណាក៏បាន",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "ការបង្ហាញ",

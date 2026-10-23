@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 1,
+  "version": 2,
   "Requests": {
     "text": "Oanfragen",
     "ready": "ai translated"
@@ -146,8 +146,8 @@
     "ready": "ai translated"
   },
   "No voice": {
-    "text": "",
-    "ready": false
+    "text": "Gjin stim",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "De konfiguraasje fan docket oanmeitsje yn {path}, mei alle ynstellingen op harren standertwearde? Jo kinne him dêr bewurkje, of mei ⚙.",
@@ -186,12 +186,12 @@
     "ready": "ai translated"
   },
   "Voice": {
-    "text": "",
-    "ready": false
+    "text": "Stim",
+    "ready": "ai translated"
   },
   "A character Claude writes the docket's items as, in any language": {
-    "text": "",
-    "ready": false
+    "text": "In personaazje yn waans stim Claude de items fan it docket skriuwt, yn hokker taal ek",
+    "ready": "ai translated"
   },
   "Display": {
     "text": "Werjefte",
