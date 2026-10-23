@@ -201,6 +201,14 @@
     "text": "Umlingiswa u-Claude abhala izinto ze-docket ngezwi lakhe, nganoma yiluphi ulimi",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Ukubonisa",
     "ready": "ai translated"

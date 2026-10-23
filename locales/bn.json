@@ -201,6 +201,14 @@
     "text": "একটি চরিত্র, যার কণ্ঠে Claude docket-এর আইটেমগুলো লেখে, যেকোনো ভাষায়",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "প্রদর্শন",
     "ready": "ai translated"

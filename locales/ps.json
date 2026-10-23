@@ -201,6 +201,14 @@
     "text": "یو کرکټر چې Claude د هغه په غږ د docket توکي لیکي، په هره ژبه",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "ښودنه",
     "ready": "ai translated"

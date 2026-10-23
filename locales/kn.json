@@ -201,6 +201,14 @@
     "text": "Claude ಯಾರ ಧ್ವನಿಯಲ್ಲಿ docket ನ ಐಟಂಗಳನ್ನು ಬರೆಯುತ್ತದೆಯೋ ಆ ಪಾತ್ರ, ಯಾವುದೇ ಭಾಷೆಯಲ್ಲಿ",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "ಪ್ರದರ್ಶನ",
     "ready": "ai translated"

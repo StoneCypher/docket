@@ -1086,3 +1086,21 @@ test("the pane's title carries docket's version", async ($, on) => {
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   expect(titles).toContain('Docket 📋 9.9.9')
 })
+
+test('at the end of each turn, Claude is sent back once to review it, unless the setting is off', async ($, on) => {
+  standIns(on)
+  on('classic.Stop', () => ({}))
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const first = await $.classic.Stop({ stop_hook_active: false })
+  expect(String(first?.block)).toContain('Before this turn ends, go back over it once for the docket')
+  // Sent back once already: the turn may end.
+  const second = await $.classic.Stop({ stop_hook_active: true })
+  expect(second?.block).toBeUndefined()
+
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), turnReview: false }))
+  await $.prompt.submit({ text: 'next' })
+  const off = await $.classic.Stop({ stop_hook_active: false })
+  expect(off?.block).toBeUndefined()
+})

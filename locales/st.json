@@ -201,6 +201,14 @@
     "text": "Sebapali seo Claude a ngolang dintho tsa docket ka lentswe la sona, ka puo efe kapa efe",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Pontsho",
     "ready": "ai translated"

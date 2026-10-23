@@ -56,6 +56,8 @@ export const LETTERS = LISTS.map(list => list.letter)
 
 export type Settings = {
   display: 'pane' | 'band'
+  // The once-a-turn pass for what the turn decided or left open.
+  isTurnReview: boolean
   caps: Counts
   isEmoji: boolean
   isHeadingEmoji: boolean
@@ -125,6 +127,7 @@ export const settingsOf = (options: PluginOptions): Settings => {
 
   return {
     display: options.display === 'band' ? 'band' : 'pane',
+    isTurnReview: options.turnReview !== false,
     caps,
     isEmoji: options.emoji !== false,
     isHeadingEmoji: options.headingEmoji === true,
@@ -276,6 +279,14 @@ export const references = (prompt: string, items: readonly Item[], text: Strings
     ...named.map(item => `${describe(item, text)}${isOpen(item) ? '' : ' (already closed)'}`),
   ].join('\n')
 }
+
+// Told to Claude once at the end of each turn, as the old /questions skill was called after every turn:
+// the pass that catches what the turn decided or left open without saying so.
+export const REVIEW = `Before this turn ends, go back over it once for the docket:
+- Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
+- Anything you're not sure you read right, or anything risky about to happen: put it in confirm.
+- Any thread your reply left open (later, waiting, pinned, needs you): make it an item.
+If anything is missing, add it in one update call. Then end the turn: don't repeat your reply, and write nothing more if nothing was missing.`
 
 // Told to Claude when the docket's language or voice changed since its open items were written.
 export const rewriteNote = (text: Strings, voice: Voice) => {

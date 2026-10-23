@@ -201,6 +201,14 @@
     "text": "Ame aɖe si ƒe gbeɖiɖi Claude zãna tsɔ ŋlɔa docket ƒe nuwo, le gbe ɖesiaɖe me",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Ɖeɖefia",
     "ready": "ai translated"

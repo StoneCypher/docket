@@ -201,6 +201,14 @@
     "text": "Neɗɗo mo Claude winndata geɗe docket e sawtu makko, e ɗemngal kala",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Hollirde",
     "ready": "ai translated"

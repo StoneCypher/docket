@@ -201,6 +201,14 @@
     "text": "Ab nit bu Claude di jëfandikoo baatam ngir bind lim yu docket, ci làkk bu mu mënti doon",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Wone",
     "ready": "ai translated"

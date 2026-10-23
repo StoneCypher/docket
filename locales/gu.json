@@ -201,6 +201,14 @@
     "text": "એક પાત્ર, જેના અવાજમાં Claude docket ની આઇટમ્સ લખે છે, કોઈપણ ભાષામાં",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "દેખાવ",
     "ready": "ai translated"

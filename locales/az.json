@@ -201,6 +201,14 @@
     "text": "Claude-un docket elementlərini onun dilindən yazdığı personaj, istənilən dildə",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Görünüş",
     "ready": "ai translated"

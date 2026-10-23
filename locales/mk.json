@@ -201,6 +201,14 @@
     "text": "Лик со чиј глас Claude ги пишува ставките на docket, на кој било јазик",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Приказ",
     "ready": "ai translated"

@@ -201,6 +201,14 @@
     "text": "Persóna sem Claude bregður sér í þegar það skrifar atriði docket, á hvaða tungumáli sem er",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Birting",
     "ready": "ai translated"

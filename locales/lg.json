@@ -201,6 +201,14 @@
     "text": "Omuntu Claude gw'akozesa eddoboozi lye okuwandiika ebintu bya docket, mu lulimi lwonna",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Endabika",
     "ready": "ai translated"

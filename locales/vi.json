@@ -201,6 +201,14 @@
     "text": "Nhân vật mà Claude nhập vai để viết các mục của docket, bằng bất kỳ ngôn ngữ nào",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Hiển thị",
     "ready": "ai translated"

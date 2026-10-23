@@ -201,6 +201,14 @@
     "text": "אַ פּערזאָן אין וועמענס קול Claude שרײַבט די זאַכן פֿון docket, אין יעדער שפּראַך",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "אַרויסווײַז",
     "ready": "ai translated"

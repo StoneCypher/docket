@@ -201,6 +201,14 @@
     "text": "In personaazje yn waans stim Claude de items fan it docket skriuwt, yn hokker taal ek",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Werjefte",
     "ready": "ai translated"

@@ -201,6 +201,14 @@
     "text": "Karakter yang suaranya dipakai Claude untuk menulis item docket, dalam bahasa apa pun",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Tampilan",
     "ready": "ai translated"

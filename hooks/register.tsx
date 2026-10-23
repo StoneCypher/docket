@@ -11,6 +11,7 @@ import {
   isOpen,
   openCounts,
   RECONCILE,
+  REVIEW,
   nowNote,
   references,
   rewriteNote,
@@ -1358,6 +1359,18 @@ export const register: Register = on => {
       .join(' ')
 
     return { result: report || 'No changes.' }
+  })
+
+  // The once-a-turn review, as the old /questions skill was called after every turn: when Claude is about
+  // to end a turn, it's sent back once to raise what the turn decided or left open. Never twice: the
+  // Stop hook says when it's already been sent back.
+  on('classic.Stop', async ($, e, next) => {
+    const result = await next(e)
+    if (!settings.isTurnReview || e.stop_hook_active || result.block) {
+      return result
+    }
+
+    return { ...result, block: REVIEW }
   })
 
   // The end-of-turn check: a main-loop answer that speaks of pending work but changed nothing is flagged.

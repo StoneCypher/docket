@@ -201,6 +201,14 @@
     "text": "Wani hali da Claude ke rubuta abubuwan docket da muryarsa, a kowane harshe",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Nuni",
     "ready": "ai translated"

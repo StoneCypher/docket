@@ -201,6 +201,14 @@
     "text": "E dua na tamata e vakayagataka o Claude na domona me vola kina na iwiliwili ni docket, ena vosa cava ga",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Ivakaraitaki",
     "ready": "ai translated"

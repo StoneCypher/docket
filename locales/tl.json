@@ -201,6 +201,14 @@
     "text": "Isang karakter na ang boses ay ginagamit ni Claude sa pagsulat ng mga item ng docket, sa anumang wika",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Pagpapakita",
     "ready": "ai translated"

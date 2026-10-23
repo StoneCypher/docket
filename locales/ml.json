@@ -201,6 +201,14 @@
     "text": "Claude docket-ലെ ഇനങ്ങൾ ഏത് കഥാപാത്രത്തിന്റെ ശബ്ദത്തിൽ എഴുതുന്നുവോ ആ കഥാപാത്രം, ഏത് ഭാഷയിലും",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "പ്രദർശനം",
     "ready": "ai translated"

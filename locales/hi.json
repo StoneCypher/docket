@@ -201,6 +201,14 @@
     "text": "एक किरदार, जिसकी आवाज़ में Claude docket के आइटम लिखता है, किसी भी भाषा में",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "प्रदर्शन",
     "ready": "ai translated"

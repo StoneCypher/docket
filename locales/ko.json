@@ -201,6 +201,14 @@
     "text": "Claude가 docket 항목을 쓸 때 연기하는 캐릭터(언어 무관)",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "표시 방식",
     "ready": "ai translated"

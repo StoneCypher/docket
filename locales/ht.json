@@ -201,6 +201,14 @@
     "text": "Yon pèsonaj Claude itilize vwa li pou ekri eleman docket la, nan nenpòt lang",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Afichaj",
     "ready": "ai translated"

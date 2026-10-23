@@ -201,6 +201,14 @@
     "text": "តួអង្គដែល Claude ប្រើសំឡេងរបស់វាដើម្បីសរសេរធាតុរបស់ docket ជាភាសាណាក៏បាន",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "ការបង្ហាញ",
     "ready": "ai translated"

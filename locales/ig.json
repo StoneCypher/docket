@@ -201,6 +201,14 @@
     "text": "Agwa Claude ji olu ya ede ihe ndị dị na docket, n'asụsụ ọ bụla",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Ngosipụta",
     "ready": "ai translated"

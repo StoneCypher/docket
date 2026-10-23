@@ -201,6 +201,14 @@
     "text": "Персанаж, ад імя якога Claude піша элементы docket, на любой мове",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Адлюстраванне",
     "ready": "ai translated"

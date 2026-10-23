@@ -201,6 +201,14 @@
     "text": "Ένας χαρακτήρας με τη φωνή του οποίου ο Claude γράφει τα στοιχεία του docket, σε οποιαδήποτε γλώσσα",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Εμφάνιση",
     "ready": "ai translated"

@@ -201,6 +201,14 @@
     "text": "Caractar ann an guth a sgrìobhas Claude nithean an docket, ann an cànan sam bith",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Taisbeanadh",
     "ready": "ai translated"

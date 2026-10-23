@@ -201,6 +201,14 @@
     "text": "Një personazh me zërin e të cilit Claude shkruan elementët e docket, në çdo gjuhë",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Shfaqja",
     "ready": "ai translated"

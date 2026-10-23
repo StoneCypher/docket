@@ -201,6 +201,14 @@
     "text": "En karaktär vars röst Claude skriver objekten i docket med, på valfritt språk",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Visning",
     "ready": "ai translated"

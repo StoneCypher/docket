@@ -201,6 +201,14 @@
     "text": "Personažas, kurio balsu Claude rašo docket elementus, bet kuria kalba",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Rodymas",
     "ready": "ai translated"

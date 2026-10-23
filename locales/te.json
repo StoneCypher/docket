@@ -201,6 +201,14 @@
     "text": "Claude docket అంశాలను ఏ పాత్ర స్వరంలో రాస్తుందో ఆ పాత్ర, ఏ భాషలోనైనా",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "ప్రదర్శన",
     "ready": "ai translated"

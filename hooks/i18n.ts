@@ -117,6 +117,7 @@ export const EN: Strings = {
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
     voice: ['Voice', "A character Claude writes the docket's items as, in any language"],
+    turnReview: ['Review each turn', 'Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open'],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
     emoji: ['Emoji', 'Master switch for every emoji the docket draws'],
     headingEmoji: ['Heading emoji', "An emoji before each list's heading"],
@@ -163,7 +164,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 3
+export const STRINGS_VERSION = 4
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'

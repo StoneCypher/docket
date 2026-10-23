@@ -201,6 +201,14 @@
     "text": "Claude 编写 docket 条目时扮演的角色，可用任何语言",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "显示方式",
     "ready": "ai translated"

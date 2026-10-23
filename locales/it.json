@@ -201,6 +201,14 @@
     "text": "Un personaggio con la cui voce Claude scrive gli elementi del docket, in qualsiasi lingua",
     "ready": "ai translated"
   },
+  "Review each turn": {
+    "text": "",
+    "ready": false
+  },
+  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+    "text": "",
+    "ready": false
+  },
   "Display": {
     "text": "Visualizzazione",
     "ready": "ai translated"
