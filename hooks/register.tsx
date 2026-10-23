@@ -631,14 +631,24 @@ const SITE = 'https://stonecypher.github.io/docket'
 const isDeepDiving = async ($: Dollar, settings: Settings) => (await read($, deepDive)) ?? settings.isTurnReview
 
 // The pane's bottom row: the Deep dive switch at the left; docket's repository and the ⚙ at the right.
-const gear = async ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string, settings: Settings, text: Strings) => {
+// The switch is meant to be rarely touched, so it's a quiet link, its emoji saying the state; the
+// terminal, which may open a link itself, gets an equally quiet button.
+const DEEP_DIVE_HREF = 'https://stonecypher.github.io/docket/#deep-dive'
+
+const gear = async ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string, settings: Settings, text: Strings, Markdown?: MarkdownElement) => {
   const isOn = await isDeepDiving($, settings)
+  const words = `${isOn ? '✅' : '⬜'} ${text.deepDive}`
+  const flip = () => void update($, deepDive, () => !isOn)
 
   return (
     <Box flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2} marginTop={1}>
-      <Button key="deep-dive" plain dimColor onPress={() => update($, deepDive, () => !isOn)}>
-        <Text size="caption">{`${isOn ? '☑' : '☐'} ${text.deepDive}`}</Text>
-      </Button>
+      {Markdown ? (
+        <Markdown key="deep-dive" text={`[${words}](${DEEP_DIVE_HREF})`} dimColor pressableLinks={[DEEP_DIVE_HREF]} onLinkPress={flip} />
+      ) : (
+        <Button key="deep-dive" plain dimColor onPress={flip}>
+          <Text size="caption">{words}</Text>
+        </Button>
+      )}
       <Box flexDirection="row" alignItems="center" columnGap={2}>
         <Text dimColor size="caption">
           <Link href={REPO}>GitHub</Link>
@@ -1532,7 +1542,7 @@ export const register: Register = on => {
       return (
         <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
           {body}
-          {await gear($, kit, e.surface, settings, text)}
+          {await gear($, kit, e.surface, settings, text, markdownOf(kit, e.surface))}
         </Box>
       )
     }
@@ -1542,7 +1552,7 @@ export const register: Register = on => {
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
         {lists ?? <Text dimColor>{text.nothing}</Text>}
-        {await gear($, kit, e.surface, settings, text)}
+        {await gear($, kit, e.surface, settings, text, markdownOf(kit, e.surface))}
       </Box>
     )
   })

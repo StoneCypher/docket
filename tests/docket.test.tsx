@@ -1112,11 +1112,16 @@ test('the Deep dive switch starts as the config says, and drives the review from
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await findText(ui, /^☐ Deep dive$/)).toBeDefined()
+  expect(await findText(ui, /⬜ Deep dive/)).toBeDefined()
   expect((await $.classic.Stop({ stop_hook_active: false }))?.block).toBeUndefined()
 
-  await ui.press({ key: 'deep-dive' })
-  expect(await findText(ui, /^☑ Deep dive$/)).toBeDefined()
+  // A quiet link off the terminal.
+  await ui.press({ key: 'deep-dive', link: { href: 'https://stonecypher.github.io/docket/#deep-dive' } })
+  expect(await findText(ui, /✅ Deep dive/)).toBeDefined()
   await ui.unmount()
+  // A quiet button on the terminal.
+  const plain = await $.ui.mount({ ...PANE, surface: 'terminal' })
+  expect(await findText(plain, /^✅ Deep dive$/)).toBeDefined()
+  await plain.unmount()
   expect(String((await $.classic.Stop({ stop_hook_active: false }))?.block)).toContain('go back over it once')
 })
