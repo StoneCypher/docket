@@ -880,38 +880,13 @@ const voicePicker = (Select: FieldKit['Select'], view: SettingsView, value: unkn
   )
 }
 
-// What's been typed into each settings field and not yet saved, for docket's own 💾 to save.
-const drafts = new Map<string, string>()
-
-// A text field with docket's own dark 💾 beside it, saving what's typed. The engine draws its own submit
-// button too, which can't be styled or hidden, so it's labelled ↵: Enter saves as well.
-const savedField = ({ Box, Button, Text, Input }: FieldKit, view: SettingsView, key: string, value: unknown, isNumber: boolean) => (
-  <Box flexDirection="row" flexWrap="nowrap" alignItems="center" columnGap={1}>
-    <Box flexGrow={1} flexShrink={1} minWidth={0}>
-      <Input
-        key={key}
-        value={String(value)}
-        submitLabel="↵"
-        onInput={typed => void drafts.set(key, typed)}
-        onSubmit={typed => view.onSave(key, isNumber ? Number(typed) : typed)}
-      />
-    </Box>
-    <Button
-      key={`save-${key}`}
-      plain
-      dimColor
-      onPress={() => {
-        const typed = drafts.get(key) ?? String(value)
-        void view.onSave(key, isNumber ? Number(typed) : typed)
-      }}
-    >
-      <Text size="caption">💾</Text>
-    </Button>
-  </Box>
+// A text field, saved on Enter or its 💾: the engine's own submit button, which the surface always draws.
+const savedField = ({ Input }: FieldKit, view: SettingsView, key: string, value: unknown, isNumber: boolean) => (
+  <Input key={key} value={String(value)} submitLabel="💾" onSubmit={typed => view.onSave(key, isNumber ? Number(typed) : typed)} />
 )
 
 // Every list's cap in one table: its title right-aligned in a column as wide as the longest, then its
-// field and 💾. Markdown tables hold only text, so it's laid out in Boxes.
+// field with its 💾. Markdown tables hold only text, so it's laid out in Boxes.
 const capsTable = (kit: FieldKit, view: SettingsView, text: Strings) => {
   const { Box, Text } = kit
   const rows = LISTS.map(list => ({
