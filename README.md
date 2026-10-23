@@ -4,19 +4,19 @@ Claude produces more than a person can keep up with. Questions get buried in lon
 
 ## Install
 
-At the prompt of a Claude Code session:
+At the prompt of a Claude Code session, add docket's marketplace, then install it from there:
 
 ```
-/plugin install docket --marketplace StoneCypher/docket
+/plugin marketplace add StoneCypher/docket
 ```
 
-Answer `y` to add the marketplace, then pick a scope.
-
-docket is also listed in [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins), alongside StoneCypher's other plugins: `/plugin marketplace add StoneCypher/claude-plugins`, then `/plugin install docket@stonecypher`. From a shell instead:
-
 ```
-claude plugin install docket --marketplace StoneCypher/docket
+/plugin install docket@docket
 ```
+
+Pick a scope when asked. From a shell instead, `claude plugin marketplace add StoneCypher/docket` then `claude plugin install docket@docket`.
+
+docket is also listed in [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins), alongside StoneCypher's other plugins: `/plugin marketplace add StoneCypher/claude-plugins`, then `/plugin install docket@stonecypher`.
 
 ## The lists
 

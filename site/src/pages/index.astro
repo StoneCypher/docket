@@ -2,7 +2,8 @@
 import '../styles/site.css'
 import { figures } from '../pane'
 
-const install = '/plugin install docket --marketplace StoneCypher/docket'
+// Two steps, which every version of Claude Code takes: the marketplace, then the plugin from it.
+const steps = ['/plugin marketplace add StoneCypher/docket', '/plugin install docket@docket']
 const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 const features = [
@@ -96,12 +97,14 @@ const features = [
           A Claude Code mod that keeps Claude's open questions, confirmations and hand-offs in numbered lists beside the
           chat, so you can answer in a word or a click and nothing gets missed.
         </p>
-        <div class="install">
-          <code id="install-line">{install}</code>
-          <button type="button" id="copy">Copy</button>
-        </div>
+        {steps.map(step => (
+          <div class="install">
+            <code class="install-line">{step}</code>
+            <button type="button" class="copy">Copy</button>
+          </div>
+        ))}
         <div class="notes">
-          <p class="note">Run it at the prompt of a Claude Code session, answer <code>y</code>, then pick a scope.</p>
+          <p class="note">Run them one at a time at the prompt of a Claude Code session, then pick a scope.</p>
           <p class="note">If your docket is closed, type <code>/docket</code> to show it.</p>
         </div>
       </section>
@@ -195,22 +198,24 @@ approve r4</code></pre>
     </footer>
 
     <script>
-      const copy = document.getElementById('copy')
-      const line = document.getElementById('install-line')
-
-      copy?.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(line?.textContent ?? '')
-          copy.textContent = 'Copied'
-        } catch {
-          const range = document.createRange()
-          if (line) range.selectNodeContents(line)
-          getSelection()?.removeAllRanges()
-          getSelection()?.addRange(range)
-          copy.textContent = 'Selected'
-        }
-        setTimeout(() => (copy.textContent = 'Copy'), 1800)
-      })
+      // Each step's button copies its own line.
+      for (const box of document.querySelectorAll('.install')) {
+        const copy = box.querySelector('.copy')
+        const line = box.querySelector('.install-line')
+        copy?.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(line?.textContent ?? '')
+            copy.textContent = 'Copied'
+          } catch {
+            const range = document.createRange()
+            if (line) range.selectNodeContents(line)
+            getSelection()?.removeAllRanges()
+            getSelection()?.addRange(range)
+            copy.textContent = 'Selected'
+          }
+          setTimeout(() => (copy.textContent = 'Copy'), 1800)
+        })
+      }
     </script>
   </body>
 </html>
