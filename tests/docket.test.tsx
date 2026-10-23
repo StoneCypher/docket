@@ -833,3 +833,30 @@ test('a language the picker does not know shows as itself, and an unpicked group
   expect((await ui.find({ type: 'Select', key: 'language-group' }))?.props.value).toBe('current')
   await ui.unmount()
 })
+
+test('switching into a voice or out of one asks Claude to rewrite the open items', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship on Friday?' }] })
+  await $.prompt.submit({ text: 'hello' })
+  expect(context.join('\n')).not.toContain('rewrite every open item')
+
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), voice: 'drunk Optimus Prime' }))
+  await $.prompt.submit({ text: 'now in a voice' })
+  expect(context.join('\n')).toContain('rewrite every open item')
+  expect(context.join('\n')).toContain('in the voice the docket instructions give')
+
+  await $.prompt.submit({ text: 'same voice' })
+  expect(context.join('\n')).not.toContain('rewrite every open item')
+
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults() }))
+  await $.prompt.submit({ text: 'voice off' })
+  expect(context.join('\n')).toContain('Write them plainly, out of character.')
+})

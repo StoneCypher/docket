@@ -56,6 +56,8 @@ declare module 'claude-code' {
       isUnreconciled: boolean
       // The group of initials open in the language picker, before a language in it is picked.
       languageGroup: string
+      // The language and voice the open items were last written in, to see when they need rewriting.
+      spokenAs: string
     }
   }
 }

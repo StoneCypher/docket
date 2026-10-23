@@ -12,6 +12,7 @@ import {
   openCounts,
   RECONCILE,
   references,
+  rewriteNote,
   settingsOf,
   snapshot,
   speaksOfPending,
@@ -47,6 +48,10 @@ const expanded = atom({ plugin: 'docket', key: 'expanded' } as const, [] as stri
 const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
 const languageGroup = atom({ plugin: 'docket', key: 'languageGroup' } as const, '')
+const spokenAs = atom({ plugin: 'docket', key: 'spokenAs' } as const, '')
+
+// The language and voice items are written in, as one comparable key.
+const speechOf = (text: Strings, voice: Voice) => JSON.stringify({ language: text.language, voice })
 
 type Fields = { text?: string; emoji?: string; lean?: string; stakes?: Stakes; rank?: number; options?: string[]; open?: string }
 type UpdateInput = {
@@ -1034,6 +1039,7 @@ export const register: Register = on => {
     // Settled afresh in each process, so the tool is registered whatever the language.
     adopt(await reloadConfig($, paths))
     const loaded = files
+    if (!(await read($, spokenAs))) await update($, spokenAs, () => speechOf(text, voice))
     // With no config of the user's own, offer to write one: once, and not again after a no.
     const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
     if (!loaded.user && !isOffered && !(await $.store.get('configDeclined'))) {
@@ -1185,6 +1191,13 @@ export const register: Register = on => {
     await update($, dismissed, () => [])
 
     const context = [snapshot(all, gone, text)]
+    // Switched into a voice, out of one, or to another language: the open items follow.
+    const speech = speechOf(text, voice)
+    const wasSpoken = await read($, spokenAs)
+    if (wasSpoken && wasSpoken !== speech && all.some(item => isOpen(item) && !item.action)) {
+      context.push(rewriteNote(text, voice))
+    }
+    await update($, spokenAs, () => speech)
     if (await read($, isUnreconciled)) {
       context.push(RECONCILE)
       await update($, isUnreconciled, () => false)

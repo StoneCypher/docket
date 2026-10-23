@@ -6,7 +6,7 @@ import { describe, test } from 'node:test'
 
 import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
 import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
-import { instructions, settingsOf } from '../hooks/lists.ts'
+import { instructions, rewriteNote, settingsOf } from '../hooks/lists.ts'
 
 const folder = new URL('../locales/', import.meta.url)
 const read = (file: string): unknown => JSON.parse(readFileSync(new URL(file, folder), 'utf8'))
@@ -236,6 +236,11 @@ describe('voices', () => {
     assert.match(text, /Write the docket's items in character, as the Enterprise crew; in these lists, as follows:\n- V: Uhura/)
     assert.match(text, /still say exactly what they need to/)
     assert.doesNotMatch(instructions(settingsOf({}), false, EN), /in character/)
+  })
+
+  test('ask for the open items to be rewritten in a new voice, or plainly without one', () => {
+    assert.match(rewriteNote(EN, { all: 'Aku', lists: {} }), /in the voice the docket instructions give/)
+    assert.match(rewriteNote(EN, { all: '', lists: {} }), /Write them plainly, out of character\./)
   })
 
   test('keep Georgian labels in the letters its fonts draw', () => {

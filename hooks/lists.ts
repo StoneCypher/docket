@@ -268,6 +268,17 @@ export const references = (prompt: string, items: readonly Item[], text: Strings
   ].join('\n')
 }
 
+// Told to Claude when the docket's language or voice changed since its open items were written.
+export const rewriteNote = (text: Strings, voice: Voice) => {
+  const isVoiced = Boolean(voice.all || Object.keys(voice.lists).length)
+
+  return `The docket's language or voice has changed since its open items were written: it is now ${text.language}, ${
+    isVoiced ? 'in the voice the docket instructions give' : 'with no voice'
+  }. Before anything else, rewrite every open item's text, lean and options that way, in one update call of changes, keeping each label and exactly what each item says.${
+    isVoiced ? '' : ' Write them plainly, out of character.'
+  }`
+}
+
 export const instructions = (settings: Settings, isHeadless: boolean, text: Strings, voice: Voice = { all: '', lists: {} }) => {
   const L = (letter: Letter) => text.lists[letter].letter
   const named = (letter: Letter) => (text.language === 'English' ? L(letter) : `${L(letter)} (${text.lists[letter].name})`)
