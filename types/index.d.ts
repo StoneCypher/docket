@@ -60,6 +60,8 @@ declare module 'claude-code' {
       languageGroup: string
       // The language and voice the open items were last written in, to see when they need rewriting.
       spokenAs: string
+      // The Deep dive switch, once flipped this session; null until then, when the config's turnReview says.
+      deepDive: boolean | null
     }
   }
 }

@@ -61,6 +61,10 @@
     "text": "Kopieer hierdie item",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aanvaar alle voorstelle",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "'n Karakter in wie se stem Claude die docket se items skryf, in enige taal",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },

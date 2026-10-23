@@ -61,6 +61,10 @@
     "text": "Diesen Eintrag kopieren",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Alle Vorschläge annehmen",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "Eine Figur, in deren Stimme Claude die Docket-Einträge schreibt, in jeder Sprache",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },

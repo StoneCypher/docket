@@ -1104,3 +1104,19 @@ test('at the end of each turn, Claude is sent back once to review it, unless the
   const off = await $.classic.Stop({ stop_hook_active: false })
   expect(off?.block).toBeUndefined()
 })
+
+test('the Deep dive switch starts as the config says, and drives the review from then on', async ($, on) => {
+  standIns(on)
+  on('classic.Stop', () => ({}))
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), turnReview: false }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await findText(ui, /^☐ Deep dive$/)).toBeDefined()
+  expect((await $.classic.Stop({ stop_hook_active: false }))?.block).toBeUndefined()
+
+  await ui.press({ key: 'deep-dive' })
+  expect(await findText(ui, /^☑ Deep dive$/)).toBeDefined()
+  await ui.unmount()
+  expect(String((await $.classic.Stop({ stop_hook_active: false }))?.block)).toContain('go back over it once')
+})

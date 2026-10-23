@@ -61,6 +61,10 @@
     "text": "हा आयटम कॉपी करा",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "सर्व शिफारसी स्वीकारा",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "एक पात्र, ज्याच्या आवाजात Claude docket मधील आयटम लिहितो, कोणत्याही भाषेत",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },

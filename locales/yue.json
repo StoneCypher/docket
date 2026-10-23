@@ -61,6 +61,10 @@
     "text": "複製呢個項目",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "全部接受建議",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "Claude 寫 docket 啲項目時扮演嘅角色，咩語言都得",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },

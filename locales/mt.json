@@ -61,6 +61,10 @@
     "text": "Ikkopja dan l-oġġett",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "Aċċetta l-proposti kollha",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "Karattru li bil-vuċi tiegħu Claude jikteb l-oġġetti ta' docket, fi kwalunkwe lingwa",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },

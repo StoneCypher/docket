@@ -20,6 +20,8 @@ export type Strings = {
   nothing: string
   // Hover text on an item's label, which copies the item.
   copyItem: string
+  // The switch for the once-a-turn review, at the pane's bottom left.
+  deepDive: string
   bulk: { Q: string; C: string; R: string }
   send: {
     acceptLean: string
@@ -74,6 +76,7 @@ export const EN: Strings = {
   fewer: 'fewer',
   nothing: 'Nothing on the docket.',
   copyItem: 'Copy this item',
+  deepDive: 'Deep dive',
   bulk: { Q: 'Accept all leans', C: 'Confirm all', R: 'Approve all' },
   send: {
     acceptLean: 'Accept the lean on {id}.',
@@ -117,7 +120,7 @@ export const EN: Strings = {
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
     voice: ['Voice', "A character Claude writes the docket's items as, in any language"],
-    turnReview: ['Review each turn', 'Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open'],
+    turnReview: ['Deep dive', 'Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open'],
     display: ['Display', 'A pane beside the transcript, or a band above the prompt'],
     emoji: ['Emoji', 'Master switch for every emoji the docket draws'],
     headingEmoji: ['Heading emoji', "An emoji before each list's heading"],

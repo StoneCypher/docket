@@ -60,6 +60,7 @@ const updatedTurn = atom({ plugin: 'docket', key: 'updatedTurn' } as const, 0)
 const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const, false)
 const languageGroup = atom({ plugin: 'docket', key: 'languageGroup' } as const, '')
 const spokenAs = atom({ plugin: 'docket', key: 'spokenAs' } as const, '')
+const deepDive = atom({ plugin: 'docket', key: 'deepDive' } as const, null as boolean | null)
 
 // The language and voice items are written in, as one comparable key.
 const speechOf = (text: Strings, voice: Voice) => JSON.stringify({ language: text.language, voice })
@@ -626,16 +627,29 @@ const draw = async (
 const REPO = 'https://github.com/StoneCypher/docket'
 const SITE = 'https://stonecypher.github.io/docket'
 
-const gear = ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string) => (
-  <Box flexDirection="row" justifyContent="flex-end" alignItems="center" columnGap={2} marginTop={1}>
-    <Text dimColor size="caption">
-      <Link href={REPO}>GitHub</Link>
-    </Text>
-    <Button key="gear" plain dimColor onPress={() => update($, isSettings, isOn => !isOn)}>
-      <Text size="caption">{surface === 'terminal' ? '⚙' : '⚙️'}</Text>
-    </Button>
-  </Box>
-)
+// Whether the once-a-turn review runs: the switch, once flipped this session, else the config's turnReview.
+const isDeepDiving = async ($: Dollar, settings: Settings) => (await read($, deepDive)) ?? settings.isTurnReview
+
+// The pane's bottom row: the Deep dive switch at the left; docket's repository and the ⚙ at the right.
+const gear = async ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string, settings: Settings, text: Strings) => {
+  const isOn = await isDeepDiving($, settings)
+
+  return (
+    <Box flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2} marginTop={1}>
+      <Button key="deep-dive" plain dimColor onPress={() => update($, deepDive, () => !isOn)}>
+        <Text size="caption">{`${isOn ? '☑' : '☐'} ${text.deepDive}`}</Text>
+      </Button>
+      <Box flexDirection="row" alignItems="center" columnGap={2}>
+        <Text dimColor size="caption">
+          <Link href={REPO}>GitHub</Link>
+        </Text>
+        <Button key="gear" plain dimColor onPress={() => update($, isSettings, isOn => !isOn)}>
+          <Text size="caption">{surface === 'terminal' ? '⚙' : '⚙️'}</Text>
+        </Button>
+      </Box>
+    </Box>
+  )
+}
 
 export type ConfigPaths = { user: string; project?: string }
 // What loading a config file had to say: worded once the language is known, as the file may set it.
@@ -1366,7 +1380,7 @@ export const register: Register = on => {
   // Stop hook says when it's already been sent back.
   on('classic.Stop', async ($, e, next) => {
     const result = await next(e)
-    if (!settings.isTurnReview || e.stop_hook_active || result.block) {
+    if (!(await isDeepDiving($, settings)) || e.stop_hook_active || result.block) {
       return result
     }
 
@@ -1518,7 +1532,7 @@ export const register: Register = on => {
       return (
         <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
           {body}
-          {gear($, kit, e.surface)}
+          {await gear($, kit, e.surface, settings, text)}
         </Box>
       )
     }
@@ -1528,7 +1542,7 @@ export const register: Register = on => {
     return (
       <Box flexDirection="column" flexGrow={1} justifyContent="space-between">
         {lists ?? <Text dimColor>{text.nothing}</Text>}
-        {gear($, kit, e.surface)}
+        {await gear($, kit, e.surface, settings, text)}
       </Box>
     )
   })

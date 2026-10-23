@@ -61,6 +61,10 @@
     "text": "ఈ అంశాన్ని కాపీ చేయండి",
     "ready": "ai translated"
   },
+  "Deep dive": {
+    "text": "",
+    "ready": false
+  },
   "Accept all leans": {
     "text": "అన్ని సూచనలను అంగీకరించు",
     "ready": "ai translated"
@@ -201,11 +205,7 @@
     "text": "Claude docket అంశాలను ఏ పాత్ర స్వరంలో రాస్తుందో ఆ పాత్ర, ఏ భాషలోనైనా",
     "ready": "ai translated"
   },
-  "Review each turn": {
-    "text": "",
-    "ready": false
-  },
-  "Before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
+  "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "",
     "ready": false
   },
