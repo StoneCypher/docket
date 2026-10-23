@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "Kopo",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "Palo e kgolo ka ho fetisisa ya dintho lenaneng ka leng",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Etsa ditlhophiso tsa docket ho {path}, tlhophiso ka nngwe e le boemong ba yona ba kamehla? O ka di fetola moo, kapa ka ⚙.",

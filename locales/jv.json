@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "Idin dijaluk",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "Item paling akèh saben dhaptar",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gawe konfigurasi docket ing {path}, kanthi saben setelan ing nilai standare? Sampeyan bisa ngowahi ing kana, utawa nganggo ⚙.",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "Demandes",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "Nombre maximum d'éléments par liste",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Créer la configuration de docket dans {path}, avec tous les paramètres par défaut? Vous pourrez la modifier à cet endroit ou avec ⚙.",

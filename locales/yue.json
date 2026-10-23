@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "請求",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "每個清單最多顯示幾多項",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "喺 {path} 建立 docket 嘅設定檔，所有設定都用預設值？之後可以喺嗰度改，或者用 ⚙ 改。",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "Abisadeɛ",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "Nneɛma dodow a list biara da no adi",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yɛ docket nhyehyɛeɛ wɔ {path}, na nhyehyɛeɛ biara wɔ ne default so? Wobɛtumi asesa no wɔ hɔ, anaa ⚙ so.",

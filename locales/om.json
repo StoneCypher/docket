@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "Kadhaa",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "Baay'ina wantootaa olaanaa tarree tokkoo tokkoo keessatti",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Qindaa'ina docket {path} irratti, qindaa'ina hunda durtii isaa irratti, haa uumu? Achitti ykn ⚙ fayyadamuun gulaaluu dandeessa.",

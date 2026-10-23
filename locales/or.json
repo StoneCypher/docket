@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "ଅନୁରୋଧ",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "ପ୍ରତି ତାଲିକାରେ ସର୍ବାଧିକ ଆଇଟମ",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} ରେ docket ର କନଫିଗ୍ ତିଆରି କରିବେ, ପ୍ରତ୍ୟେକ ସେଟିଂ ଡିଫଲ୍ଟରେ ରହି? ଆପଣ ତାହା ସେଠାରେ କିମ୍ବା ⚙ ସହିତ ସମ୍ପାଦନ କରିପାରିବେ।",

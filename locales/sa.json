@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 4,
+  "version": 5,
   "Requests": {
     "text": "याचनाः",
     "ready": "ai translated"
@@ -162,8 +162,8 @@
     "ready": "ai translated"
   },
   "List caps by item count": {
-    "text": "",
-    "ready": false
+    "text": "प्रतिसूचि अधिकतमानि वस्तूनि",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket इत्यस्य विन्यासः {path} इत्यत्र सर्वैः विन्यासैः पूर्वनिर्धारितमूल्येषु सृज्यतां किम्? तत्र अथवा ⚙ द्वारा तं सम्पादयितुं शक्नोषि।",
