@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Ruxsat soʻrovlari",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Har bir roʻyxatdagi elementlarning eng koʻp soni",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} chiqdi; sizda {current}. /plugin orqali yangilang yoki claude plugin update docket@docket buyrugʻini bajaring, soʻng qayta ishga tushiring.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket konfiguratsiyasi {path} manzilida barcha sozlamalar standart qiymatda boʻlgan holda yaratilsinmi? Uni oʻsha yerda yoki ⚙ orqali tahrirlashingiz mumkin.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Yangilanishni tekshirish",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Kuniga bir marta GitHub’da docket’ning yangiroq versiyasini qidiradi va boʻlsa, «Qarab tekshiring» roʻyxatida xabar beradi",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“Chuqur tekshiruv” kaliti boshidan yoqilgan boʻlsinmi: navbat tugashidan oldin Claude uni yana bir bor koʻrib chiqadi va siz uchun qabul qilgan qarorlarini hamda ochiq qoldirgan masalalarini qidiradi",

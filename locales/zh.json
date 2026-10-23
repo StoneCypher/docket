@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "请求",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "每个列表最多显示的条目数",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} 已发布；你当前是 {current}。请用 /plugin 更新，或运行 claude plugin update docket@docket，然后重启。",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "要在 {path} 创建 docket 的配置文件，所有设置均为默认值吗？之后可以在该文件中或通过 ⚙ 编辑。",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "检查更新",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "每天一次在 GitHub 上查找更新版本的 docket，如有则在“检查”中提示",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“深度复查”开关是否默认开启：每轮结束前，Claude 会回头再检查一遍，找出替你做的决定和留下的未尽事项",

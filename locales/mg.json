@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Alalana",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Isan'ny zavatra betsaka indrindra isaky ny lisitra",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Nivoaka ny docket {latest}; {current} no anananao. Havaozy amin'ny /plugin, na alefaso ny claude plugin update docket@docket, dia avereno alefa.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Hamorona ny fandrindran'ny docket ao amin'ny {path}, ka ny sanda fototra avokoa no apetraka? Azonao ovaina any izany, na amin'ny ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Fanamarinana fanavaozana",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Indray mandeha isan'andro, mitady docket vaovao kokoa ao amin'ny GitHub ary milaza izany ao amin'ny “Zahao”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Raha mirehitra hatrany am-piandohana ny fanalahidy “Fandinihana lalina”: alohan'ny hiafaran'ny fihodinana, mamerina mijery azy indray mandeha i Claude mba hitady ireo fanapahan-kevitra noraisiny ho anao sy ireo raharaha navelany hisokatra",

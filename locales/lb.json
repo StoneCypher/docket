@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Ufroen",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Maximal Elementer pro Lëscht",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} ass eraus; du hues {current}. Aktualiséier iwwer /plugin oder féier claude plugin update docket@docket aus, a start dann nei.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "D'Konfiguratioun vum docket an {path} uleeën, mat all Astellung op hirem Standardwäert? Du kanns se do änneren, oder mat ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Update-Kontroll",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Eemol am Dag op GitHub no engem méi neien docket sichen an et an „Préiwen“ mellen",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ob de Schalter „Grëndlech Kontroll“ am Ufank un ass: ier en Tour op en Enn geet, geet Claude en nach eng Kéier duerch a sicht no Decisiounen, déi fir dech geholl goufen, an no oppene Punkten",

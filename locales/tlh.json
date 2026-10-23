@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "tlhob",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "tetlh Hoch Doch mI' veH",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} tu'lu'; {current} Daghaj. ghurmoHmeH /plugin yIlo', pagh claude plugin update docket@docket yIQapmoH; ghIq yItaghqa'.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} Daq docket De' vIchenmoH'a'? Hoch SeHlaw motlh. pa' DachoHlaH, ⚙ Dalo'laH joq.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "chu'ghach nejwI'",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Hoch jaj GitHub Daq docket chu' nejlu'; tu'lu'chugh, chov Daq ja'lu'",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "nuDchu' SeHwI' chu'lu''a' wa'DIch: poH rInpa' Claude, poH nuDqa' wa'logh; SoHvaD wuqbogh ghu'mey 'ej rInbe'bogh ghu'mey nej",

@@ -1151,7 +1151,7 @@ test('once a day, docket looks for a newer version on GitHub and says so once in
   await $.prompt.submit({ text: 'one' })
   expect(fetched.filter(url => url.includes('plugin.json')).length).toBe(1)
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect(await findText(ui, /docket 99\.0\.0 is out; you have 9\.9\.9/)).toBeDefined()
+  expect(await findText(ui, /docket 99\.0\.0 is out; you're using 9\.9\.9/)).toBeDefined()
   await ui.unmount()
 
   // A day later, the same version isn't said again.
@@ -1159,7 +1159,7 @@ test('once a day, docket looks for a newer version on GitHub and says so once in
   await $.prompt.submit({ text: 'two' })
   expect(fetched.filter(url => url.includes('plugin.json')).length).toBe(2)
   const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
-  expect((await again.findAll({ type: 'Markdown' })).filter(found => /is out; you have/.test(String(found.props.text))).length).toBe(1)
+  expect((await again.findAll({ type: 'Markdown' })).filter(found => /is out; you're using/.test(String(found.props.text))).length).toBe(1)
   await again.unmount()
 })
 

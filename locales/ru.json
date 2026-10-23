@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Запросы",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Максимум элементов в каждом списке",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Вышел docket {latest}; у вас {current}. Обновитесь через /plugin или выполните claude plugin update docket@docket, затем перезапустите.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Создать конфигурацию docket в {path} со всеми настройками по умолчанию? Её можно править там или через ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Проверка обновлений",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Раз в день искать на GitHub более новый docket и сообщать об этом в «Стоит проверить»",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Включён ли по умолчанию переключатель «Глубокий разбор»: перед концом хода Claude ещё раз просматривает его, выискивая решения, принятые за вас, и вопросы, оставленные открытыми",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Okucelwayo",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Inani eliphezulu lezinto ohlwini ngalunye",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "I-docket {latest} isiphumile; wena une-{current}. Buyekeza nge-/plugin, noma usebenzise i-claude plugin update docket@docket, bese uqala kabusha.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ngidale izilungiselelo ze-docket ku-{path}, zonke zisesimeni esizenzakalelayo? Ungazihlela lapho, noma nge-⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Ukuhlola izibuyekezo",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Kanye ngosuku, funa i-docket entsha ku-GitHub bese ukusho ku-“Hlola”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ukuthi iswishi ethi “Ukuhlola okujulile” iqala ivuliwe yini: ngaphambi kokuba isiwombe siphele, u-Claude usibuyekeza kanye ukuze athole izinqumo azenze egameni lakho nezindaba azishiye zivulekile",

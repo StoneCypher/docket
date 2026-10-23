@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Zahteve",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Največ elementov na seznam",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Izšel je docket {latest}; ti imaš {current}. Posodobi prek /plugin ali zaženi claude plugin update docket@docket, nato znova zaženi.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ustvarim konfiguracijo docketa v {path} z vsemi nastavitvami na privzetih vrednostih? Urediš jo lahko tam ali z ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Preverjanje posodobitev",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Enkrat na dan na GitHubu poišči novejši docket in to sporoči v »Oglej in preveri«",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ali je stikalo »Temeljit pregled« na začetku vklopljeno: preden se krog konča, ga Claude še enkrat pregleda in išče odločitve, ki jih je sprejel namesto tebe, in vprašanja, ki jih je pustil odprta",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Mañakuykuna",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Sapa listapi aswan achka imakuna",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} lluqsirqanña; qampa {current} kachkan. /plugin nisqawan musuqchay, utaq claude plugin update docket@docket purichiy, chaymantataq wakmanta qallariy.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketpa kamachiyninta {path}pi ruranayta munankichu, sapa allichaypas qallariy chaninpi? Chaypi utaq ⚙-wan allichanki.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Musuqchay maskay",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Sapa p'unchaw huk kuti, GitHubpi aswan musuq docketta maskan, “Rikuy”pi willan",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "«Allin qhaway» kichanaqa qallariypi kichasqachu: muyu manaraq tukukuchkaptin, Claudeqa huk kutita kutipayan, qampa rantiykipi akllasqanta, kichasqa saqisqanta ima maskaspa",

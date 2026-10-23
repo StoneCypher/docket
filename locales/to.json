@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Kole",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Lahi taha ʻo e ngaahi meʻa ʻi he lisi taki taha",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Kuo tuku mai ʻa e docket {latest}; ʻoku ʻiate koe ʻa e {current}. Fakafoʻou ʻaki ʻa e /plugin, pe fakalele ʻa e claude plugin update docket@docket, pea toe kamata.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Faʻu ʻa e config ʻa e docket ʻi he {path}, mo e fokotuʻutuʻu kotoa ʻi honau tuʻunga angamaheni? ʻE lava ke ke liliu ia ʻi ai, pe ʻaki ʻa e ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Siviʻi fakafoʻou",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Tuʻo taha ʻi he ʻaho, kumi ʻi he GitHub ha docket foʻou ange pea fakahā ia ʻi he “Siviʻi”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Pe ʻe kamata ʻo ulo ʻa e kī “Vakai fakalelei”: ki muʻa pea ngata ha taimi, ʻoku toe vakai ʻa Claude ki ai ʻo tuʻo taha ke kumi ʻa e ngaahi fili naʻá ne fai maʻau mo e ngaahi meʻa naʻá ne tuku ke kei ava",

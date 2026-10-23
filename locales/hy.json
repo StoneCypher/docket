@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Խնդրանքներ",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Տարրերի առավելագույն քանակը յուրաքանչյուր ցուցակում",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Թողարկվել է docket {latest}. ձեր տարբերակը {current} է։ Թարմացրեք /plugin-ով կամ գործարկեք claude plugin update docket@docket, ապա վերագործարկեք։",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ստեղծե՞լ docket-ի կարգավորումների ֆայլը {path} հասցեում՝ բոլոր կարգավորումները լռելյայն արժեքներով։ Կարող եք այն խմբագրել այնտեղ կամ ⚙-ով։",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Թարմացումների ստուգում",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Օրը մեկ անգամ GitHub-ում փնտրում է docket-ի ավելի նոր տարբերակ և հայտնում «Փորձարկել» ցանկում",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Արդյոք «Խորը ստուգում» անջատիչը սկզբում միացված է․ նախքան քայլի ավարտը Claude-ը մեկ անգամ վերանայում է այն՝ փնտրելով ձեր փոխարեն կայացրած որոշումները և իր թողած բաց հարցերը",

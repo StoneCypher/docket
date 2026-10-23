@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Zopempha",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Zinthu zochuluka kwambiri pa mndandanda uliwonse",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} yatuluka; muli ndi {current}. Sinthani ndi /plugin, kapena yendetsani claude plugin update docket@docket, kenako yambitsaninso.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mupange zokonda za docket pa {path}, chilichonse chili pa mulingo wake woyambira? Mutha kuzisintha pamenepo, kapena ndi ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Kufufuza zosintha",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Kamodzi patsiku, imafufuza docket yatsopano pa GitHub ndikunena mu “Yesani”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Ngati chosinthira “Kuunika mozama” chimayamba chiyatsidwa: nthawi isanathe, Claude amaibwereza kamodzi kuti apeze zisankho zomwe adapanga m'malo mwanu ndi nkhani zomwe adazisiya zosatha",

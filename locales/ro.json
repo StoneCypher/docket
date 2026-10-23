@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Cereri",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Numărul maxim de elemente pe listă",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "A apărut docket {latest}; tu ai {current}. Actualizează cu /plugin sau rulează claude plugin update docket@docket, apoi repornește.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Creezi configurația docket în {path}, cu fiecare setare la valoarea implicită? O poți edita acolo sau cu ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Verificarea actualizărilor",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "O dată pe zi, caută pe GitHub un docket mai nou și semnalează-l în „Verifică”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Dacă comutatorul „Verificare atentă” pornește activat: înainte să se încheie o tură, Claude o reia o dată, căutând decizii luate în locul tău și chestiuni rămase deschise",

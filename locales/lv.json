@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Lūgumi",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Maksimālais vienumu skaits sarakstā",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Iznākusi docket {latest}; tev ir {current}. Atjaunini ar /plugin vai palaid claude plugin update docket@docket, pēc tam restartē.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Izveidot docket konfigurāciju {path} ar visiem iestatījumiem pēc noklusējuma? To var rediģēt tur vai ar ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Atjauninājumu pārbaude",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Reizi dienā meklē GitHub jaunāku docket versiju un ziņo par to sarakstā “Izmēģināt”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Vai slēdzis “Rūpīga pārskatīšana” sākumā ir ieslēgts: pirms gājiena beigām Claude vēlreiz to pārskata, meklējot lēmumus, kas pieņemti tavā vietā, un atstātus vaļējus jautājumus",

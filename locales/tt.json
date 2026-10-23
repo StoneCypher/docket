@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Үтенечләр",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Һәр исемлектәге элементларның иң күп саны",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} чыкты; синдә {current}. /plugin аша яңарт яки claude plugin update docket@docket боерыгын эшләт, аннары яңадан башлат.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket көйләүләрен {path} юлында, барлык көйләүләр дә стандарт кыйммәттә булып, булдырыргамы? Аларны шунда яки ⚙ аша үзгәртә аласың.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Яңартуны тикшерү",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Көнгә бер тапкыр GitHub'та docket'ның яңарак версиясен эзли һәм «Карап тикшерү» исемлегендә хәбәр итә",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "«Җентекле тикшерү» күчергече башта кабызылган булсынмы: адым тәмамланганчы Claude аны бер тапкыр кабат карап чыга, синең өчен кабул иткән карарларны һәм ачык калдырган мәсьәләләрне эзли",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "依頼",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "リストごとの表示件数の上限",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} が公開されました。現在は {current} です。/plugin で更新するか、claude plugin update docket@docket を実行して、再起動してください。",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket の設定ファイルを {path} に、すべて既定値で作成しますか？ そのファイルか ⚙ から編集できます。",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "更新の確認",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "1日に1回、GitHub で新しい docket を探し、あれば「検証」で知らせます",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "「念入り見直し」スイッチを最初からオンにするかどうか：ターンを終える前に、Claude がそのターンを一度見直し、あなたの代わりに決めたことややり残したことを探します",

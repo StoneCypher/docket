@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Pyynnöt",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Kohteita enintään listaa kohden",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} on julkaistu; sinulla on {current}. Päivitä komennolla /plugin tai aja claude plugin update docket@docket, ja käynnistä sitten uudelleen.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Luodaanko docketin asetustiedosto polkuun {path}, kaikki asetukset oletusarvoissaan? Voit muokata sitä siellä tai ⚙:lla.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Päivitysten tarkistus",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Etsi kerran päivässä GitHubista uudempaa docketia ja kerro siitä listassa ”Läpikäytävää”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Onko Perusteellinen tarkistus -kytkin aluksi päällä: ennen vuoron päättymistä Claude käy sen kerran läpi etsien päätöksiä, jotka se teki puolestasi, ja auki jääneitä asioita",

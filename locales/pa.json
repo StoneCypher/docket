@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "ਬੇਨਤੀਆਂ",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "ਹਰ ਸੂਚੀ ਵਿੱਚ ਵੱਧ ਤੋਂ ਵੱਧ ਆਈਟਮਾਂ",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} ਆ ਗਿਆ ਹੈ; ਤੁਹਾਡੇ ਕੋਲ {current} ਹੈ। /plugin ਨਾਲ ਅੱਪਡੇਟ ਕਰੋ, ਜਾਂ claude plugin update docket@docket ਚਲਾਓ, ਫਿਰ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ।",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} 'ਤੇ docket ਦੀ ਸੰਰਚਨਾ ਬਣਾਈਏ, ਹਰ ਸੈਟਿੰਗ ਡਿਫ਼ਾਲਟ 'ਤੇ? ਤੁਸੀਂ ਇਸਨੂੰ ਉੱਥੇ ਜਾਂ ⚙ ਨਾਲ ਸੋਧ ਸਕਦੇ ਹੋ।",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "ਅੱਪਡੇਟ ਜਾਂਚ",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "ਦਿਨ ਵਿੱਚ ਇੱਕ ਵਾਰ GitHub 'ਤੇ ਨਵਾਂ docket ਲੱਭਦਾ ਹੈ ਅਤੇ ਮਿਲਣ 'ਤੇ “ਵੇਖ ਕੇ ਜਾਂਚੋ” ਵਿੱਚ ਦੱਸਦਾ ਹੈ",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“ਡੂੰਘੀ ਜਾਂਚ” ਸਵਿੱਚ ਸ਼ੁਰੂ ਵਿੱਚ ਚਾਲੂ ਰਹੇ ਜਾਂ ਨਹੀਂ: ਵਾਰੀ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ Claude ਉਸ ਨੂੰ ਇੱਕ ਵਾਰ ਫਿਰ ਵੇਖਦਾ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਵੱਲੋਂ ਲਏ ਫ਼ੈਸਲੇ ਅਤੇ ਅਧੂਰੀਆਂ ਛੱਡੀਆਂ ਗੱਲਾਂ ਲੱਭਦਾ ਹੈ",

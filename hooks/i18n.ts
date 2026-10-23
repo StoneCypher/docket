@@ -107,7 +107,7 @@ export const EN: Strings = {
     about: 'Docket 📋 version {version}, built {date}',
     capsHeading: 'List caps by item count',
   },
-  update: 'docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.',
+  update: "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.",
   config: {
     offer: "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.",
     lookAt: 'Look at your new config: {path}. Every setting is there at its default.',

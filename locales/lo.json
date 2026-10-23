@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "ຂໍອະນຸຍາດ",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "ຈຳນວນລາຍການສູງສຸດໃນແຕ່ລະບັນຊີ",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} ອອກແລ້ວ; ທ່ານມີ {current}. ອັບເດດດ້ວຍ /plugin, ຫຼື ແລ່ນ claude plugin update docket@docket, ແລ້ວເລີ່ມໃໝ່.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ສ້າງການຕັ້ງຄ່າຂອງ docket ທີ່ {path} ໂດຍໃຊ້ຄ່າເລີ່ມຕົ້ນທັງໝົດບໍ? ທ່ານສາມາດແກ້ໄຂໄດ້ທີ່ນັ້ນ ຫຼື ດ້ວຍ ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "ກວດຫາອັບເດດ",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "ມື້ລະເທື່ອ, ຊອກຫາ docket ລຸ້ນໃໝ່ກວ່າໃນ GitHub ແລະ ແຈ້ງໃນ “ກວດສອບ”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "ສະວິດ “ກວດລະອຽດ” ເລີ່ມຕົ້ນເປີດຢູ່ຫຼືບໍ່: ກ່ອນຮອບຈະຈົບ Claude ຈະກັບໄປກວດຄືນອີກເທື່ອໜຶ່ງ ເພື່ອຊອກຫາການຕັດສິນໃຈທີ່ເຮັດແທນທ່ານ ແລະເລື່ອງທີ່ຍັງຄ້າງໄວ້",

@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Mga hangyo",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Labing daghang butang matag lista",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Gawas na ang docket {latest}; ang imo kay {current}. I-update gamit ang /plugin, o padagana ang claude plugin update docket@docket, dayon i-restart.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Himoon ba ang config sa docket sa {path}, nga ang matag setting naa sa default? Mahimo nimo kining usbon didto, o pinaagi sa ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Pagsusi sa update",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Kausa matag adlaw, mangita sa GitHub og mas bag-ong docket ug isulti kini sa “Susiha”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Kung naka-on ba sa sugod ang switch nga “Lawom nga pagsusi”: sa dili pa mahuman ang turno, balikan kini ni Claude makausa aron pangitaon ang mga desisyon nga gihimo niya alang kanimo ug mga butang nga gibiyaan niyang bukas",

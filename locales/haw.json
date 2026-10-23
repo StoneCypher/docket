@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Āpono",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Ka nui loa o nā mea ma kēlā me kēia papa inoa",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Ua puka mai ʻo docket {latest}; aia iā ʻoe ʻo {current}. E hoʻohou me /plugin, a i ʻole e holo i ka claude plugin update docket@docket, a laila e hoʻomaka hou.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "E hana i ka hoʻonohonoho o docket ma {path}, me kēlā me kēia hoʻonohonoho ma kona kūmau? Hiki iā ʻoe ke hoʻoponopono ma laila, a i ʻole me ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Nānā hoʻohou",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Hoʻokahi manawa o ka lā, e ʻimi ma GitHub i kekahi docket hou aʻe a e haʻi ma “E nānā”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Inā e hoʻā ʻia ke kī ʻo “Nānā pono” i ka hoʻomaka: ma mua o ka pau ʻana o kahi huli, nānā hou ʻo Claude iā ia i hoʻokahi manawa no nā hoʻoholo āna i hana ai nou a me nā mea āna i waiho hāmama ai",

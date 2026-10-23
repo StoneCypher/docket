@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "요청",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "목록별 최대 항목 수",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest}이(가) 나왔습니다. 현재 버전은 {current}입니다. /plugin으로 업데이트하거나 claude plugin update docket@docket을 실행한 뒤 다시 시작하세요.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "모든 설정을 기본값으로 둔 docket 설정 파일을 {path}에 만들까요? 거기서 직접 또는 ⚙로 편집할 수 있습니다.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "업데이트 확인",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "하루에 한 번 GitHub에서 새 docket이 있는지 확인하고 '검증'에 알립니다",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "‘심층 검토’ 스위치를 켠 상태로 시작할지 여부: 턴이 끝나기 전에 Claude가 그 턴을 한 번 더 살펴보며 사용자 대신 내린 결정과 남겨 둔 미결 사항을 찾습니다",

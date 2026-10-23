@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "அனுமதிக்கு",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "ஒவ்வொரு பட்டியலிலும் அதிகபட்ச உருப்படிகள்",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} வெளியாகியுள்ளது; உங்களிடம் {current} உள்ளது. /plugin மூலம் புதுப்பிக்கவும், அல்லது claude plugin update docket@docket-ஐ இயக்கவும், பின்னர் மீண்டும் தொடங்கவும்.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ஒவ்வொரு அமைப்பும் இயல்புநிலையில் இருக்கும்படி docket-இன் அமைப்புக் கோப்பை {path}-இல் உருவாக்கவா? அதை அங்கே அல்லது ⚙ மூலம் திருத்தலாம்.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "புதுப்பிப்புச் சரிபார்ப்பு",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "நாளுக்கு ஒருமுறை GitHub-இல் புதிய docket உள்ளதா எனப் பார்த்து, இருந்தால் “பரிசோதிக்க” பட்டியலில் தெரிவிக்கும்",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“ஆழ்ந்த மறுஆய்வு” சுவிட்ச் தொடக்கத்திலேயே இயக்கத்தில் இருக்க வேண்டுமா: ஒரு முறை முடிவதற்கு முன், உங்கள் சார்பாக எடுத்த முடிவுகளையும் முடிக்காமல் விட்ட விஷயங்களையும் தேட Claude அதை மீண்டும் ஒருமுறை பார்க்கும்",

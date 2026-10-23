@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Yêu cầu",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Số mục tối đa mỗi danh sách",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Đã có docket {latest}; bạn đang dùng {current}. Cập nhật bằng /plugin, hoặc chạy claude plugin update docket@docket, rồi khởi động lại.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Tạo cấu hình của docket tại {path}, với mọi cài đặt ở giá trị mặc định? Bạn có thể sửa nó ở đó, hoặc bằng ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Kiểm tra cập nhật",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Mỗi ngày một lần, tìm trên GitHub bản docket mới hơn và báo trong “Kiểm tra”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Công tắc “Rà soát kỹ” có bật sẵn hay không: trước khi kết thúc một lượt, Claude xem lại lượt đó một lần để tìm những quyết định đã đưa ra thay bạn và những việc còn bỏ ngỏ",

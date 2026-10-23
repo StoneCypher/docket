@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Haýyşlar",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Her sanawdaky elementleriň iň köp sany",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} çykdy; sende {current} bar. /plugin bilen täzele ýa-da claude plugin update docket@docket işlet, soňra täzeden başlat.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-iň sazlamalaryny {path} ýerinde, ähli sazlamalar deslapky bahasynda bolar ýaly döredeýinmi? Olary şol ýerde ýa-da ⚙ bilen üýtgedip bilersiň.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Täzelenme barlagy",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Günde bir gezek GitHub-da has täze docket gözleýär we bar bolsa «Gözden geçir» sanawynda habar berýär",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "«Jikme-jik barlag» açary başda açyk bolsunmy: öwrüm tamamlanmazdan öň Claude seniň adyňdan kabul eden kararlaryny we açyk goýan meselelerini gözläp, ony bir gezek gaýtadan gözden geçirýär",

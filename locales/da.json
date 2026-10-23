@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Anmodninger",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Maks. elementer pr. liste",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} er ude; du har {current}. Opdater med /plugin, eller kør claude plugin update docket@docket, og genstart så.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Opret konfigurationen for docket i {path} med alle indstillinger på deres standardværdi? Du kan redigere den der eller med ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Opdateringstjek",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Kig én gang om dagen på GitHub efter en nyere docket, og meld det i »Efterprøv«",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Om kontakten »Grundigt tjek« starter slået til: før en tur slutter, går Claude turen igennem én gang til for at finde beslutninger, der er truffet på dine vegne, og løse ender",

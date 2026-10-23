@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Richieste",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Numaru massimu d'elementi per lista",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "Hè surtitu docket {latest}; tù hai {current}. Aghjorna cù /plugin, o lancia claude plugin update docket@docket, è po rilancia.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Creà a cunfigurazione di docket in {path}, cù ogni parametru à u so valore predefinitu? A poi mudificà quallà, o cù ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Cuntrollu di l'aghjurnamenti",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Una volta à ghjornu, cerca nant'à GitHub un docket più novu è dilla in «Verificà»",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "S'è l'interruttore «Rivista à fondu» principia accesu: nanzu chì un turnu finisca, Claude u ripassa una volta per truvà e decisioni ch'ellu hà pigliatu per tè è e quistioni ch'ellu hà lasciatu aperte",

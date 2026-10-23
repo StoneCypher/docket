@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "თხოვნები",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "ელემენტების მაქსიმუმი თითო სიაში",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "გამოვიდა docket {latest}; თქვენ გაქვთ {current}. განაახლეთ /plugin-ით ან გაუშვით claude plugin update docket@docket, შემდეგ კი გადატვირთეთ.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "შევქმნა docket-ის კონფიგურაცია {path}-ში, ყველა პარამეტრით ნაგულისხმევ მნიშვნელობაზე? მისი რედაქტირება იქ შეგიძლიათ, ან ⚙-ით.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "განახლების შემოწმება",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "დღეში ერთხელ ეძებს GitHub-ზე docket-ის უფრო ახალ ვერსიას და აცნობებს „შესამოწმებელი“ სიაში",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "ჩართულია თუ არა თავიდან გადამრთველი „სიღრმისეული შემოწმება“: სვლის დასრულებამდე Claude კიდევ ერთხელ გადახედავს მას და ეძებს თქვენ ნაცვლად მიღებულ გადაწყვეტილებებს და ღიად დატოვებულ საკითხებს",

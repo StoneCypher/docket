@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "Àbẹ̀bẹ̀",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "Iye ohun tó pọ̀ jù lọ nínú àtòjọ kọ̀ọ̀kan",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} ti jáde; o ní {current}. Ṣe ìmúdójúìwọ̀n pẹ̀lú /plugin, tàbí ṣiṣẹ́ claude plugin update docket@docket, lẹ́yìn náà tún bẹ̀rẹ̀.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ṣé kí n ṣẹ̀dá ètò docket ní {path}, pẹ̀lú gbogbo ètò ní ipò àìyípadà wọn? O lè ṣàtúnṣe rẹ̀ níbẹ̀, tàbí pẹ̀lú ⚙.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "Àyẹ̀wò ìmúdójúìwọ̀n",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "Ẹ̀ẹ̀kan lójúmọ́, wá docket tuntun lórí GitHub kí o sì sọ ọ́ nínú “Ṣàyẹ̀wò”",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "Bóyá ìyípadà “Àyẹ̀wò jinlẹ̀” yóò bẹ̀rẹ̀ ní títàn: kí àyípo kan tó parí, Claude yóò tún un wò lẹ́ẹ̀kan láti wá àwọn ìpinnu tí ó ṣe fún ọ àti àwọn ọ̀rọ̀ tí ó fi sílẹ̀ láìparí",

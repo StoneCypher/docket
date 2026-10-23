@@ -1,6 +1,6 @@
 {
   "ready": "ai translated",
-  "version": 5,
+  "version": 6,
   "Requests": {
     "text": "అభ్యర్థనలు",
     "ready": "ai translated"
@@ -165,9 +165,9 @@
     "text": "ప్రతి జాబితాలో గరిష్ఠ అంశాలు",
     "ready": "ai translated"
   },
-  "docket {latest} is out; you have {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
-    "text": "",
-    "ready": false
+  "docket {latest} is out; you're using {current}. Update with /plugin, or run claude plugin update docket@docket, then restart.": {
+    "text": "docket {latest} విడుదలైంది; మీ వద్ద {current} ఉంది. /plugin ద్వారా అప్‌డేట్ చేయండి, లేదా claude plugin update docket@docket రన్ చేయండి, తర్వాత పునఃప్రారంభించండి.",
+    "ready": "ai translated"
   },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ప్రతి సెట్టింగ్ డిఫాల్ట్ విలువతో docket కాన్ఫిగరేషన్‌ను {path} లో సృష్టించాలా? దాన్ని అక్కడ లేదా ⚙ తో సవరించవచ్చు.",
@@ -214,12 +214,12 @@
     "ready": "ai translated"
   },
   "Update check": {
-    "text": "",
-    "ready": false
+    "text": "అప్‌డేట్ తనిఖీ",
+    "ready": "ai translated"
   },
   "Once a day, look on GitHub for a newer docket and say so in Verify": {
-    "text": "",
-    "ready": false
+    "text": "రోజుకు ఒకసారి GitHub లో కొత్త docket ఉందేమో చూసి, ఉంటే “చెక్ చేయండి” లో తెలియజేస్తుంది",
+    "ready": "ai translated"
   },
   "Whether the Deep dive switch starts on: before a turn ends, Claude goes back over it once for decisions it made for you and threads it left open": {
     "text": "“లోతైన సమీక్ష” స్విచ్ మొదట్లోనే ఆన్‌లో ఉండాలా: టర్న్ ముగిసే ముందు, మీ తరఫున తీసుకున్న నిర్ణయాలు, అసంపూర్తిగా వదిలిన విషయాల కోసం Claude దాన్ని ఒకసారి మళ్లీ పరిశీలిస్తుంది",
