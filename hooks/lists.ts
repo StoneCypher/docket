@@ -1,7 +1,7 @@
 import type { PluginOptions } from 'claude-code'
 
 import type { Counts, Item, Letter } from '../types'
-import { fill, idFor, labelOf, labelOfId, letterFor } from './i18n.ts'
+import { fill, idFor, labelOf, labelOfId, letterFor, typedLetters } from './i18n.ts'
 import type { Strings, Voice } from './i18n.ts'
 
 export type ListDef = {
@@ -238,7 +238,11 @@ const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&
 // one is still known. A Latin letter mustn't be the end of a longer word; any other script can sit
 // right after the text before it.
 export const references = (prompt: string, items: readonly Item[], text: Strings) => {
-  const letters = Object.values(text.lists).map(list => escapeRegExp(list.letter)).join('|')
+  // Longest first, so a letter isn't cut short by a shorter one that begins it.
+  const letters = typedLetters(text)
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join('|')
   const range = new RegExp(`(?<![A-Za-z0-9])(${letters})(\\d+)\\s*(?:-|–|~|〜|to|through|thru|bis|a)\\s*(?:\\1)?(\\d+)`, 'giu')
   const single = new RegExp(`(?<![A-Za-z0-9])(${letters})(\\d+)`, 'giu')
   const ids = new Set<string>()

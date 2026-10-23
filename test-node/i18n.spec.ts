@@ -188,6 +188,23 @@ describe('choosing a language', () => {
   })
 })
 
+describe('typing a label without its accent', () => {
+  const words = (code: string) => JSON.parse(readFileSync(new URL(`${code}.json`, folder), 'utf8'))
+
+  test('finds Turkish İ from i, and Yoruba À from a', () => {
+    const tr = translate(words('tr'), 'Turkish')
+    assert.equal(letterFor(tr, 'i'), 'R')
+    assert.equal(idFor(tr, 'i3'), 'R3')
+    assert.equal(letterFor(translate(words('yo'), 'Yoruba'), 'a'), 'R')
+  })
+
+  test("keeps letters apart where the unaccented one is another list's, as Czech Ž and Z", () => {
+    const cs = translate(words('cs'), 'Czech')
+    assert.equal(letterFor(cs, 'z'), 'V')
+    assert.equal(letterFor(cs, 'ž'), 'R')
+  })
+})
+
 describe('labels', () => {
   const es = translate(read('es.json'), 'Spanish')
 

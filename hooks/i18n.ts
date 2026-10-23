@@ -295,8 +295,28 @@ export const labelOfId = (text: Strings, id: string) => {
 }
 
 // The internal letter for a letter the user typed in this language, if any.
-export const letterFor = (text: Strings, typed: string): Letter | undefined =>
-  (Object.keys(text.lists) as Letter[]).find(letter => text.lists[letter].letter.toLowerCase() === typed.toLowerCase())
+// A letter without its accents, in lower case: how someone without the accent on their keyboard types it.
+export const foldLetter = (letter: string) => letter.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
+
+// The letters a language's labels can be typed with: each list's own, and its unaccented form where
+// no other list's letter folds to the same (İ as i in Turkish; but Czech's Ž and Z stay apart).
+export const typedLetters = (text: Strings) => {
+  const own = Object.values(text.lists).map(list => list.letter)
+  const folded = own.map(foldLetter)
+  const isUnique = (each: string) => folded.filter(other => other === each).length === 1
+
+  return [...new Set([...own, ...folded.filter(isUnique)])]
+}
+
+// The internal letter for a letter the user typed in this language, if any: as written, else unaccented.
+export const letterFor = (text: Strings, typed: string): Letter | undefined => {
+  const letters = Object.keys(text.lists) as Letter[]
+  const exact = letters.find(letter => text.lists[letter].letter.toLowerCase() === typed.toLowerCase())
+  if (exact) return exact
+  const loose = letters.filter(letter => foldLetter(text.lists[letter].letter) === foldLetter(typed))
+
+  return loose.length === 1 ? loose[0] : undefined
+}
 
 // An id the user or Claude wrote in this language ("P12" in Spanish) as the internal id ("Q12"), or
 // undefined when no list of this language has its letter.

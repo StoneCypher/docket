@@ -194,6 +194,11 @@ describe('in another language', () => {
     assert.match(references('はい、質12で', [item('Q12')], ja) ?? '', /質12 item Q12/)
   })
 
+  test('finds a label typed without its accent', () => {
+    const tr = locale('tr', 'Turkish')
+    assert.match(references('i3 olur', [item('R3')], tr) ?? '', /İ3 item R3/)
+  })
+
   test("doesn't take a letter at the end of a word for a label", () => {
     assert.equal(references('vamos2 bien', [item('W2')], es), undefined)
   })

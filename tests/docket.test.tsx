@@ -762,6 +762,10 @@ test('the language picker is three pulldowns: a group, a language in it, and its
   expect((await ui.find({ type: 'Select', key: 'language-variant' }))?.props.value).toBe('US')
   await ui.select({ key: 'language-variant', value: 'US-startrek' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US-startrek')
+  // The divider picks nothing.
+  await ui.select({ key: 'language-variant', value: '-' })
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').language).toBe('en-US-startrek')
+  expect((await ui.find({ type: 'Select', key: 'language-variant' }))?.props.value).toBe('US-startrek')
 
   await ui.select({ key: 'language-group', value: groups.find(each => each.codes.includes('es'))?.value ?? '' })
   await ui.select({ key: 'language', value: 'es' })
@@ -805,5 +809,22 @@ test('a language tag can end in a dialect, as en-US-startrek', async ($, on) => 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await ui.find({ type: 'Text', text: /^Orders, Captain\?$/ })).toBeDefined()
   expect(await ui.find({ type: 'Text', text: /Set course for Risa/ })).toBeDefined()
+  await ui.unmount()
+})
+
+test('a language the picker does not know shows as itself, and an unpicked group is forgotten on Done', async ($, on) => {
+  standIns(on, { es: { ready: 'ai translated', version: 1 } })
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), language: 'qq-handmade' }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'gear' })
+  expect((await ui.find({ type: 'Select', key: 'language-group' }))?.props.value).toBe('current')
+
+  const groups = groupsOf('en', ['en', 'es'])
+  await ui.select({ key: 'language-group', value: groups[groups.length - 1]?.value ?? '' })
+  await ui.press({ key: 'done' })
+  await ui.press({ key: 'gear' })
+  expect((await ui.find({ type: 'Select', key: 'language-group' }))?.props.value).toBe('current')
   await ui.unmount()
 })

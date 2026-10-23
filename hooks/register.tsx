@@ -657,7 +657,9 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
   const { base, variant } = pickedOf(value)
   const bases = [...new Set(view.languages.map(code => code.split('-')[0] ?? code))]
   const groups = groupsOf(view.speaking, bases)
-  const open = view.group || (base === 'auto' ? 'auto' : (groups.find(group => group.codes.includes(base))?.value ?? 'auto'))
+  // A setting the picker doesn't know (a code typed into the file by hand) shows as itself, not as auto.
+  const isKnown = base === 'auto' || groups.some(group => group.codes.includes(base))
+  const open = view.group || (base === 'auto' ? 'auto' : (groups.find(group => group.codes.includes(base))?.value ?? 'current'))
   const inGroup = groups.find(group => group.value === open)
   const variantsFor = (code: string) => variantsOf(view.speaking, code, view.languages, view.dialects)
   const variants = base === 'auto' ? [] : variantsFor(base)
@@ -672,8 +674,14 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
       <Select
         key="language-group"
         value={open}
-        options={[{ value: 'auto', label: 'auto' }, ...groups.map(({ value, label }) => ({ value, label }))]}
-        onSelect={choice => (choice === 'auto' ? void view.onSave('language', 'auto') : view.onGroup(choice))}
+        options={[
+          ...(isKnown ? [] : [{ value: 'current', label: String(value) }]),
+          { value: 'auto', label: 'auto' },
+          ...groups.map(({ value: group, label }) => ({ value: group, label })),
+        ]}
+        onSelect={choice =>
+          choice === 'auto' ? void view.onSave('language', 'auto') : choice === 'current' ? view.onGroup('') : view.onGroup(choice)
+        }
       />
       {inGroup ? (
         <Select
@@ -688,7 +696,8 @@ const languagePicker = (Box: FieldKit['Box'], Select: FieldKit['Select'], view: 
           key="language-variant"
           value={variants.some(each => each.value === variant && each.value !== DIVIDER) ? variant : defaultVariant(base, variants)}
           options={variants}
-          onSelect={choice => (choice === DIVIDER ? undefined : void view.onSave('language', `${base}-${choice}`))}
+          // The divider picks nothing: saving the setting unchanged redraws the pulldown back to it.
+          onSelect={choice => void view.onSave('language', choice === DIVIDER ? String(value) : `${base}-${choice}`)}
         />
       ) : null}
     </Box>
@@ -1219,7 +1228,11 @@ export const register: Register = on => {
     if (await read($, isSettings)) {
       const target = files.project ? paths.project : paths.user
       const view: SettingsView = {
-        onDone: () => void update($, isSettings, () => false),
+        onDone: () => {
+          // A group opened but never picked from is forgotten.
+          void update($, languageGroup, () => '')
+          void update($, isSettings, () => false)
+        },
         values: merged(files.user, files.project) as Record<string, string | number | boolean>,
         path: target ?? paths.user,
         isProject: Boolean(files.project),
