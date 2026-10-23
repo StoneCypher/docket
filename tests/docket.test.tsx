@@ -615,6 +615,11 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   expect(JSON.stringify(closed)).toContain('No such items: Q9.')
   expect(JSON.stringify(closed)).toContain("The docket's letters are now")
   expect(JSON.stringify(closed)).toContain('P Preguntas')
+
+  // An add with a letter no Spanish list has is reported, not dropped in silence.
+  const stray = await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Una pregunta' }] })
+  expect(JSON.stringify(stray)).toContain('Not added, as no list has the letter: Q.')
+  expect(JSON.stringify(stray)).toContain('P Preguntas')
 })
 
 test('a language docket has no file for gets English, and one offer to help translate it', async ($, on) => {

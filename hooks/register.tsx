@@ -1064,13 +1064,17 @@ export const register: Register = on => {
     await update($, updatedTurn, () => at)
 
     const added: Item[] = []
+    // Adds naming no list of this language, reported rather than dropped without a word.
+    const strays: string[] = []
     await update($, counters, current => {
       const next = { ...current }
       added.length = 0
+      strays.length = 0
       for (const spec of input.add ?? []) {
         // The list comes in the language's letter.
         const list = letterFor(text, String(spec.list ?? ''))
         if (!list || typeof spec.text !== 'string') {
+          strays.push(String(spec.list ?? '?'))
           continue
         }
         const n = (next[list] ?? 0) + 1
@@ -1134,8 +1138,9 @@ export const register: Register = on => {
       changes.size && `Changed ${[...changes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
       closes.size && `Closed ${[...closes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
       unknown.length && `No such items: ${unknown.map(shown).join(', ')}.`,
+      strays.length && `Not added, as no list has the letter: ${strays.join(', ')}.`,
       // The language may have changed since those labels were read: say what the letters are now.
-      unknown.length && `The docket's letters are now ${LETTERS.map(letter => `${text.lists[letter].letter} ${text.lists[letter].name}`).join(', ')}.`,
+      (unknown.length || strays.length) && `The docket's letters are now ${LETTERS.map(letter => `${text.lists[letter].letter} ${text.lists[letter].name}`).join(', ')}.`,
     ]
       .filter(Boolean)
       .join(' ')
