@@ -24,7 +24,7 @@ import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } f
 import type { ConfigFile } from './config'
 import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, localeOf, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
-import { englishName, nativeName } from './languages'
+import { codeOf, englishName, nativeName } from './languages'
 import { appDirOf, exeDirsOf, exeIn, launchOf, scriptDirsOf, scriptIn } from './editor'
 import { BUILT } from './release'
 import { DIVIDER, dayOf, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
@@ -70,6 +70,8 @@ type UpdateInput = {
   add?: (Fields & { list: Letter; text: string })[]
   change?: (Fields & { id: string })[]
   close?: { id: string; unasked?: boolean }[]
+  // The language the user writes in, as Claude hears it: the last hint "auto" has before English.
+  language?: string
 }
 
 const STAKES = ['emergency', 'high', 'med']
@@ -145,6 +147,11 @@ const schemaOf = (text: Strings) => ({
         },
         required: ['id'],
       },
+    },
+    language: {
+      type: 'string',
+      description:
+        "The language the user writes to you in, as a code such as de or pt-BR. Set it only when the docket asks you to: it's on auto and nothing else told it the user's language.",
     },
   },
 })
@@ -1247,14 +1254,21 @@ const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly 
     localeOf(await $.env.get('LC_MESSAGES')),
     localeOf(await $.env.get('LANG')),
   ]
+  const setting = splitDialect(merged(loaded.user, loaded.project).language).language
+  const isAuto = !setting || setting === 'auto'
+  // Where nothing above names a language (the desktop app on WSL, say), the one Claude hears.
+  const heard = await $.store.get('heardLanguage')
+  const isUnheard = isAuto && !hints.some(hint => codeOf(hint)) && !codeOf(heard)
 
-  return resolveLanguage(splitDialect(merged(loaded.user, loaded.project).language).language, hints, available)
+  return { language: resolveLanguage(setting, [...hints, heard], available), isUnheard }
 }
 
 // What a reload settles. `spoken` is the files' voice, kept to reuse; `voice` is what's in force.
 export type Reloaded = {
   loaded: LoadedConfig
   language: Language
+  // On auto with no hint at all: Claude is asked to say the user's language.
+  isUnheard: boolean
   dialect: string
   text: Strings
   spoken: Voice
@@ -1274,7 +1288,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   const locales = was?.locales ?? (await localesOf($))
   const dialects = was?.dialects ?? (await dialectsOf($))
   const languages = readyOf(locales)
-  const language = await languageFor($, loaded, languages)
+  const { language, isUnheard } = await languageFor($, loaded, languages)
   const dialect = dialectOf(loaded)
   const casts = was?.casts ?? (await castsOf($))
   const voiceSetting = voiceSettingOf(loaded)
@@ -1295,7 +1309,7 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await offerTranslation($, language, locales, text)
   }
 
-  return { loaded, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }
+  return { loaded, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }
 }
 
 export const register: Register = on => {
@@ -1307,6 +1321,7 @@ export const register: Register = on => {
   // docket's own words, in the language its config names, or Claude Code's.
   let text = EN
   let language: Language = 'en'
+  let isUnheard = false
   let dialect = ''
   let spoken: Voice = { all: '', lists: {} }
   let voice: Voice = { all: '', lists: {} }
@@ -1326,6 +1341,7 @@ export const register: Register = on => {
     apply(next.loaded)
     text = next.text
     language = next.language
+    isUnheard = next.isUnheard
     dialect = next.dialect
     spoken = next.spoken
     voice = next.voice
@@ -1371,6 +1387,12 @@ export const register: Register = on => {
 
   on('tool.call', { tool: TOOL }, async ($, e) => {
     const input = e as unknown as UpdateInput
+    // The user's language, as Claude hears it: kept, and taken at once where docket is on auto.
+    const heard = typeof input.language === 'string' ? codeOf(input.language) : undefined
+    if (heard && heard !== (await $.store.get('heardLanguage'))) {
+      await $.store.set('heardLanguage', heard)
+      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+    }
     const now = await $.clock.now()
     const at = await read($, turn)
     await update($, updatedTurn, () => at)
@@ -1507,7 +1529,7 @@ export const register: Register = on => {
     await update($, turn, n => n + 1)
     void checkForUpdate($, version, settings, text)
     if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
     }
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
@@ -1517,6 +1539,11 @@ export const register: Register = on => {
     const context = [snapshot(all, gone, text)]
     const now = nowNote(text, voice)
     if (now) context.push(now)
+    if (isUnheard) {
+      context.push(
+        "docket is on auto and nothing told it the user's language, so it shows English. In your next docket update, say which language the user writes to you in, with the tool's language field (a code such as de, or en for English): docket will switch to it, and stop asking.",
+      )
+    }
     // Switched into a voice, out of one, or to another language: the open items follow.
     const speech = speechOf(text, voice)
     const wasSpoken = await read($, spokenAs)
@@ -1572,7 +1599,7 @@ export const register: Register = on => {
         return
       }
       if (!(await ownAnswer($, item, kind, paths, locales))) return
-      adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
       await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
     }
 
@@ -1604,14 +1631,14 @@ export const register: Register = on => {
           if (key === 'language') await update($, languageGroup, () => '')
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
-          adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+          adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
           $.ui.invalidate('ui.render')
         },
         onCopyToProject:
           paths.project && !files.project
             ? async () => {
                 await $.fs.write(paths.project ?? '', serialize(files.user ?? defaults()))
-                adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+                adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
                 $.ui.invalidate('ui.render')
               }
             : undefined,
@@ -1651,7 +1678,7 @@ export const register: Register = on => {
         return
       }
       if (await ownAnswer($, item, kind, paths, locales)) {
-        adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+        adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
       }
     }
 

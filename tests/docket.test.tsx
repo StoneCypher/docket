@@ -1170,3 +1170,33 @@ test('the update check asks nothing when turned off, and says nothing when up to
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   expect(fetched.length).toBe(0)
 })
+
+test('with no hint at all, Claude is asked for the user\'s language, and docket switches to what it hears', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on, {
+    de: {
+      ready: 'ai translated',
+      version: STRINGS_VERSION,
+      Questions: { text: 'Fragen', ready: 'ai translated' },
+      Pinned: { text: 'Geparkt', ready: 'ai translated' },
+    },
+  })
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+  env.set('LANG', 'C.UTF-8')
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit({ text: 'Hallo' })
+  expect(context.join('\n')).toContain("nothing told it the user's language")
+
+  await $.tool.call({ tool: 'mcp__docket__update', language: 'de', add: [{ list: 'F', text: 'Freitag?' }] })
+  expect(store.get('heardLanguage')).toBe('de')
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await findText(ui, /^Fragen$/)).toBeDefined()
+  await ui.unmount()
+  await $.prompt.submit({ text: 'Danke' })
+  expect(context.join('\n')).not.toContain("nothing told it the user's language")
+})
