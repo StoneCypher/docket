@@ -286,7 +286,7 @@ export const REVIEW = `Before this turn ends, go back over it once for the docke
 - Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
 - Anything you're not sure you read right, or anything risky about to happen: put it in confirm.
 - Any thread your reply left open (later, waiting, pinned, needs you): make it an item.
-If anything is missing, add it in one update call. Then end the turn: don't repeat your reply, and write nothing more if nothing was missing.`
+If anything is missing, add it in one update call. Then end the turn with one short line saying what you added, or that nothing was missing: don't repeat your reply.`
 
 // Told to Claude when the docket's language or voice changed since its open items were written.
 export const rewriteNote = (text: Strings, voice: Voice) => {
