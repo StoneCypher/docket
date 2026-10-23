@@ -855,6 +855,8 @@ test('switching into a voice or out of one asks Claude to rewrite the open items
 
   await $.prompt.submit({ text: 'same voice' })
   expect(context.join('\n')).not.toContain('rewrite every open item')
+  // The voice comes with every prompt, since the system prompt is composed once.
+  expect(context.join('\n')).toContain('Write every item, new or changed, in character, as drunk Optimus Prime.')
 
   files.set(USER_CONFIG, JSON.stringify({ ...defaults() }))
   await $.prompt.submit({ text: 'voice off' })
