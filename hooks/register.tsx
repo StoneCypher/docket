@@ -641,15 +641,18 @@ const gear = async ($: Dollar, { Box, Button, Link, Text }: Kit, surface: string
   const flip = () => void update($, deepDive, () => !isOn)
 
   return (
-    <Box flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2} marginTop={1}>
-      {Markdown ? (
-        <Markdown key="deep-dive" text={`[${words}](${DEEP_DIVE_HREF})`} dimColor pressableLinks={[DEEP_DIVE_HREF]} onLinkPress={flip} />
-      ) : (
-        <Button key="deep-dive" plain dimColor onPress={flip}>
-          <Text size="caption">{words}</Text>
-        </Button>
-      )}
-      <Box flexDirection="row" alignItems="center" columnGap={2}>
+    // One row, never wrapped: a Markdown block would otherwise take the width and push the rest below.
+    <Box flexDirection="row" flexWrap="nowrap" justifyContent="space-between" alignItems="center" columnGap={2} marginTop={1}>
+      <Box flexShrink={1} minWidth={0}>
+        {Markdown ? (
+          <Markdown key="deep-dive" text={`[${words}](${DEEP_DIVE_HREF})`} dimColor pressableLinks={[DEEP_DIVE_HREF]} onLinkPress={flip} />
+        ) : (
+          <Button key="deep-dive" plain dimColor onPress={flip}>
+            <Text size="caption">{words}</Text>
+          </Button>
+        )}
+      </Box>
+      <Box flexDirection="row" flexShrink={0} alignItems="center" columnGap={2}>
         <Text dimColor size="caption">
           <Link href={REPO}>GitHub</Link>
         </Text>
