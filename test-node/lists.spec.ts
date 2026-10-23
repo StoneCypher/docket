@@ -215,3 +215,25 @@ describe('in another language', () => {
     assert.match(snapshot([item('Q1')], ['Q2'], es), /P1 item Q1[\s\S]*since the last prompt: P2\./)
   })
 })
+
+describe('settings that a hand-edit gets wrong', () => {
+  test('a target length for a letter no list has is ignored, not fatal to the instructions', () => {
+    const settings = settingsOf({ targetWords: 'A=10,Q=5,X=3' })
+    assert.deepEqual(settings.targetWords, { Q: 5 })
+    assert.match(instructions(settings, false, EN), /Q at most about 5 words/)
+  })
+
+  test('a linger that is a word, negative or past a day gives way', () => {
+    assert.equal(settingsOf({ strikeLingerMinutes: '3 min' }).lingerMs, 3 * 60_000)
+    assert.equal(settingsOf({ answeredLingerSeconds: -5 }).answeredMs, 0)
+    assert.equal(settingsOf({ strikeLingerMinutes: 10_000_000 }).lingerMs, 24 * 60 * 60_000)
+  })
+
+  test('the instructions give the answered linger as set', () => {
+    assert.match(instructions(settingsOf({ answeredLingerSeconds: 45 }), false, EN), /about 45 seconds after their button/)
+  })
+
+  test("the mod's own items are marked for Claude to leave alone", () => {
+    assert.match(snapshot([item('R1', { action: 'createConfig' })], [], EN), /the mod's own item: leave it alone/)
+  })
+})

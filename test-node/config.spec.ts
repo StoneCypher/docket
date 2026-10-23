@@ -59,3 +59,13 @@ describe('serialize and parse', () => {
     assert.equal(parse(undefined), undefined)
   })
 })
+
+describe('a project file', () => {
+  test('is raised in version but never filled in, so it overrides only what it says', () => {
+    const migration = migrate({ version: 1, display: 'band' }, true)
+    assert.deepEqual(migration.config, { version: CONFIG_VERSION, display: 'band' })
+    assert.deepEqual(migration.added, [])
+    assert.equal(merged({ ...defaults(), language: 'es' }, migration.config).language, 'es')
+    assert.equal(merged({ ...defaults(), language: 'es' }, migration.config).display, 'band')
+  })
+})

@@ -252,6 +252,13 @@ const draw = async (
 
   // An item's ✕: clears just that item.
   const dismiss = (id: string) => async () => {
+    // Clearing one of the mod's own offers declines it, so it doesn't come back.
+    const own = all.find(item => item.id === id && item.action)
+    if (own) {
+      await onAction(own, 'no')
+
+      return
+    }
     const at = await $.clock.now()
     await update($, items, current =>
       current.map(item => (item.id === id && isOpen(item) ? { ...item, closed: { at, isUnasked: false } } : item)),
@@ -588,7 +595,7 @@ const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> 
       loaded.notes.push({ kind: 'unreadable', path })
       continue
     }
-    const migration = migrate(raw)
+    const migration = migrate(raw, scope === 'project')
     if (migration.isChanged) {
       await $.fs.write(path, serialize(migration.config))
       loaded.notes.push({ kind: 'updated', path, from: migration.from, added: migration.added })
@@ -603,8 +610,10 @@ const loadConfig = async ($: Dollar, paths: ConfigPaths): Promise<LoadedConfig> 
 // needs cmd for both, since code is a .cmd script there and start is a shell command.
 const openFile = async ($: Dollar, path: string) => {
   const isWindows = (await $.env.get('OS')) === 'Windows_NT'
+  // cmd reparses what it runs, so a path with &, ^, % or quotes skips VS Code for the system's own opener.
+  const isPlain = /^[\w:\\/. ()-]+$/.test(path)
   const tries = isWindows
-    ? [['cmd', '/c', 'code', '-r', path], ['cmd', '/c', 'start', '', path]]
+    ? [...(isPlain ? [['cmd', '/c', 'code', '-r', path]] : []), ['rundll32', 'url.dll,FileProtocolHandler', path]]
     : [['code', '-r', path], ['open', path], ['xdg-open', path]]
   for (const argv of tries) {
     try {
@@ -1001,6 +1010,8 @@ const ownAnswer = async ($: Dollar, item: Item, kind: string, paths: ConfigPaths
 
     return false
   }
+  // Written only where there's no file: one made since the offer, or one that won't parse, is kept.
+  if (await $.fs.exists(paths.user)) return true
   await $.fs.write(paths.user, serialize(defaults()))
 
   return true
@@ -1052,8 +1063,11 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
     await $.tool.register(toolSpec(text))
     $.ui.invalidate('ui.render')
   }
-  if (loaded.notes.length) {
-    await addOwn($, loaded.notes.map(note => ({ list: 'V', emoji: '⚙️', rank: 1, text: noteText(text, note) })))
+  // A note already open, as an unreadable file's on every prompt, isn't added again.
+  const shown = new Set((await read($, items)).filter(isOpen).map(item => item.text))
+  const fresh = loaded.notes.map(note => noteText(text, note)).filter(note => !shown.has(note))
+  if (fresh.length) {
+    await addOwn($, fresh.map(note => ({ list: 'V', emoji: '⚙️', rank: 1, text: note })))
   }
   if (!was || was.language !== language) {
     await offerTranslation($, language, locales, text)
@@ -1108,7 +1122,7 @@ export const register: Register = on => {
     if (!(await read($, spokenAs))) await update($, spokenAs, () => speechOf(text, voice))
     // With no config of the user's own, offer to write one: once, and not again after a no.
     const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
-    if (!loaded.user && !isOffered && !(await $.store.get('configDeclined'))) {
+    if (!loaded.user && !(await $.fs.exists(paths.user)) && !isOffered && !(await $.store.get('configDeclined'))) {
       await addOwn($, [
         {
           list: 'R',
@@ -1296,6 +1310,13 @@ export const register: Register = on => {
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
+    // Drawn, so placed: the engine may place the pane later than asked (a wider terminal, a surface
+    // attaching), and the band must stand down then.
+    if (!isPaneShown) {
+      isPaneShown = true
+      isPaneClosed = false
+      $.ui.invalidate('ui.render')
+    }
     const kit = $.ui.resolve(e)
     const { Box, Text } = kit
 
@@ -1332,8 +1353,10 @@ export const register: Register = on => {
         group: await read($, languageGroup),
         onGroup: group => void update($, languageGroup, () => group),
         onSave: async (key, value) => {
-          if (key === 'language') await update($, languageGroup, () => '')
           const path = target ?? paths.user
+          // A file that won't parse is the person's to fix: saving over it would lose their edits.
+          if (files.notes.some(note => note.kind === 'unreadable' && note.path === path)) return
+          if (key === 'language') await update($, languageGroup, () => '')
           const current = (files.project ? files.project : files.user) ?? defaults()
           await $.fs.write(path, serialize({ ...current, [key]: value }))
           adopt(await reloadConfig($, paths, { loaded: files, language, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))

@@ -99,6 +99,13 @@ const colorOf = (value: unknown, fallback: string) => {
   return /^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(color) || COLOR_NAMES.has(color) ? color : fallback
 }
 
+// A number setting as a number from 0 to `most`: a word, a negative or a timer-breaking size gives way.
+const within = (value: unknown, usual: number, most: number) => {
+  const number = Number(value ?? usual)
+
+  return Number.isFinite(number) ? Math.min(most, Math.max(0, number)) : usual
+}
+
 export const settingsOf = (options: PluginOptions): Settings => {
   const caps: Counts = {}
   for (const list of LISTS) {
@@ -108,7 +115,8 @@ export const settingsOf = (options: PluginOptions): Settings => {
   const targetWords: Counts = {}
   for (const pair of String(options.targetWords ?? 'P=8').split(/[\s,]+/)) {
     const [, letter, words] = /^([A-Za-z])=(\d+)$/.exec(pair) ?? []
-    if (letter && words) {
+    // Only the lists' own letters: any other has no list to limit.
+    if (letter && words && LETTERS.includes(letter.toUpperCase() as Letter)) {
       targetWords[letter.toUpperCase() as Letter] = Number(words)
     }
   }
@@ -124,8 +132,8 @@ export const settingsOf = (options: PluginOptions): Settings => {
     inline: letterSet(options.inlineLists ?? 'P'),
     targetWords,
     stakesDisplay: stakes === 'text' || stakes === 'none' ? stakes : 'emoji',
-    lingerMs: Math.max(0, Number(options.strikeLingerMinutes ?? 3)) * 60_000,
-    answeredMs: Math.max(0, Number(options.answeredLingerSeconds ?? 20)) * 1000,
+    lingerMs: within(options.strikeLingerMinutes, 3, 24 * 60) * 60_000,
+    answeredMs: within(options.answeredLingerSeconds, 20, 24 * 60 * 60) * 1000,
     leanColor: colorOf(options.leanColor, '#b1b1b1'),
     leanDimColor: colorOf(options.leanDimColor, '#757575'),
     itemColor: colorOf(options.itemColor, '#e0e0e0'),
@@ -200,6 +208,7 @@ const describe = (item: Item, text: Strings) =>
     item.lean && `lean: ${item.lean}`,
     item.stakes && `stakes: ${item.stakes}`,
     item.rank !== undefined && `rank ${item.rank}`,
+    item.action && "the mod's own item: leave it alone",
     item.answered && `the user answered ${item.answered === 'yes' ? 'yes' : item.answered === 'no' ? 'no' : item.answered} by button`,
   ]
     .filter(Boolean)
@@ -274,7 +283,7 @@ export const rewriteNote = (text: Strings, voice: Voice) => {
 
   return `The docket's language or voice has changed since its open items were written: it is now ${text.language}, ${
     isVoiced ? 'in the voice the docket instructions give' : 'with no voice'
-  }. Before anything else, rewrite every open item's text, lean and options that way, in one update call of changes, keeping each label and exactly what each item says.${
+  }. Before anything else, rewrite every open item's text, lean and options that way, in one update call of changes, keeping each label and exactly what each item says; leave the mod's own items alone.${
     isVoiced ? '' : ' Write them plainly, out of character.'
   }`
 }
@@ -344,7 +353,7 @@ The user runs the docket mod, a pane beside the transcript (or a band above the 
 Lists, from least to most important:
 - ${named('P')} pinned: parked for later.
 - ${named('W')} waiting: stalled on something other than the user; informational.
-- ${named('L')} later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to ${L('U')}. Its 🏗️ button sends ${say('start', `${L('L')}3`)}: the user wants that one started now, ahead of the order, so start it and move it to ${L('U')}.
+- ${named('L')} later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to ${L('U')}. Its 🏗️ button (▶ in the terminal) sends ${say('start', `${L('L')}3`)}: the user wants that one started now, ahead of the order, so start it and move it to ${L('U')}.
 - ${named('U')} underway: only your own work in progress, never the user's.
 - ${named('V')} view: things for the user to look at or check.
 - ${named('N')} needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
@@ -358,5 +367,5 @@ The docket is the complete set of open threads: anything your reply calls pendin
 
 Writing items: verify cheaply before adding one, and never ask what you can look up. Each item is answerable without scrolling back: define each named thing at its first mention, and give issue or PR numbers. Link whatever has a web address (a repo, an issue or PR, a page, a site, a commit) as a [label](https://...) link with a short label, such as [StoneCypher/docket](https://github.com/StoneCypher/docket); the docket draws it as a link. When an item is about a local file, set open to its absolute path, and the item gets an Open button for it. Keep items to one to three lines${targets ? `, and ${targets}` : ''}. Give each item one emoji: a single code point with default emoji presentation from Unicode 9 or earlier (no VS16, ZWJ, flags or skin tones). Set stakes only when they matter: emergency and high sparingly, med otherwise, none for low. On ${L('V')}, ${L('N')}, ${L('C')}, ${L('Q')} and ${L('R')}, rank 1 is the most urgent.
 
-Answers: the user answers by label ("${L('Q').toLowerCase()}10 yes", "${L('C').toLowerCase()}23-${L('C').toLowerCase()}25 confirmed", "accept all other leans"), or by button. ${say('acceptLean', `${L('Q')}5`)} (a lean's ✔ button) accepts your lean; ${say('rejectLean', `${L('Q')}5`)} (its ✗ button) rejects only your lean: keep the question open, and ask what they want instead, or take the obvious other answer when there are only two. ${say('acceptLeans', `${L('Q')}5, ${L('Q')}6`)}, ${say('confirmAll', `${L('C')}2, ${L('C')}3`)} and ${say('approveAll', `${L('R')}2, ${L('R')}3`)} answer several at once. Act on every answer first, then make one update call closing what is resolved and adding what is new, and confirm each answer briefly by its label in prose. Never re-ask unless the answer was ambiguous; then ask once, in ${L('C')}. Close items on common-sense grounds. Answered items vanish from the user's view on their own about 20 seconds after their button is pressed, so close them, and when an answer starts work you haven't finished, add that work to ${L('U')} (underway) in the same update. The user can also clear items or whole lists from the docket; that only empties the display and never cancels work, answers a question or approves a request. A cleared thread that becomes relevant again comes back as a new item, with a new number. When you close an item the user did not resolve themselves, set unasked: true, and mention every such closure in one \`\`\`diff block of "- " lines. The tool assigns the labels, and numbers only ever go up. Change an item only to correct or sharpen the same item; anything the user would read as a new question or a new item, such as a follow-up after a "no" or a reworded ask, closes the old one and is added fresh, so it gets a new number. A label that suddenly means something else looks like a bug.`
+Answers: the user answers by label ("${L('Q').toLowerCase()}10 yes", "${L('C').toLowerCase()}23-${L('C').toLowerCase()}25 confirmed", "accept all other leans"), or by button. ${say('acceptLean', `${L('Q')}5`)} (a lean's ✔ button) accepts your lean; ${say('rejectLean', `${L('Q')}5`)} (its ✗ button) rejects only your lean: keep the question open, and ask what they want instead, or take the obvious other answer when there are only two. ${say('acceptLeans', `${L('Q')}5, ${L('Q')}6`)}, ${say('confirmAll', `${L('C')}2, ${L('C')}3`)} and ${say('approveAll', `${L('R')}2, ${L('R')}3`)} answer several at once. Act on every answer first, then make one update call closing what is resolved and adding what is new, and confirm each answer briefly by its label in prose. Never re-ask unless the answer was ambiguous; then ask once, in ${L('C')}. Close items on common-sense grounds. Answered items vanish from the user's view on their own about ${Math.round(settings.answeredMs / 1000)} seconds after their button is pressed, so close them, and when an answer starts work you haven't finished, add that work to ${L('U')} (underway) in the same update. The user can also clear items or whole lists from the docket; that only empties the display and never cancels work, answers a question or approves a request. A cleared thread that becomes relevant again comes back as a new item, with a new number. When you close an item the user did not resolve themselves, set unasked: true, and mention every such closure in one \`\`\`diff block of "- " lines. The tool assigns the labels, and numbers only ever go up. Change an item only to correct or sharpen the same item; anything the user would read as a new question or a new item, such as a follow-up after a "no" or a reworded ask, closes the old one and is added fresh, so it gets a new number. A label that suddenly means something else looks like a bug.`
 }

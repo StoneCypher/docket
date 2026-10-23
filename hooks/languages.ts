@@ -141,13 +141,17 @@ export const NAMES: Record<string, readonly string[]> = {
   tlh: ['Klingon', 'tlhIngan Hol'],
 }
 
-// A code as a language file is named: "pt_br" and "PT-BR" are both pt-BR.
-const CODE = /^([a-z]{2,3})(?:[-_]([a-z]{2,4}))?$/i
+// A code as a language file is named: "pt_br" and "PT-BR" are both pt-BR, "es-419" a region by
+// number, and "zh-hant" the script zh-Hant.
+const CODE = /^([a-z]{2,3})(?:[-_]([a-z]{2,4}|\d{3}))?$/i
 
 export const normalCode = (text: string) => {
   const [, base = '', region] = CODE.exec(text.trim()) ?? []
 
-  return base ? (region ? `${base.toLowerCase()}-${region.length === 2 ? region.toUpperCase() : region}` : base.toLowerCase()) : undefined
+  const tidy = (part: string) =>
+    part.length === 2 ? part.toUpperCase() : part.length === 4 ? part.charAt(0).toUpperCase() + part.slice(1).toLowerCase() : part
+
+  return base ? (region ? `${base.toLowerCase()}-${tidy(region)}` : base.toLowerCase()) : undefined
 }
 
 const fold = (text: string) => text.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().trim()
@@ -160,6 +164,9 @@ export const codeOf = (name: unknown): string | undefined => {
   const entries = Object.entries(NAMES)
   const named = (test: (alias: string) => boolean) => entries.find(([, names]) => names.some(alias => test(fold(alias))))?.[0]
   const code = normalCode(text)
+  // Chinese by script: Traditional is docket's zh-TW, Simplified its zh.
+  if (code?.startsWith('zh-Hant')) return 'zh-TW'
+  if (code?.startsWith('zh-Hans')) return 'zh'
 
   return (
     named(alias => alias === text) ??
@@ -169,7 +176,8 @@ export const codeOf = (name: unknown): string | undefined => {
 }
 
 // A code's English name, for Claude and for the offer to translate; an unlisted code is its own name.
-export const englishName = (code: string) => NAMES[code]?.[0] ?? code
+// A regional code without a name of its own takes its language's: "es-ES" is Spanish.
+export const englishName = (code: string) => NAMES[code]?.[0] ?? NAMES[code.split('-')[0] ?? '']?.[0] ?? code
 
 // A code's name in its own language, for asking its speakers; English where the table has no other.
 export const nativeName = (code: string) => NAMES[code]?.[1] ?? englishName(code)

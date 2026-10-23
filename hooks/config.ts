@@ -61,13 +61,14 @@ export type Migration = { config: ConfigFile; from: number; added: string[]; isC
 
 // Brings a config read from disk up to date: every missing key gets its default, unknown keys are
 // kept, and the version is raised. A file that isn't an object starts over from the defaults.
-export const migrate = (raw: unknown): Migration => {
+// A project's file holds only what it overrides, so it's raised in version but never filled in.
+export const migrate = (raw: unknown, isPartial = false): Migration => {
   const found = raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {}
   const from = typeof found.version === 'number' ? found.version : 0
   const config: ConfigFile = { ...(found as ConfigFile), version: Math.max(from, CONFIG_VERSION) }
   const added: string[] = []
   for (const [key, field] of Object.entries(FIELDS)) {
-    if (!(key in found)) {
+    if (!(key in found) && !isPartial) {
       config[key] = field.default
       added.push(key)
     }

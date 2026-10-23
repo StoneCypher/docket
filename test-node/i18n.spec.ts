@@ -284,3 +284,13 @@ describe('voice files', () => {
     })
   }
 })
+
+describe('codes the table lacks', () => {
+  test('take their language name, and read Latin American Spanish and Chinese scripts', () => {
+    assert.equal(englishName('es-ES'), 'Spanish')
+    assert.equal(codeOf('es-419'), 'es-419')
+    assert.equal(codeOf('zh-Hant'), 'zh-TW')
+    assert.equal(codeOf('zh-hans'), 'zh')
+    assert.equal(normalCode('ZH-HANT'), 'zh-Hant')
+  })
+})

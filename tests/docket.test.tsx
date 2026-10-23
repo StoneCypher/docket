@@ -22,6 +22,8 @@ const PANE = {
 const USER_CONFIG = '/home/tester/.claude/docket/config.json'
 const files = new Map<string, string>()
 const store = new Map<string, unknown>()
+// The environment beyond HOME, for a test to set.
+const env = new Map<string, string>()
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
@@ -29,6 +31,7 @@ const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '
 const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record<string, unknown> = {}) => {
   files.clear()
   store.clear()
+  env.clear()
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
@@ -37,7 +40,11 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
   on('ui.open', () => ({ value: { isPlaced: true } }))
-  on('env.get', (_, e) => ({ value: (e as { name: string }).name === 'HOME' ? '/home/tester' : undefined }))
+  on('env.get', (_, e) => {
+    const { name } = e as { name: string }
+
+    return { value: name === 'HOME' ? '/home/tester' : env.get(name) }
+  })
   on('fs.exists', (_, e) => ({ value: files.has(plain((e as { path: string }).path)) }))
   on('fs.list', (_, e) => {
     const folder = /\/(dialects|voices)$/.exec(plain((e as { path: string }).path))?.[1]
@@ -898,4 +905,67 @@ test('a voice is its own setting, apart from the language: Samurai Jack in Spani
   await ui.select({ key: 'voice', value: 'none' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').voice).toBe('none')
   await ui.unmount()
+})
+
+test("the config offer's ✔ never writes over a file made since, and 🗑️ declines it for good", async ($, on) => {
+  standIns(on)
+  files.delete(USER_CONFIG)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  // The person made their own file after the offer appeared.
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), leanColor: '#123456' }))
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'ok-R1' })
+  await ui.unmount()
+  expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#123456')
+
+  files.delete(USER_CONFIG)
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const offer = await again.find({ type: 'Text', text: /Create docket's config/ })
+  expect(offer).toBeDefined()
+  await again.press({ key: 'x-R2' })
+  await again.unmount()
+  expect(store.get('configDeclined')).toBe(true)
+  const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await after.find({ type: 'Text', text: /Create docket's config/ })).toBeUndefined()
+  await after.unmount()
+})
+
+test('a config that will not parse is noted once, and settings never save over it', async ($, on) => {
+  standIns(on)
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  files.set(USER_CONFIG, '{ "language": "es", }')
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit({ text: 'one' })
+  await $.prompt.submit({ text: 'two' })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  const notes = await ui.findAll({ type: 'Text', text: /couldn't read its config/ })
+  expect(notes.length).toBe(1)
+  // No offer to create a file that's there.
+  expect(await ui.find({ type: 'Text', text: /Create docket's config/ })).toBeUndefined()
+  await ui.press({ key: 'gear' })
+  await ui.input({ key: 'leanColor', text: '#aaaaaa' })
+  await ui.unmount()
+  expect(files.get(USER_CONFIG)).toBe('{ "language": "es", }')
+})
+
+test('a file path cmd would reparse opens without cmd', async ($, on) => {
+  const ran: string[][] = []
+  standIns(on)
+  on('process.run', (_, e) => {
+    ran.push([...(e as { argv: string[] }).argv])
+
+    return { value: { exitCode: 0, stdout: '', stderr: '' } }
+  })
+  env.set('OS', 'Windows_NT')
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at the notes', open: 'C:\\R&D\\notes.md' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'open-V1' })
+  await ui.unmount()
+  expect(ran.some(argv => argv[0] === 'cmd')).toBe(false)
+  expect(ran.some(argv => argv[0] === 'rundll32' && argv.includes('C:\\R&D\\notes.md'))).toBe(true)
 })
