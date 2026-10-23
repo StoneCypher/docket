@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { describe, test } from 'node:test'
 
-import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, markImage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
+import { AI, EN, STRINGS_VERSION, localeOf, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, markImage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
 import { NAMES, codeOf, englishName, nativeName, normalCode } from '../hooks/languages.ts'
 import { instructions, nowNote, rewriteNote, settingsOf } from '../hooks/lists.ts'
 
@@ -184,6 +184,24 @@ describe('choosing a language', () => {
     assert.equal(resolveLanguage('auto', 'french'), 'fr')
     assert.equal(resolveLanguage(undefined, undefined), 'en')
     assert.equal(resolveLanguage('auto', 'quenya'), 'en')
+  })
+
+  test('auto takes the first hint that names a language: Claude Code, then the editor, then the locale', () => {
+    assert.equal(resolveLanguage('auto', [undefined, 'de', 'fr_FR']), 'de')
+    assert.equal(resolveLanguage('auto', ['japanese', 'de']), 'ja')
+    assert.equal(resolveLanguage('auto', [undefined, undefined, 'fr_FR']), 'fr-FR')
+    assert.equal(resolveLanguage('auto', [undefined, undefined]), 'en')
+    assert.equal(resolveLanguage('es', ['de']), 'es')
+  })
+
+  test('reads VS Code\'s display language and POSIX locales', () => {
+    assert.equal(localeOf('{"userLocale":"de","osLocale":"de-de","resolvedLanguage":"de"}'), 'de')
+    assert.equal(localeOf('{"locale":"ja"}'), 'ja')
+    assert.equal(localeOf('{broken'), undefined)
+    assert.equal(localeOf('de_DE.UTF-8'), 'de_DE')
+    assert.equal(localeOf('C'), undefined)
+    assert.equal(localeOf('POSIX'), undefined)
+    assert.equal(localeOf(undefined), undefined)
   })
 
   test('takes any code a file exists for, even one the table lacks', () => {

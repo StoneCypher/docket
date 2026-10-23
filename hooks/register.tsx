@@ -21,7 +21,7 @@ import {
 import type { Settings } from './lists'
 import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
 import type { ConfigFile } from './config'
-import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
+import { AI, EN, STRINGS_VERSION, fill, idFor, labelOf, labelOfId, letterFor, localeOf, markImage, resolveLanguage, stateOf, translate, voiceOf } from './i18n'
 import type { FileState, Voice } from './i18n'
 import { englishName, nativeName } from './languages'
 import { DIVIDER, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
@@ -1017,16 +1017,24 @@ const ownAnswer = async ($: Dollar, item: Item, kind: string, paths: ConfigPaths
   return true
 }
 
-// The language docket's config names, or else Claude Code's own.
+// The language docket's config names, or for "auto", the first language the setup names: Claude Code's
+// own setting, then the editor's display language (VS Code tells its terminals), then the locale.
 const languageFor = async ($: Dollar, loaded: LoadedConfig, available: readonly string[]) => {
   let claudeCode: unknown
   try {
     claudeCode = (await $.config.list()).find(row => row.key === 'language')?.value
   } catch {
-    // No settings menu to ask: docket's own setting, or English.
+    // No settings menu to ask.
   }
+  const hints = [
+    claudeCode,
+    localeOf(await $.env.get('VSCODE_NLS_CONFIG')),
+    localeOf(await $.env.get('LC_ALL')),
+    localeOf(await $.env.get('LC_MESSAGES')),
+    localeOf(await $.env.get('LANG')),
+  ]
 
-  return resolveLanguage(splitDialect(merged(loaded.user, loaded.project).language).language, claudeCode, available)
+  return resolveLanguage(splitDialect(merged(loaded.user, loaded.project).language).language, hints, available)
 }
 
 // What a reload settles. `spoken` is the files' voice, kept to reuse; `voice` is what's in force.

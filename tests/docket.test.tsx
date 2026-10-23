@@ -969,3 +969,22 @@ test('a file path cmd would reparse opens without cmd', async ($, on) => {
   expect(ran.some(argv => argv[0] === 'cmd')).toBe(false)
   expect(ran.some(argv => argv[0] === 'rundll32' && argv.includes('C:\\R&D\\notes.md'))).toBe(true)
 })
+
+test("auto follows VS Code's display language when Claude Code names none", async ($, on) => {
+  standIns(on, {
+    de: {
+      ready: 'ai translated',
+      version: 2,
+      Questions: { text: 'Fragen', ready: 'ai translated' },
+      Pinned: { text: 'Geparkt', ready: 'ai translated' },
+    },
+  })
+  env.set('VSCODE_NLS_CONFIG', '{"userLocale":"de","osLocale":"de-de","resolvedLanguage":"de"}')
+  env.set('LANG', 'fr_FR.UTF-8')
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'F', text: 'Freitag?' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await ui.find({ type: 'Text', text: /^Fragen$/ })).toBeDefined()
+  await ui.unmount()
+})

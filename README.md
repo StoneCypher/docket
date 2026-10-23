@@ -49,7 +49,7 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in View. Edit the file directly, or use ⚙ at the bottom of the pane:
 
-- `language`: `auto` (the default) follows Claude Code's language setting; or a language code with a file in `locales/`, such as `es`, `ja` or `de`
+- `language`: `auto` (the default) follows Claude Code's language setting, then VS Code's display language, then the terminal's locale; or a language code with a file in `locales/`, such as `es`, `ja` or `de`
 - `display`: `pane` beside the chat (the default), or `band` above the prompt
 - a cap for each list (7 by default) before "+N more"
 - `itemColor`, `itemDimColor`, `leanColor`, `leanDimColor`: hex colors or theme keys

@@ -280,11 +280,32 @@ export const translate = (file: unknown, language: string): Strings => {
 
 // docket's setting wins, as a language's name or code, or any code with a file in locales/; "auto" or
 // nothing follows Claude Code's language, and English is the fallback. The code may have no file yet.
-export const resolveLanguage = (setting: unknown, claudeCode: unknown, available: readonly string[] = []): Language => {
+// "auto" takes the first of these hints that names a language: Claude Code's language setting, then
+// the editor's display language, then the terminal's locale.
+export const resolveLanguage = (setting: unknown, hints: unknown, available: readonly string[] = []): Language => {
   const own = setting && setting !== 'auto' ? String(setting) : undefined
   const code = own && normalCode(own)
+  const named = own && (codeOf(own) ?? (code && available.includes(code) ? code : undefined))
 
-  return (own && (codeOf(own) ?? (code && available.includes(code) ? code : undefined))) || codeOf(claudeCode) || 'en'
+  return named || (Array.isArray(hints) ? hints : [hints]).map(codeOf).find(Boolean) || 'en'
+}
+
+// A language from a locale variable: VS Code's VSCODE_NLS_CONFIG (its display language, userLocale), or
+// a POSIX locale such as LANG's "de_DE.UTF-8". "C" and "POSIX" name none.
+export const localeOf = (value: unknown) => {
+  const text = String(value ?? '').trim()
+  if (text.startsWith('{')) {
+    try {
+      const config = JSON.parse(text) as { userLocale?: unknown; locale?: unknown }
+
+      return String(config.userLocale ?? config.locale ?? '') || undefined
+    } catch {
+      return undefined
+    }
+  }
+  const [locale = ''] = text.split(/[.@:]/)
+
+  return locale && locale !== 'C' && locale !== 'POSIX' ? locale : undefined
 }
 
 // An item's label as the user sees it: the language's letter for its list, then its number.
