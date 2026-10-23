@@ -161,6 +161,10 @@
     "text": "Docket 📋 guhertoya {version}, hatiye avakirin {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mîhengên docket li {path} bi hemû nirxên standard werin çêkirin? Tu dikarî wan li wir an bi ⚙ biguherînî.",
     "ready": "ai translated"

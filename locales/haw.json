@@ -161,6 +161,10 @@
     "text": "Docket 📋 mana {version}, i kūkulu ʻia i ka {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "E hana i ka hoʻonohonoho o docket ma {path}, me kēlā me kēia hoʻonohonoho ma kona kūmau? Hiki iā ʻoe ke hoʻoponopono ma laila, a i ʻole me ⚙.",
     "ready": "ai translated"

@@ -161,6 +161,10 @@
     "text": "Docket 📋 versija {version}, būvēta {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Izveidot docket konfigurāciju {path} ar visiem iestatījumiem pēc noklusējuma? To var rediģēt tur vai ar ⚙.",
     "ready": "ai translated"

@@ -161,6 +161,10 @@
     "text": "Docket 📋 versioon {version}, koostatud {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Kas luua docketi seadistus asukohta {path}, kõik seaded vaikeväärtustel? Saad seda seal muuta või ⚙ kaudu.",
     "ready": "ai translated"

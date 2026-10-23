@@ -161,6 +161,10 @@
     "text": "Docket 📋 版本 {version}，建置於 {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "要在 {path} 建立 docket 的設定檔，所有設定皆為預設值嗎？之後可以在該檔案中或透過 ⚙ 編輯。",
     "ready": "ai translated"

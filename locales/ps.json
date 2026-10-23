@@ -161,6 +161,10 @@
     "text": "Docket 📋 نسخه {version}، جوړ شوی {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "د docket تنظیمات په {path} کې جوړ کړو، هر تنظیم په خپل اصلي ارزښت؟ تاسو یې هلته یا د ⚙ په مرسته سمولی شئ.",
     "ready": "ai translated"

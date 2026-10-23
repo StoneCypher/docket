@@ -161,6 +161,10 @@
     "text": "Docket 📋 sürüm {version}, derleme {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket'ın yapılandırması {path} konumunda, tüm ayarlar varsayılan değerlerinde olacak şekilde oluşturulsun mu? Orada ya da ⚙ ile düzenleyebilirsin.",
     "ready": "ai translated"

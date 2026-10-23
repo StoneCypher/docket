@@ -161,6 +161,10 @@
     "text": "Docket 📋 версияи {version}, сохта шуд {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Танзимоти docket дар {path} бо ҳамаи қиматҳои пешфарз сохта шавад? Онро дар он ҷо ё бо ⚙ таҳрир карда метавонед.",
     "ready": "ai translated"

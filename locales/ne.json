@@ -161,6 +161,10 @@
     "text": "Docket 📋 संस्करण {version}, निर्माण {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket को कन्फिग {path} मा, हरेक सेटिङ पूर्वनिर्धारितमा राखेर बनाउने? तपाईं यसलाई त्यहीँ वा ⚙ बाट सम्पादन गर्न सक्नुहुन्छ।",
     "ready": "ai translated"

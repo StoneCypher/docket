@@ -161,6 +161,10 @@
     "text": "Docket 📋 ווערסיע {version}, געבויט {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "שאַפֿן די קאָנפֿיגוראַציע פֿון docket אין {path}, מיט יעדער באַשטימונג אויף איר גרונטווערט? דו קענסט זי דאָרט רעדאַקטירן, אָדער מיט ⚙.",
     "ready": "ai translated"

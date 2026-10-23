@@ -161,6 +161,10 @@
     "text": "Docket 📋 versio {version}, kompilita je {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ĉu krei la agordon de docket ĉe {path}, kun ĉiu agordo je sia defaŭlto? Vi povas redakti ĝin tie aŭ per ⚙.",
     "ready": "ai translated"

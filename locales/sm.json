@@ -161,6 +161,10 @@
     "text": "Docket 📋 lomiga {version}, fausia i le {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Fai le faʻatulagaga a docket i {path}, ma faʻatulagaga uma i o latou tulaga masani? E mafai ona e faʻasaʻoina iina, poʻo le ⚙.",
     "ready": "ai translated"

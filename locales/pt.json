@@ -161,6 +161,10 @@
     "text": "Docket 📋 versão {version}, compilada a {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Criar a configuração do docket em {path}, com todas as definições nos valores predefinidos? Pode editá-la aí ou com ⚙.",
     "ready": "ai translated"

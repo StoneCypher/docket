@@ -161,6 +161,10 @@
     "text": "Docket 📋 nooca {version}, la dhisay {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ma abuuraa dejinta docket ee {path}, iyadoo dejin kasta ay ku jirto qiimaheeda caadiga ah? Waxaad wax ka beddeli kartaa halkaas, ama ⚙.",
     "ready": "ai translated"

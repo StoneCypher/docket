@@ -161,6 +161,10 @@
     "text": "Docket 📋 අනුවාදය {version}, සාදන ලද්දේ {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "සියලු සැකසුම් පෙරනිමි අගයන්ගෙන් යුතුව docket හි වින්‍යාසය {path} හි සාදන්නද? ඔබට එය එහිදී හෝ ⚙ මගින් සංස්කරණය කළ හැක.",
     "ready": "ai translated"

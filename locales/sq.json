@@ -161,6 +161,10 @@
     "text": "Docket 📋 versioni {version}, ndërtuar më {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Të krijohet konfigurimi i docket në {path}, me çdo cilësim në vlerën e paracaktuar? Mund ta redaktosh atje, ose me ⚙.",
     "ready": "ai translated"

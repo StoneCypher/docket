@@ -161,6 +161,10 @@
     "text": "Docket 📋 yamre {version}, mahaa {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Sos teelte docket e {path}, teelte fof e ko woowaa? A waawii waylitde ɗum toon, walla e ⚙.",
     "ready": "ai translated"

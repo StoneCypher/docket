@@ -161,6 +161,10 @@
     "text": "Docket 📋 vesioni {version}, caka ena {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Me buli na ituvatuva ni docket ena {path}, ka tu kece ena kena ivakarau taumada? O rawa ni veisautaka kina, se ena ⚙.",
     "ready": "ai translated"

@@ -161,6 +161,10 @@
     "text": "Docket 📋 fersiwn {version}, adeiladwyd {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Creu ffurfweddiad docket yn {path}, gyda phob gosodiad ar ei werth rhagosodedig? Gallwch ei olygu yno, neu gyda ⚙.",
     "ready": "ai translated"

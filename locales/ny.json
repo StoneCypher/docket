@@ -161,6 +161,10 @@
     "text": "Docket 📋 mtundu {version}, wapangidwa {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Mupange zokonda za docket pa {path}, chilichonse chili pa mulingo wake woyambira? Mutha kuzisintha pamenepo, kapena ndi ⚙.",
     "ready": "ai translated"

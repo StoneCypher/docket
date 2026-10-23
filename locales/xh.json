@@ -161,6 +161,10 @@
     "text": "Docket 📋 uguqulelo {version}, lwakhiwe ngo-{date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Yenza uqwalaselo lwe-docket ku-{path}, zonke iisetingi zikwixabiso elisisiseko? Ungaluhlela apho, okanye nge-⚙.",
     "ready": "ai translated"

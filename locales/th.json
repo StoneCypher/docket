@@ -161,6 +161,10 @@
     "text": "Docket 📋 เวอร์ชัน {version} บิลด์เมื่อ {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "สร้างไฟล์การตั้งค่าของ docket ที่ {path} โดยให้ทุกค่าเป็นค่าเริ่มต้นไหม? คุณแก้ไขได้ที่นั่น หรือด้วย ⚙",
     "ready": "ai translated"

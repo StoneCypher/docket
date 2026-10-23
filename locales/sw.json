@@ -161,6 +161,10 @@
     "text": "Docket 📋 toleo {version}, lilijengwa {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Unda usanidi wa docket katika {path}, kila mpangilio ukiwa kwenye chaguo-msingi lake? Unaweza kuuhariri hapo, au kwa ⚙.",
     "ready": "ai translated"

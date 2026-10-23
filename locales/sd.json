@@ -161,6 +161,10 @@
     "text": "Docket 📋 ورزن {version}، ٺهيل {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket جي ترتيب {path} تي ٺاهيون، هر سيٽنگ ان جي ڊفالٽ تي؟ توهان ان کي اتي يا ⚙ سان ايڊٽ ڪري سگهو ٿا.",
     "ready": "ai translated"

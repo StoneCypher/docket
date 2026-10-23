@@ -161,6 +161,10 @@
     "text": "Docket 📋 sigar {version}, an gina {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "A ƙirƙiri saitunan docket a {path}, kowane saiti a yadda yake na asali? Kuna iya gyara su a can, ko da ⚙.",
     "ready": "ai translated"

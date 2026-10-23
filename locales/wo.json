@@ -161,6 +161,10 @@
     "text": "Docket 📋 wersiyoŋ {version}, defar nañu ko {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ndax ñu sos config bu docket ci {path}, ak tànneef yépp ni ñu leen defaree ci njëlbéen? Man nga ko fa soppi, walla ak ⚙.",
     "ready": "ai translated"

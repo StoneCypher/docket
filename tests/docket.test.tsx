@@ -308,6 +308,7 @@ test('the ⚙ opens the settings view, and a field saves to the config file', as
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').leanColor).toBe('#aaaaaa')
   // The caps are one table: a row each, its title then its field.
   expect(await ui.find({ key: 'cap-questionsCap' })).toBeDefined()
+  expect(await findText(ui, /^List caps by item count$/)).toBeDefined()
   expect(await findText(ui, /^Questions cap$/)).toBeDefined()
   await ui.input({ key: 'questionsCap', text: '4' })
   expect(JSON.parse(files.get(USER_CONFIG) ?? '{}').questionsCap).toBe(4)

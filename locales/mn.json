@@ -161,6 +161,10 @@
     "text": "Docket 📋 хувилбар {version}, бүтээсэн {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket-ийн тохиргоог {path}-д бүх тохиргоог анхдагч утгаар нь үүсгэх үү? Үүнийг тэнд эсвэл ⚙-ээр засварлаж болно.",
     "ready": "ai translated"

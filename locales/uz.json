@@ -161,6 +161,10 @@
     "text": "Docket 📋 {version}-versiya, yigʻilgan sana {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket konfiguratsiyasi {path} manzilida barcha sozlamalar standart qiymatda boʻlgan holda yaratilsinmi? Uni oʻsha yerda yoki ⚙ orqali tahrirlashingiz mumkin.",
     "ready": "ai translated"

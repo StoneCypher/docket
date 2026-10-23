@@ -161,6 +161,10 @@
     "text": "Docket 📋 பதிப்பு {version}, உருவாக்கப்பட்டது {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ஒவ்வொரு அமைப்பும் இயல்புநிலையில் இருக்கும்படி docket-இன் அமைப்புக் கோப்பை {path}-இல் உருவாக்கவா? அதை அங்கே அல்லது ⚙ மூலம் திருத்தலாம்.",
     "ready": "ai translated"

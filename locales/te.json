@@ -161,6 +161,10 @@
     "text": "Docket 📋 వెర్షన్ {version}, నిర్మించినది {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ప్రతి సెట్టింగ్ డిఫాల్ట్ విలువతో docket కాన్ఫిగరేషన్‌ను {path} లో సృష్టించాలా? దాన్ని అక్కడ లేదా ⚙ తో సవరించవచ్చు.",
     "ready": "ai translated"

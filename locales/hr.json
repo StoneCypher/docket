@@ -161,6 +161,10 @@
     "text": "Docket 📋 verzija {version}, izgrađena {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Stvoriti konfiguraciju docketa u {path}, sa svim postavkama na zadanim vrijednostima? Možeš je urediti ondje ili putem ⚙.",
     "ready": "ai translated"

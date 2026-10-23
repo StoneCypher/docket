@@ -161,6 +161,10 @@
     "text": "Docket 📋 പതിപ്പ് {version}, നിർമ്മിച്ചത് {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "എല്ലാ ക്രമീകരണങ്ങളും ഡിഫോൾട്ടിൽ ആക്കി docket-ന്റെ കോൺഫിഗ് {path}-ൽ സൃഷ്ടിക്കട്ടെ? നിങ്ങൾക്ക് അത് അവിടെയോ ⚙ ഉപയോഗിച്ചോ എഡിറ്റ് ചെയ്യാം.",
     "ready": "ai translated"

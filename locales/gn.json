@@ -161,6 +161,10 @@
     "text": "Docket 📋 versión {version}, ojejapo {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Ejapo docket ñemboheko {path}-pe, opa ñemboheko ijypykuéicha? Ikatu embosako'i upépe, térã ⚙ rupive.",
     "ready": "ai translated"

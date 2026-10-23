@@ -161,6 +161,10 @@
     "text": "Docket 📋 ስሪት {version}፣ ዝተሰርሐ {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "ናይ docket ቅጥዕታት ኣብ {path}፣ ኩሉ ቅጥዒ ኣብ ናይ መበገሲ ዋጋኡ ኮይኑ፣ ይፈጠር ዶ? ኣብኡ ወይ ብ ⚙ ክተመሓይሾ ትኽእል ኢኻ።",
     "ready": "ai translated"

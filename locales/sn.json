@@ -161,6 +161,10 @@
     "text": "Docket 📋 shanduro {version}, yakagadzirwa {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gadzira marongero e docket pa {path}, marongero ese ari pazvakajairwa? Unogona kuagadzirisa ipapo, kana ne ⚙.",
     "ready": "ai translated"

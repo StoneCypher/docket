@@ -161,6 +161,10 @@
     "text": "Docket 📋 ဗားရှင်း {version}၊ {date} တွင် တည်ဆောက်သည်",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket ၏ config ကို {path} တွင် ဆက်တင်တိုင်း မူလတန်ဖိုးဖြင့် ဖန်တီးမလား။ ၎င်းကို ထိုနေရာတွင် သို့မဟုတ် ⚙ ဖြင့် ပြင်နိုင်သည်။",
     "ready": "ai translated"

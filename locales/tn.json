@@ -161,6 +161,10 @@
     "text": "Docket 📋 version {version}, e agilwe {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "A ke dire dipeakanyo tsa docket kwa {path}, peakanyo nngwe le nngwe e le mo boemong jwa ntlha? O ka di fetola koo, kgotsa ka ⚙.",
     "ready": "ai translated"

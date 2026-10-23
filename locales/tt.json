@@ -161,6 +161,10 @@
     "text": "Docket 📋 версия {version}, җыелган {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docket көйләүләрен {path} юлында, барлык көйләүләр дә стандарт кыйммәттә булып, булдырыргамы? Аларны шунда яки ⚙ аша үзгәртә аласың.",
     "ready": "ai translated"

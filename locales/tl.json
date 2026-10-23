@@ -161,6 +161,10 @@
     "text": "Docket 📋 bersyon {version}, binuo noong {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "Gawin ang config ng docket sa {path}, na nasa default ang bawat setting? Maaari mo itong i-edit doon, o gamit ang ⚙.",
     "ready": "ai translated"

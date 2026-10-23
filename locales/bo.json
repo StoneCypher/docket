@@ -161,6 +161,10 @@
     "text": "Docket 📋 པར་གཞི་ {version}། བཟོས་ཚེས་ {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "{path} ལ་ docket ཡི་སྒྲིག་འགོད་གསར་བཟོ་བྱེད་དམ། སྒྲིག་འགོད་ཚང་མ་སྔོན་སྒྲིག་ལྟར་ཡོད། དེ་གར་རམ་ ⚙ བརྒྱུད་ནས་བཟོ་བཅོས་བྱེད་ཆོག",
     "ready": "ai translated"

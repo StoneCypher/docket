@@ -898,6 +898,7 @@ const capsTable = (kit: FieldKit, view: SettingsView, text: Strings) => {
 
   return (
     <Box key="row-caps" flexDirection="column" marginBottom={1} rowGap={0}>
+      <Text bold>{text.settings.capsHeading}</Text>
       {rows.map(row => (
         <Box key={`cap-${row.key}`} flexDirection="row" flexWrap="nowrap" alignItems="center" columnGap={1}>
           <Box width={width} flexShrink={0} justifyContent="flex-end">

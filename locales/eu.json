@@ -161,6 +161,10 @@
     "text": "Docket 📋 {version} bertsioa, {date} egunean sortua",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "docketen konfigurazioa sortu {path} kokalekuan, ezarpen guztiak lehenetsitako balioekin? Bertan edita dezakezu, edo ⚙ bidez.",
     "ready": "ai translated"

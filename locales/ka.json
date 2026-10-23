@@ -161,6 +161,10 @@
     "text": "Docket 📋 ვერსია {version}, აწყობილი {date}",
     "ready": "ai translated"
   },
+  "List caps by item count": {
+    "text": "",
+    "ready": false
+  },
   "Create docket's config at {path}, with every setting at its default? You can edit it there, or with ⚙.": {
     "text": "შევქმნა docket-ის კონფიგურაცია {path}-ში, ყველა პარამეტრით ნაგულისხმევ მნიშვნელობაზე? მისი რედაქტირება იქ შეგიძლიათ, ან ⚙-ით.",
     "ready": "ai translated"
