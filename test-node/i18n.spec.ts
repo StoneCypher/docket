@@ -1,7 +1,7 @@
 // The language files: each one complete, each one's letters usable as labels, and the helpers that
 // map between what the user sees and docket's internal letters.
 import assert from 'node:assert/strict'
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { describe, test } from 'node:test'
 
 import { AI, EN, STRINGS_VERSION, fill, firstLetter, idFor, keysOf, labelOf, labelOfId, letterFor, resolveLanguage, markImage, stateOf, synced, translate, translationOf, voiceOf } from '../hooks/i18n.ts'
@@ -63,8 +63,9 @@ describe('locale files', () => {
 })
 
 describe('dialects', () => {
+  // docket ships none now, but any added must keep the format.
   const dialects = new URL('dialects/', folder)
-  for (const file of readdirSync(dialects).filter(file => file.endsWith('.json'))) {
+  for (const file of existsSync(dialects) ? readdirSync(dialects).filter(file => file.endsWith('.json')) : []) {
     const raw = readFileSync(new URL(file, dialects), 'utf8')
     const words = JSON.parse(raw) as Record<string, unknown>
 
