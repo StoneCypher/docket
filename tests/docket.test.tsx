@@ -1103,33 +1103,109 @@ test("the pane's title carries docket's version", async ($, on) => {
   expect(titles).toContain('Docket 📋 9.9.9')
 })
 
-test('at the end of each turn, Claude is sent back once to review it, unless the setting is off', async ($, on) => {
+// A prompt as the engine raises it: the user's Enter, or a background event's (a notification is meta,
+// a wakeup's stored prompt is not), starting a turn of its own unless `turnId` names the running turn
+// it was delivered into.
+const typed = (text: string) => ({ text, wait: false, origin: { kind: 'composer' as const } })
+const background = (text: string, kind: 'task-notification' | 'scheduled-trigger', turnId?: string) => ({
+  text,
+  wait: false,
+  origin: { kind },
+  ...(kind === 'task-notification' ? { isMeta: true as const } : {}),
+  ...(turnId ? { turnId } : {}),
+})
+// A reply that leaves work open, and one that doesn't.
+const PENDING_REPLY = 'Done with the parser. Next up is the README.'
+const SETTLED_REPLY = 'Done. All tests pass.'
+
+test('with Deep dive on, the review rides each prompt unseen, and an ordinary turn ends without a send-back', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('classic.Stop', () => ({}))
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit(typed('fix the parser'))
+  expect(context.join('\n')).toContain('before you end this turn, go back over it once for the docket')
+  expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: SETTLED_REPLY }))?.block).toBeUndefined()
+
+  // Speaking of pending work is fine when the docket changed that turn.
+  await $.prompt.submit(typed('and the README?'))
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'L', text: 'README' }] })
+  expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
+})
+
+test("a user's turn that speaks of pending work without a docket change is sent back once, visibly", async ($, on) => {
   standIns(on)
   on('classic.Stop', () => ({}))
   on('prompt.submit', (_, e) => ({ text: e.text }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  const first = await $.classic.Stop({ stop_hook_active: false })
-  expect(String(first?.block)).toContain('Before this turn ends, go back over it once for the docket')
+  await $.prompt.submit(typed('fix the parser'))
+  const first = await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY })
+  expect(String(first?.block)).toContain('your reply speaks of pending or next work, but the docket did not change this turn')
   // Sent back once already: the turn may end.
-  const second = await $.classic.Stop({ stop_hook_active: true })
-  expect(second?.block).toBeUndefined()
+  expect((await $.classic.Stop({ stop_hook_active: true, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
 
+  // A notification delivered into the user's running turn leaves it the user's.
+  await $.prompt.submit(typed('now the lexer'))
+  await $.prompt.submit(background('task 7 is still running', 'task-notification', 'turn-2'))
+  expect(String((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block)).toContain('speaks of pending')
+})
+
+test('a turn a notification or wakeup started never gets a send-back', async ($, on) => {
+  standIns(on)
+  on('classic.Stop', () => ({}))
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  // A user's turn first, so the background turns that follow can't lean on a default.
+  await $.prompt.submit(typed('start the build in the background'))
+  await $.classic.Stop({ stop_hook_active: true, last_assistant_message: SETTLED_REPLY })
+  for (const [index, kind] of (['task-notification', 'task-notification', 'scheduled-trigger'] as const).entries()) {
+    await $.prompt.submit(background(`waiting, ${index}`, kind))
+    expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
+  }
+})
+
+test('with Deep dive off, there is neither the hidden review nor a send-back', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('classic.Stop', () => ({}))
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), turnReview: false }))
-  await $.prompt.submit({ text: 'next' })
-  const off = await $.classic.Stop({ stop_hook_active: false })
-  expect(off?.block).toBeUndefined()
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit(typed('fix the parser'))
+  expect(context.join('\n')).not.toContain('go back over it once')
+  expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
 })
 
 test('the Deep dive switch starts as the config says, and drives the review from then on', async ($, on) => {
+  let context: readonly string[] = []
   standIns(on)
   on('classic.Stop', () => ({}))
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), turnReview: false }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(ui, /☐ Deep dive/)).toBeDefined()
-  expect((await $.classic.Stop({ stop_hook_active: false }))?.block).toBeUndefined()
+  await $.prompt.submit(typed('fix the parser'))
+  expect(context.join('\n')).not.toContain('go back over it once')
+  expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
 
   // A quiet link off the terminal.
   await ui.press({ key: 'deep-dive', link: { href: 'https://stonecypher.github.io/docket/#deep-dive' } })
@@ -1139,7 +1215,9 @@ test('the Deep dive switch starts as the config says, and drives the review from
   const plain = await $.ui.mount({ ...PANE, surface: 'terminal' })
   expect(await findText(plain, /^☑ Deep dive$/)).toBeDefined()
   await plain.unmount()
-  expect(String((await $.classic.Stop({ stop_hook_active: false }))?.block)).toContain('go back over it once')
+  await $.prompt.submit(typed('and the lexer'))
+  expect(context.join('\n')).toContain('go back over it once')
+  expect(String((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block)).toContain('speaks of pending')
 })
 
 test('once a day, docket looks for a newer version on GitHub and says so once in Verify', async ($, on) => {

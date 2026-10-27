@@ -283,13 +283,65 @@ export const references = (prompt: string, items: readonly Item[], text: Strings
   ].join('\n')
 }
 
-// Told to Claude once at the end of each turn, as the old /questions skill was called after every turn:
-// the pass that catches what the turn decided or left open without saying so.
-export const REVIEW = `Before this turn ends, go back over it once for the docket:
+// Deep dive's review, told to Claude with each prompt as context the user never sees, as the old
+// /questions skill was called after every turn: the pass that catches what the turn decided or left
+// open without saying so. Nothing forces it; SEND_BACK is the visible fallback when a turn skips it.
+export const REVIEW = `Deep dive is on: before you end this turn, go back over it once for the docket:
 - Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
 - Anything you're not sure you read right, or anything risky about to happen: put it in confirm.
+- Any thread your reply leaves open (later, waiting, pinned, needs you): make it an item.
+If anything is missing, add it in one update call before your final reply. Don't mention this review to the user.`
+
+// Deep dive's visible send-back, the Stop block's reason: only for a turn the user started whose reply
+// spoke of pending work while the docket stayed as it was (sendsBack).
+export const SEND_BACK = `Before this turn ends: your reply speaks of pending or next work, but the docket did not change this turn. Go back over it once for the docket:
 - Any thread your reply left open (later, waiting, pinned, needs you): make it an item.
-If anything is missing, add it in one update call. Then end the turn with one short line saying what you added, or that nothing was missing: don't repeat your reply.`
+- Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
+Add them in one update call. Then end the turn with one short line saying what you added, or that nothing was missing: don't repeat your reply.`
+
+// Where a prompt came from, as much of the engine's PromptOrigin as docket reads.
+export type OriginLike = { kind: string; asUser?: boolean }
+
+// Origins that are the user's own prompt: typed at the terminal, sent from a phone or web client, the
+// SDK host's own turn (the desktop app's path), a Slack ping from the owner, or a plugin's submit made
+// as the user's words (docket's own ✔ and ✗). Every other kind is background: a task notification, a
+// scheduled wakeup, a peer, a relay, or one the engine can't name.
+// isUserOrigin({ kind: 'composer' }) is true; isUserOrigin({ kind: 'task-notification' }) is false.
+const USER_KINDS = new Set(['composer', 'bridge', 'sdk', 'slack-ping'])
+
+export const isUserOrigin = (origin: OriginLike | undefined) =>
+  Boolean(origin && (USER_KINDS.has(origin.kind) || (origin.kind === 'plugin' && origin.asUser === true)))
+
+// Whether the turn running after a prompt was started by the user, given what was known before it. A
+// user prompt makes it the user's; a background prompt that starts a turn of its own (no running turn,
+// so no turnId) makes it background; a background prompt delivered into a running turn changes nothing,
+// so a notification landing mid-way through the user's turn leaves it the user's.
+// userTurnAfter(true, { kind: 'task-notification' }, 't1') is true; with no turnId it is false.
+export const userTurnAfter = (wasUserTurn: boolean, origin: OriginLike | undefined, turnId: string | undefined) => {
+  if (isUserOrigin(origin)) return true
+
+  return turnId ? wasUserTurn : false
+}
+
+// What the Stop hook knows when it decides on Deep dive's send-back.
+export type StopFacts = {
+  isDeepDiving: boolean
+  // Whether the user's own prompt started this turn (userTurnAfter).
+  isUserTurn: boolean
+  // The engine's flag: this turn was already sent back once.
+  isStopHookActive: boolean
+  // The reply Claude is ending the turn with, when the engine says.
+  answer: string | undefined
+  // Whether the docket changed this turn.
+  isChanged: boolean
+}
+
+// Whether Deep dive sends Claude back, visibly, at the end of a turn: only with Deep dive on, only on a
+// turn the user started, never twice, and only when the reply spoke of pending work but the docket
+// didn't change. Background turns (notifications, wakeups) never get one.
+// sendsBack({ isDeepDiving: true, isUserTurn: true, isStopHookActive: false, answer: 'Next up is the README.', isChanged: false }) is true.
+export const sendsBack = (facts: StopFacts) =>
+  facts.isDeepDiving && facts.isUserTurn && !facts.isStopHookActive && !facts.isChanged && speaksOfPending(facts.answer ?? '')
 
 // Told to Claude when the docket's language or voice changed since its open items were written.
 export const rewriteNote = (text: Strings, voice: Voice) => {

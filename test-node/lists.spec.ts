@@ -11,10 +11,13 @@ import {
   counterText,
   instructions,
   openCounts,
+  isUserOrigin,
   references,
+  sendsBack,
   settingsOf,
   snapshot,
   speaksOfPending,
+  userTurnAfter,
 } from '../hooks/lists.ts'
 import { EN, translate } from '../hooks/i18n.ts'
 import { readFileSync } from 'node:fs'
@@ -142,6 +145,57 @@ describe('speaksOfPending', () => {
 
   test('ignores phrases inside code', () => {
     assert.ok(!speaksOfPending(`Run \`npm test\`, or see:\n\`\`\`\n// next up: todo\n\`\`\``))
+  })
+})
+
+describe('isUserOrigin', () => {
+  test("counts the user's own prompts", () => {
+    for (const kind of ['composer', 'bridge', 'sdk', 'slack-ping']) assert.equal(isUserOrigin({ kind }), true, kind)
+    assert.equal(isUserOrigin({ kind: 'plugin', asUser: true }), true)
+  })
+
+  test('counts nothing in the background, nor a plugin speaking for itself', () => {
+    const background = ['task-notification', 'scheduled-trigger', 'peer', 'peer-send-message', 'projects-relay', 'channel', 'coordinator', 'observer', 'observer-activity', 'auto-continuation', 'unclassified']
+    for (const kind of background) assert.equal(isUserOrigin({ kind }), false, kind)
+    assert.equal(isUserOrigin({ kind: 'plugin' }), false)
+    assert.equal(isUserOrigin(undefined), false)
+  })
+})
+
+describe('userTurnAfter', () => {
+  test("a user prompt makes the turn the user's, whatever came before", () => {
+    assert.equal(userTurnAfter(false, { kind: 'composer' }, undefined), true)
+    assert.equal(userTurnAfter(false, { kind: 'composer' }, 't1'), true)
+  })
+
+  test('a background prompt that starts its own turn makes it background', () => {
+    assert.equal(userTurnAfter(true, { kind: 'task-notification' }, undefined), false)
+    assert.equal(userTurnAfter(true, { kind: 'scheduled-trigger' }, undefined), false)
+  })
+
+  test('a background prompt delivered into a running turn leaves it as it was', () => {
+    assert.equal(userTurnAfter(true, { kind: 'task-notification' }, 't1'), true)
+    assert.equal(userTurnAfter(false, { kind: 'task-notification' }, 't1'), false)
+  })
+})
+
+describe('sendsBack', () => {
+  const pending = { isDeepDiving: true, isUserTurn: true, isStopHookActive: false, answer: 'Next up is the README.', isChanged: false }
+
+  test('sends back a user turn that spoke of pending work without changing the docket', () => {
+    assert.equal(sendsBack(pending), true)
+  })
+
+  test('never with Deep dive off, on a background turn, or a second time', () => {
+    assert.equal(sendsBack({ ...pending, isDeepDiving: false }), false)
+    assert.equal(sendsBack({ ...pending, isUserTurn: false }), false)
+    assert.equal(sendsBack({ ...pending, isStopHookActive: true }), false)
+  })
+
+  test('not when the docket changed, or the reply left nothing open, or the reply is unknown', () => {
+    assert.equal(sendsBack({ ...pending, isChanged: true }), false)
+    assert.equal(sendsBack({ ...pending, answer: 'Done. All tests pass.' }), false)
+    assert.equal(sendsBack({ ...pending, answer: undefined }), false)
   })
 })
 
