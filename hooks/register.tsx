@@ -12,12 +12,15 @@ import {
   openCounts,
   RECONCILE,
   REVIEW,
+  SEND_BACK,
   nowNote,
   references,
   rewriteNote,
+  sendsBack,
   settingsOf,
   snapshot,
   speaksOfPending,
+  userTurnAfter,
 } from './lists'
 import type { Settings } from './lists'
 import { CONFIG_VERSION, FIELDS, defaults, merged, migrate, parse, serialize } from './config'
@@ -61,6 +64,7 @@ const isUnreconciled = atom({ plugin: 'docket', key: 'isUnreconciled' } as const
 const languageGroup = atom({ plugin: 'docket', key: 'languageGroup' } as const, '')
 const spokenAs = atom({ plugin: 'docket', key: 'spokenAs' } as const, '')
 const deepDive = atom({ plugin: 'docket', key: 'deepDive' } as const, null as boolean | null)
+const isUserTurn = atom({ plugin: 'docket', key: 'isUserTurn' } as const, false)
 
 // The language and voice items are written in, as one comparable key.
 const speechOf = (text: Strings, voice: Voice) => JSON.stringify({ language: text.language, voice })
@@ -1487,16 +1491,24 @@ export const register: Register = on => {
     return { result: report || 'No changes.' }
   })
 
-  // The once-a-turn review, as the old /questions skill was called after every turn: when Claude is about
-  // to end a turn, it's sent back once to raise what the turn decided or left open. Never twice: the
-  // Stop hook says when it's already been sent back.
+  // Deep dive's visible send-back. The review itself rides each prompt as hidden context (REVIEW); this
+  // is the fallback for when Claude skipped it: a turn the user started whose reply spoke of pending work
+  // while the docket stayed as it was. Background turns never get one, and no turn gets two: the Stop
+  // hook says when it's already been sent back.
   on('classic.Stop', async ($, e, next) => {
     const result = await next(e)
-    if (!(await isDeepDiving($, settings)) || e.stop_hook_active || result.block) {
+    if (result.block) {
       return result
     }
+    const isSent = sendsBack({
+      isDeepDiving: await isDeepDiving($, settings),
+      isUserTurn: await read($, isUserTurn),
+      isStopHookActive: e.stop_hook_active,
+      answer: e.last_assistant_message,
+      isChanged: (await read($, updatedTurn)) === (await read($, turn)),
+    })
 
-    return { ...result, block: REVIEW }
+    return isSent ? { ...result, block: SEND_BACK } : result
   })
 
   // The end-of-turn check: a main-loop answer that speaks of pending work but changed nothing is flagged.
@@ -1520,8 +1532,10 @@ export const register: Register = on => {
     }
   })
 
-  // Each prompt starts a turn: the deltas count from here, and the model gets the docket.
+  // Each prompt starts a turn: the deltas count from here, and the model gets the docket, with Deep
+  // dive's review when it's on. Every prompt, meta or not, says whether the user started the turn.
   on('prompt.submit', async ($, e, next) => {
+    await update($, isUserTurn, was => userTurnAfter(was, e.origin, e.turnId))
     if (e.isMeta) {
       return next(e)
     }
@@ -1558,6 +1572,9 @@ export const register: Register = on => {
     const named = references(e.text, all, text)
     if (named) {
       context.push(named)
+    }
+    if (await isDeepDiving($, settings)) {
+      context.push(REVIEW)
     }
 
     return next({ ...e, context: [...(e.context ?? []), ...context] })

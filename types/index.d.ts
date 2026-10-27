@@ -62,6 +62,9 @@ declare module 'claude-code' {
       spokenAs: string
       // The Deep dive switch, once flipped this session; null until then, when the config's turnReview says.
       deepDive: boolean | null
+      // Whether the user's own prompt started the running turn, not a notification, wakeup or other
+      // background event: Deep dive sends back only on those.
+      isUserTurn: boolean
     }
   }
 }
