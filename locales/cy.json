@@ -197,6 +197,22 @@
     "text": "Mae gan docket Saesneg newydd nad yw ei {language} yn ei gyfieithu eto. Hoffech chi helpu i'w [ddiweddaru]({link})? Mae ✔ yn agor y ffeil yng ngolygydd GitHub: llenwch bob \"text\" gwag, a chadwch i'w gynnig.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "Iaith",
     "ready": "ai translated"

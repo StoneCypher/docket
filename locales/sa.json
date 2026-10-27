@@ -197,6 +197,22 @@
     "text": "docket इत्यस्मिन् नूतनानि आङ्ग्लवाक्यानि सन्ति यानि तस्य {language} अद्यापि न अनुवदति। [तत् अद्यतनं कर्तुम्]({link}) साहाय्यं करोषि किम्? ✔ GitHub इत्यस्य सम्पादके सञ्चिकाम् उद्घाटयति: प्रत्येकं रिक्तं \"text\" पूरय, प्रस्तोतुं च रक्ष।",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "भाषा",
     "ready": "ai translated"

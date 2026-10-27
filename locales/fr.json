@@ -197,6 +197,22 @@
     "text": "docket contient de nouveaux textes en anglais que son {language} ne traduit pas encore. Vous voulez aider à [le mettre à jour]({link}) ? ✔ ouvre le fichier dans l'éditeur de GitHub : remplissez chaque \"text\" vide, puis enregistrez pour le proposer.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "Langue",
     "ready": "ai translated"

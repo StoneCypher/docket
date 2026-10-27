@@ -47,6 +47,12 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 Claude can do all of this for you too: ask it to clear a list, press a button or close the pane.
 
+### The terminal needs the fullscreen layout
+
+Buttons work only in Claude Code's fullscreen terminal layout. The regular (main-screen) layout reports no mouse clicks, and it draws the pane inline above the prompt rather than docked beside the transcript; a pane docks only in fullscreen, from 110 columns. So on a main-screen terminal, docket shows a short notice in place of its pane and band: type `/tui fullscreen` to switch. That saves the setting and relaunches with the conversation intact, and `/tui default` switches back. Claude Code refuses the switch while background work is running ("Cannot switch renderers while work is running in the background"), so wait for that work to finish, or stop it in `/tasks`, first. `/docket` says the same there.
+
+The desktop app, VS Code, the phone, and fullscreen terminals are unchanged, as is a remote surface that hasn't yet said which layout it's in. The notice's words are in the language files with the rest of docket's; they show in English until each language translates them.
+
 ## Claude's tool
 
 Claude keeps the docket with one tool, `mcp__docket__update`. Everything in one call:
@@ -118,7 +124,7 @@ When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run 
 
 ## Development
 
-- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`, `hooks/buttons.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
+- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`, `hooks/buttons.ts`, `hooks/screen.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
 - `npm run test:mod` runs the hooks and pane tests (`tests/*.test.tsx`) inside Claude Code's engine, on every surface.
 - `npm run validate` checks the manifest, the marketplace file and the hooks module the way Claude Code loads them.
 
