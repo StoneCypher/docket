@@ -33,6 +33,8 @@ import { BUILT } from './release'
 import { DIVIDER, dayOf, defaultVariant, groupsOf, isChoosing, labelFor, pickedOf, variantsOf } from './picker'
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
+import { buttonOf, buttonsOf } from './buttons'
+import type { ItemButton } from './buttons'
 
 const TOOL = 'mcp__docket__update'
 const PANE = 'docket'
@@ -65,6 +67,7 @@ const languageGroup = atom({ plugin: 'docket', key: 'languageGroup' } as const, 
 const spokenAs = atom({ plugin: 'docket', key: 'spokenAs' } as const, '')
 const deepDive = atom({ plugin: 'docket', key: 'deepDive' } as const, null as boolean | null)
 const isUserTurn = atom({ plugin: 'docket', key: 'isUserTurn' } as const, false)
+const queued = atom({ plugin: 'docket', key: 'queued' } as const, [] as string[])
 
 // The language and voice items are written in, as one comparable key.
 const speechOf = (text: Strings, voice: Voice) => JSON.stringify({ language: text.language, voice })
@@ -76,6 +79,12 @@ type UpdateInput = {
   close?: { id: string; unasked?: boolean }[]
   // The language the user writes in, as Claude hears it: the last hint "auto" has before English.
   language?: string
+  // Lists to clear, by letter, or "all": what a heading's ✕ does, done before the adds.
+  clear?: string[]
+  // Buttons to press, by item label and button name, as the person presses them.
+  press?: { id: string; button: string }[]
+  // Opens the pane, or closes it for good, as the person's close does.
+  pane?: 'open' | 'close'
 }
 
 const STAKES = ['emergency', 'high', 'med']
@@ -157,6 +166,34 @@ const schemaOf = (text: Strings) => ({
       description:
         "The language the user writes to you in, as a code such as de or pt-BR. Set it only when the docket asks you to: it's on auto and nothing else told it the user's language.",
     },
+    clear: {
+      type: 'array',
+      items: { type: 'string', enum: [...LETTERS.map(letter => text.lists[letter].letter), 'all'] },
+      description:
+        "Lists to clear, by letter, or \"all\" for every list: what a heading's ✕ does. It runs before add, so clear plus add starts the docket afresh. Clearing only empties the display.",
+    },
+    press: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          id: { type: 'string', description: `A label such as ${text.lists.R.letter}1` },
+          button: {
+            type: 'string',
+            description:
+              'yes (✔), no (✗), an option\'s own label, start (a Later item\'s 🏗️), open (👁️) or clear (🗑️). Only the buttons the item shows now can be pressed.',
+          },
+        },
+        required: ['id', 'button'],
+      },
+      description:
+        "Presses an item's button exactly as the user's click does: the row is answered at once. On your own items, ✔, ✗, an option and start send their message as the user, held until your turn ends, so press them only when the user tells you to. The docket's own items, such as the offer to create its config, are handled by the docket.",
+    },
+    pane: {
+      type: 'string',
+      enum: ['open', 'close'],
+      description: "Opens the docket's pane, or closes it as the user's close does: it stays closed, and the band with it, until reopened.",
+    },
   },
 })
 
@@ -192,6 +229,110 @@ const openPane = async ($: Dollar, version = '') => {
   return isPlaced
 }
 
+// Closes the pane for good, as the person's close does: the band stays down too, until /docket or
+// Claude opens the pane again. Returns what went wrong, or '' once it's closed.
+// e.g. await closePane($) is '' after the pane goes; a ui.close hook's refusal comes back as its words.
+const closePane = async ($: Dollar) => {
+  try {
+    await $.ui.close({ id: PANE })
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error)
+  }
+  isPaneShown = false
+  isPaneClosed = true
+  $.ui.invalidate('ui.render')
+
+  return ''
+}
+
+// What a press on one of the mod's own items does: the pane's, the band's and Claude's alike.
+type OnAction = (item: Item, kind: string) => Promise<void>
+
+// Marks items answered at once, so the row dims and drops its buttons before Claude acts on the reply.
+// `answeredMs` is how long an answered row stays up; the pane redraws once it's due to go.
+const markAnswered = async ($: Dollar, ids: readonly string[], answer: string, answeredMs: number) => {
+  const answeredAt = await $.clock.now()
+  await update($, items, current =>
+    current.map(item => (ids.includes(item.id) && isOpen(item) ? { ...item, answered: answer, answeredAt } : item)),
+  )
+  $.clock.after(answeredMs + 500, () => $.ui.invalidate('ui.render'))
+}
+
+// A ✔, ✗, option or start: answers one item as if the user had typed `said`. The mod's own items are
+// handled by `onAction` and never reach Claude. The person's press and Claude's both come here; Claude's
+// is `isHeld`, as its tool call holds the turn a prompt would wait on, so its words go once the turn ends.
+// e.g. answerItem($, r3, 'yes', 'Approved R3.', 20_000, onAction) submits "Approved R3." as the user.
+const answerItem = async ($: Dollar, item: Item, answer: string, said: string, answeredMs: number, onAction: OnAction, isHeld = false) => {
+  await markAnswered($, [item.id], answer, answeredMs)
+  if (item.action) {
+    await onAction(item, answer)
+
+    return
+  }
+  if (isHeld) {
+    await update($, queued, current => [...current, said])
+
+    return
+  }
+  await $.prompt.submit({ text: said, asUser: true })
+}
+
+// Sends what Claude's presses held, as one prompt from the user, once the turn that pressed them ends.
+// e.g. held "Approved R2." and "Start L1 now." go as "Approved R2. Start L1 now."
+const sendHeld = async ($: Dollar) => {
+  const held = await read($, queued)
+  if (!held.length) return
+  await update($, queued, () => [])
+  await $.prompt.submit({ text: held.join(' '), asUser: true })
+}
+
+// An item's 🗑️: clears just that item, and tells Claude at the next prompt. Clearing one of the mod's
+// own offers declines it, so it doesn't come back.
+const clearItem = async ($: Dollar, item: Item, onAction: OnAction) => {
+  if (item.action) {
+    await onAction(item, 'no')
+
+    return
+  }
+  const at = await $.clock.now()
+  await update($, items, current =>
+    current.map(each => (each.id === item.id && isOpen(each) ? { ...each, closed: { at, isUnasked: false } } : each)),
+  )
+  await update($, dismissed, gone => [...gone, item.id])
+}
+
+// A heading's ✕, for each list named: clears every open item in them, and tells Claude at the next
+// prompt. Returns the ids it cleared.
+// e.g. clearLists($, ['Q']) clears the open questions and leaves every other list.
+const clearLists = async ($: Dollar, letters: readonly Letter[]) => {
+  const at = await $.clock.now()
+  const ids: string[] = []
+  await update($, items, current => {
+    ids.length = 0
+
+    return current.map(item => {
+      if (!letters.includes(item.list) || !isOpen(item)) {
+        return item
+      }
+      ids.push(item.id)
+
+      return { ...item, closed: { at, isUnasked: false } }
+    })
+  })
+  await update($, dismissed, gone => [...gone, ...ids])
+
+  return ids
+}
+
+// Claude presses one of an item's buttons, by buttonsOf's description of it: the same calls the pane's
+// button makes, so Claude's press and the person's come out the same, its words sent as the turn ends.
+const pressItem = async ($: Dollar, item: Item, button: ItemButton, answeredMs: number, onAction: OnAction) =>
+  button.kind === 'answer'
+    ? answerItem($, item, button.answer, button.send, answeredMs, onAction, true)
+    : button.kind === 'open'
+      ? onAction(item, 'open')
+      : clearItem($, item, onAction)
+
 // Every list with something to show, or null when the docket is empty.
 const draw = async (
   $: Dollar,
@@ -200,7 +341,7 @@ const draw = async (
   columns: number,
   isByPrompt: boolean,
   surface: string,
-  onAction: (item: Item, kind: string) => Promise<void>,
+  onAction: OnAction,
   text: Strings,
   Svg?: Svg,
   Markdown?: MarkdownElement,
@@ -284,62 +425,21 @@ const draw = async (
     return null
   }
 
-  // An item's ✕: clears just that item.
+  // An item's 🗑️: clears just that item.
   const dismiss = (id: string) => async () => {
-    // Clearing one of the mod's own offers declines it, so it doesn't come back.
-    const own = all.find(item => item.id === id && item.action)
-    if (own) {
-      await onAction(own, 'no')
-
-      return
-    }
-    const at = await $.clock.now()
-    await update($, items, current =>
-      current.map(item => (item.id === id && isOpen(item) ? { ...item, closed: { at, isUnasked: false } } : item)),
-    )
-    await update($, dismissed, gone => [...gone, id])
+    const item = all.find(each => each.id === id)
+    if (item) await clearItem($, item, onAction)
   }
 
   // The heading's ✕: dismisses every open item in the list.
   const dismissList = (letter: Letter) => async () => {
-    const at = await $.clock.now()
-    const ids: string[] = []
-    await update($, items, current => {
-      ids.length = 0
-
-      return current.map(item => {
-        if (item.list !== letter || !isOpen(item)) {
-          return item
-        }
-        ids.push(item.id)
-
-        return { ...item, closed: { at, isUnasked: false } }
-      })
-    })
-    await update($, dismissed, gone => [...gone, ...ids])
+    await clearLists($, [letter])
   }
 
-  // Marks items answered at once, so the row dims and drops its buttons before Claude acts on the reply.
-  const markAnswered = async (ids: readonly string[], answer: string) => {
-    const answeredAt = await $.clock.now()
-    await update($, items, current =>
-      current.map(item => (ids.includes(item.id) && isOpen(item) ? { ...item, answered: answer, answeredAt } : item)),
-    )
-    // Redraw once the answered rows are due to go.
-    $.clock.after(settings.answeredMs + 500, () => $.ui.invalidate('ui.render'))
-  }
-
-  // A ✔ or ✗: answers one item, as if the user had typed it.
-  const answer = (id: string, kind: string, text: string) => async () => {
-    await markAnswered([id], kind)
-    // The mod's own items are handled here and never reach Claude.
+  // A ✔, ✗, option or start: answers one item, as if the user had typed it.
+  const answer = (id: string, kind: string, said: string) => async () => {
     const item = all.find(each => each.id === id)
-    if (item?.action) {
-      await onAction(item, kind)
-
-      return
-    }
-    await $.prompt.submit({ text, asUser: true })
+    if (item) await answerItem($, item, kind, said, settings.answeredMs, onAction)
   }
 
   // Whether a lean fits on one line beside its buttons: an estimate in cells, as no surface reports
@@ -367,7 +467,7 @@ const draw = async (
       .filter(item => onScreen.has(item.id))
       .map(item => item.id)
     if (ids.length) {
-      await markAnswered(ids, 'yes')
+      await markAnswered($, ids, 'yes', settings.answeredMs)
       await $.prompt.submit({ text: fill(text.send[send], { ids: ids.map(id => labelOfId(text, id)).join(', ') }), asUser: true })
     }
   }
@@ -1035,7 +1135,7 @@ const checkForUpdate = async ($: Dollar, current: string, settings: Settings, te
 const toolSpec = (text: Strings) => ({
   name: 'update',
   description:
-    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number.',
+    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number. When the user asks, it also clears lists, presses an item\'s buttons as their click would, and opens or closes the pane.',
   inputSchema: schemaOf(text),
   isDeferred: false,
 })
@@ -1316,6 +1416,135 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   return { loaded, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }
 }
 
+// What register holds that the functions below share, read live through getters, and its adopt, which
+// takes what a reload found.
+type Live = {
+  readonly settings: Settings
+  readonly text: Strings
+  readonly voice: Voice
+  readonly paths: ConfigPaths
+  readonly files: LoadedConfig
+  readonly locales: Record<string, FileState>
+  readonly version: string
+  was: () => Reloaded
+  adopt: (next: Reloaded) => void
+}
+
+// A press on one of the mod's own items, from the pane, the band or Claude alike: 👁️ opens its file,
+// and an answer is the mod's to handle. A config it writes is read at once and pointed out in Verify.
+// e.g. actOn($, live, r1, 'yes') on the config offer writes the config and adds "Look at your new config".
+const actOn = async ($: Dollar, live: Live, item: Item, kind: string) => {
+  if (kind === 'open') {
+    if (item.open) await openFile($, item.open)
+
+    return
+  }
+  if (!(await ownAnswer($, item, kind, live.paths, live.locales))) return
+  live.adopt(await reloadConfig($, live.paths, live.was()))
+  const { paths, text } = live
+  await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
+}
+
+// Whether the model has docket's tool now. Where the engine can't say, it's taken as there, so
+// nothing is registered on a guess.
+const hasTool = async ($: Dollar) => {
+  try {
+    return (await $.tool.list()).some(tool => tool.name === TOOL)
+  } catch {
+    return true
+  }
+}
+
+// A session's first steps: /docket, then docket's version and where its config lives. A command the
+// engine won't register leaves the rest to go on.
+const startOf = async ($: Dollar, cwd: string) => {
+  try {
+    await $.command.register({ name: 'docket', description: 'Open the docket pane' })
+  } catch {
+    // /docket is missing this session; the docket itself still works.
+  }
+
+  return { version: await versionOf($), paths: await configPaths($, cwd) }
+}
+
+// What follows the config at a session's start: the update check, the language the items are written
+// in, the offer to write a config, and the pane.
+const settle = async ($: Dollar, live: Live) => {
+  const { settings, text, voice, paths, files: loaded, version } = live
+  // After the config, which may turn the check off.
+  void checkForUpdate($, version, settings, text)
+  if (!(await read($, spokenAs))) await update($, spokenAs, () => speechOf(text, voice))
+  // With no config of the user's own, offer to write one: once, and not again after a no.
+  const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
+  if (!loaded.user && !(await $.fs.exists(paths.user)) && !isOffered && !(await $.store.get('configDeclined'))) {
+    await addOwn($, [
+      {
+        list: 'R',
+        emoji: '⚙️',
+        rank: 1,
+        text: fill(text.config.offer, { path: fileLink(paths.user) }),
+        action: 'createConfig',
+      },
+    ])
+  }
+  if (settings.display === 'pane') {
+    void openPane($, version)
+  }
+}
+
+// Clears the lists Claude named, by letter or "all", as their headings' ✕ would. Returns its report.
+// e.g. clearNamed($, EN, ['Q', 'Z']) clears the questions and says no list has the letter Z.
+const clearNamed = async ($: Dollar, text: Strings, named: readonly string[]) => {
+  const isAll = (each: string) => String(each).toLowerCase() === 'all'
+  const letters = named.some(isAll)
+    ? [...LETTERS]
+    : named.map(each => letterFor(text, String(each))).filter((letter): letter is Letter => Boolean(letter))
+  const strays = named.filter(each => !isAll(each) && !letterFor(text, String(each)))
+  const ids = letters.length ? await clearLists($, letters) : []
+
+  return [`Cleared ${ids.map(id => labelOfId(text, id)).join(', ') || 'nothing'}.`, strays.length ? `No list has the letter: ${strays.join(', ')}.` : '']
+}
+
+// Presses the buttons Claude named, one at a time, as the person's clicks would. Returns its report.
+// e.g. pressNamed($, live, [{ id: 'R1', button: 'yes' }]) answers the config offer as its ✔ does.
+const pressNamed = async ($: Dollar, live: Live, presses: readonly { id: string; button: string }[]) => {
+  const { text, settings } = live
+  const said: string[] = []
+  for (const { id, button } of presses) {
+    const internal = idFor(text, String(id))
+    const item = (await read($, items)).find(each => each.id === internal && isOpen(each))
+    if (!item) {
+      said.push(`No open item ${id}.`)
+      continue
+    }
+    const offered = buttonsOf(item, text)
+    const found = buttonOf(offered, String(button ?? ''))
+    if (!found) {
+      said.push(`${labelOf(text, item)} has no ${button} button now; it has ${offered.map(each => each.button).join(', ') || 'none'}.`)
+      continue
+    }
+    await pressItem($, item, found, settings.answeredMs, (own, kind) => actOn($, live, own, kind))
+    said.push(`Pressed ${found.button} on ${labelOf(text, item)}.`)
+  }
+
+  return said
+}
+
+// Opens or closes the pane for Claude. Returns its report.
+// e.g. paneTo($, '0.5.0', 'close') closes it for good and says so.
+const paneTo = async ($: Dollar, version: string, to: string) => {
+  if (to === 'close') {
+    const refused = await closePane($)
+
+    return refused ? `The pane didn't close: ${refused}` : 'Pane closed. It stays closed, the band with it, until /docket or you open it again.'
+  }
+  if (to !== 'open') return `No pane action ${to}: it's open or close.`
+
+  return (await openPane($, version))
+    ? 'Pane opened.'
+    : "The pane is open but not placed yet: a surface places a pane nobody asked for from 144 columns, or at once when the user runs /docket."
+}
+
 export const register: Register = on => {
   // The settings come from docket's config files, read at the session's start and on every prompt.
   let settings = settingsOf(merged())
@@ -1356,32 +1585,48 @@ export const register: Register = on => {
     casts = next.casts
   }
 
+  // What a reload compares against: everything the last one settled.
+  const was = (): Reloaded => ({ loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects })
+
+  // register's state, read live by the functions the hooks share.
+  const live: Live = {
+    get settings() {
+      return settings
+    },
+    get text() {
+      return text
+    },
+    get voice() {
+      return voice
+    },
+    get paths() {
+      return paths
+    },
+    get files() {
+      return files
+    },
+    get locales() {
+      return locales
+    },
+    get version() {
+      return version
+    },
+    was,
+    adopt,
+  }
+
+  // Set once the session's setup has run to its end; until then each prompt tries it again.
+  let isSetUp = false
+
   on('session.start', async ($, e, next) => {
-    await $.command.register({ name: 'docket', description: 'Open the docket pane' })
-    version = await versionOf($)
-    paths = await configPaths($, e.cwd)
+    // The tool first, in English: whatever fails after this, Claude has it, and the config's language
+    // registers it again in a moment.
+    await $.tool.register(toolSpec(text))
+    ;({ version, paths } = await startOf($, e.cwd))
     // Settled afresh in each process, so the tool is registered whatever the language.
     adopt(await reloadConfig($, paths))
-    // After the config, which may turn the check off.
-    void checkForUpdate($, version, settings, text)
-    const loaded = files
-    if (!(await read($, spokenAs))) await update($, spokenAs, () => speechOf(text, voice))
-    // With no config of the user's own, offer to write one: once, and not again after a no.
-    const isOffered = (await read($, items)).some(item => item.action === 'createConfig' && isOpen(item))
-    if (!loaded.user && !(await $.fs.exists(paths.user)) && !isOffered && !(await $.store.get('configDeclined'))) {
-      await addOwn($, [
-        {
-          list: 'R',
-          emoji: '⚙️',
-          rank: 1,
-          text: fill(text.config.offer, { path: fileLink(paths.user) }),
-          action: 'createConfig',
-        },
-      ])
-    }
-    if (settings.display === 'pane') {
-      void openPane($, version)
-    }
+    await settle($, live)
+    isSetUp = true
 
     return next(e)
   })
@@ -1395,8 +1640,10 @@ export const register: Register = on => {
     const heard = typeof input.language === 'string' ? codeOf(input.language) : undefined
     if (heard && heard !== (await $.store.get('heardLanguage'))) {
       await $.store.set('heardLanguage', heard)
-      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+      adopt(await reloadConfig($, paths, was()))
     }
+    // Clearing comes first, so a clear and an add in one call start the docket afresh.
+    const cleared = Array.isArray(input.clear) && input.clear.length ? await clearNamed($, text, input.clear) : []
     const now = await $.clock.now()
     const at = await read($, turn)
     await update($, updatedTurn, () => at)
@@ -1474,9 +1721,14 @@ export const register: Register = on => {
       $.clock.after(settings.lingerMs + 1000, () => $.ui.invalidate('ui.render'))
     }
 
+    // Presses after the adds and changes, so one call can add an item and press it; the pane last.
+    const pressed = Array.isArray(input.press) && input.press.length ? await pressNamed($, live, input.press) : []
+    const paned = typeof input.pane === 'string' ? await paneTo($, version, input.pane) : ''
+
     const shown = (id: string) => (id.startsWith('?') ? id.slice(1) : labelOfId(text, id))
     const unknown = [...new Set([...changes.keys(), ...closes.keys()])].filter(id => !known.has(id))
     const report = [
+      ...cleared,
       added.length && `Added ${added.map(item => labelOf(text, item)).join(', ')}.`,
       changes.size && `Changed ${[...changes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
       closes.size && `Closed ${[...closes.keys()].filter(id => known.has(id)).map(shown).join(', ') || 'nothing'}.`,
@@ -1484,6 +1736,8 @@ export const register: Register = on => {
       strays.length && `Not added, as no list has the letter: ${strays.join(', ')}.`,
       // The language may have changed since those labels were read: say what the letters are now.
       (unknown.length || strays.length) && `The docket's letters are now ${LETTERS.map(letter => `${text.lists[letter].letter} ${text.lists[letter].name}`).join(', ')}.`,
+      ...pressed,
+      paned,
     ]
       .filter(Boolean)
       .join(' ')
@@ -1517,6 +1771,8 @@ export const register: Register = on => {
       const isChanged = (await read($, updatedTurn)) === (await read($, turn))
       await update($, isUnreconciled, () => !isChanged)
     }
+    // The main loop's turn is over: what Claude's presses held goes now, as the user's prompt.
+    if (!e.agentId) await sendHeld($)
 
     return next(e)
   })
@@ -1542,9 +1798,21 @@ export const register: Register = on => {
 
     await update($, turn, n => n + 1)
     void checkForUpdate($, version, settings, text)
-    if (paths.user) {
-      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
+    if (!isSetUp) {
+      // The setup never finished (it failed, or the start never reached docket): try it again here.
+      try {
+        ;({ version, paths } = await startOf($, await $.session.cwd()))
+        adopt(await reloadConfig($, paths))
+        await settle($, live)
+        isSetUp = true
+      } catch {
+        // Next prompt, then.
+      }
+    } else if (paths.user) {
+      adopt(await reloadConfig($, paths, was()))
     }
+    // A tool the model has lost, or never got, is registered again before the turn's request.
+    if (!(await hasTool($))) await $.tool.register(toolSpec(text))
     const all = await read($, items)
     await update($, baseline, () => openCounts(all))
     const gone = await read($, dismissed)
@@ -1609,16 +1877,7 @@ export const register: Register = on => {
     const { Box, Text } = kit
 
     // The mod's own items are answered here, not by Claude.
-    const onAction = async (item: Item, kind: string) => {
-      if (kind === 'open') {
-        if (item.open) await openFile($, item.open)
-
-        return
-      }
-      if (!(await ownAnswer($, item, kind, paths, locales))) return
-      adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
-      await addOwn($, [{ list: 'V', emoji: '⚙️', rank: 1, text: fill(text.config.lookAt, { path: fileLink(paths.user) }), open: paths.user }])
-    }
+    const onAction: OnAction = (item, kind) => actOn($, live, item, kind)
 
     if (await read($, isSettings)) {
       const target = files.project ? paths.project : paths.user
@@ -1687,17 +1946,8 @@ export const register: Register = on => {
       return next(e)
     }
 
-    // The band has no settings view; the config offer's buttons still work there.
-    const onAction = async (item: Item, kind: string) => {
-      if (kind === 'open') {
-        if (item.open) await openFile($, item.open)
-
-        return
-      }
-      if (await ownAnswer($, item, kind, paths, locales)) {
-        adopt(await reloadConfig($, paths, { loaded: files, language, isUnheard, dialect, voiceSetting, casts, text, spoken, voice, languages, locales, dialects }))
-      }
-    }
+    // The band has no settings view; the config offer's buttons still work there, as in the pane.
+    const onAction: OnAction = (item, kind) => actOn($, live, item, kind)
 
     const kit = $.ui.resolve(e)
 
