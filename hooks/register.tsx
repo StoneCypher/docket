@@ -183,13 +183,14 @@ const versionOf = async ($: Dollar) => {
   }
 }
 
+// Resolves what $.ui.open said: placed, or why not.
 const openPane = async ($: Dollar, version = '') => {
-  const { isPlaced } = await $.ui.open({ id: PANE, title: version ? `Docket 📋 ${version}` : 'Docket 📋' })
-  isPaneShown = isPlaced
+  const opened = await $.ui.open({ id: PANE, title: version ? `Docket 📋 ${version}` : 'Docket 📋' })
+  isPaneShown = opened.isPlaced
   isPaneClosed = false
   $.ui.invalidate('ui.render')
 
-  return isPlaced
+  return opened
 }
 
 // Every list with something to show, or null when the docket is empty.
@@ -1592,9 +1593,12 @@ export const register: Register = on => {
   })
 
   on('command.run', { command: 'docket' }, async $ => {
-    const isPlaced = await openPane($, version)
+    const opened = await openPane($, version)
+    if (opened.isPlaced) return { text: 'Docket pane opened.' }
+    // No surface attached at all, as in a Claude chat: nothing docket draws can show there.
+    if (opened.reason.startsWith('no-surface')) return { text: 'Docket only works in Claude Code, not in Claude chat.' }
 
-    return { text: isPlaced ? 'Docket pane opened.' : 'This surface draws no pane, so the docket stays above the prompt.' }
+    return { text: 'This surface draws no pane, so the docket stays above the prompt.' }
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
