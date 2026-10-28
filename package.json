@@ -9,7 +9,7 @@
     "node": ">=23.6"
   },
   "scripts": {
-    "test": "node --test --experimental-test-coverage --test-coverage-include=\"hooks/**\" --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 \"test-node/**/*.spec.ts\"",
+    "test": "node --test --experimental-test-coverage --test-coverage-include=\"hooks/**\" --test-coverage-include=\"server/**\" --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 \"test-node/**/*.spec.ts\"",
     "test:mod": "claude plugin test .",
     "locales": "node scripts/locales.ts",
     "release": "node scripts/release.ts",

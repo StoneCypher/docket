@@ -34,7 +34,9 @@ import { DIVIDER, dayOf, defaultVariant, groupsOf, isChoosing, labelFor, pickedO
 import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 
-const TOOL = 'mcp__docket__update'
+// The update tool, as Claude Code names it: docket's stdio server (server/tools.mjs, started by .mcp.json)
+// lists it, and the tool.call hook below answers it.
+const TOOL = 'mcp__plugin_docket_docket__update'
 const PANE = 'docket'
 const CLOSED_KEPT = 200
 // How long an item Claude just added or changed stays out of a bulk button's answer, so one that lands
@@ -99,66 +101,6 @@ const fieldsOf = (spec: Fields): Fields => {
 
   return out
 }
-
-// The tool's fields, in the user's language's letters and messages.
-const itemFields = (text: Strings) => ({
-  text: { type: 'string', description: 'The item, one to three lines' },
-  emoji: { type: 'string', description: 'One emoji for the item' },
-  lean: { type: 'string', description: 'Questions only: the answer you would pick' },
-  stakes: { type: 'string', enum: STAKES, description: 'Omit for low stakes' },
-  rank: {
-    type: 'number',
-    description: `${(['V', 'N', 'C', 'Q', 'R'] as const).map(letter => text.lists[letter].letter).join(', ')} only: 1 is the most urgent`,
-  },
-  open: { type: 'string', description: 'A local file path the item is about. The item gets an Open button that opens it in the editor.' },
-  options: {
-    type: 'array',
-    items: { type: 'string' },
-    maxItems: 3,
-    description: `Questions only: one to three button labels, each a single letter or a single emoji, such as ["a", "b", "c"] or ["🌐", "📄"]. Each label must appear in the text beside what it picks. Their buttons replace the lean’s ✔ and ✗ and send "${fill(text.send.pick, { id: `${text.lists.Q.letter}4`, option: 'b' })}"`,
-  },
-})
-
-const schemaOf = (text: Strings) => ({
-  type: 'object',
-  properties: {
-    add: {
-      type: 'array',
-      items: {
-        type: 'object',
-        properties: { list: { type: 'string', enum: LETTERS.map(letter => text.lists[letter].letter) }, ...itemFields(text) },
-        required: ['list', 'text'],
-      },
-    },
-    change: {
-      type: 'array',
-      items: {
-        type: 'object',
-        properties: { id: { type: 'string', description: `A label such as ${text.lists.Q.letter}12` }, ...itemFields(text) },
-        required: ['id'],
-      },
-    },
-    close: {
-      type: 'array',
-      items: {
-        type: 'object',
-        properties: {
-          id: { type: 'string' },
-          unasked: {
-            type: 'boolean',
-            description: 'True when you close it on your own judgment, not on the user\'s word',
-          },
-        },
-        required: ['id'],
-      },
-    },
-    language: {
-      type: 'string',
-      description:
-        "The language the user writes to you in, as a code such as de or pt-BR. Set it only when the docket asks you to: it's on auto and nothing else told it the user's language.",
-    },
-  },
-})
 
 const withoutAnswer = ({ answered: _, answeredAt: __, ...item }: Item): Item => item
 
@@ -1032,15 +974,6 @@ const checkForUpdate = async ($: Dollar, current: string, settings: Settings, te
   await addOwn($, [{ list: 'V', emoji: '🔔', rank: 1, text: fill(text.update, { latest, current }), action: 'update' }])
 }
 
-// The tool, described in the user's language.
-const toolSpec = (text: Strings) => ({
-  name: 'update',
-  description:
-    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number.',
-  inputSchema: schemaOf(text),
-  isDeferred: false,
-})
-
 const localeFile = ($: Dollar, code: string) => `${$.plugin.root}/locales/${code}.json`
 
 // A language file's translations, or none when it's missing or won't parse.
@@ -1285,8 +1218,8 @@ export type Reloaded = {
   casts: Cast[]
 }
 
-// Loads the config, then the language it names, registering the tool again in a new language, then
-// adds its notes in that language. With nothing before it, the tool is registered regardless.
+// Loads the config, then the language it names, redrawing in a new language, then adds its notes in
+// that language.
 const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Promise<Reloaded> => {
   const loaded = await loadConfig($, paths)
   // The files are read once a session: they change only with docket itself.
@@ -1301,7 +1234,6 @@ const reloadConfig = async ($: Dollar, paths: ConfigPaths, was?: Reloaded): Prom
   const { text, voice: spoken } = isSame ? { text: was.text, voice: was.spoken } : await stringsOf($, language, dialect, voiceSetting, casts)
   const voice = voiceFor(voiceSetting, casts, spoken)
   if (!isSame) {
-    await $.tool.register(toolSpec(text))
     $.ui.invalidate('ui.render')
   }
   // A note already open, as an unreadable file's on every prompt, isn't added again.
@@ -1361,7 +1293,7 @@ export const register: Register = on => {
     await $.command.register({ name: 'docket', description: 'Open the docket pane' })
     version = await versionOf($)
     paths = await configPaths($, e.cwd)
-    // Settled afresh in each process, so the tool is registered whatever the language.
+    // Settled afresh in each process.
     adopt(await reloadConfig($, paths))
     // After the config, which may turn the check off.
     void checkForUpdate($, version, settings, text)
@@ -1389,6 +1321,10 @@ export const register: Register = on => {
 
   // The docket is the mod's own bookkeeping: it never needs the user's permission.
   on('tool.check', { tool: TOOL }, () => ({ decision: 'allow' }))
+
+  // Every turn may call it, so its schema sits in the prompt's list rather than behind ToolSearch, where
+  // the engine puts an MCP server's tools.
+  on('tool.describe', { tool: TOOL }, async ($, e, next) => ({ ...(await next(e)), isDeferred: false }))
 
   on('tool.call', { tool: TOOL }, async ($, e) => {
     const input = e as unknown as UpdateInput

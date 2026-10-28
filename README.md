@@ -14,6 +14,8 @@ At the prompt of a Claude Code session, add docket's marketplace, then install i
 /plugin install docket@docket
 ```
 
+docket needs `node` on the PATH: Claude Code runs it to serve docket's tool (see [How it works](#how-it-works)).
+
 Pick a scope when asked. From a shell instead, `claude plugin marketplace add StoneCypher/docket` then `claude plugin install docket@docket`.
 
 docket is also listed in [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins), alongside StoneCypher's other plugins: `/plugin marketplace add StoneCypher/claude-plugins`, then `/plugin install docket@stonecypher`.
@@ -87,10 +89,12 @@ When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run 
 
 ## Development
 
-- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
+- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`), the tool server (`server/tools.mjs`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
 - `npm run test:mod` runs the hooks and pane tests (`tests/*.test.tsx`) inside Claude Code's engine, on every surface.
 - `npm run validate` checks the manifest, the marketplace file and the hooks module the way Claude Code loads them.
 
 ## How it works
 
 Docket is a Claude Code mod. It adds its rules to Claude's system prompt, gives Claude one tool for adding, changing and closing items, sends Claude the current docket with each of your prompts (with any labels you mention expanded), and draws the lists in a pane. If Claude's reply talks about pending work without updating the docket, your next prompt reminds it to reconcile.
+
+The tool is `mcp__plugin_docket_docket__update`. A small stdio MCP server in `server/` (started by `.mcp.json`, plain JavaScript with no dependencies) lists it, and docket's `tool.call` hook answers every call, so the server never handles one itself. A mod's own `$.tool.register` would be simpler, but Claude Code's server for those tools answers its client's `tools/list` with a response the client can't read (`InvalidHTTPResponse` in `claude --debug`), so a tool registered that way never reaches Claude.
