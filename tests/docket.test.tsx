@@ -35,6 +35,8 @@ const copied: string[] = []
 const published = { version: '0.0.1' }
 const fetched: string[] = []
 const titles: string[] = []
+// What the engine answers when the mod opens its pane, for a test to set.
+const opening: { result: { isPlaced: true } | { isPlaced: false; reason: string } } = { result: { isPlaced: true } }
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
@@ -56,6 +58,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   titles.length = 0
   fetched.length = 0
   published.version = '0.0.1'
+  opening.result = { isPlaced: true }
   clock.now = 1_000
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
@@ -67,7 +70,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('ui.open', (_, e) => {
     titles.push(String((e as { title?: string }).title))
 
-    return { value: { isPlaced: true } }
+    return { value: opening.result }
   })
   on('ui.copy', (_, e) => {
     copied.push(String((e as { text: string }).text))
@@ -1277,4 +1280,21 @@ test('with no hint at all, Claude is asked for the user\'s language, and docket 
   await ui.unmount()
   await $.prompt.submit({ text: 'Danke' })
   expect(context.join('\n')).not.toContain("nothing told it the user's language")
+})
+
+test('/docket says whether it opened the pane, and why not', async ($, on) => {
+  standIns(on)
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+
+  expect((await $.command.run({ command: 'docket' })).text).toBe('Docket pane opened.')
+
+  // A claude.ai chat attaches no surface, so nothing docket draws can show there.
+  opening.result = { isPlaced: false, reason: 'no-surface: no surface is attached ($.session.surfaces() is empty)' }
+  expect((await $.command.run({ command: 'docket' })).text).toBe('Docket only works in Claude Code, not in Claude chat.')
+
+  // A surface that is attached but places no pane still shows the band.
+  opening.result = { isPlaced: false, reason: 'below 110 columns: 80 now' }
+  expect((await $.command.run({ command: 'docket' })).text).toBe(
+    'This surface draws no pane, so the docket stays above the prompt.',
+  )
 })
