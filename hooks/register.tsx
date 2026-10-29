@@ -238,13 +238,14 @@ const versionOf = async ($: Dollar) => {
   }
 }
 
+// Resolves what $.ui.open said: placed, or why not.
 const openPane = async ($: Dollar, version = '') => {
-  const { isPlaced } = await $.ui.open({ id: PANE, title: version ? `Docket 📋 ${version}` : 'Docket 📋' })
-  isPaneShown = isPlaced
+  const opened = await $.ui.open({ id: PANE, title: version ? `Docket 📋 ${version}` : 'Docket 📋' })
+  isPaneShown = opened.isPlaced
   isPaneClosed = false
   $.ui.invalidate('ui.render')
 
-  return isPlaced
+  return opened
 }
 
 // Closes the pane for good, as the person's close does: the band stays down too, until /docket or
@@ -1558,7 +1559,7 @@ const paneTo = async ($: Dollar, version: string, to: string) => {
   }
   if (to !== 'open') return `No pane action ${to}: it's open or close.`
 
-  return (await openPane($, version))
+  return (await openPane($, version)).isPlaced
     ? 'Pane opened.'
     : "The pane is open but not placed yet: a surface places a pane nobody asked for from 144 columns, or at once when the user runs /docket."
 }
@@ -1880,13 +1881,16 @@ export const register: Register = on => {
   })
 
   on('command.run', { command: 'docket' }, async ($, e) => {
-    const isPlaced = await openPane($, version)
+    const opened = await openPane($, version)
     // On the main screen the pane holds only the notice, so the command says it too.
     if (isMainScreen({ surface: startSurface, isInteractive, isFullscreen: e.presentation?.isFullscreen })) {
       return { text: [text.mainScreen.title, ...mainScreenLines(text)].join('\n') }
     }
+    if (opened.isPlaced) return { text: 'Docket pane opened.' }
+    // No surface attached at all, as in a Claude chat: nothing docket draws can show there.
+    if (opened.reason.startsWith('no-surface')) return { text: 'Docket only works in Claude Code, not in Claude chat.' }
 
-    return { text: isPlaced ? 'Docket pane opened.' : 'This surface draws no pane, so the docket stays above the prompt.' }
+    return { text: 'This surface draws no pane, so the docket stays above the prompt.' }
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
