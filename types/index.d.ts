@@ -65,6 +65,9 @@ declare module 'claude-code' {
       // Whether the user's own prompt started the running turn, not a notification, wakeup or other
       // background event: Deep dive sends back only on those.
       isUserTurn: boolean
+      // What Claude's presses send as the user, held until its turn ends: a prompt can't be submitted
+      // from inside the tool call that holds the turn.
+      queued: string[]
     }
   }
 }

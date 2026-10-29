@@ -35,8 +35,14 @@ const copied: string[] = []
 const published = { version: '0.0.1' }
 const fetched: string[] = []
 const titles: string[] = []
-// What the engine answers when the mod opens its pane, for a test to set.
+// What the engine answers when the mod opens its pane, for a test to set, and the panes the mod closed.
 const opening: { result: { isPlaced: true } | { isPlaced: false; reason: string } } = { result: { isPlaced: true } }
+const closed: string[] = []
+// The tools the mod registered, by name; the tools the model has, for $.tool.list; and whether the
+// engine refuses the mod's /docket.
+const registered: string[] = []
+const listed = { tools: ['mcp__docket__update'] }
+const refusing = { isCommand: false }
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
 const plain = (path: string) => path.replace(/\\/g, '/').replace(/^[A-Za-z]:/, '')
 
@@ -60,17 +66,31 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   published.version = '0.0.1'
   opening.result = { isPlaced: true }
   clock.now = 1_000
+  closed.length = 0
+  registered.length = 0
+  listed.tools = ['mcp__docket__update']
+  refusing.isCommand = false
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
-  on('tool.register', () => ({ value: undefined }))
+  on('tool.register', (_, e) => {
+    registered.push(String((e as { name: string }).name))
+
+    return { value: undefined }
+  })
+  on('tool.list', () => ({ value: listed.tools.map(name => ({ name, description: '', mcp: true })) }))
   on('clock.now', () => ({ value: clock.now }))
   on('clock.after', () => ({ value: undefined }))
-  on('command.register', () => ({ value: { command: 'docket' } }))
+  on('command.register', () => (refusing.isCommand ? { deny: 'no commands here' } : { value: { command: 'docket' } }))
   on('ui.open', (_, e) => {
     titles.push(String((e as { title?: string }).title))
 
     return { value: opening.result }
+  })
+  on('ui.close', (_, e) => {
+    closed.push(String((e as { id: string }).id))
+
+    return { value: undefined }
   })
   on('ui.copy', (_, e) => {
     copied.push(String((e as { text: string }).text))
@@ -1280,6 +1300,252 @@ test('with no hint at all, Claude is asked for the user\'s language, and docket 
   await ui.unmount()
   await $.prompt.submit({ text: 'Danke' })
   expect(context.join('\n')).not.toContain("nothing told it the user's language")
+})
+
+// The band above the prompt, where docket draws when no pane is placed.
+const BAND = {
+  plugin: 'docket',
+  component: 'AbovePrompt',
+  props: { hasSurvey: false, isWorking: false, maxRows: 20, bodyColumns: 80, scroll: { offset: 0, bodyRows: 19 }, view: {} },
+} as const
+
+test("Claude's clear empties the lists it names, and all empties every list before the adds", async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'Q', text: 'First question?' },
+      { list: 'Q', text: 'Second question?' },
+      { list: 'P', text: 'Keep this pinned' },
+      { list: 'C', text: 'Delete the old branch?' },
+    ],
+  })
+
+  const one = await $.tool.call({ tool: 'mcp__docket__update', clear: ['q', 'Z'] })
+  expect(JSON.stringify(one)).toContain('Cleared Q1, Q2.')
+  expect(JSON.stringify(one)).toContain('No list has the letter: Z.')
+  const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
+  expect(await findText(ui, /First question/)).toBeUndefined()
+  expect(await findText(ui, /Second question/)).toBeUndefined()
+  expect(await findText(ui, /Keep this pinned/)).toBeDefined()
+  await ui.unmount()
+
+  const all = await $.tool.call({ tool: 'mcp__docket__update', clear: ['all'], add: [{ list: 'U', text: 'Starting afresh' }] })
+  expect(JSON.stringify(all)).toContain('Cleared P1, C1.')
+  expect(JSON.stringify(all)).toContain('Added U1.')
+  const after = await $.ui.mount({ ...PANE, surface: 'desktop' })
+  expect(await findText(after, /Keep this pinned/)).toBeUndefined()
+  expect(await findText(after, /Delete the old branch/)).toBeUndefined()
+  expect(await findText(after, /Starting afresh/)).toBeDefined()
+  await after.unmount()
+})
+
+test("Claude's press sends what the person's press sends, and takes the row's buttons the same way", async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  on('turn.complete', (_, e) => ({ text: e.answer }))
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'R', text: 'Refactor the parser?' },
+      { list: 'R', text: 'Refactor the lexer?' },
+      { list: 'Q', text: 'Ship it?', lean: 'yes' },
+      { list: 'Q', text: 'Which host: (a) here or (b) there?', options: ['a', 'b'] },
+      { list: 'L', text: 'Write the docs' },
+    ],
+  })
+
+  // The person's ✔ on one request, then Claude's on the other.
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'ok-R1' })
+  await ui.unmount()
+  const ran = await $.tool.call({ tool: 'mcp__docket__update', press: [{ id: 'R2', button: 'yes' }] })
+  expect(JSON.stringify(ran)).toContain('Pressed yes on R2.')
+  // Claude's words wait for its turn to end: its tool call holds the turn a prompt would wait on.
+  expect(submitted).toEqual(['Approved R1.'])
+  await $.turn.complete({ answer: 'Done.', durationMs: 1, isAborted: false, turnId: 't1', reason: 'answer' })
+  expect(submitted).toEqual(['Approved R1.', 'Approved R2.'])
+
+  // Both rows are sent alike: no pair, no 🗑️.
+  const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  for (const key of ['ok-R1', 'no-R1', 'x-R1', 'ok-R2', 'no-R2', 'x-R2']) {
+    expect(await after.find({ key })).toBeUndefined()
+  }
+  await after.unmount()
+
+  // A lean's ✗, an option by its label in either case, and Later's start.
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    press: [
+      { id: 'Q1', button: 'no' },
+      { id: 'Q2', button: 'B' },
+      { id: 'L1', button: 'start' },
+    ],
+  })
+  // A subagent's turn ending sends nothing; the main loop's sends them all, as one prompt.
+  await $.turn.complete({ answer: 'Done.', durationMs: 1, isAborted: false, turnId: 't2', reason: 'answer', agentId: 'a1' })
+  expect(submitted).toEqual(['Approved R1.', 'Approved R2.'])
+  await $.turn.complete({ answer: 'Done.', durationMs: 1, isAborted: false, turnId: 't3', reason: 'answer' })
+  expect(submitted).toEqual(['Approved R1.', 'Approved R2.', 'No to the lean on Q1. Q2 (b). Start L1 now.'])
+  // Sent once: the next turn's end sends nothing more.
+  await $.turn.complete({ answer: 'Done.', durationMs: 1, isAborted: false, turnId: 't4', reason: 'answer' })
+  expect(submitted.length).toBe(3)
+})
+
+test("Claude can't press a button the item doesn't show, and its 🗑️ clears the item as the person's does", async ($, on) => {
+  const submitted: string[] = []
+  let context: readonly string[] = []
+  standIns(on)
+  on('turn.complete', (_, e) => ({ text: e.answer }))
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({
+    tool: 'mcp__docket__update',
+    add: [
+      { list: 'R', text: 'Refactor the parser?' },
+      { list: 'P', text: 'Keep this pinned' },
+    ],
+  })
+
+  const first = await $.tool.call({ tool: 'mcp__docket__update', press: [{ id: 'R1', button: '✔' }] })
+  expect(JSON.stringify(first)).toContain('Pressed yes on R1.')
+  // Sent: nothing left to press, and nothing sent twice.
+  const again = await $.tool.call({
+    tool: 'mcp__docket__update',
+    press: [
+      { id: 'R1', button: 'yes' },
+      { id: 'P1', button: 'yes' },
+      { id: 'Q9', button: 'yes' },
+    ],
+  })
+  expect(JSON.stringify(again)).toContain('R1 has no yes button now; it has none.')
+  expect(JSON.stringify(again)).toContain('P1 has no yes button now; it has clear.')
+  expect(JSON.stringify(again)).toContain('No open item Q9.')
+  await $.turn.complete({ answer: 'Done.', durationMs: 1, isAborted: false, turnId: 't1', reason: 'answer' })
+  expect(submitted).toEqual(['Approved R1.'])
+
+  await $.tool.call({ tool: 'mcp__docket__update', press: [{ id: 'P1', button: 'clear' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await findText(ui, /Keep this pinned/)).toBeUndefined()
+  await ui.unmount()
+  // Told at the next prompt, as for the person's 🗑️.
+  await $.prompt.submit({ text: 'ok' })
+  expect(context.join('\n')).toContain('The user cleared these from the docket since the last prompt: P1.')
+})
+
+test("Claude pressing the config offer's ✔ writes the config, as the person's ✔ does", async ($, on) => {
+  const submitted: string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    submitted.push(e.text)
+
+    return { text: e.text }
+  })
+  files.delete(USER_CONFIG)
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  const ran = await $.tool.call({ tool: 'mcp__docket__update', press: [{ id: 'R1', button: 'yes' }] })
+  expect(JSON.stringify(ran)).toContain('Pressed yes on R1.')
+
+  const written = JSON.parse(files.get(USER_CONFIG) ?? '{}')
+  expect(written.version).toBe(CONFIG_VERSION)
+  expect(written.leanColor).toBe('#b1b1b1')
+  expect(written.laterCap).toBe(7)
+  // The offer is the mod's own: answering it sends nothing to Claude.
+  expect(submitted).toEqual([])
+
+  const after = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  expect(await findText(after, /Create docket's config/)).toBeUndefined()
+  expect(await findText(after, /Look at your new config/)).toBeDefined()
+  await after.unmount()
+})
+
+test("Claude pressing the config offer's ✗ declines it for good", async ($, on) => {
+  standIns(on)
+  files.delete(USER_CONFIG)
+
+  await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', press: [{ id: 'R1', button: 'no' }] })
+  expect(files.has(USER_CONFIG)).toBe(false)
+  expect(store.get('configDeclined')).toBe(true)
+})
+
+test("Claude's close keeps the pane and the band down, as the person's does, until it's opened again", async ($, on) => {
+  standIns(on)
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  // What draws the band when docket passes.
+  on('ui.render', ($, e) => {
+    const { Text } = $.ui.resolve(e)
+
+    return <Text>engine band</Text>
+  })
+  // A terminal too narrow to place a pane nobody asked for: the band stands in for it.
+  opening.result = { isPlaced: false, reason: 'needs 144 columns unasked; 100 now' }
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: 'Keep this pinned' }] })
+  const before = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await findText(before, /Keep this pinned/)).toBeDefined()
+  await before.unmount()
+
+  const shut = await $.tool.call({ tool: 'mcp__docket__update', pane: 'close' })
+  expect(JSON.stringify(shut)).toContain('Pane closed.')
+  expect(closed).toEqual(['docket'])
+  const band = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await findText(band, /Keep this pinned/)).toBeUndefined()
+  await band.unmount()
+  // A prompt, and more items, don't bring it back.
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: 'Another pinned thing' }] })
+  await $.prompt.submit({ text: 'ok' })
+  const still = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await findText(still, /pinned/)).toBeUndefined()
+  await still.unmount()
+
+  const opened = await $.tool.call({ tool: 'mcp__docket__update', pane: 'open' })
+  expect(JSON.stringify(opened)).toContain('not placed yet')
+  expect(titles.length).toBe(2)
+  const back = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await findText(back, /Keep this pinned/)).toBeDefined()
+  await back.unmount()
+
+  opening.result = { isPlaced: true }
+  const placed = await $.tool.call({ tool: 'mcp__docket__update', pane: 'open' })
+  expect(JSON.stringify(placed)).toContain('Pane opened.')
+})
+
+test('docket registers its tool even when the engine refuses /docket, and again when the model has lost it', async ($, on) => {
+  standIns(on)
+  on('prompt.submit', (_, e) => ({ text: e.text }))
+  refusing.isCommand = true
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  expect(registered).toContain('update')
+  // The rest of the start ran: the tool answers.
+  const ran = await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: 'Still here' }] })
+  expect(JSON.stringify(ran)).toContain('Added P1.')
+
+  const before = registered.length
+  await $.prompt.submit({ text: 'ok' })
+  expect(registered.length).toBe(before)
+  listed.tools = []
+  await $.prompt.submit({ text: 'and now?' })
+  expect(registered.length).toBe(before + 1)
+  expect(registered.at(-1)).toBe('update')
 })
 
 test('/docket says whether it opened the pane, and why not', async ($, on) => {

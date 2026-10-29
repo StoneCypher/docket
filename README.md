@@ -45,6 +45,37 @@ Numbers only ever go up, so `Q12` always means the same question. Unchanged item
 
 `/docket` reopens the pane if you close it.
 
+Claude can do all of this for you too: ask it to clear a list, press a button or close the pane.
+
+## Claude's tool
+
+Claude keeps the docket with one tool, `mcp__docket__update`. Everything in one call:
+
+| Field | What it does |
+| --- | --- |
+| `add` | Adds items to a list, by letter. The tool assigns the labels and returns them. |
+| `change` | Corrects an item, by label. A changed item gets its buttons back. |
+| `close` | Closes items, by label; `unasked` marks one Claude closed on its own judgment. |
+| `clear` | Clears lists, by letter, or `"all"`: what a heading's ✕ does. It runs before `add`, so a clear and an add start the docket afresh. |
+| `press` | Presses an item's button, by label and button: `yes` (✔), `no` (✗), an option's own label, `start` (🏗️), `open` (👁️) or `clear` (🗑️). Only the buttons the item shows now can be pressed. |
+| `pane` | `open` opens the pane; `close` closes it the way your close does, so it stays closed, the band with it, until `/docket` or Claude opens it again. |
+| `language` | The language Claude hears you write in, when docket asks for it. |
+
+A press goes through the same code as your click. The row is answered at once, and a press on docket's own items acts at once: ✔ on the offer to create docket's config writes the config, as your ✔ does. A press on one of Claude's own items sends the same message your click sends, as you, but only once Claude's turn ends, as a prompt can't start while the tool call holds the turn. Several presses in one turn go as one prompt. Claude is told to press its own items' buttons only when you ask.
+
+A pane Claude opens without your asking is placed only on a terminal at least 144 columns wide; `/docket` places it at any width.
+
+### When Claude doesn't have the tool
+
+docket registers the tool with `$.tool.register` when the session starts, and asks for it to be listed up front (`isDeferred: false`), not behind ToolSearch. Two things follow:
+
+- **ToolSearch never finds it.** ToolSearch looks only through deferred tools, so a search for "docket" comes back empty whether the tool is there or not. That alone doesn't mean it's missing.
+- **It arrives with the next prompt.** Claude Code runs a plugin's `session.start` once before the first prompt, and waits for it, so the tool is there from the first turn. It runs it again whenever the plugin loads afresh: installed or enabled mid-session, reloaded with `/reload-plugins` after a change, or restarted after its worker was lost. A tool registered then is callable from the next prompt on, not in the turn already running.
+
+Before 0.6.0, docket registered the tool partway through its start, after `/docket`, its version and its config paths. If any of those failed, the tool never arrived, and nothing tried again, so the whole session went without it. That's the likeliest cause of a mid-session install that never gave Claude the tool, though it hasn't been reproduced. Now docket registers the tool first, before anything that can fail. At each prompt it checks the tools Claude has (`$.tool.list()`) and registers its own again if it's missing. A start that didn't finish is tried again at the next prompt.
+
+If the tool is still missing, send one more prompt after `/reload-plugins`, or start a new session, which always registers it before the first turn. Subagents are a separate case: one Claude starts may be given a tool list without docket's, even while the main conversation has it.
+
 ## Settings
 
 Settings live in `~/.claude/docket/config.json`, a versioned JSON file with every setting written out. A project can have its own `.claude/docket/config.json`, whose settings win. The first time docket runs without one, the pane offers to create yours with the defaults; when docket adds settings, it updates the file in place and tells you in Verify. Edit the file directly, or use ⚙ at the bottom of the pane:
@@ -87,10 +118,10 @@ When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run 
 
 ## Development
 
-- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
+- `npm test` runs the unit tests for the pure logic (`hooks/lists.ts`, `hooks/config.ts`, `hooks/i18n.ts`, `hooks/languages.ts`, `hooks/buttons.ts`) and the language files under Node's own test runner, with coverage: it fails below 80% of lines, branches or functions. Needs Node 23.6 or later, which runs TypeScript directly.
 - `npm run test:mod` runs the hooks and pane tests (`tests/*.test.tsx`) inside Claude Code's engine, on every surface.
 - `npm run validate` checks the manifest, the marketplace file and the hooks module the way Claude Code loads them.
 
 ## How it works
 
-Docket is a Claude Code mod. It adds its rules to Claude's system prompt, gives Claude one tool for adding, changing and closing items, sends Claude the current docket with each of your prompts (with any labels you mention expanded), and draws the lists in a pane. If Claude's reply talks about pending work without updating the docket, your next prompt reminds it to reconcile.
+Docket is a Claude Code mod. It adds its rules to Claude's system prompt, gives Claude one tool for adding, changing and closing items (and for clearing lists, pressing buttons and opening or closing the pane), sends Claude the current docket with each of your prompts (with any labels you mention expanded), and draws the lists in a pane. If Claude's reply talks about pending work without updating the docket, your next prompt reminds it to reconcile.
