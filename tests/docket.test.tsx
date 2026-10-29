@@ -35,8 +35,8 @@ const copied: string[] = []
 const published = { version: '0.0.1' }
 const fetched: string[] = []
 const titles: string[] = []
-// Whether the surface places the pane it's asked for, and the panes the mod closed.
-const placing = { isPlaced: true }
+// What the engine answers when the mod opens its pane, for a test to set, and the panes the mod closed.
+const opening: { result: { isPlaced: true } | { isPlaced: false; reason: string } } = { result: { isPlaced: true } }
 const closed: string[] = []
 // The tools the mod registered, by name; the tools the model has, for $.tool.list; and whether the
 // engine refuses the mod's /docket.
@@ -64,8 +64,8 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   titles.length = 0
   fetched.length = 0
   published.version = '0.0.1'
+  opening.result = { isPlaced: true }
   clock.now = 1_000
-  placing.isPlaced = true
   closed.length = 0
   registered.length = 0
   listed.tools = ['mcp__docket__update']
@@ -85,7 +85,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   on('ui.open', (_, e) => {
     titles.push(String((e as { title?: string }).title))
 
-    return { value: placing.isPlaced ? { isPlaced: true } : { isPlaced: false, reason: 'needs 144 columns unasked; 100 now' } }
+    return { value: opening.result }
   })
   on('ui.close', (_, e) => {
     closed.push(String((e as { id: string }).id))
@@ -1495,7 +1495,7 @@ test("Claude's close keeps the pane and the band down, as the person's does, unt
     return <Text>engine band</Text>
   })
   // A terminal too narrow to place a pane nobody asked for: the band stands in for it.
-  placing.isPlaced = false
+  opening.result = { isPlaced: false, reason: 'needs 144 columns unasked; 100 now' }
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: 'Keep this pinned' }] })
@@ -1523,7 +1523,7 @@ test("Claude's close keeps the pane and the band down, as the person's does, unt
   expect(await findText(back, /Keep this pinned/)).toBeDefined()
   await back.unmount()
 
-  placing.isPlaced = true
+  opening.result = { isPlaced: true }
   const placed = await $.tool.call({ tool: 'mcp__docket__update', pane: 'open' })
   expect(JSON.stringify(placed)).toContain('Pane opened.')
 })
@@ -1546,4 +1546,21 @@ test('docket registers its tool even when the engine refuses /docket, and again 
   await $.prompt.submit({ text: 'and now?' })
   expect(registered.length).toBe(before + 1)
   expect(registered.at(-1)).toBe('update')
+})
+
+test('/docket says whether it opened the pane, and why not', async ($, on) => {
+  standIns(on)
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+
+  expect((await $.command.run({ command: 'docket' })).text).toBe('Docket pane opened.')
+
+  // A claude.ai chat attaches no surface, so nothing docket draws can show there.
+  opening.result = { isPlaced: false, reason: 'no-surface: no surface is attached ($.session.surfaces() is empty)' }
+  expect((await $.command.run({ command: 'docket' })).text).toBe('Docket only works in Claude Code, not in Claude chat.')
+
+  // A surface that is attached but places no pane still shows the band.
+  opening.result = { isPlaced: false, reason: 'below 110 columns: 80 now' }
+  expect((await $.command.run({ command: 'docket' })).text).toBe(
+    'This surface draws no pane, so the docket stays above the prompt.',
+  )
 })
