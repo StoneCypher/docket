@@ -54,6 +54,8 @@ export type Strings = {
   config: { offer: string; lookAt: string; updated: string; updatedAdding: string; unreadable: string }
   // Offers to help with a language docket speaks: machine-translated, or behind English.
   translate: { machine: string; behind: string }
+  // Shown in place of the lists on Claude Code's main-screen terminal, where buttons can't be clicked.
+  mainScreen: { title: string; buttons: string; howTo: string; busy: string }
   // The yes and no buttons. Never translated: only a dialect changes them, with text and perhaps an
   // image's file name, which the mod reads into the SVG's source where a surface draws SVG.
   marks: { yes: string; no: string; yesImage?: string; noImage?: string }
@@ -121,6 +123,12 @@ export const EN: Strings = {
     behind:
       `docket has new English its {language} doesn't translate yet. Help [bring it up to date]({link})? ✔ opens the file in GitHub's editor: fill in each empty "text", and save to propose it.`,
   },
+  mainScreen: {
+    title: 'Docket needs the fullscreen layout',
+    buttons: "Buttons in mods only work in Claude Code's fullscreen layout.",
+    howTo: 'To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.',
+    busy: 'The switch is refused while background work is running ("{refusal}"), so wait for that work to finish, or stop it in {tasks}, first.',
+  },
   marks: { yes: '✔', no: '✗' },
   fields: {
     language: ['Language', "Language of the docket's own words: auto follows Claude Code's language setting"],
@@ -173,7 +181,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 6
+export const STRINGS_VERSION = 7
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'

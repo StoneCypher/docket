@@ -35,6 +35,7 @@ import type { Dialect } from './picker'
 import type { Language, Strings } from './i18n'
 import { buttonOf, buttonsOf } from './buttons'
 import type { ItemButton } from './buttons'
+import { isMainScreen, mainScreenLines } from './screen'
 
 const TOOL = 'mcp__docket__update'
 const PANE = 'docket'
@@ -207,6 +208,23 @@ const STAKES_COLOR = { emergency: 'red', high: '#ff8800', med: 'yellow' }
 // pane could be placed: a closed pane stays closed, everywhere, until /docket opens it again.
 let isPaneShown = false
 let isPaneClosed = false
+// Where the session started drawing and whether a person is at its prompt, from session.start: the
+// main-screen notice needs both, and command.run says neither.
+let startSurface = ''
+let isInteractive = true
+
+// What docket shows on Claude Code's main-screen terminal in place of its lists, whose buttons can't
+// be clicked there: why, and how to switch to the fullscreen layout.
+const mainScreenNotice = ({ Box, Text }: Pick<Kit, 'Box' | 'Text'>, text: Strings) => (
+  <Box flexDirection="column" flexGrow={1}>
+    <Text bold>{text.mainScreen.title}</Text>
+    {mainScreenLines(text).map((line, i) => (
+      <Box key={`main-screen-${i}`} marginTop={1}>
+        <Text>{line}</Text>
+      </Box>
+    ))}
+  </Box>
+)
 
 // The docket's own pane, docked beside the transcript where the surface docks one.
 // docket's version, from its own manifest, as the engine doesn't say it: shown in the pane's title.
@@ -1620,6 +1638,8 @@ export const register: Register = on => {
   let isSetUp = false
 
   on('session.start', async ($, e, next) => {
+    startSurface = e.surface ?? ''
+    isInteractive = e.isInteractive
     // The tool first, in English: whatever fails after this, Claude has it, and the config's language
     // registers it again in a moment.
     await $.tool.register(toolSpec(text))
@@ -1860,8 +1880,12 @@ export const register: Register = on => {
     return next(e)
   })
 
-  on('command.run', { command: 'docket' }, async $ => {
+  on('command.run', { command: 'docket' }, async ($, e) => {
     const opened = await openPane($, version)
+    // On the main screen the pane holds only the notice, so the command says it too.
+    if (isMainScreen({ surface: startSurface, isInteractive, isFullscreen: e.presentation?.isFullscreen })) {
+      return { text: [text.mainScreen.title, ...mainScreenLines(text)].join('\n') }
+    }
     if (opened.isPlaced) return { text: 'Docket pane opened.' }
     // No surface attached at all, as in a Claude chat: nothing docket draws can show there.
     if (opened.reason.startsWith('no-surface')) return { text: 'Docket only works in Claude Code, not in Claude chat.' }
@@ -1879,6 +1903,9 @@ export const register: Register = on => {
     }
     const kit = $.ui.resolve(e)
     const { Box, Text } = kit
+    if (isMainScreen({ surface: e.surface, isInteractive, isFullscreen: e.viewport?.isFullscreen })) {
+      return mainScreenNotice(kit, text)
+    }
 
     // The mod's own items are answered here, not by Claude.
     const onAction: OnAction = (item, kind) => actOn($, live, item, kind)
@@ -1954,6 +1981,10 @@ export const register: Register = on => {
     const onAction: OnAction = (item, kind) => actOn($, live, item, kind)
 
     const kit = $.ui.resolve(e)
+    // On the main screen the band is the notice, whatever the docket holds.
+    if (isMainScreen({ surface: e.surface, isInteractive, isFullscreen: e.viewport?.isFullscreen })) {
+      return mainScreenNotice(kit, text)
+    }
 
     return (await draw($, kit, settings, e.props.bodyColumns, true, e.surface, onAction, text, svgOf(kit, e.surface), markdownOf(kit, e.surface))) ?? next(e)
   })

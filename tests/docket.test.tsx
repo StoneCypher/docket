@@ -1528,6 +1528,75 @@ test("Claude's close keeps the pane and the band down, as the person's does, unt
   expect(JSON.stringify(placed)).toContain('Pane opened.')
 })
 
+// A terminal's viewport, in each layout.
+const MAIN_SCREEN = { columns: 120, rows: 40, isFullscreen: false }
+const FULLSCREEN = { columns: 120, rows: 40, isFullscreen: true }
+
+test('on the main-screen terminal, the pane and the band show how to switch to fullscreen instead of the lists', async ($, on) => {
+  standIns(on)
+  opening.result = { isPlaced: false, reason: 'needs 144 columns unasked; 100 now' }
+  on('ui.render', ($, e) => {
+    const { Text } = $.ui.resolve(e)
+
+    return <Text>engine band</Text>
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'R', text: 'Refactor the parser?' }] })
+
+  // The band first: it stands in only until a pane is drawn, as on any layout.
+  for (const target of [BAND, PANE] as const) {
+    const ui = await $.ui.mount({ ...target, surface: 'terminal', viewport: MAIN_SCREEN })
+    expect(await findText(ui, /^Docket needs the fullscreen layout$/)).toBeDefined()
+    expect(await findText(ui, /^Buttons in mods only work in Claude Code's fullscreen layout\.$/)).toBeDefined()
+    expect(await findText(ui, /type \/tui fullscreen\. .* \/tui default switches back\./)).toBeDefined()
+    expect(await findText(ui, /Cannot switch renderers while work is running in the background.*\/tasks/)).toBeDefined()
+    // In place of the lists: no items, no buttons.
+    expect(await findText(ui, /Refactor the parser/)).toBeUndefined()
+    expect(await ui.find({ key: 'ok-R1' })).toBeUndefined()
+    await ui.unmount()
+  }
+
+  // /docket says it too.
+  const ran = await $.command.run({ command: 'docket', args: '', origin: { kind: 'composer' }, presentation: { isFullscreen: false, columns: 120 } })
+  expect(JSON.stringify(ran)).toContain('/tui fullscreen')
+})
+
+test('in the fullscreen layout, and where the layout is unreported, the lists show as usual', async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'R', text: 'Refactor the parser?' }] })
+
+  for (const viewport of [FULLSCREEN, { columns: 120, rows: 40 }]) {
+    const ui = await $.ui.mount({ ...PANE, surface: 'terminal', viewport })
+    expect(await findText(ui, /Refactor the parser/)).toBeDefined()
+    expect(await ui.find({ key: 'ok-R1' })).toBeDefined()
+    expect(await findText(ui, /fullscreen layout/)).toBeUndefined()
+    await ui.unmount()
+  }
+  // With no viewport at all, too.
+  const bare = await $.ui.mount({ ...PANE, surface: 'terminal' })
+  expect(await findText(bare, /Refactor the parser/)).toBeDefined()
+  await bare.unmount()
+
+  const ran = await $.command.run({ command: 'docket', args: '', origin: { kind: 'composer' }, presentation: { isFullscreen: true, columns: 120 } })
+  expect(JSON.stringify(ran)).toContain('Docket pane opened.')
+})
+
+test('other surfaces never show the notice, whatever they report', async ($, on) => {
+  standIns(on)
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'R', text: 'Refactor the parser?' }] })
+  for (const surface of ['desktop', 'vscode', 'mobile'] as const) {
+    const ui = await $.ui.mount({ ...PANE, surface, viewport: MAIN_SCREEN })
+    expect(await findText(ui, /Refactor the parser/)).toBeDefined()
+    expect(await findText(ui, /fullscreen layout/)).toBeUndefined()
+    await ui.unmount()
+  }
+})
+
 test('docket registers its tool even when the engine refuses /docket, and again when the model has lost it', async ($, on) => {
   standIns(on)
   on('prompt.submit', (_, e) => ({ text: e.text }))

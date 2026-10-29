@@ -197,6 +197,22 @@
     "text": "docket-та {language} теленә әле тәрҗемә ителмәгән яңа инглизчә текстлар бар. [Яңартырга]({link}) булышасыңмы? ✔ файлны GitHub редакторында ача: һәр буш \"text\" кырын тутыр һәм тәкъдим итү өчен сакла.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "Тел",
     "ready": "ai translated"
