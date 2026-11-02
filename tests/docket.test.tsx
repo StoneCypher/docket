@@ -35,6 +35,8 @@ const copied: string[] = []
 const published = { version: '0.0.1' }
 const fetched: string[] = []
 const titles: string[] = []
+// Every tool the mod handed the engine's own tool server, which docket no longer uses.
+const registered: unknown[] = []
 // What the engine answers when the mod opens its pane, for a test to set.
 const opening: { result: { isPlaced: true } | { isPlaced: false; reason: string } } = { result: { isPlaced: true } }
 // The engine hands fs calls absolute native paths (C:\\home\\...): key files by the plain form.
@@ -56,6 +58,7 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   folders.clear()
   copied.length = 0
   titles.length = 0
+  registered.length = 0
   fetched.length = 0
   published.version = '0.0.1'
   opening.result = { isPlaced: true }
@@ -63,7 +66,13 @@ const standIns = (on: Parameters<Parameters<typeof test>[1]>[1], locales: Record
   // A complete config by default, so the offer to create one only shows where a test removes it.
   files.set(USER_CONFIG, serialize(defaults()))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
-  on('tool.register', () => ({ value: undefined }))
+  on('tool.register', (_, e) => {
+    registered.push(e)
+
+    return { value: { tool: 'mcp__docket__update' } }
+  })
+  // Beneath docket, the engine's rule: an MCP server's tool waits behind ToolSearch.
+  on('tool.describe', (_, e) => ({ description: e.description, isDeferred: true }))
   on('clock.now', () => ({ value: clock.now }))
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
@@ -130,7 +139,7 @@ test('an added question shows in the pane, on every surface', async ($, on) => {
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   const ran = await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass', emoji: '🚀' }],
   })
   expect(JSON.stringify(ran)).toContain('Added Q1')
@@ -154,7 +163,7 @@ test('a reply naming an item carries that item to the model', async ($, on) => {
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'C', text: 'Delete the old branch?' },
       { list: 'C', text: 'Rename the repo?' },
@@ -172,7 +181,7 @@ test("a heading's ✕ dismisses that whole list and leaves the others", async ($
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'Q', text: 'First question?' },
       { list: 'Q', text: 'Second question?' },
@@ -198,7 +207,7 @@ test("a lean's ✔ answers that one lean, and the pair goes at once", async ($, 
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [{ list: 'Q', text: 'Ship it?', lean: 'yes' }],
   })
 
@@ -217,7 +226,7 @@ test('the pane puts the most important list first, and the most urgent item firs
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'P', text: 'Pinned thing' },
       { list: 'Q', text: 'Minor question?', rank: 2 },
@@ -243,7 +252,7 @@ test("a request's ✔ and ✗ approve or decline it", async ($, on) => {
   })
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'R', text: 'Refactor the parser?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'R', text: 'Refactor the parser?' }] })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'ok-R1' })
@@ -256,7 +265,7 @@ test("a request's ✔ and ✗ approve or decline it", async ($, on) => {
   await ui.unmount()
 
   // Claude changing the item hands the buttons back.
-  await $.tool.call({ tool: 'mcp__docket__update', change: [{ id: 'R1', text: 'Refactor the parser, without the lexer?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', change: [{ id: 'R1', text: 'Refactor the parser, without the lexer?' }] })
   const again = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await again.press({ key: 'no-R1' })
   expect(submitted).toEqual(['Approved R1.', 'Declined R1.'])
@@ -268,7 +277,7 @@ test("an item's ✕ dismisses just that item", async ($, on) => {
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'U', text: 'Building the parser' },
       { list: 'U', text: 'Writing the docs' },
@@ -293,7 +302,7 @@ test("a confirm item's ✔ and ✗ confirm or reject it", async ($, on) => {
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'C', text: 'Delete the old branch?' },
       { list: 'C', text: 'Rename the repo?' },
@@ -390,7 +399,7 @@ test('a reply that speaks of pending work without touching the docket gets a rem
   expect(context.join('\n')).toContain('did not change that turn')
 
   // A turn that does update the docket is left alone.
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: 'README' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'P', text: 'README' }] })
   await $.turn.complete({ answer: 'Next up is the README.', durationMs: 1, isAborted: false, turnId: 't2', reason: 'answer' })
   await $.prompt.submit({ text: 'ok again' })
   expect(context.join('\n')).not.toContain('did not change that turn')
@@ -399,7 +408,6 @@ test('a reply that speaks of pending work without touching the docket gets a rem
 test('an answered item stays up dimmed, then leaves after 20 seconds', async ($, on) => {
   let now = 1_000
   on('session.start', (_, e) => ({ cwd: e.cwd }))
-  on('tool.register', () => ({ value: undefined }))
   on('clock.now', () => ({ value: now }))
   on('clock.after', () => ({ value: undefined }))
   on('command.register', () => ({ value: { command: 'docket' } }))
@@ -407,7 +415,7 @@ test('an answered item stays up dimmed, then leaves after 20 seconds', async ($,
   on('prompt.submit', (_, e) => ({ text: e.text }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship it?', lean: 'yes' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'Ship it?', lean: 'yes' }] })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'ok-Q1' })
@@ -429,7 +437,7 @@ test('Later sits right below Underway in the pane', async ($, on) => {
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'W', text: 'Waiting on CI' },
       { list: 'L', text: 'Build the todos next' },
@@ -456,7 +464,7 @@ test("a question's option buttons replace ✔ and ✗, and send the pick", async
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [{ list: 'Q', text: 'Which direction: (a) docket, (b) instrument, (c) your call?', lean: '(a)', options: ['a', 'b', 'c', 'd'] }, { list: 'Q', text: 'Docs: (🌐) site or (📄) README?', options: ['🌐', 'too long', '📄'] }],
   })
 
@@ -477,7 +485,7 @@ test('a web address in an item is drawn as a link, without its trailing punctuat
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'V', text: 'Look over the site at http://localhost:4321/docket.' },
       { list: 'L', text: 'Then: the [StoneCypher/claude-plugins](https://github.com/StoneCypher/claude-plugins) index repo.' },
@@ -507,7 +515,7 @@ test("a growing list's counter draws its arrow and number in greens", async ($, 
   standIns(on)
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'One?' }, { list: 'Q', text: 'Two?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'One?' }, { list: 'Q', text: 'Two?' }] })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   const texts = await ui.findAll({ type: 'Text' })
@@ -520,14 +528,14 @@ test('a bulk button shows only when more than one item can take it', async ($, o
   standIns(on)
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'One?', lean: 'yes' }, { list: 'Q', text: 'No lean here?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'One?', lean: 'yes' }, { list: 'Q', text: 'No lean here?' }] })
 
   clock.now += 10_000
   const one = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await one.find({ key: 'bulk-Q' })).toBeUndefined()
   await one.unmount()
 
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Two?', lean: 'no' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'Two?', lean: 'no' }] })
   // Just added: not counted for a few seconds, so there's still only one to answer.
   const fresh = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await fresh.find({ key: 'bulk-Q' })).toBeUndefined()
@@ -562,7 +570,7 @@ test("an item about a file gets an Open button that opens it", async ($, on) => 
   })
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at the config.', open: '/home/tester/.claude/docket/config.json' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'V', text: 'Look at the config.', open: '/home/tester/.claude/docket/config.json' }] })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'open-V1' })
@@ -585,7 +593,7 @@ test('a bulk button answers only the items on screen, not the ones past the cap'
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'Q', text: 'One?', lean: 'yes', rank: 1 },
       { list: 'Q', text: 'Two?', lean: 'yes', rank: 2 },
@@ -613,7 +621,7 @@ test("a Later item's 🏗️ asks for it to start now", async ($, on) => {
   })
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'L', text: 'Build the index repo' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'L', text: 'Build the index repo' }] })
 
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'go-L1' })
@@ -630,7 +638,7 @@ test('"+N more" expands its list, and "fewer" folds it back', async ($, on) => {
 
   await $.session.start({ cwd: '/work', surface: 'terminal', isInteractive: true })
   await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'Q', text: 'One?', rank: 1 },
       { list: 'Q', text: 'Two?', rank: 2 },
@@ -670,7 +678,7 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
   // P is Preguntas, questions, in Spanish; F is Fijado, pinned.
   const ran = await $.tool.call({
-    tool: 'mcp__docket__update',
+    tool: 'mcp__plugin_docket_docket__update',
     add: [
       { list: 'P', text: '¿Publicamos el viernes?', lean: 'sí, tras las pruebas' },
       { list: 'F', text: 'Revisar el logo' },
@@ -685,14 +693,14 @@ test('in Spanish, the pane, the tool and the buttons all use Spanish names and l
   await ui.unmount()
   expect(submitted).toEqual(['Acepto la propuesta de P1.'])
 
-  const closed = await $.tool.call({ tool: 'mcp__docket__update', close: [{ id: 'p1' }, { id: 'Q9' }] })
+  const closed = await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', close: [{ id: 'p1' }, { id: 'Q9' }] })
   expect(JSON.stringify(closed)).toContain('Closed P1.')
   expect(JSON.stringify(closed)).toContain('No such items: Q9.')
   expect(JSON.stringify(closed)).toContain("The docket's letters are now")
   expect(JSON.stringify(closed)).toContain('P Preguntas')
 
   // An add with a letter no Spanish list has is reported, not dropped in silence.
-  const stray = await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Una pregunta' }] })
+  const stray = await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'Una pregunta' }] })
   expect(JSON.stringify(stray)).toContain('Not added, as no list has the letter: Q.')
   expect(JSON.stringify(stray)).toContain('P Preguntas')
 })
@@ -774,7 +782,7 @@ test('a dialect set by hand in the config lays its words over the language', asy
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), dialect: 'yinzer' }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'W', text: 'Pierogies or haluski?', lean: 'pierogies' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'W', text: 'Pierogies or haluski?', lean: 'pierogies' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(ui, /^Whaddaya think$/)).toBeDefined()
   expect(await findText(ui, /^Gut call$/)).toBeDefined()
@@ -798,7 +806,7 @@ test("a dialect's picture marks a sent answer where the surface draws SVG; its t
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), dialect: 'samuraijack' }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'C', text: 'Face Aku at dawn?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'C', text: 'Face Aku at dawn?' }] })
   const pictured = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(pictured, /^🗡$/)).toBeDefined()
   expect(await pictured.find({ type: 'Svg' })).toBeUndefined()
@@ -885,7 +893,7 @@ test('a language tag can end in a dialect, as en-US-startrek', async ($, on) => 
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), language: 'en-US-startrek' }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'O', text: 'Set course for Risa?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'O', text: 'Set course for Risa?' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(ui, /^Orders, Captain\?$/)).toBeDefined()
   expect(await findText(ui, /Set course for Risa/)).toBeDefined()
@@ -919,7 +927,7 @@ test('switching into a voice or out of one asks Claude to rewrite the open items
   })
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship on Friday?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'Ship on Friday?' }] })
   await $.prompt.submit({ text: 'hello' })
   expect(context.join('\n')).not.toContain('rewrite every open item')
 
@@ -958,7 +966,7 @@ test('a voice is its own setting, apart from the language: Samurai Jack in Spani
   files.set(USER_CONFIG, JSON.stringify({ ...defaults(), language: 'es', voice: 'samuraijack' }))
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'P', text: '¿Al amanecer?' }, { list: 'C', text: '¿Vamos?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'P', text: '¿Al amanecer?' }, { list: 'C', text: '¿Vamos?' }] })
   await $.prompt.submit({ text: 'hola' })
   const told = context.join('\n')
   expect(told).toContain('It is in Spanish')
@@ -1030,7 +1038,7 @@ test('a file path cmd would reparse opens without cmd', async ($, on) => {
   env.set('OS', 'Windows_NT')
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at the notes', open: 'C:\\R&D\\notes.md' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'V', text: 'Look at the notes', open: 'C:\\R&D\\notes.md' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'open-V1' })
   await ui.unmount()
@@ -1051,7 +1059,7 @@ test("auto follows VS Code's display language when Claude Code names none", asyn
   env.set('LANG', 'fr_FR.UTF-8')
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'F', text: 'Freitag?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'F', text: 'Freitag?' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(ui, /^Fragen$/)).toBeDefined()
   await ui.unmount()
@@ -1072,7 +1080,7 @@ test('the 👁️ opens a file in the editor hosting the session, not whatever a
   folders.set('/VS Code', ['unins000.exe', 'Code.exe', 'new_Code.exe'])
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'V', text: 'Look at it', open: String.raw`C:\site\index.php` }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'V', text: 'Look at it', open: String.raw`C:\site\index.php` }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   await ui.press({ key: 'open-V1' })
   await ui.unmount()
@@ -1085,7 +1093,7 @@ test("an item's label copies the item, as text can't be selected in the pane", a
   standIns(on)
 
   await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'Q', text: 'Ship it on Friday?', lean: 'yes, after the tests pass' }] })
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   // Hovering the label says what it does.
   expect(String((await findText(ui, /Ship it on Friday/))?.props.text)).toContain('"Copy this item")')
@@ -1138,7 +1146,7 @@ test('with Deep dive on, the review rides each prompt unseen, and an ordinary tu
 
   // Speaking of pending work is fine when the docket changed that turn.
   await $.prompt.submit(typed('and the README?'))
-  await $.tool.call({ tool: 'mcp__docket__update', add: [{ list: 'L', text: 'README' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'L', text: 'README' }] })
   expect((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block).toBeUndefined()
 })
 
@@ -1273,7 +1281,7 @@ test('with no hint at all, Claude is asked for the user\'s language, and docket 
   await $.prompt.submit({ text: 'Hallo' })
   expect(context.join('\n')).toContain("nothing told it the user's language")
 
-  await $.tool.call({ tool: 'mcp__docket__update', language: 'de', add: [{ list: 'F', text: 'Freitag?' }] })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', language: 'de', add: [{ list: 'F', text: 'Freitag?' }] })
   expect(store.get('heardLanguage')).toBe('de')
   const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
   expect(await findText(ui, /^Fragen$/)).toBeDefined()
@@ -1297,4 +1305,24 @@ test('/docket says whether it opened the pane, and why not', async ($, on) => {
   expect((await $.command.run({ command: 'docket' })).text).toBe(
     'This surface draws no pane, so the docket stays above the prompt.',
   )
+})
+
+test("the update tool comes from docket's own server and sits in the prompt, never behind ToolSearch", async ($, on) => {
+  standIns(on)
+  on('prompt.compose', () => ({ sections: [] }))
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  // A tool given to the engine's own server never reaches the model, so docket gives it none.
+  expect(registered).toEqual([])
+
+  const described = await $.tool.describe({ tool: 'mcp__plugin_docket_docket__update', description: 'Add, change and close items' })
+  expect(described.isDeferred).toBe(false)
+  expect(described.description).toBe('Add, change and close items')
+
+  // Another server's tool keeps the engine's placement.
+  const other = await $.tool.describe({ tool: 'mcp__plugin_other_other__update', description: 'Something else' })
+  expect(other.isDeferred).toBe(true)
+
+  // The instructions name the tool Claude Code lists.
+  const composed = await $.prompt.compose({ model: 'm', promptModel: 'm', surfaces: [], tools: [], outputStyle: null, traits: [] } as never)
+  expect(composed.sections.map(section => section.text).join('\n')).toContain('mcp__plugin_docket_docket__update')
 })

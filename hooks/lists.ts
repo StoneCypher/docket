@@ -410,7 +410,7 @@ export const instructions = (settings: Settings, isHeadless: boolean, text: Stri
 
   return `# Docket
 
-The user runs the docket mod, a pane beside the transcript (or a band above the prompt) showing your open items as numbered lists. You keep it current with the mcp__docket__update tool: one call per turn, holding every change, whenever anything changed. ${
+The user runs the docket mod, a pane beside the transcript (or a band above the prompt) showing your open items as numbered lists. You keep it current with the mcp__plugin_docket_docket__update tool: one call per turn, holding every change, whenever anything changed. ${
     isHeadless
       ? 'Nothing draws the band in this session, so end each reply with the open items as plain text, grouped by list, in the order below.'
       : 'The docket is where the user reads them: never repeat docket items in your prose reply.'
