@@ -197,6 +197,22 @@
     "text": "May bagong English ang docket na hindi pa naisasalin sa {language}. Tutulong ka bang [i-update ito]({link})? Binubuksan ng ✔ ang file sa editor ng GitHub: punan ang bawat walang lamang \"text\", at i-save para imungkahi.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "Wika",
     "ready": "ai translated"

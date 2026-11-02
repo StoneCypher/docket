@@ -197,6 +197,22 @@
     "text": "docket లో దాని {language} వెర్షన్ ఇంకా అనువదించని కొత్త ఇంగ్లీష్ పాఠ్యం ఉంది. [దాన్ని తాజాగా చేయడంలో]({link}) సహాయం చేస్తారా? ✔ ఫైల్‌ను GitHub ఎడిటర్‌లో తెరుస్తుంది: ఖాళీగా ఉన్న ప్రతి \"text\" ను నింపి, ప్రతిపాదించడానికి సేవ్ చేయండి.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "భాష",
     "ready": "ai translated"

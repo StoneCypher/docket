@@ -197,6 +197,22 @@
     "text": "docket ብ{language} ገና ዘይተተርጎመ ሓድሽ እንግሊዝኛ ጽሑፍ ኣለዎ። [ንምሕዳሱ]({link}) ክትሕግዝ ዶ? ✔ ነቲ ፋይል ኣብ ናይ GitHub መመሓይሺ ይኸፍቶ: ነፍሲ ወከፍ ባዶ \"text\" ምላእ፣ ንምቕራብ ድማ ዕቅቦ።",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "ቋንቋ",
     "ready": "ai translated"

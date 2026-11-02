@@ -197,6 +197,22 @@
     "text": "docket 有新的英文內容，{language}版本尚未翻譯。願意幫忙[更新它]({link})嗎？✔ 會在 GitHub 編輯器中開啟檔案：填寫每個空白的 \"text\"，然後儲存即可提交修改。",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "語言",
     "ready": "ai translated"

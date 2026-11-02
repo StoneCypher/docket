@@ -197,6 +197,22 @@
     "text": "docket hevur nýggjan enskan tekst, sum {language} enn ikki týðir. Vilt tú hjálpa at [dagføra tað]({link})? ✔ letur fíluna upp í ritlinum hjá GitHub: fyll út hvønn tóman \"text\", og goym fyri at skjóta broytingina upp.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "Mál",
     "ready": "ai translated"
