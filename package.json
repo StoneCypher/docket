@@ -1,6 +1,6 @@
 {
   "name": "docket",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "description": "A Claude Code mod: Claude's open threads in numbered lists beside the chat",
   "license": "MIT",

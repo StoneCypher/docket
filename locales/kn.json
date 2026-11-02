@@ -197,6 +197,22 @@
     "text": "docket ನಲ್ಲಿ ಅದರ {language} ಇನ್ನೂ ಅನುವಾದಿಸದ ಹೊಸ ಇಂಗ್ಲಿಷ್ ಪಠ್ಯವಿದೆ. [ಅದನ್ನು ನವೀಕರಿಸಲು]({link}) ಸಹಾಯ ಮಾಡುವಿರಾ? ✔ ಫೈಲ್ ಅನ್ನು GitHub ನ ಸಂಪಾದಕದಲ್ಲಿ ತೆರೆಯುತ್ತದೆ: ಪ್ರತಿಯೊಂದು ಖಾಲಿ \"text\" ಅನ್ನು ತುಂಬಿ, ಮತ್ತು ಪ್ರಸ್ತಾಪಿಸಲು ಉಳಿಸಿ.",
     "ready": "ai translated"
   },
+  "Docket needs the fullscreen layout": {
+    "text": "",
+    "ready": false
+  },
+  "Buttons in mods only work in Claude Code's fullscreen layout.": {
+    "text": "",
+    "ready": false
+  },
+  "To switch, type {fullscreen}. It saves the setting and relaunches with the conversation intact. {back} switches back.": {
+    "text": "",
+    "ready": false
+  },
+  "The switch is refused while background work is running (\"{refusal}\"), so wait for that work to finish, or stop it in {tasks}, first.": {
+    "text": "",
+    "ready": false
+  },
   "Language": {
     "text": "ಭಾಷೆ",
     "ready": "ai translated"
