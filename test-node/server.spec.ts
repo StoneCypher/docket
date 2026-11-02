@@ -79,6 +79,16 @@ describe('the update tool', () => {
     assert.deepEqual(adding, changing)
     assert.deepEqual(Object.keys(adding).sort(), ['emoji', 'lean', 'open', 'options', 'rank', 'stakes', 'text'])
   })
+
+  test('clears lists by letter in any language, presses buttons by label, and opens or closes the pane', () => {
+    const { clear, press, pane } = TOOL.inputSchema.properties
+    assert.equal(clear.items.type, 'string')
+    assert.equal('enum' in clear.items, false)
+    assert.deepEqual(Object.keys(press.items.properties).sort(), ['button', 'id'])
+    assert.deepEqual(press.items.required, ['id', 'button'])
+    assert.deepEqual(pane.enum, ['open', 'close'])
+    assert.deepEqual(Object.keys(TOOL.inputSchema.properties).sort(), ['add', 'change', 'clear', 'close', 'language', 'pane', 'press'])
+  })
 })
 
 describe('serve', () => {

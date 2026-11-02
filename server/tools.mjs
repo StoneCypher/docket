@@ -39,7 +39,7 @@ const itemFields = {
 export const TOOL = {
   name: 'update',
   description:
-    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number.',
+    'Add, change and close items on the docket, the numbered lists the user reads above the prompt. Send every change of a turn in one call. Labels are assigned here and returned. Use change only to correct the same item; a new or follow-up question is a close plus an add, so it gets a new number. When the user asks, it also clears lists, presses an item\'s buttons as their click would, and opens or closes the pane.',
   inputSchema: {
     type: 'object',
     properties: {
@@ -77,6 +77,34 @@ export const TOOL = {
         type: 'string',
         description:
           "The language the user writes to you in, as a code such as de or pt-BR. Set it only when the docket asks you to: it's on auto and nothing else told it the user's language.",
+      },
+      clear: {
+        type: 'array',
+        items: { type: 'string' },
+        description:
+          "Lists to clear, by letter in the docket's letters, or \"all\" for every list: what a heading's ✕ does. It runs before add, so clear plus add starts the docket afresh. Clearing only empties the display.",
+      },
+      press: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', description: 'A label such as R1, in the docket’s letters' },
+            button: {
+              type: 'string',
+              description:
+                "yes (✔), no (✗), an option's own label, start (a Later item's 🏗️), open (👁️) or clear (🗑️). Only the buttons the item shows now can be pressed.",
+            },
+          },
+          required: ['id', 'button'],
+        },
+        description:
+          "Presses an item's button exactly as the user's click does: the row is answered at once. On your own items, ✔, ✗, an option and start send their message as the user, held until your turn ends, so press them only when the user tells you to. The docket's own items, such as the offer to create its config, are handled by the docket.",
+      },
+      pane: {
+        type: 'string',
+        enum: ['open', 'close'],
+        description: "Opens the docket's pane, or closes it as the user's close does: it stays closed, and the band with it, until reopened.",
       },
     },
   },
