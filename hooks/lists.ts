@@ -69,6 +69,8 @@ export type Settings = {
   stakesDisplay: 'emoji' | 'text' | 'none'
   lingerMs: number
   answeredMs: number
+  // Turns an underway item may go unchanged before the prompt names it as stale; 0 never does.
+  staleTurns: number
   leanColor?: string
   leanDimColor?: string
   itemColor?: string
@@ -110,6 +112,34 @@ const within = (value: unknown, usual: number, most: number) => {
   return Number.isFinite(number) ? Math.min(most, Math.max(0, number)) : usual
 }
 
+/**
+ * The default for `underwayStaleTurns`: turns an underway item may sit unchanged before docket names it.
+ *
+ * Long enough that a background agent running through a few exchanges isn't nagged about; short enough
+ * that finished work doesn't sit for a day, as 14 of 18 underway items did in issue #12's session.
+ * @see settingsOf
+ * @see staleNote
+ */
+export const STALE_TURNS = 20
+
+/**
+ * Turns an answered item may stay open before docket asks Claude to act on it and close it.
+ *
+ * The answer arrives in the turn it is counted from, so three turns gives Claude that turn to act and
+ * two more before it is asked again.
+ * @see staleNote
+ */
+export const ANSWERED_STALE_TURNS = 3
+
+/**
+ * Reads docket's settings from the merged config, each number clamped and each choice defaulted.
+ *
+ * @param options - the config's keys as merged() gives them: the project's over the user's over the defaults
+ * @returns the settings the hooks and the pane read
+ * @example settingsOf({ underwayStaleTurns: 0 }).staleTurns // 0: never name a stale underway item
+ * @example settingsOf({}).staleTurns // 20
+ * @see STALE_TURNS
+ */
 export const settingsOf = (options: PluginOptions): Settings => {
   const caps: Counts = {}
   for (const list of LISTS) {
@@ -140,6 +170,7 @@ export const settingsOf = (options: PluginOptions): Settings => {
     stakesDisplay: stakes === 'text' || stakes === 'none' ? stakes : 'emoji',
     lingerMs: within(options.strikeLingerMinutes, 3, 24 * 60) * 60_000,
     answeredMs: within(options.answeredLingerSeconds, 20, 24 * 60 * 60) * 1000,
+    staleTurns: Math.floor(within(options.underwayStaleTurns, STALE_TURNS, 100_000)),
     leanColor: colorOf(options.leanColor, '#b1b1b1'),
     leanDimColor: colorOf(options.leanDimColor, '#757575'),
     itemColor: colorOf(options.itemColor, '#e0e0e0'),
@@ -208,14 +239,76 @@ export const counterText = (hidden: number, delta: number) => {
   return `${more}${arrow}${number}`
 }
 
-const describe = (item: Item, text: Strings) =>
+/**
+ * A count of turns in words, singular or plural.
+ *
+ * @param n - a whole number of turns, 0 or more
+ * @example turnsOf(1) // '1 turn'
+ * @example turnsOf(389) // '389 turns'
+ */
+const turnsOf = (n: number) => `${n} turn${n === 1 ? '' : 's'}`
+
+// The lists whose items say how long they have sat, and the word for the state they are in.
+const AGED: Partial<Record<Letter, string>> = { U: 'underway', W: 'waiting' }
+
+/**
+ * How long an underway or waiting item has sat, for the snapshot Claude reads each prompt.
+ *
+ * Without it a U item added 400 turns ago looks just like one added this turn, so finished work is
+ * never noticed (issue #12). Other lists, and the mod's own items, have no age to show.
+ * @param item - the item, with the turns it was added and last changed in
+ * @param turn - the docket's turn now: it counts the prompts that reach Claude, notifications aside
+ * @returns the age, or '' for an item whose list shows none
+ * @example ageOf(u34, 601) // 'underway since turn 212, unchanged for 389 turns'
+ * @example ageOf(u40, 601) // 'underway since this turn', for one added in turn 601
+ * @see staleNote
+ */
+export const ageOf = (item: Item, turn: number) => {
+  const state = AGED[item.list]
+  if (!state || item.action) return ''
+  if (item.addedTurn >= turn) return `${state} since this turn`
+  const idle = Math.max(0, turn - item.changedTurn)
+
+  return `${state} since turn ${item.addedTurn}, ${idle ? `unchanged for ${turnsOf(idle)}` : 'changed this turn'}`
+}
+
+/**
+ * When an answered item was answered, for the snapshot: this turn, or how many turns ago.
+ *
+ * @param item - an answered item; one answered before docket kept the turn has no `answeredTurn`
+ * @param turn - the docket's turn now
+ * @returns ' this turn', ' 3 turns ago', or '' when the turn isn't known
+ * @example answeredWhen({ ...r7, answeredTurn: 598 }, 601) // ' 3 turns ago'
+ */
+const answeredWhen = (item: Item, turn: number) => {
+  if (item.answeredTurn === undefined) return ''
+  const ago = Math.max(0, turn - item.answeredTurn)
+
+  return ago ? ` ${turnsOf(ago)} ago` : ' this turn'
+}
+
+/**
+ * One item as Claude reads it: label, emoji and text, then each fact that bears on it, split by bars.
+ *
+ * @param item - the item to describe
+ * @param text - the docket's words, whose letters label the item
+ * @param turn - the docket's turn now; given, underway and waiting items say their age, and an answered
+ *   item says when it was answered. The snapshot gives it; the list of items a prompt names doesn't.
+ * @example describe(u34, EN, 601) // 'U34 🔨 Rebase #40 | underway since turn 212, unchanged for 389 turns'
+ * @example describe(r7, EN, 601) // 'R7 🙏 Merge #41 | the user answered yes by button 3 turns ago: close it once acted on'
+ */
+const describe = (item: Item, text: Strings, turn?: number) =>
   [
     `${labelOf(text, item)}${item.emoji ? ` ${item.emoji}` : ''} ${item.text}`,
     item.lean && `lean: ${item.lean}`,
     item.stakes && `stakes: ${item.stakes}`,
     item.rank !== undefined && `rank ${item.rank}`,
+    turn !== undefined && ageOf(item, turn),
     item.action && "the mod's own item: leave it alone",
-    item.answered && `the user answered ${item.answered === 'yes' ? 'yes' : item.answered === 'no' ? 'no' : item.answered} by button`,
+    item.answered &&
+      `the user answered ${item.answered === 'yes' ? 'yes' : item.answered === 'no' ? 'no' : item.answered} by button${
+        turn === undefined ? '' : answeredWhen(item, turn)
+      }${item.action ? '' : ': close it once acted on'}`,
   ]
     .filter(Boolean)
     .join(' | ')
@@ -234,10 +327,22 @@ export const speaksOfPending = (answer: string) => PENDING.test(withoutCode(answ
 export const RECONCILE =
   'Your last reply spoke of pending or next work but the docket did not change that turn. Make sure every open thread it mentions is an item; nothing open should live only in prose.'
 
-export const snapshot = (items: readonly Item[], dismissed: readonly string[], text: Strings) => {
+/**
+ * The docket as Claude reads it with each prompt: every open item, then what the user cleared.
+ *
+ * @param items - every item the docket holds, open or closed
+ * @param dismissed - ids the user cleared since the last prompt
+ * @param text - the docket's words, whose letters label the items
+ * @param turn - the docket's turn now; given, underway and waiting items say how long they've sat and
+ *   answered items say when they were answered (ageOf)
+ * @returns the snapshot, one item per line
+ * @example snapshot([u34], [], EN, 601) // 'Docket, open items …:\nU34 Rebase #40 | underway since turn 212, unchanged for 389 turns'
+ * @see staleNote
+ */
+export const snapshot = (items: readonly Item[], dismissed: readonly string[], text: Strings, turn?: number) => {
   const open = items.filter(isOpen)
   const lines = ['Docket, open items (the user sees these in the docket pane or band):']
-  lines.push(...(open.length ? open.map(item => describe(item, text)) : ['(empty)']))
+  lines.push(...(open.length ? open.map(item => describe(item, text, turn)) : ['(empty)']))
   if (dismissed.length) {
     lines.push(
       `The user cleared these from the docket since the last prompt: ${dismissed.map(id => labelOfId(text, id)).join(', ')}. Clearing only empties the display: it cancels no work, answers nothing and approves nothing. Carry on as before, and don't add them back while they stay dormant; if one becomes relevant again, add it fresh, with a new number.`,
@@ -245,6 +350,79 @@ export const snapshot = (items: readonly Item[], dismissed: readonly string[], t
   }
 
   return lines.join('\n')
+}
+
+/**
+ * The open items that look forgotten: underway ones unchanged for `staleTurns`, and answered ones left
+ * open for ANSWERED_STALE_TURNS. The mod's own items never count.
+ *
+ * @param items - every item the docket holds
+ * @param turn - the docket's turn now
+ * @param staleTurns - the underwayStaleTurns setting; 0 leaves underway items out
+ * @returns the stale underway items, and the stale answered ones, each in docket order
+ * @example staleItems([u34], 601, 20).underway // [u34], unchanged since turn 212
+ * @see staleNote
+ */
+export const staleItems = (items: readonly Item[], turn: number, staleTurns: number) => {
+  const open = items.filter(item => isOpen(item) && !item.action)
+  const answered = open.filter(item => item.answeredTurn !== undefined && turn - item.answeredTurn >= ANSWERED_STALE_TURNS)
+  const underway = open.filter(
+    item => staleTurns > 0 && item.list === 'U' && !answered.includes(item) && turn - item.changedTurn >= staleTurns,
+  )
+
+  return { underway, answered }
+}
+
+/**
+ * The stale sweep, told to Claude with a prompt: names each underway item unchanged for `staleTurns`,
+ * and each answered item still open a few turns on, so finished work gets closed (issue #12).
+ *
+ * @param items - every item the docket holds
+ * @param turn - the docket's turn now
+ * @param staleTurns - the underwayStaleTurns setting; 0 names no underway item
+ * @param text - the docket's words, whose letters label the items
+ * @returns the note, or '' when nothing is stale
+ * @example staleNote([u34], 601, 20, EN)
+ * // "Docket items that look stale:\n- U34 hasn't changed in 389 turns: close it (unasked: true) if its work finished, …"
+ * @see staleItems
+ */
+export const staleNote = (items: readonly Item[], turn: number, staleTurns: number, text: Strings) => {
+  const { underway, answered } = staleItems(items, turn, staleTurns)
+  if (!underway.length && !answered.length) return ''
+
+  return [
+    'Docket items that look stale:',
+    ...underway.map(
+      item =>
+        `- ${labelOf(text, item)} hasn't changed in ${turnsOf(turn - item.changedTurn)}: close it (unasked: true) if its work finished, or change it if it's still going, so it reads as current.`,
+    ),
+    ...answered.map(
+      item => `- ${labelOf(text, item)} was answered${answeredWhen(item, turn)} and is still open: act on the answer if you haven't, then close it.`,
+    ),
+  ].join('\n')
+}
+
+/**
+ * The nudge for a background task's report: when a prompt comes from a task notification, lists the
+ * open underway items, as one of them is often the work that just finished (issue #12).
+ *
+ * @param items - every item the docket holds
+ * @param origin - where the prompt came from; only a task-notification gets a nudge
+ * @param text - the docket's words, whose letters label the items and name Verify
+ * @returns the nudge, or '' for any other origin or when nothing is underway
+ * @example taskNote([u3], { kind: 'task-notification' }, EN)
+ * // 'A background task just reported back. If it finished one of these, close it (unasked: true), or move its follow-up to V (Verify):\n- U3 🔨 Port the parser'
+ * @example taskNote([u3], { kind: 'composer' }, EN) // ''
+ */
+export const taskNote = (items: readonly Item[], origin: OriginLike | undefined, text: Strings) => {
+  if (origin?.kind !== 'task-notification') return ''
+  const underway = items.filter(item => isOpen(item) && item.list === 'U' && !item.action)
+  if (!underway.length) return ''
+
+  return [
+    `A background task just reported back. If it finished one of these, close it (unasked: true), or move its follow-up to ${text.lists.V.letter} (${text.lists.V.name}):`,
+    ...underway.map(item => `- ${labelOf(text, item)}${item.emoji ? ` ${item.emoji}` : ''} ${item.text}`),
+  ].join('\n')
 }
 
 const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -283,21 +461,36 @@ export const references = (prompt: string, items: readonly Item[], text: Strings
   ].join('\n')
 }
 
-// Deep dive's review, told to Claude with each prompt as context the user never sees, as the old
-// /questions skill was called after every turn: the pass that catches what the turn decided or left
-// open without saying so. Nothing forces it; SEND_BACK is the visible fallback when a turn skips it.
+/**
+ * Deep dive's review, told to Claude with each prompt as context the user never sees.
+ *
+ * As the old /questions skill was called after every turn, it is the pass that catches what the turn
+ * decided or left open without saying so, and closes what the turn finished: underway work that is done
+ * and answered items already acted on (issue #12). Nothing forces it; SEND_BACK is the visible fallback
+ * when a turn skips it.
+ * @see SEND_BACK
+ */
 export const REVIEW = `Deep dive is on: before you end this turn, go back over it once for the docket:
 - Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
 - Anything you're not sure you read right, or anything risky about to happen: put it in confirm.
 - Any thread your reply leaves open (later, waiting, pinned, needs you): make it an item.
-If anything is missing, add it in one update call before your final reply. Don't mention this review to the user.`
+- Any underway item whose work finished, this turn or earlier: close it (unasked). Any answered item you have acted on: close it.
+Make every add and close in one update call before your final reply. Don't mention this review to the user.`
 
-// Deep dive's visible send-back, the Stop block's reason: only for a turn the user started whose reply
-// spoke of pending work while the docket stayed as it was (sendsBack).
+/**
+ * Deep dive's visible send-back, the Stop block's reason.
+ *
+ * Only for a turn the user started whose reply spoke of pending work while the docket stayed as it was
+ * (sendsBack). Besides adding what the reply left open, it closes finished underway work and answered
+ * items already acted on, as REVIEW does.
+ * @see REVIEW
+ * @see sendsBack
+ */
 export const SEND_BACK = `Before this turn ends: your reply speaks of pending or next work, but the docket did not change this turn. Go back over it once for the docket:
 - Any thread your reply left open (later, waiting, pinned, needs you): make it an item.
 - Any decision you made on the user's behalf that they might want to make themselves: ask it, as a question with your lean.
-Add them in one update call. Then end the turn with one short line saying what you added, or that nothing was missing: don't repeat your reply.`
+- Any underway item whose work finished, and any answered item you have acted on: close it.
+Make every change in one update call. Then end the turn with one short line saying what you changed, or that nothing was missing: don't repeat your reply.`
 
 // Where a prompt came from, as much of the engine's PromptOrigin as docket reads.
 export type OriginLike = { kind: string; asUser?: boolean }
@@ -386,6 +579,17 @@ export const nowNote = (text: Strings, voice: Voice) => {
     .join('\n')
 }
 
+/**
+ * docket's rules for Claude, added to the system prompt once a session.
+ *
+ * @param settings - the settings in force: word targets and the answered linger go into the rules
+ * @param isHeadless - true where nothing draws the docket, so Claude ends each reply with it as text
+ * @param text - the docket's words: its letters, list names and the messages its buttons send
+ * @param voice - the character Claude writes items as, overall and per list, if any
+ * @returns the rules, as one markdown section
+ * @example instructions(settingsOf({}), false, EN) // '# Docket\n\nThe user runs the docket mod, …'
+ * @see nowNote
+ */
 export const instructions = (settings: Settings, isHeadless: boolean, text: Strings, voice: Voice = { all: '', lists: {} }) => {
   const L = (letter: Letter) => text.lists[letter].letter
   const named = (letter: Letter) => (text.language === 'English' ? L(letter) : `${L(letter)} (${text.lists[letter].name})`)
@@ -420,7 +624,7 @@ Lists, from least to most important:
 - ${named('P')} pinned: parked for later.
 - ${named('W')} waiting: stalled on something other than the user; informational.
 - ${named('L')} later: your own work that is decided or approved but not started yet, in the order you will take it. When you start one, close it and add it to ${L('U')}. Its 🏗️ button (▶ in the terminal) sends ${say('start', `${L('L')}3`)}: the user wants that one started now, ahead of the order, so start it and move it to ${L('U')}.
-- ${named('U')} underway: only your own work in progress, never the user's.
+- ${named('U')} underway: only your own work in progress, never the user's. Close it (unasked) as soon as its work finishes, including when a background task's report says it did. Each prompt's snapshot says how long it has sat unchanged.
 - ${named('V')} verify: things for the user to look at and confirm: that a change works, reads right or looks right.
 - ${named('N')} needs you: actions only the user can take. Give the exact console path. Rank the ones you are stuck on first.
 - ${named('C')} confirm: when you are unsure you read the user right, or something risky is about to happen and you want them certain of it. State your reading, so a bare "yes" settles it. ${say('confirm', `${L('C')}3`)} (its ✔ button) settles it; ${say('notConfirm', `${L('C')}3`)} (its ✗ button) means your reading was wrong or the risky step should not go ahead: hold off, and ask what they meant.

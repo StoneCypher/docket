@@ -20,6 +20,8 @@ import {
   settingsOf,
   snapshot,
   speaksOfPending,
+  staleNote,
+  taskNote,
   userTurnAfter,
 } from './lists'
 import type { Settings } from './lists'
@@ -112,7 +114,14 @@ const fieldsOf = (spec: Fields): Fields => {
   return out
 }
 
-const withoutAnswer = ({ answered: _, answeredAt: __, ...item }: Item): Item => item
+/**
+ * An item with its button answer taken off: what a change from Claude does, as it is Claude's reply.
+ *
+ * @param item - an item the user may have answered by button
+ * @returns the item without `answered`, `answeredAt` or `answeredTurn`, so its buttons come back
+ * @example withoutAnswer({ ...r3, answered: 'yes', answeredAt: 5, answeredTurn: 9 }) // r3, unanswered
+ */
+const withoutAnswer = ({ answered: _, answeredAt: __, answeredTurn: ___, ...item }: Item): Item => item
 
 const STAKES_GLYPH = { emergency: '[🚨emergency]', high: '❗', med: '🔶' }
 const STAKES_TEXT = { emergency: '[emergency]', high: '[high stakes]', med: '[med stakes]' }
@@ -181,12 +190,22 @@ const closePane = async ($: Dollar) => {
 // What a press on one of the mod's own items does: the pane's, the band's and Claude's alike.
 type OnAction = (item: Item, kind: string) => Promise<void>
 
-// Marks items answered at once, so the row dims and drops its buttons before Claude acts on the reply.
-// `answeredMs` is how long an answered row stays up; the pane redraws once it's due to go.
+/**
+ * Marks items answered at once, so the row dims and drops its buttons before Claude acts on the reply.
+ *
+ * Each also keeps the turn its answer reaches Claude in, the next one, as the press's message starts
+ * it; the snapshot says how long ago that was, and the stale sweep asks about one left open.
+ * @param ids - the internal ids answered, such as "R3"
+ * @param answer - 'yes', 'no', or the option picked
+ * @param answeredMs - how long an answered row stays up; the pane redraws once it's due to go
+ * @example await markAnswered($, ['R3'], 'yes', 20_000) // R3 dims, answered in the coming turn
+ * @see staleNote
+ */
 const markAnswered = async ($: Dollar, ids: readonly string[], answer: string, answeredMs: number) => {
   const answeredAt = await $.clock.now()
+  const answeredTurn = (await read($, turn)) + 1
   await update($, items, current =>
-    current.map(item => (ids.includes(item.id) && isOpen(item) ? { ...item, answered: answer, answeredAt } : item)),
+    current.map(item => (ids.includes(item.id) && isOpen(item) ? { ...item, answered: answer, answeredAt, answeredTurn } : item)),
   )
   $.clock.after(answeredMs + 500, () => $.ui.invalidate('ui.render'))
 }
@@ -1705,11 +1724,15 @@ export const register: Register = on => {
   })
 
   // Each prompt starts a turn: the deltas count from here, and the model gets the docket, with Deep
-  // dive's review when it's on. Every prompt, meta or not, says whether the user started the turn.
+  // dive's review when it's on. Every prompt, meta or not, says whether the user started the turn. A
+  // task notification, which comes as a meta prompt, starts no docket turn, but it does bring the open
+  // underway items up, as it often reports one of them done.
   on('prompt.submit', async ($, e, next) => {
     await update($, isUserTurn, was => userTurnAfter(was, e.origin, e.turnId))
     if (e.isMeta) {
-      return next(e)
+      const finished = taskNote(await read($, items), e.origin, text)
+
+      return next(finished ? { ...e, context: [...(e.context ?? []), finished] } : e)
     }
 
     await update($, turn, n => n + 1)
@@ -1732,7 +1755,12 @@ export const register: Register = on => {
     const gone = await read($, dismissed)
     await update($, dismissed, () => [])
 
-    const context = [snapshot(all, gone, text)]
+    const at = await read($, turn)
+    const context = [snapshot(all, gone, text, at)]
+    const stale = staleNote(all, at, settings.staleTurns, text)
+    if (stale) context.push(stale)
+    const finished = taskNote(all, e.origin, text)
+    if (finished) context.push(finished)
     const now = nowNote(text, voice)
     if (now) context.push(now)
     if (isUnheard) {

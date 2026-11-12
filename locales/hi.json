@@ -376,5 +376,13 @@
   "Minutes an item Claude closed on its own stays up struck through": {
     "text": "Claude द्वारा खुद बंद किया गया आइटम कितने मिनट कटा हुआ दिखता रहे",
     "ready": "ai translated"
+  },
+  "Underway goes stale": {
+    "text": "",
+    "ready": false
+  },
+  "Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks": {
+    "text": "",
+    "ready": false
   }
 }

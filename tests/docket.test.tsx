@@ -1241,6 +1241,104 @@ test('the Deep dive switch starts as the config says, and drives the review from
   expect(String((await $.classic.Stop({ stop_hook_active: false, last_assistant_message: PENDING_REPLY }))?.block)).toContain('speaks of pending')
 })
 
+test('a task notification brings up the open underway items, so finished work gets closed', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit(typed('port the parser and run the benchmarks in the background'))
+  // Nothing underway yet: the notification brings nothing up.
+  await $.prompt.submit(background('task 1 finished', 'task-notification'))
+  expect(context.join('\n')).not.toContain('A background task just reported back')
+
+  await $.tool.call({
+    tool: 'mcp__plugin_docket_docket__update',
+    add: [
+      { list: 'U', text: 'Port the parser' },
+      { list: 'U', text: 'Run the benchmarks' },
+    ],
+  })
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', close: [{ id: 'U2', unasked: true }] })
+  await $.prompt.submit(background('task 2 finished', 'task-notification'))
+  const told = context.join('\n')
+  expect(told).toContain('A background task just reported back. If it finished one of these, close it (unasked: true), or move its follow-up to V (Verify):')
+  expect(told).toContain('- U1 Port the parser')
+  expect(told).not.toContain('Run the benchmarks')
+
+  // The user's own prompt, and a wakeup, get no such nudge.
+  await $.prompt.submit(typed('how is it going?'))
+  expect(context.join('\n')).not.toContain('A background task just reported back')
+  await $.prompt.submit(background('wake up', 'scheduled-trigger'))
+  expect(context.join('\n')).not.toContain('A background task just reported back')
+})
+
+test('the snapshot says how long underway work has sat, and names it once it goes stale', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+  files.set(USER_CONFIG, JSON.stringify({ ...defaults(), underwayStaleTurns: 2 }))
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit(typed('port the parser'))
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'U', text: 'Port the parser' }] })
+  await $.prompt.submit(typed('anything else?'))
+  expect(context.join('\n')).toContain('U1 Port the parser | underway since turn 1, unchanged for 1 turn')
+  expect(context.join('\n')).not.toContain('look stale')
+
+  await $.prompt.submit(typed('and now?'))
+  expect(context.join('\n')).toContain('U1 Port the parser | underway since turn 1, unchanged for 2 turns')
+  expect(context.join('\n')).toContain("- U1 hasn't changed in 2 turns: close it (unasked: true) if its work finished")
+
+  // Changing it says it's still going: the sweep leaves it alone again.
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', change: [{ id: 'U1', text: 'Port the parser: lexer done' }] })
+  await $.prompt.submit(typed('still going?'))
+  expect(context.join('\n')).toContain('U1 Port the parser: lexer done | underway since turn 1, unchanged for 1 turn')
+  expect(context.join('\n')).not.toContain('look stale')
+})
+
+test('an answered item says when it was answered, and is asked about once left open a few turns', async ($, on) => {
+  let context: readonly string[] = []
+  standIns(on)
+  on('prompt.submit', (_, e) => {
+    context = e.context ?? []
+
+    return { text: e.text }
+  })
+
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+  await $.prompt.submit(typed('tidy up'))
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', add: [{ list: 'R', text: 'Delete the old branch?' }] })
+  const ui = await $.ui.mount({ ...PANE, surface: 'vscode' })
+  await ui.press({ key: 'ok-R1' })
+  await ui.unmount()
+  // The prompt carrying the answer comes next: in it, the item was answered this turn. (The harness
+  // doesn't run a mod's own submit back through its hooks, so the test sends the answer itself.)
+  await $.prompt.submit(typed('Approved R1.'))
+  expect(context.join('\n')).toContain('R1 Delete the old branch? | the user answered yes by button this turn: close it once acted on')
+  expect(context.join('\n')).not.toContain('look stale')
+
+  await $.prompt.submit(typed('next'))
+  await $.prompt.submit(typed('and next'))
+  expect(context.join('\n')).not.toContain('look stale')
+  await $.prompt.submit(typed('and after that'))
+  expect(context.join('\n')).toContain('R1 Delete the old branch? | the user answered yes by button 3 turns ago: close it once acted on')
+  expect(context.join('\n')).toContain('- R1 was answered 3 turns ago and is still open: act on the answer if you haven\'t, then close it.')
+
+  // Closed, it's gone from both.
+  await $.tool.call({ tool: 'mcp__plugin_docket_docket__update', close: [{ id: 'R1' }] })
+  await $.prompt.submit(typed('done?'))
+  expect(context.join('\n')).not.toContain('R1')
+})
+
 test('once a day, docket looks for a newer version on GitHub and says so once in Verify', async ($, on) => {
   standIns(on)
   on('prompt.submit', (_, e) => ({ text: e.text }))

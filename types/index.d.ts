@@ -27,6 +27,9 @@ export type Item = {
   answered?: string
   // When it was answered: the docket hides it a little later, whatever Claude has done by then.
   answeredAt?: number
+  // The turn the answer reaches Claude in (the one its message starts): the snapshot says how many
+  // turns ago that was, and asks again about an answered item left open a few turns on.
+  answeredTurn?: number
   // When Claude last added or changed it: a bulk button leaves it out for a few seconds after.
   changedAt?: number
   // An item the mod itself handles, rather than Claude: its buttons act locally.

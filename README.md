@@ -98,6 +98,7 @@ Settings live in `~/.claude/docket/config.json`, a versioned JSON file with ever
 - `stakesDisplay`: `emoji`, `text` or `none`
 - `inlineLists`, `targetWords`: which lists draw on one line, and soft word limits per list
 - `answeredLingerSeconds`, `strikeLingerMinutes`: how long answered and auto-closed items stay up
+- `underwayStaleTurns`: how many turns (20 by default) an Underway item can sit unchanged before docket names it to Claude as stale, asking it to close the item if its work finished or update it if it's still going. `0` turns this off. See [Keeping Underway current](#keeping-underway-current).
 
 ## Languages
 
@@ -133,5 +134,14 @@ When English changes, `STRINGS_VERSION` in `hooks/i18n.ts` goes up and `npm run 
 ## How it works
 
 Docket is a Claude Code mod. It adds its rules to Claude's system prompt, gives Claude one tool for adding, changing and closing items (and for clearing lists, pressing buttons and opening or closing the pane), sends Claude the current docket with each of your prompts (with any labels you mention expanded), and draws the lists in a pane. If Claude's reply talks about pending work without updating the docket, your next prompt reminds it to reconcile.
+
+### Keeping Underway current
+
+Claude closes an item only when it calls the tool to, and in a long session, with background agents and context compactions, finished work used to sit in Underway for days. So docket reminds it, in context you never see:
+
+- **Ages.** The docket Claude reads with each prompt says how long each Underway and Waiting item has sat, counted in turns (each prompt that reaches Claude, your button presses among them, but not a background task's report), such as `U34 Rebase #40 | underway since turn 212, unchanged for 9 turns`. An item answered by button says when, and to close it once Claude has acted on it: `R7 Merge #41 | the user answered yes by button 3 turns ago: close it once acted on`.
+- **Stale items.** An Underway item unchanged for `underwayStaleTurns` turns, and an answered item still open 3 turns after its answer, are named in a short note asking Claude to close them, or to update an Underway item that's still going.
+- **Background tasks.** When a background task reports back, docket lists the open Underway items, as one of them is often the work that just finished, and asks Claude to close it or move its follow-up to Verify.
+- **Deep dive** asks Claude, as part of its once-a-turn review, to close Underway work that finished and answered items it has acted on, as well as to add what the turn left open.
 
 The tool is `mcp__plugin_docket_docket__update`. A small stdio MCP server in `server/` (started by `.mcp.json`, plain JavaScript with no dependencies) lists it, and docket's `tool.call` hook answers every call, so the server never handles one itself. A mod's own `$.tool.register` would be simpler, but Claude Code's server for those tools answers its client's `tools/list` with a response the client can't read (`InvalidHTTPResponse` in `claude --debug`), so a tool registered that way never reaches Claude.
