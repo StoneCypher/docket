@@ -152,6 +152,7 @@ export const EN: Strings = {
     leanDimColor: ['Dimmed lean color', 'Color of the lean line while its item is dimmed as unchanged'],
     answeredLingerSeconds: ['Answered linger', 'Seconds an item answered by button stays up, dimmed, before it goes'],
     strikeLingerMinutes: ['Strike linger', 'Minutes an item Claude closed on its own stays up struck through'],
+    underwayStaleTurns: ['Underway goes stale', 'Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks'],
   },
 }
 
@@ -181,7 +182,7 @@ export const keysOf = () => [...new Set(leaves(EN).map(([, english]) => english)
 // Raise this whenever English's strings change, then run `npm run locales`: each file gains the new
 // strings, blank, and loses the ones English no longer says. A file's own version says which of
 // these it was last brought up to date with, so docket can ask for help when it falls behind.
-export const STRINGS_VERSION = 7
+export const STRINGS_VERSION = 8
 
 export type Readiness = boolean | 'ai translated'
 export const AI = 'ai translated'

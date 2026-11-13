@@ -376,5 +376,13 @@
   "Minutes an item Claude closed on its own stays up struck through": {
     "text": "Claude സ്വയം അടച്ച ഇനം വെട്ടിയ നിലയിൽ കാണപ്പെടുന്ന മിനിറ്റുകൾ",
     "ready": "ai translated"
+  },
+  "Underway goes stale": {
+    "text": "",
+    "ready": false
+  },
+  "Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks": {
+    "text": "",
+    "ready": false
   }
 }

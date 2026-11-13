@@ -376,5 +376,13 @@
   "Minutes an item Claude closed on its own stays up struck through": {
     "text": "Claude 自己關閉嘅項目加住刪除線停留幾多分鐘",
     "ready": "ai translated"
+  },
+  "Underway goes stale": {
+    "text": "",
+    "ready": false
+  },
+  "Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks": {
+    "text": "",
+    "ready": false
   }
 }

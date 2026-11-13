@@ -376,5 +376,13 @@
   "Minutes an item Claude closed on its own stays up struck through": {
     "text": "Claude가 스스로 닫은 항목이 취소선으로 남아 있는 분",
     "ready": "ai translated"
+  },
+  "Underway goes stale": {
+    "text": "",
+    "ready": false
+  },
+  "Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks": {
+    "text": "",
+    "ready": false
   }
 }

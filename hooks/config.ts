@@ -3,7 +3,7 @@
 import type { PluginOptions } from 'claude-code'
 
 // Raise this whenever FIELDS changes, and say what changed in MIGRATIONS.
-export const CONFIG_VERSION = 6
+export const CONFIG_VERSION = 7
 
 export type FieldKind = 'number' | 'boolean' | 'choice' | 'text'
 export type Field = { kind: FieldKind; title: string; description: string; default: string | number | boolean; options?: string[] }
@@ -39,6 +39,7 @@ export const FIELDS: Record<string, Field> = {
   leanDimColor: { kind: 'text', title: "Dimmed lean color", description: "Color of the lean line while its item is dimmed as unchanged", default: "#757575" },
   answeredLingerSeconds: { kind: 'number', title: "Answered linger", description: "Seconds an item answered by button stays up, dimmed, before it goes", default: 20 },
   strikeLingerMinutes: { kind: 'number', title: "Strike linger", description: "Minutes an item Claude closed on its own stays up struck through", default: 3 },
+  underwayStaleTurns: { kind: 'number', title: "Underway goes stale", description: "Turns an underway item can sit unchanged before Claude is asked whether its work is done; 0 never asks", default: 20 },
 }
 
 // What each version added, for the note a migration leaves in View.
@@ -49,6 +50,7 @@ export const MIGRATIONS: Record<number, string> = {
   4: 'adds turnReview',
   5: 'renames viewCap to verifyCap',
   6: 'adds updateCheck',
+  7: 'adds underwayStaleTurns',
 }
 
 export type ConfigFile = { version: number } & Record<string, string | number | boolean>
